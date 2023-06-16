@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(129, 124, 124);
+}
+#HeaderLoginSalao {
+    width: 100%;
+    height: 155px;
+}
+#LogoImg {
+    width: 150px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+#FormLoginSalao {
+    text-align: center;
+    margin-top: 50px;
+    width: 80%;
+    margin-left: 10%;
+}
+h1 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#PLoginSalao {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 400;
+}
+.InpLoginSalao {
+    width: 400px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+#BtnLoginSalao {
+    cursor: pointer;
+    height: 33px;
+    width: 300px;
+    margin-top: 19px;
+    border: none;
+    border-radius: 5px;
+    font-size: 19px;
+    
+}
+#BtnLoginSalao:hover {
+    background-color: rgb(88, 88, 88);
+}
+
+@media(max-width: 500px){
+    #LogoImg  {
+        width: 100px;
+        margin-left: 10px;
+    }
+    
+    .InpLoginSalao {
+        width: 200px;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+    }
+    #BtnLoginSalao {
+        cursor: pointer;
+        height: 33px;
+        width: 150px;
+    }
+}

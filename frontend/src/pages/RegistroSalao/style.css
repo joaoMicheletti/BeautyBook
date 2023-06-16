@@ -29,7 +29,7 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-#InpRegistroSalao {
+.InpRegistroSalao {
     width: 400px;
     height: 30px;
     border: none;
@@ -55,7 +55,7 @@ body {
         width: 100px;
         margin-left: 10px;
     }
-    #InpRegistroSalao {
+    .InpRegistroSalao {
         width: 200px;
         height: 30px;
         border: none;
