@@ -4,7 +4,7 @@ import './style.css';
 import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
 
-export default function Painel(){
+export default function Servicos(){
     return(
         <div id="PainelSalao">
             <header id="HeaderSalao">
@@ -16,7 +16,7 @@ export default function Painel(){
                 <div id='DivAganda' className="DivMenu">
                     <a id='Agenda' className="BtnMenu" href="/painel"><FcCalendar/></a>
                 </div>
-                <div className="DivMenu">
+                <div id="DivServices" className="DivMenu">
                     <a id="Services" className="BtnMenu" href="/servicos"><FcServices/></a>                    
                 </div>
                 

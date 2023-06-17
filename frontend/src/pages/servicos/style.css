@@ -38,8 +38,8 @@ hr{
     width: 80px;
     margin-left: 5px;
 }
-#DivAganda{
-    background-color: rgb(161, 25, 25);
+#DivAganda {
+    background-color: rgb(129, 124, 124);
 }
 #Agenda{
     margin-left: 15px;
@@ -48,6 +48,9 @@ hr{
 #Services {
     margin-left: 15px;
     font-size: 40px;
+}
+#DivServices {
+    background-color: white;
 }
 #Funcionarios {
     margin-left: 15px;
