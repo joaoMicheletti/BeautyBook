@@ -9,7 +9,6 @@ body {
 }
 #HeaderSalao {
     display: flex;
-    background-color: aqua;
     width: 100%;
     height: 105px;
 }
@@ -39,31 +38,31 @@ hr{
     margin-left: 5px;
 }
 #DivAganda{
-    background-color: rgb(161, 25, 25);
+    background-color: white;
 }
 #Agenda{
     margin-left: 15px;
-    font-size: 40px;
+    font-size: 45px;
 }
 #Services {
     margin-left: 15px;
-    font-size: 40px;
+    font-size: 45px;
 }
 #Funcionarios {
     margin-left: 15px;
-    font-size: 40px;
+    font-size: 45px;
 }
 #Horarios {
     margin-left: 15px;
-    font-size: 40px;
+    font-size: 45px;
 }
 #ConvidarCliente {
     margin-left: 15px;
-    font-size: 40px;
+    font-size: 45px;
 }
 #Ajustes {
     margin-left: 15px;
-    font-size: 40px;
+    font-size: 45px;
 }
 #SectionAgendaSalao{
     margin-top: -10px;

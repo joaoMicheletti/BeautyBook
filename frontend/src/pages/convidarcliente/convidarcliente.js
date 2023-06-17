@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from '../assets/Logo.png'
-import './style_servicos.css';
+import './style_convidar.css';
 import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
 
@@ -16,17 +16,17 @@ export default function Servicos(){
                 <div id='DivAganda' className="DivMenu">
                     <a id='Agenda' className="BtnMenu" href="/painel"><FcCalendar/></a>
                 </div>
-                <div id='DivServicos'className="DivMenu" style={{backgroundColor: "white"}}>
+                <div id='DivServicos'className="DivMenu">
                     <a id="Services" className="BtnMenu" href="/servicos"><FcServices/></a>                    
                 </div>
                 
-                <div className="DivMenu">
+                <div id="DivFuncionarios" className="DivMenu" >
                     <a id="Funcionarios" className="BtnMenu" href="/funcionarios"><GrUserWorker/></a>
                 </div>
-                <div className="DivMenu">
+                <div className="DivMenu" >
                     <a id="Horarios" className="BtnMenu" href="/funcionamento"><FcAlarmClock/></a>
                 </div>
-                <div className="DivMenu">
+                <div className="DivMenu" style={{backgroundColor: "white"}}>
                     <a id="ConvidarCliente" className="BtnMenu" href="/convidarcliente"><FcInvite/></a>                   
                 </div>
                 <div className="DivMenu">
@@ -34,7 +34,7 @@ export default function Servicos(){
                 </div>
             </div>
             <section id="SectionAgendaSalao">
-                <h1>Serviços </h1>
+                <h1>convidar clientes</h1>
             </section>
         </div>
     );

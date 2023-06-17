@@ -13,7 +13,7 @@ export default function Painel(){
             </header>
             <hr/>
             <div id="ButtonsMenuSalao">
-                <div id='DivAganda' className="DivMenu">
+                <div  id='DivAganda' className="DivMenu" style={{backgroundColor: "white"}}>
                     <a id='Agenda' className="BtnMenu" href="/painel"><FcCalendar/></a>
                 </div>
                 <div className="DivMenu">
@@ -21,16 +21,16 @@ export default function Painel(){
                 </div>
                 
                 <div className="DivMenu">
-                    <a id="Funcionarios" className="BtnMenu" href="/"><GrUserWorker/></a>
+                    <a id="Funcionarios" className="BtnMenu" href="/funcionarios"><GrUserWorker/></a>
                 </div>
                 <div className="DivMenu">
-                    <a id="Horarios" className="BtnMenu" href="/"><FcAlarmClock/></a>
+                    <a id="Horarios" className="BtnMenu" href="/funcionamento"><FcAlarmClock/></a>
                 </div>
                 <div className="DivMenu">
-                    <a id="ConvidarCliente" className="BtnMenu" href="/"><FcInvite/></a>                   
+                    <a id="ConvidarCliente" className="BtnMenu" href="/convidarcliente"><FcInvite/></a>                   
                 </div>
                 <div className="DivMenu">
-                    <a id="Ajustes" className="BtnMenu" href="/"><FcSettings/></a>                    
+                    <a id="Ajustes" className="BtnMenu" href="/ajustes"><FcSettings/></a>                    
                 </div>
             </div>
             <section id="SectionAgendaSalao">
