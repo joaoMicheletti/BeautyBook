@@ -4,7 +4,7 @@ import './style_horario.css';
 import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
 
-export default function Servicos(){
+export default function HorarioDeFuncionamento(){
     return(
         <div id="PainelSalao">
             <header id="HeaderSalao">

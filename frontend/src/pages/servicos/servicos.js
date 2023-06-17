@@ -34,7 +34,56 @@ export default function Servicos(){
                 </div>
             </div>
             <section id="SectionAgendaSalao">
-                <h1>Serviços </h1>
+                <h1 id="TitleServicos">Serviços</h1>
+                <div id='RegistrarServico'>
+                    <form id="FormServicos">
+                        <p id="ParagrafoRegistrarServico">
+                            Tipo de Serviço
+                        </p>
+                        <input 
+                        id="TipodeServico"
+                        type="text"
+                        placeholder="Tipo De Serviço"/>
+                        <p id="ParagrafoPrecoServico">
+                            Preço do Serviço
+                        </p>
+                        <input
+                        id="PrecoServico"
+                        type="number"
+                        placeholder="Preço do serviço"/>
+                        <br/>
+                        <button
+                        id="BtnServicos"
+                        type="submit">Registrar</button>
+                    </form>
+                    <hr/>
+                    <div id="ServicosCadastrados">
+                        <ul>
+                            <li>
+                                <p className="PServicoCadastrado">Tipo De serviço</p>
+                                <p className="PServicoCadastrado">Vlor:</p>
+                                <p className="PServicoCadastrado">Valor do Serviço</p>
+                                <button id="BtnEditar" type="submit">Editar</button>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <p className="PServicoCadastrado">Tipo De serviço</p>
+                                <p className="PServicoCadastrado">Vlor:</p>
+                                <p className="PServicoCadastrado">Valor do Serviço</p>
+                                <button id="BtnEditar" type="submit">Editar</button>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <p className="PServicoCadastrado">Tipo De serviço</p>
+                                <p className="PServicoCadastrado">Vlor:</p>
+                                <p className="PServicoCadastrado">Valor do Serviço</p>
+                                <button id="BtnEditar" type="submit">Editar</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </section>
         </div>
     );

@@ -28,3 +28,73 @@
     margin-left: 15px;
     font-size: 45px;
 }
+#TitleServicos {
+    margin-top: 5px;
+    text-align: center;
+    text-decoration: underline;
+}
+#FormServicos{
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+}
+#ParagrafoRegistrarServico {
+    font-size: 19px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+}
+#TipodeServico {
+    border-radius: 3px;
+    border: solid black 1px;
+    width: 450px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+#ParagrafoPrecoServico {
+    font-size: 19px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+}
+#PrecoServico {
+    border-radius: 3px;
+    border: solid black 1px;
+    width: 450px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+#BtnServicos {
+    cursor: pointer;
+    background-color: rgb(129, 124, 124);
+    width: 200px;
+    height: 25px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+#BtnServicos:hover {
+    opacity: 80%;
+}
+#ServicosCadastrados {
+    
+    width: 100%;
+}
+#ServicosCadastrados ul {
+    margin-bottom: 10px;
+    border: solid black 1px;
+}
+#ServicosCadastrados ul li {
+    display: flex;
+    justify-content: space-around;
+}
+.PServicoCadastrado {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+#BtnEditar {
+    cursor: pointer;
+    background-color: rgb(129, 124, 124);
+    width: 80px;
+    border-radius: 3px;
+}
+#BtnEditar:hover{
+    opacity: 80%;
+}
