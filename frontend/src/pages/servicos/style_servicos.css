@@ -82,6 +82,7 @@
     border: solid black 1px;
 }
 #ServicosCadastrados ul li {
+    background-color: rgba(129, 124, 124, 0.671);
     display: flex;
     justify-content: space-around;
 }

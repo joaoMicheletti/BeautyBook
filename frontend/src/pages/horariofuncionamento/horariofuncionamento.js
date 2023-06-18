@@ -34,7 +34,86 @@ export default function HorarioDeFuncionamento(){
                 </div>
             </div>
             <section id="SectionAgendaSalao">
-                <h1>Horario de funcionamento</h1>
+                <h1 id='TitleHorarios'>Horário de funcionamento</h1>
+                <div id="DivHorarios">
+                    <ul>
+                        <li>
+                            <p className="DiaSemana">Segunda-Feira</p>
+                            <p className="DiaSemana">Abre</p>
+                            <p className="DiaSemana">Fecha</p>
+                            <button
+                            type="submit"
+                            className="BtnHorario"
+                            >Editar</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p className="DiaSemana">Terça-Feira</p>
+                            <p className="DiaSemana">Abre</p>
+                            <p className="DiaSemana">Fecha</p>
+                            <button
+                            type="submit"
+                            className="BtnHorario"
+                            >Editar</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p className="DiaSemana">Quarta-Feira</p>
+                            <p className="DiaSemana">Abre</p>
+                            <p className="DiaSemana">Fecha</p>
+                            <button
+                            type="submit"
+                            className="BtnHorario"
+                            >Editar</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p className="DiaSemana">Quinta-Feira</p>
+                            <p className="DiaSemana">Abre</p>
+                            <p className="DiaSemana">Fecha</p>
+                            <button
+                            type="submit"
+                            className="BtnHorario"
+                            >Editar</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p className="DiaSemana">Sexta-Feira</p>
+                            <p className="DiaSemana">Abre</p>
+                            <p className="DiaSemana">Fecha</p>
+                            <button
+                            type="submit"
+                            className="BtnHorario"
+                            >Editar</button>                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p className="DiaSemana">Sabado</p>
+                            <p className="DiaSemana">Abre</p>
+                            <p className="DiaSemana">Fecha</p>
+                            <button
+                            type="submit"
+                            className="BtnHorario"
+                            >Editar</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p className="DiaSemana">Domingo</p>
+                            <p className="DiaSemana">Abre</p>
+                            <p className="DiaSemana">Fecha</p>
+                            <button
+                            type="submit"
+                            className="BtnHorario"
+                            >Editar</button>
+                        </li>
+                    </ul>
+                    
+                </div>
             </section>
         </div>
     );

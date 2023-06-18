@@ -31,3 +31,31 @@
     margin-left: 15px;
     font-size: 45px;
 }
+#TitleHorarios {
+    text-align: center;
+    text-decoration: underline;
+}
+#DivHorarios {
+    width: 100%;
+}
+#DivHorarios ul li {
+    background-color: rgba(129, 124, 124, 0.671);
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    border: solid black 1px;
+    margin-bottom: 10px;
+}
+.DiaSemana {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+.BtnHorario {
+    cursor: pointer;
+    width: 80px;
+    background-color: rgb(129, 124, 124);
+}
+.BtnHorario:hover{
+    opacity: 80%;
+}
