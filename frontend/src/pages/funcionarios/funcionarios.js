@@ -34,7 +34,65 @@ export default function Funcionarios(){
                 </div>
             </div>
             <section id="SectionAgendaSalao">
-                <h1>funcionarios </h1>
+                <h1 id="TitleFuncionarios">Funcionários</h1>
+                <div id="DivCadastroFuncionarios">
+                <form id="FormFuncionarios">
+                        <p id="ParagrafoRegistrarFuncionarios">
+                            Nome Completo
+                        </p>
+                        <input 
+                        id="NomeFuncionario"
+                        type="text"
+                        placeholder="Nome Do Funcionario"/>
+                        <p id="ParagrafoCpfFuncionario">
+                            CPF Do Funcionário
+                        </p>
+                        <input
+                        id="CpfFuncionarios"
+                        type="number"
+                        placeholder="CPF Do Funcionario"/>
+                        <br/>
+                        <button
+                        id="BtnFuncionarios"
+                        type="submit">Registrar</button>
+                    </form>
+                    <hr/>
+                    <div id="FuncionariosCadastrados">
+                        <ul>
+                            <li>
+                                <p className="PFuncionariosCadastrado">Nome Do Funcionario</p>
+                                <button
+                                type="submit"
+                                id="BtnVerAgenda">Ver Agenda</button>
+                                <button 
+                                id="BtnExcluir" 
+                                type="submit">Excluir</button>
+                            </li>
+                        </ul>
+                        <ul>
+                        <li>
+                                <p className="PServicoCadastrado">Nome Do Funcionario</p>
+                                <button
+                                type="submit"
+                                id="BtnVerAgenda">Ver Agenda</button>
+                                <button 
+                                id="BtnExcluir" 
+                                type="submit">Excluir</button>
+                            </li>
+                        </ul>
+                        <ul>
+                        <li>
+                                <p className="PServicoCadastrado">Nome Do Funcionario</p>
+                                <button
+                                type="submit"
+                                id="BtnVerAgenda">Ver Agenda</button>
+                                <button 
+                                id="BtnExcluir" 
+                                type="submit">Excluir</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </section>
         </div>
     );

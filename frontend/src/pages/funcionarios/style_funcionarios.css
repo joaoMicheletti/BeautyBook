@@ -31,3 +31,84 @@
     margin-left: 15px;
     font-size: 45px;
 }
+#TitleFuncionarios {
+    text-align: center;
+    text-decoration: underline;
+}
+#FormFuncionarios{
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+}
+#ParagrafoRegistrarFuncionarios {
+    font-size: 19px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+}
+#NomeFuncionario {
+    border-radius: 3px;
+    border: solid black 1px;
+    width: 450px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+#ParagrafoCpfFuncionario {
+    font-size: 19px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+}
+#CpfFuncionarios {
+    border-radius: 3px;
+    border: solid black 1px;
+    width: 450px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+#BtnFuncionarios {
+    cursor: pointer;
+    background-color: rgb(129, 124, 124);
+    width: 200px;
+    height: 25px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+#BtnServicos:hover {
+    opacity: 80%;
+}
+
+#FuncionariosCadastrados {
+    
+    width: 100%;
+}
+#FuncionariosCadastrados ul {
+    margin-bottom: 10px;
+    border: solid black 1px;
+}
+#FuncionariosCadastrados ul li {
+    display: flex;
+    justify-content: space-around;
+}
+.PFuncionariosCadastrado {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+#BtnVerAgenda {
+    cursor: pointer;
+    background-color: rgb(129, 124, 124);
+    width: 80px;
+    border-radius: 3px;
+
+}
+#BtnExcluir {
+    cursor: pointer;
+    background-color: rgb(129, 124, 124);
+    width: 80px;
+    border-radius: 3px;
+}
+#BtnExcluir:hover{
+    opacity: 80%;
+}
+#BtnVerAgenda:hover{
+    opacity:  80%;
+
+}
