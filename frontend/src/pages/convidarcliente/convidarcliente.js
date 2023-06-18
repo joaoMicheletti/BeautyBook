@@ -34,7 +34,23 @@ export default function Servicos(){
                 </div>
             </div>
             <section id="SectionAgendaSalao">
-                <h1>convidar clientes</h1>
+                <h1 id="TitleLinkAgendamento" >Meu Link de Agendamento</h1>
+                <div id="InfoLink">
+                    <p id="TextInfoLink">
+                    Este é o seu link para seus clientes agendarem com você 
+                    rapidamente :<br/>
+                    https://XXXXXXXXXXXXXXX.com
+                    <br/>
+                    Coloque este link na sua página 
+                    do Facebook e Instagram, no perfil e na resposta 
+                    automática de seu Whatsapp Business, no chatbot do 
+                    seu messenger, nas informações de localização de seu 
+                    estabelecimento no Google Maps, e onde mais você tiver 
+                    publidade na internet. Distribua este link em todos os 
+                    locais de divulgação...
+                    
+                    </p>
+                </div>
             </section>
         </div>
     );
