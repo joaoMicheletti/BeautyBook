@@ -34,7 +34,78 @@ export default function Ajustes(){
                 </div>
             </div>
             <section id="SectionAgendaSalao">
-                <h1>Ajustes aqui</h1>
+                <h1 id="TitleAjustes">Ajustes aqui</h1>
+                <div id="AjustesImg" >
+                    <p id="ParagrafoImg" >Adicionar / Editar Logo do salão</p>
+                    <input  
+                    type="file"  
+                    className="BtnImg"
+                    accept=".doc,.docx,.xml,application" 
+                    />
+                    <button
+                    type="submit"
+                    className="BtnImg"
+                    >Adicionar | Editar</button>
+                </div>
+                <hr/>
+                <div id="Preferencias">
+                    <h2 id="TitlePreferencias">Preferências</h2>
+                    <p className="PPreferecias">Defina sua preferência de intervalos de marcação 
+                        de horários para sua agenda. Este intervalo 
+                        também é aplicado no agendamento online para clientes.
+                    </p>
+                    <br/>
+                    <p className="PPreferecias">
+                        Defina com "minutos"
+                    </p>
+                    <input
+                    id="Minutos"
+                    type="number"
+                    placeholder="Defina com minutos"></input>
+                    <br/>
+                    <br/>
+                    <button
+                    id="BtnMinutos"
+                    type="submit"
+                    >Definir</button>
+                    <hr/>
+                    <h2 id="TitlePreferencias">Evitando Agendamentos encima da Hora</h2>
+                    <ul>
+                        <li>
+                            
+                            <p className="PPreferecias">
+                                Não será mostrado aos clientes Horários até :
+                            </p>
+                            <input
+                            id="MinutosCima"
+                            type="number"
+                            placeholder="Defina com minutos"></input>
+                            <p className="PPreferecias">Após o horário atual.</p>
+                            <button
+                            type="submit"
+                            id="DefinirCimaHora">Definir</button>
+
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            
+                            <p className="PPreferecias">
+                            Permitir que os clientes gravem agendamentos para até daqui: 
+                            </p>
+                            <input
+                            id="MinutosCima"
+                            type="number"
+                            placeholder="Defina com dias"></input>
+                            <p className="PPreferecias">Após a Data atual.</p>
+                            <button
+                            type="submit"
+                            id="DefinirCimaHora">Definir</button>
+
+                        </li>
+                    </ul>                        
+                </div>
+                
             </section>
         </div>
     );

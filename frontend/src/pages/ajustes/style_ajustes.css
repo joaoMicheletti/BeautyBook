@@ -31,3 +31,95 @@
     margin-left: 15px;
     font-size: 45px;
 }
+
+#TitleAjustes {
+    text-align: center;
+    text-decoration: underline;
+}
+#AjustesImg {
+    border: solid black 1px;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    background-color: rgba(129, 124, 124, 0.671);
+
+}
+#ParagrafoImg {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+.BtnImg {
+    height: 30px;
+    border-radius: 2px;
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(129, 124, 124);
+}
+.BtnImg:hover {
+    opacity: 80%;
+}
+#Preferencias {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+#TitlePreferencias {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+.PPreferecias {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+#Minutos {
+    width: 250px;
+    height: 30px;
+    border: solid black 1px;
+    border-radius: 2px;
+}
+#BtnMinutos{
+    width: 200px;
+    height: 30px;
+    background-color: rgb(129, 124, 124);
+    margin-bottom: 10px;
+}
+#BtnMinutos:hover {
+    opacity: 80%;
+}
+#Preferencias ul li {
+    border: solid black 1px;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin-bottom: 10px;
+    background-color: rgba(129, 124, 124, 0.671);
+
+}
+#MinutosCima {
+    border: solid black 1px;
+    width: 150px;
+}
+#DefinirCimaHora{
+    font-weight: 600;
+    width: 100px;
+    background-color: rgb(129, 124, 124);
+}
+#DefinirCimaHora:hover{
+    opacity: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
