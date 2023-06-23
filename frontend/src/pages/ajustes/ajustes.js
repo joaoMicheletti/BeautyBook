@@ -34,7 +34,7 @@ export default function Ajustes(){
                 </div>
             </div>
             <section id="SectionAgendaSalao">
-                <h1 id="TitleAjustes">Ajustes aqui</h1>
+                <h1 id="TitleAjustes">Preferências</h1>
                 <div id="AjustesImg" >
                     <p id="ParagrafoImg" >Adicionar / Editar Logo do salão</p>
                     <input  
@@ -49,7 +49,6 @@ export default function Ajustes(){
                 </div>
                 <hr/>
                 <div id="Preferencias">
-                    <h2 id="TitlePreferencias">Preferências</h2>
                     <p className="PPreferecias">Defina sua preferência de intervalos de marcação 
                         de horários para sua agenda. Este intervalo 
                         também é aplicado no agendamento online para clientes.
