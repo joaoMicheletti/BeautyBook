@@ -107,7 +107,38 @@
 #DefinirCimaHora:hover{
     opacity: 80%;
 }
-
+#Senha {
+    width: 80%;
+    margin-left: 10%;
+}
+#TitleSenha {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+.PFormSenha {
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.InputFormSenha {
+    width: 250px;
+    height: 25px;
+    border: solid black 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#BtnFormSenha {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 125px;
+    height: 25px;
+    background-color: rgb(129, 124, 124);
+    font-weight: 600;
+    cursor: pointer;
+}
+#BtnFormSenha:hover {
+    opacity: 80%;
+}
 
 
 

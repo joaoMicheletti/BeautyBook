@@ -69,6 +69,7 @@ export default function Ajustes(){
                     >Definir</button>
                     <hr/>
                     <h2 id="TitlePreferencias">Evitando Agendamentos encima da Hora</h2>
+                    <br/>
                     <ul>
                         <li>
                             
@@ -102,7 +103,34 @@ export default function Ajustes(){
                             id="DefinirCimaHora">Definir</button>
 
                         </li>
-                    </ul>                        
+                    </ul><br/>
+                    <hr/>                    
+                    <br/>
+                    <div id="Senha">
+                        <h2 id="TitleSenha">Alterar Senha</h2>
+                        <form id="FormSenha">
+                            <p className="PFormSenha">
+                               Nova Senha
+                            </p>
+                            <input
+                            className='InputFormSenha'
+                            type="password"
+                            placeholder="Nova Senha"></input>
+                            <p className="PFormSenha">
+                               Confirnmar Nova Senha
+                            </p>
+                            <input
+                            className='InputFormSenha'
+                            type="password"
+                            placeholder="Confirmar Nova Senha"></input>
+                            <br/>
+                            <button 
+                            id="BtnFormSenha"
+                            type="submit">Editar</button>
+                        </form>
+
+                    </div>
+                    <hr/>
                 </div>
                 
             </section>
