@@ -44,3 +44,15 @@
     font-weight: 600;
     line-height: 30px;
 }
+#CodigoIndicação {
+    width: 80%;
+    margin-left: 10%;
+}
+#TitleCodigoIndicação {
+    text-align: center;
+    text-decoration: underline;
+}
+#pCodigoIndicação {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}

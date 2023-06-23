@@ -48,7 +48,21 @@ export default function Servicos(){
                     estabelecimento no Google Maps, e onde mais você tiver 
                     publidade na internet. Distribua este link em todos os 
                     locais de divulgação...
-                    
+                    </p>
+                </div>
+                <br/>
+                <div id="CodigoIndicação">
+                    <h2 id="TitleCodigoIndicação" >Indique e Ganhe.</h2>
+                    <br/>
+                    <p id="pCodigoIndicação" >
+                    Aqui  está seu código de indicação : “”.<br/>
+                    Com ele você ganha alguns  benefícios  como, descontos na  próxima parcela.<br/>
+                    Porem o benefício será valido para o seu estabelecimento quando o indicado contratar um dos nossos planos.<br/>
+                    <br/>                    
+                    BENEFÍCIOS :<br/> 
+                    Para o Plano Anual seu desconto  na próxima parcela será de : 15%.
+                    <br/>
+                    Para o Plano Mensal se desconto na próxima parcela será de : 25%
                     </p>
                 </div>
             </section>
