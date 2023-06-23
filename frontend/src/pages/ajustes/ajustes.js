@@ -131,6 +131,39 @@ export default function Ajustes(){
 
                     </div>
                     <hr/>
+                    <br/>
+                    <div id="Cadastro" >
+                        <h2 id="TitleCadastro">Meu Cadastro</h2>
+                        <form>
+                            <p className="PCadastro">
+                                Nome Estabelecimanrto
+                            </p>
+                            <input 
+                            className="InputCadastro"
+                            type="text"
+                            placeholder="Nome Do Estabelecimento"></input>
+                            <p className="PCadastro">
+                                Endereço estabelecimento
+                            </p>
+                            <input 
+                            className="InputCadastro"
+                            type="text"
+                            placeholder="Endereço Do Estabelecimento"></input>
+                            <p className="PCadastro">
+                                Email
+                            </p>
+                            <input 
+                            className="InputCadastro"
+                            type="email"
+                            placeholder="E-mail"></input>
+                            <br/>
+                            <button
+                            id="BtnCadastro"
+                            type="submit"
+                            >Editar</button>
+                        </form>
+                    </div>
+                    <hr/>
                 </div>
                 
             </section>

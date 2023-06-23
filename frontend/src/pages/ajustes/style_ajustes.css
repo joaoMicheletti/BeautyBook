@@ -139,8 +139,34 @@
 #BtnFormSenha:hover {
     opacity: 80%;
 }
-
-
+#Cadastro {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#TitleCadastro {
+    font-weight: 600;
+    text-decoration: underline;
+}
+.PCadastro {
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.InputCadastro {
+    width: 250px;
+    height: 25px;
+    border: solid black 1px;
+}
+#BtnCadastro {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 125px;
+    height: 25px;
+    background-color: rgb(129, 124, 124);
+    cursor: pointer;
+}
+#BtnCadastro:hover {
+    opacity: 80%;
+}
 
 
 
