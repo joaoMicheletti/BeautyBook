@@ -164,6 +164,14 @@ export default function Ajustes(){
                         </form>
                     </div>
                     <hr/>
+                    <div id="Plano">
+                        <h2 id="TitlePlanos">Planos</h2>
+                        <p id="TextoPlano">
+                        Area em construção:
+                        <br/>
+                        OBS: Os planos só poderão sofrer alterações após 3 meses de assinatura . 
+                        </p>
+                    </div>
                 </div>
                 
             </section>
