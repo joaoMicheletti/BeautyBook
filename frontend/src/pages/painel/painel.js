@@ -34,7 +34,139 @@ export default function Painel(){
                 </div>
             </div>
             <section id="SectionAgendaSalao">
-                <h1>Aqui ficará a agenda </h1>
+                <h1 id="TitleAgenda">Agenda</h1>
+                <div id="ConteinerAgenda">
+                    <div id="DiaMesAno">
+                    <input id="SelectMes" type="month"></input>
+                    </div>
+                    <div id="DiasSemana">
+                        <div className="DiaSemana">DOM</div>
+                        <div className="DiaSemana">Seg</div>
+                        <div className="DiaSemana">Ter</div>
+                        <div className="DiaSemana">Quar</div>
+                        <div className="DiaSemana">Quint</div>
+                        <div className="DiaSemana">Sex</div>
+                        <div className="DiaSemana">Sab</div>
+                    </div>
+                    <div className="DiasNumero">
+                        <div className="Numero">
+                            <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                        <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                    </div>
+                    <div className="DiasNumero">
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                    </div>
+                    <div className="DiasNumero">
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                    </div>
+                    <div className="DiasNumero">
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                    </div>
+                    <div className="DiasNumero">
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                        <div className="Numero">
+                             <button type="submit">30</button>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <hr/>
+                <br/>
             </section>
         </div>
     );
