@@ -37,7 +37,7 @@ export default function Painel(){
                 <h1 id="TitleAgenda">Agenda</h1>
                 <div id="ConteinerAgenda">
                     <div id="DiaMesAno">
-                    <input id="SelectMes" type="month"></input>
+                    <input id="SelectMes" type="date" value="Selecione a data para ver a agenda"></input>
                     </div>
                     <div id="DiasSemana">
                         <div className="DiaSemana">DOM</div>
