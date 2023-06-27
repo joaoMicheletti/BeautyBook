@@ -106,3 +106,35 @@ hr{
 #BtnAgenda:hover {
     opacity: 80%;
 }
+#Agendados {
+    width: 100%;
+}
+#Agendados ul {
+    border: black solid 1px;
+    margin-bottom: 15px;
+    background-color: rgb(129, 124, 124);
+    text-align: center;
+}
+#Agendados ul li p {
+    line-height: 25px;
+    font-weight: 600;
+}
+.UnderLine{
+    text-decoration: underline;
+}
+.DivStatus {
+    margin-left: 25%;
+    width: 50%;
+    height: 35px;
+    display: flex;
+    justify-content: space-around;
+}
+.BtnStatus {
+    background-color: rgba(163, 163, 163, 0.836);
+    border: solid black 1px;
+    width: 100px;
+    cursor: pointer;
+}
+.BtnStatus:hover {
+    opacity: 80%;
+}
