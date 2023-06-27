@@ -5,6 +5,7 @@ import './style.css';
 export default function RegistroSalao(){
     const [Cpf, setCpf] = useState('');
     const [Nome_salao, setNome_salao] = useState('');
+    const [Endereco, setEndereco_Salao] = useState('');
     const [Email, setEmail] = useState('');
     const [Senha, setSenha] = useState('');
     const [Csenha, setCsenha] = useState('');
@@ -21,6 +22,8 @@ export default function RegistroSalao(){
         } else {
             if(Nome_salao.length === 0){
                 alert("Preencha o Campo Nome Do Salão");
+            } else if(Endereco.length === 0){
+                alert("Preencha o campo Endereço");
             } else if(Email.length === 0){
                 alert("Preencha o campo E-mail");
             } else {
@@ -38,6 +41,7 @@ export default function RegistroSalao(){
         const Data = {
             Cpf,
             Nome_salao,
+            Endereco,
             Email,
             Senha,
             Csenha
@@ -69,6 +73,15 @@ export default function RegistroSalao(){
                     type="text"
                     placeholder="Nome Do Salão"
                     onChange={(e) => setNome_salao(e.target.value)}/>
+
+                    <p id="PRegistroSalao">
+                        Endereço Salão
+                    </p>
+                    <input
+                    className="InpRegistroSalao" 
+                    type="text"
+                    placeholder="Endereço Salão"
+                    onChange={(e) => setEndereco_Salao(e.target.value)}/>
 
                     <p id="PRegistroSalao" >
                         E-mail
