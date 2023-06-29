@@ -60,9 +60,7 @@ export default function Servicos(){
                     Porem o benefício será valido para o seu estabelecimento quando o indicado contratar um dos nossos planos.<br/>
                     <br/>                    
                     BENEFÍCIOS :<br/> 
-                    Para o Plano Anual seu desconto  na próxima parcela será de : 15%.
-                    <br/>
-                    Para o Plano Mensal se desconto na próxima parcela será de : 25%
+                    desconto de até 50% na proxima mensalidade!
                     </p>
                 </div>
             </section>
