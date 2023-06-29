@@ -164,6 +164,31 @@ export default function Ajustes(){
                         </form>
                     </div>
                     <hr/>
+                    <div id="EditarSenhaFuncionario">
+                        <h2 id="TitleEditarSenhaFuncionario">Editar Senha de Funcionários</h2>
+                        <form>
+                            <p className="EditarSenhaFuncionario">
+                                CPF do Funcionário
+                            </p>
+                            <input className="InputEditarSenhaFuncionario"
+                            type="text"
+                            placeholder="CPF do funcionário">
+                            </input>
+
+                            <p className="EditarSenhaFuncionario">
+                                Nova Senha
+                            </p>
+                            <input className="InputEditarSenhaFuncionario"
+                            type="password"
+                            placeholder="Nova Senha">
+                            </input>
+                            <br/>
+                            <button id="BtnEditarSenhaFuncionario">
+                                Editar
+                            </button>
+                        </form>
+                    </div>
+                    <hr/>
                     <div id="Plano">
                         <h2 id="TitlePlanos">Planos</h2>
                         <p id="TextoPlano">

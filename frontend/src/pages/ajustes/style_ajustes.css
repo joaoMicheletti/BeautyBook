@@ -167,6 +167,34 @@
 #BtnCadastro:hover {
     opacity: 80%;
 }
+#TitleEditarSenhaFuncionario {
+    margin-top: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight:  600;
+    text-decoration: underline;
+}
+#EditarSenhaFuncionario {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.InputEditarSenhaFuncionario{
+    width: 250px;
+    height: 25px;
+    border: solid black 1px;
+}
+#BtnEditarSenhaFuncionario {
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: rgb(129, 124, 124);
+    width: 125px;
+    height: 25px;
+}
+#BtnEditarSenhaFuncionario:hover {
+    opacity: 80%;
+}
+
 #Plano {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 600;
