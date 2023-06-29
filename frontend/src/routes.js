@@ -9,6 +9,7 @@ import Funcionarios from './pages/funcionarios/funcionarios';
 import HorarioFuncionamento from './pages/horariofuncionamento/horariofuncionamento';
 import ConvidarCliente from './pages/convidarcliente/convidarcliente';
 import Ajustes from './pages/ajustes/ajustes';
+//import Planos from './pages/planos/planos';  importando a pagina responsavel pelos planos de assinatura 
 export default function Rotas(){
     return(
         <Router>
