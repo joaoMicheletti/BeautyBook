@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#HomeConteiner {
+    width: 100%;
+    height: auto;
+}
+#HeaderHome {
+    background-color: rgb(88, 85, 85);
+    width: 100%;
+    height: 170px; 
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
+}
+#HeaderHome img {
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    margin-top: 50px;
+}
+#ConteudoHome {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+    text-align: center;
+    line-height: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#ConteudoHome h2 {
+    text-decoration: underline;
+    margin-bottom: 50px;
+}
+#ConteudoHome ul {
+    background-color: rgb(88, 85, 85);
+    margin-bottom: 15px;
+}
+#ConteudoHome ul li {
+    list-style: none;
+}
+.PConteudohome {
+    margin-top: 10px;
+    font-weight: 600;
+}
+.BtnConteudoHome {
+    width: 150px;
+    height: 25px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.BtnConteudoHome:hover{
+    opacity: 80%;
+    background-color: rgb(129, 124, 124);
+}
