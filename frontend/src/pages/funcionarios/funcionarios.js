@@ -52,6 +52,14 @@ export default function Funcionarios(){
                         type="number"
                         placeholder="CPF Do Funcionario"/>
                         <br/>
+                        <p id="PSenhaFuncionarios">
+                            Senha para o Funcionario
+                        </p>
+                        <input
+                        id="SenhaFuncionarios"
+                        type="password"
+                        placeholder="Senha para o funcionario"/>
+                        <br/>
                         <button
                         id="BtnFuncionarios"
                         type="submit">Registrar</button>

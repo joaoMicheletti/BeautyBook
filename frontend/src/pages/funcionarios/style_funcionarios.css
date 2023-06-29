@@ -64,6 +64,18 @@
     height: 25px;
     margin-bottom: 10px;
 }
+#PSenhaFuncionarios{
+    font-size: 19px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom:  10px;
+}
+#SenhaFuncionarios {
+    border-radius: 3px;
+    border: solid black 1px;
+    width: 450px;
+    height: 25px;
+    margin-bottom: 10px;
+}
 #BtnFuncionarios {
     cursor: pointer;
     background-color: rgb(129, 124, 124);
