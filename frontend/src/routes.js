@@ -10,6 +10,7 @@ import HorarioFuncionamento from './pages/horariofuncionamento/horariofuncioname
 import ConvidarCliente from './pages/convidarcliente/convidarcliente';
 import Ajustes from './pages/ajustes/ajustes';
 import Agendamento from './pages/agendamento/agendamento'; 
+import Agendamentofuncionario from './pages/agendamentofuncionario/agendametofuncionario.js';
 //import Planos from './pages/planos/planos';  importando a pagina responsavel pelos planos de assinatura 
 export default function Rotas(){
     return(
@@ -17,6 +18,7 @@ export default function Rotas(){
             <Routes>
                 <Route path='/' element={<Home/>} />
                 <Route path='/agendamento' element={<Agendamento/>} />
+                <Route path='/agendamentofuncionario' element={<Agendamentofuncionario/>}/>
                 <Route path='/registrosalao' element={<RegistroSalao/>}/>
                 <Route path='/loginsalao' element={<LoginSalao/>}/>
                 <Route path='/painel' element={<Paninel/>}/>
