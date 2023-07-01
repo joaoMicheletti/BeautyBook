@@ -11,6 +11,7 @@ import ConvidarCliente from './pages/convidarcliente/convidarcliente';
 import Ajustes from './pages/ajustes/ajustes';
 import Agendamento from './pages/agendamento/agendamento'; 
 import Agendamentofuncionario from './pages/agendamentofuncionario/agendametofuncionario.js';
+//criar rota pqra buscar um salão atraves da url routeparams 
 //import Planos from './pages/planos/planos';  importando a pagina responsavel pelos planos de assinatura 
 export default function Rotas(){
     return(
