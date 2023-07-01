@@ -13,6 +13,7 @@ import Agendamento from './pages/agendamento/agendamento';
 import Agendamentofuncionario from './pages/agendamentofuncionario/agendametofuncionario.js';
 //criar rota pqra buscar um salão atraves da url routeparams 
 //import Planos from './pages/planos/planos';  importando a pagina responsavel pelos planos de assinatura 
+import NotFound from './pages/404/NotFound.js';
 export default function Rotas(){
     return(
         <Router>
@@ -28,6 +29,7 @@ export default function Rotas(){
                 <Route path='funcionamento' element={<HorarioFuncionamento/>}/>
                 <Route path='/convidarcliente' element={<ConvidarCliente/>}/>
                 <Route path='/ajustes' element={<Ajustes/>}/>
+                <Route path='*' element={<NotFound/>}/>
             </Routes>
         </Router>
     )
