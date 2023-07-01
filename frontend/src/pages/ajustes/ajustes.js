@@ -191,11 +191,11 @@ export default function Ajustes(){
                     <hr/>
                     <div id="Plano">
                         <h2 id="TitlePlanos">Planos</h2>
-                        <p id="TextoPlano">
-                        Area em construção:
-                        <br/>
+                        <p id="TextoPlano">                    
                         OBS: Os planos só poderão sofrer alterações após 3 meses de assinatura . 
                         </p>
+                        <p>Ver os Planos : </p>
+                        <a href="/planos">Clik aqui</a>
                     </div>
                 </div>
                 
