@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#HeaderPlanos {
+    background-color: rgb(88, 85, 85);
+    height: 180px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
+}
+#HeaderPlanos img {
+    margin-top: 15px;
+    width: 150px;
+    height: 150px;
+}
+#HeaderPlanos #TitlePlanos {
+    margin-top: 60px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+#Planos {
+    margin-top: 30px;
+    width: 80%;
+    margin-left: 10%;
+}
+#Planos #PPlanos {
+    text-decoration: underline;
+    font-size: 20px;
+    text-align: center
+}
+#Planos ul {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+#Planos ul li {
+    width: 200px;
+    height: auto;
+    text-align: center;
+    line-height: 35px;
+    background-color: rgb(88, 85, 85);
+    border: solid black 2px;
+
+}
+.TitlePlano {
+    margin-top: 10px;
+    font-size: 19px;
+    font-weight: 800;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+}
+.BtnIndividual {
+    width: 80%;
+    height: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: solid black 1px;
+    font-weight: 600;
+}
+.BtnIndividual:hover {
+    opacity: 80%;
+}
