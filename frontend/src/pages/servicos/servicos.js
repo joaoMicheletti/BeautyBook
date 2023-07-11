@@ -44,6 +44,13 @@ export default function Servicos(){
                         id="TipodeServico"
                         type="text"
                         placeholder="Tipo De Serviço"/>
+                        <p id="ParagrafoRegistrarServico">
+                            Tempo para execução do serviço
+                        </p>
+                        <input 
+                        id="TipodeServico"
+                        type="text"
+                        placeholder="Tempo para execuçao do serviço"/>
                         <p id="ParagrafoPrecoServico">
                             Preço do Serviço
                         </p>

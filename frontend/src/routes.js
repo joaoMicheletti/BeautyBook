@@ -26,7 +26,7 @@ export default function Rotas(){
                 <Route path='/painel' element={<Paninel/>}/>
                 <Route path='/servicos' element={<Servicos/>}/>
                 <Route path='/funcionarios' element={<Funcionarios/>}/>
-                <Route path='funcionamento' element={<HorarioFuncionamento/>}/>
+                <Route path='/funcionamento' element={<HorarioFuncionamento/>}/>
                 <Route path='/convidarcliente' element={<ConvidarCliente/>}/>
                 <Route path='/ajustes' element={<Ajustes/>}/>
                 <Route path='/planos' element={<Planos/>} />

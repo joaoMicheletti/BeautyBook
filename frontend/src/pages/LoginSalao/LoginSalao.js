@@ -35,7 +35,7 @@ export default function LoginSalao(){
                 <h1>Login.</h1>
                 <form onSubmit={Logar}>
                     <p id="PLoginSalao">
-                        CPF
+                        CPF salão / Funcionário
                     </p>
                     <input
                     className="InpLoginSalao"
