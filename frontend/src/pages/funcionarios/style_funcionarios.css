@@ -36,6 +36,7 @@
     text-decoration: underline;
 }
 #FormFuncionarios{
+    background-color: aqua;
     text-align: center;
     width: 80%;
     margin-left: 10%;
@@ -48,7 +49,7 @@
 #NomeFuncionario {
     border-radius: 3px;
     border: solid black 1px;
-    width: 450px;
+    width: 80%;
     height: 25px;
     margin-bottom: 10px;
 }
@@ -60,7 +61,7 @@
 #CpfFuncionarios {
     border-radius: 3px;
     border: solid black 1px;
-    width: 450px;
+    width: 80%;    
     height: 25px;
     margin-bottom: 10px;
 }
@@ -72,7 +73,7 @@
 #SenhaFuncionarios {
     border-radius: 3px;
     border: solid black 1px;
-    width: 450px;
+    width: 80%;
     height: 25px;
     margin-bottom: 10px;
 }
@@ -87,6 +88,7 @@
 #BtnServicos:hover {
     opacity: 80%;
 }
+
 
 #FuncionariosCadastrados {
     
