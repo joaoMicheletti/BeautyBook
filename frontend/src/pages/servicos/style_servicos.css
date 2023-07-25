@@ -1,4 +1,4 @@
-#DivAganda{
+#DivAganda{ 
     background-color: transparent;
 }
 #Agenda{
@@ -38,6 +38,7 @@
     width: 80%;
     margin-left: 10%;
 }
+
 #ParagrafoRegistrarServico {
     font-size: 19px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -72,6 +73,14 @@
 }
 #BtnServicos:hover {
     opacity: 80%;
+}
+@media(max-width: 600px){
+    #TipodeServico {
+        width: 80%;
+    }
+    #PrecoServico {
+        width: 80%;
+    }
 }
 #ServicosCadastrados {
     
