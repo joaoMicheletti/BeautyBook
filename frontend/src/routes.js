@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/home/home';
+import Init from './pages/init/init';
 import RegistroSalao from './pages/RegistroSalao/RegistroSalao';
 import LoginSalao from './pages/LoginSalao/LoginSalao';
 import Paninel from './pages/painel/painel';
@@ -18,7 +18,7 @@ export default function Rotas(){
     return(
         <Router>
             <Routes>
-                <Route path='/' element={<Home/>} />
+                <Route path='/' element={<Init/>} />
                 <Route path='/agendamento' element={<Agendamento/>} />
                 <Route path='/agendamentofuncionario' element={<Agendamentofuncionario/>}/>
                 <Route path='/registrosalao' element={<RegistroSalao/>}/>
