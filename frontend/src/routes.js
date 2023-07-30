@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Init from './pages/init/init';
+import AGfuncionario from  './pages/agendafuncionario';
 import RegistroSalao from './pages/RegistroSalao/RegistroSalao';
 import LoginSalao from './pages/LoginSalao/LoginSalao';
 import Paninel from './pages/painel/painel';
@@ -19,6 +20,7 @@ export default function Rotas(){
         <Router>
             <Routes>
                 <Route path='/' element={<Init/>} />
+                <Route path='/agendafuncionario' element={<AGfuncionario/>}/>
                 <Route path='/agendamento' element={<Agendamento/>} />
                 <Route path='/agendamentofuncionario' element={<Agendamentofuncionario/>}/>
                 <Route path='/registrosalao' element={<RegistroSalao/>}/>

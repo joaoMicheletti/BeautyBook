@@ -12,9 +12,7 @@ export default function AgendamentoFuncionario(){
         const Data = {
             cpf_salao
         };
-        console.log(Data);
         Api.post('/funcionarios', Data).then((Response) =>{
-            console.log(Response)
             setListaFuncionarios(Response.data);
             if(Response.data.length === 0){
                 alert('funcionários não encontrados');
@@ -36,8 +34,9 @@ export default function AgendamentoFuncionario(){
             <div id="ListFuncionarios">
                 {ListaFuncionarios.map((iten, key) =>{
                     const AgendaFuncionario = () => {
+                        localStorage.setItem('idsalao', iten.cpf_salao);
                         localStorage.setItem('cpf_funcionario', iten.cpf_funcionario);
-                        History('/agendamento');
+                        History('/agendafuncionario');
                     };
                     return(
                         <ul key={iten.id}>

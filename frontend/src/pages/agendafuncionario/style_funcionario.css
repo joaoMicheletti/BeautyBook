@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#HeaderAgendamento {
+    background-color: rgb(88, 85, 85);
+    width: 100%;
+    height: 170px; 
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
+}
+#HeaderAgendamento img {
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+h1 {
+    font-weight: 600;
+}
+#DivAgendamento {
+    text-align: center;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: 10%;
+}
+#DivAgendamento h2 {
+    text-decoration: underline;
+}
+#DivCalendario {    
+    background-color: rgb(88, 85, 85);
+    width: 80%;
+    margin-left: 10%;
+    height: 35px;
+    border: solid black 1px;
+}
+#Calendario {
+    width: 60%;
+    height: 33px;
+}
+#Horarios {
+    margin-top: 30px;
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    text-align: center;
+}
+#PHorariosDisponiveis {
+    font-size: 15px;
+    font-weight: 600;
+}
+#Horarios ul {
+    width: 100%;
+    margin-top: 15px;
+    background-color: rgb(88, 85, 85);
+}
+#Horarios ul li {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+#Horarios ul li p {
+    font-size: 20px;
+    font-weight: 600;
+}
+#Horarios input {
+    border: solid black 1px;
+    width: 100px;
+    cursor: pointer;
+}
+#Horarios input:hover {
+    opacity: 80%;
+}
+#Serviços {
+    width: 80%;
+    margin-left: 10%;
+}
+#Serviços ul {
+    margin-top: 15px;
+    background-color: rgb(88, 85, 85);
+    width: 100%;
+}
+#Serviços ul li {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+#Serviços ul li .TipoServiço {
+    font-size: 20px;
+    font-weight: 600;
+}
+#Serviços ul li input {
+    width: 100px;
+    cursor: pointer;
+    border: solid black 1px;
+}
+#Serviços ul li  input:hover{
+    opacity: 80%;
+}
+#DivFormCliente {
+    text-align: center;
+}
+#DivFormCliente form .PFormCliente {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+#DivFormCliente form .InputFormCliente {
+    border: solid black 1px;
+    width: 60%;
+    height: 35px;
+    margin-bottom: 10px;
+}
+#BtnFormCliente {
+    border:  solid black 1px;
+    width: 50%;
+    height: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+#BtnFormCliente:hover {
+    opacity: 80%;
+}

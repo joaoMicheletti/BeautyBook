@@ -10,7 +10,6 @@ export default function Init(){
     useEffect(() =>{
         Api.get('/listarsalao').then((Response) =>{
             setListaSalao(Response.data);
-            console.log(Response.data);
         }).catch(() =>{
             alert('Erro ao carregar os salões.');
         })
