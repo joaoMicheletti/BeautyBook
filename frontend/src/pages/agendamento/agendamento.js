@@ -8,11 +8,17 @@ export default function Agendamento(){
     const [ListaHorarios, setListaHorarios] =  useState([]);
     //responsável po armazenar a lista de servoços.
     const [ListaServicos, setListaServicos] = useState([]);
-    //input de data.
+    //input de data e hora.
     const [Datastring, setDatastring] = useState('');
+    const [horaAtual, setHora] = useState('');
     //dados cliente 
     const [nome_cliente, setNameCliente] = useState('');
     const [contato_cliente, setContatoCliente] = useState('');
+    // input observação 
+    const [obs,  setObs] = useState('');
+    //serviço e preço de sesrviço
+    const [servico, setServico] = useState('');
+    const [Preco, setPreco] = useState('');
     var DataAtual = new Date();
     var dia = DataAtual.getDate();
     var mes = DataAtual.getMonth() + 1;
@@ -32,61 +38,89 @@ export default function Agendamento(){
             setListaHorarios(Response.data); 
         }).catch(() => {
             alert('Erro ao buscar Horários Preenchidos.');
-        });            
-    }, []);
-
-    useEffect(() => {
-        const Data = {
+        });
+        const Dat = {
             cpf_salao
         };
-        Api.post('/servico', Data).then((Response) => {
+        Api.post('/servico', Dat).then((Response) => {
             setListaServicos(Response.data);        
         }).catch(()=>{
             alert('Erro ao buscar informações de servoços.');
         });
 
-    },[]);
+    });
     
-    //agendamento 
-    /**
-     * para ver espaço na agenda 
-     * cpf_salao, 
-            cpf_funcionario,
-            dia_semana,
-            dia, mes, ano, hora,
-            //
-            criar agendamento
-            cpf_salao,
-            cpf_funcionario,
-            dia,
-            mes,
-            ano,
-            hora,
-            servico,
-            preco,
-            nome_cliente,
-            contato_cliente,
-            obs,
-            percent50,
-            status_servico
-            //agendamento futuro//
-     */
-    const Agendar = (e) =>{
+    const Agendar = async (e) =>{
         e.preventDefault();
-        console.log(Datastring);
+        var status_servico = "agendado";
+        //pegando od nome do dia da semana;
         let partes = Datastring.split("-");
-        let dataNovaString = partes[2] + "/" + partes[1] + "/" + partes[0];
-        var dia = partes[2];
-        var mes = partes[1];
-        var ano = partes[0];
-        console.log(dia, mes, ano);
-        console.log(nome_cliente); // so pra evitar os alertas chatos 
-        console.log(contato_cliente.length);
-        if(nome_cliente === ''){
+        // Crie um objeto Date (meses em JavaScript vão de 0 a 11, por isso subtraímos 1 do valor do mês)
+        let dataObj = new Date(partes[0], partes[1] - 1, partes[2]);
+        // Crie um array com os nomes dos dias da semana
+        let nomesDiasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+        // Obtenha o número do dia da semana (0 para Domingo, 1 para Segunda, ..., 6 para Sábado)
+        let numeroDiaSemana = dataObj.getDay();
+        // Acesse o nome do dia da semana usando o número obtido
+        let dia_semana = nomesDiasSemana[numeroDiaSemana];
+
+        //invertendo a ordem=n da data para dia, mes, ano.
+        var dia = parseInt(partes[2], 10);
+        var mes = parseInt(partes[1], 10);
+        var ano = parseInt(partes[0], 10);
+        //convertendo a hora para um valor float do jeito que o backend espera.
+        var hora_ =  horaAtual.replace(':', '.');
+        var hora = parseFloat(hora_);
+        //passando o preço para float
+        var preco = parseFloat(Preco);
+
+        const Data = {
+            cpf_salao, //ok
+            dia_semana, //ok
+            dia, //ok
+            mes, //ok
+            ano, //ok
+            nome_cliente, //ok
+            contato_cliente, //ok
+            status_servico, //ok
+            hora, //ok
+            obs, //ok
+            servico, //ok
+            preco, //okv
+            //percent50, //falta
+        };
+        if(Datastring === ''){
+            alert('Selecione uma Data.');
+        }else if(horaAtual === ''){
+            alert('selecione um Horário.');
+        }else if(nome_cliente === ''){
             alert('Preencha o Campo @ Nome Completo');
         } else if(contato_cliente.length < 11 || contato_cliente.length > 11){
             alert('Número de telefone invalido');
-        };
+        } else {
+            console.log(Data);
+            //verificando se a data e horário estão disponiveis na agenda.
+            await Api.post('/horarioslivres', Data).then(async (Response) => {
+                console.log(Response);
+                if(Response.data === 'Fora do Horário de funcionamento.'){
+                    alert("Salão : " + Response.data);
+                } else if(Response.data === 'conflito entre agendamentos'){
+                    alert(Response.data);
+                } else if(Response.data === 'Horário já ocupado'){
+                    alert('Desculpe mas: ' + Response.data);
+                } else if(Response.data === 'agendamento permitido'){
+                    //rota para finalizar o agendamento;
+                    await Api.post('/registraragendamento', Data).then((Response) => {
+                        alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
+                    }).catch((erro) =>{
+                        alert('Erro ao finalizar o agendamento');
+                    });
+                };
+            }).catch((err) =>{
+                alert('Erro horarios livres')
+            });
+            
+        }
     };
     return(
         <div id='ConteinerAgendamento'>
@@ -102,7 +136,15 @@ export default function Agendamento(){
                     id='Calendario' 
                     type='date'
                     onChange={(e) => setDatastring(e.target.value)}></input>
+                    <br/>
+
+                    <p>Selecione a Hora.</p>
+                    <input 
+                    type="time" id="hora" name="hora"
+                    onChange={(e) => setHora(e.target.value)}></input>
                 </div>
+                <br/>
+                <br/>
                 <div id='Horarios'>
                     <p id='PHorariosDisponiveis'>
                         Horários preenchidos de Hoje.
@@ -125,13 +167,18 @@ export default function Agendamento(){
                 <div id='Serviços'>
                     <h2>Selecione um Serviço</h2>
                     {ListaServicos.map((iten, key) =>{
+                        const SelectServico = () =>{
+                            setPreco(iten.preco);
+                            setServico(iten.servico);
+                            alert('Serviço selecionado!.')
+                        };
                         return(
                             <ul key={iten.id}>
                                 <li>
                                     <p className='TipoServiço'>
                                         {iten.servico} : {iten.preco}R$
                                     </p>
-                                    <input type='button' value='Selecionar'/>
+                                    <input type='button' onClick={SelectServico} value='Selecionar'/>
                                 </li>
                             </ul>
                         );
@@ -159,6 +206,12 @@ export default function Agendamento(){
                         placeholder='Telefone WhatsApp'
                         onChange={(e) => setContatoCliente(e.target.value)}/>
                         <br/>
+                        <p className='PFormCliente'>Nos envie uma Observação.</p>
+                        <input
+                        type='text'
+                        className='InputFormCliente'
+                        placeholder='observação para o salão'
+                        onChange={(e) => setObs(e.target.value)}/>
                         <button id='BtnFormCliente' type='submit'>Concluir Agendamento</button>
                     </form>
                 </div>
