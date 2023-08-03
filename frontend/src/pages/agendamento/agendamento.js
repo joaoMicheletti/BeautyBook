@@ -4,9 +4,9 @@ import './style_agendamento.css';
 import Logo from  '../assets/Logo.png';
 
 export default function Agendamento(){
-    //responsável por armazenaar a lista de horários
+    //responsável por armazenar a lista de horários
     const [ListaHorarios, setListaHorarios] =  useState([]);
-    //responsável po armazenar a lista de servoços.
+    //responsável po armazenar a lista de serviços.
     const [ListaServicos, setListaServicos] = useState([]);
     //input de data e hora.
     const [Datastring, setDatastring] = useState('');
@@ -57,7 +57,7 @@ export default function Agendamento(){
     const Agendar = async (e) =>{
         e.preventDefault();
         var status_servico = "agendado";
-        //pegando od nome do dia da semana;
+        //pegando o nome do dia da semana;
         let partes = Datastring.split("-");
         // Crie um objeto Date (meses em JavaScript vão de 0 a 11, por isso subtraímos 1 do valor do mês)
         let dataObj = new Date(partes[0], partes[1] - 1, partes[2]);
@@ -69,12 +69,12 @@ export default function Agendamento(){
         // Acesse o nome do dia da semana usando o número obtido
         let dia_semana = nomesDiasSemana[numeroDiaSemana];
 
-        //invertendo a orden da data para dia, mes, ano.
+        //invertendo a ordem da data para dia, mes, ano.
         var dia = parseInt(partes[2], 10);
         var mes = parseInt(partes[1], 10);
         var ano = parseInt(partes[0], 10);
-        // essa variavel do tipo Date() será usada para garantir que não sejá enviado datas passadaas ao back;
-        // ou sejá se essa variavel for menor que a DataAtual a data já passou.
+        // essa variável do tipo Date() será usada para garantir que não seja enviado datas passadas ao back;
+        // ou seja se essa variável for menor que a DataAtual a data já passou.
         var DATA = new Date(partes[0], partes[1], partes[2]);
         //convertendo a hora para um valor float do jeito que o backend espera.
         var hora_ =  horaAtual.replace(':', '.');
@@ -140,7 +140,7 @@ export default function Agendamento(){
             alert('Número de telefone invalido');
         } else {
             console.log(Data);
-            //verificando se a data e horário estão disponiveis na agenda.
+            //verificando se a data e horário estão disponíveis na agenda.
             await Api.post('/horarioslivres', Data).then(async (Response) => {
                 console.log(Response);
                 if(Response.data === 'Fora do Horário de funcionamento.'){
