@@ -25,7 +25,7 @@ export default function Agendamento(){
     var ano = DataAtual.getFullYear(); 
     var cpf_salao = localStorage.getItem('cpf_salao');
 
-    //buscando à agenda do salão;
+    //buscando à agenda e os serviços do salão;
     useEffect( ()=>{
         const Data = {
             cpf_salao,
@@ -33,15 +33,19 @@ export default function Agendamento(){
             mes,
             ano
         };
-        
+        //agenda
         Api.post('/horariospreenchidos', Data).then((Response) =>{
-            setListaHorarios(Response.data); 
+            setListaHorarios(Response.data);
+            if(Response.data.length === 0){
+                document.querySelector("#AlertaHorarios").innerHTML = "Nada Agendado!.";
+            };
         }).catch(() => {
             alert('Erro ao buscar Horários Preenchidos.');
         });
         const Dat = {
             cpf_salao
         };
+        //serviços
         Api.post('/servico', Dat).then((Response) => {
             setListaServicos(Response.data);        
         }).catch(()=>{
@@ -57,6 +61,7 @@ export default function Agendamento(){
         let partes = Datastring.split("-");
         // Crie um objeto Date (meses em JavaScript vão de 0 a 11, por isso subtraímos 1 do valor do mês)
         let dataObj = new Date(partes[0], partes[1] - 1, partes[2]);
+        console.log(dataObj);
         // Crie um array com os nomes dos dias da semana
         let nomesDiasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
         // Obtenha o número do dia da semana (0 para Domingo, 1 para Segunda, ..., 6 para Sábado)
@@ -64,15 +69,20 @@ export default function Agendamento(){
         // Acesse o nome do dia da semana usando o número obtido
         let dia_semana = nomesDiasSemana[numeroDiaSemana];
 
-        //invertendo a ordem=n da data para dia, mes, ano.
+        //invertendo a orden da data para dia, mes, ano.
         var dia = parseInt(partes[2], 10);
         var mes = parseInt(partes[1], 10);
         var ano = parseInt(partes[0], 10);
+        // essa variavel do tipo Date() será usada para garantir que não sejá enviado datas passadaas ao back;
+        // ou sejá se essa variavel for menor que a DataAtual a data já passou.
+        var DATA = new Date(partes[0], partes[1], partes[2]);
         //convertendo a hora para um valor float do jeito que o backend espera.
         var hora_ =  horaAtual.replace(':', '.');
         var hora = parseFloat(hora_);
         //passando o preço para float
         var preco = parseFloat(Preco);
+        var Mes = DataAtual.getMonth() + 1;
+        var data_atual = DataAtual.getDate()+'/'+Mes+'/'+DataAtual.getFullYear();
 
         const Data = {
             cpf_salao, //ok
@@ -87,10 +97,41 @@ export default function Agendamento(){
             obs, //ok
             servico, //ok
             preco, //okv
+            data_atual, // para a rota de agendamentos futuros;
             //percent50, //falta
         };
+        console.log(Data);
         if(Datastring === ''){
             alert('Selecione uma Data.');
+        }else if(DATA < DataAtual){
+            alert('DATA INVALIDA: selecione uma data de hoje em diante!');
+        }else if(DATA > DataAtual){
+            //agendamentos futuros;
+            await Api.post('/agendamentosfuturos', Data).then(async (Response) =>{
+                if(Response.data === "Dentro do limite para Agendamentos futuros"){
+                    await Api.post('/horarioslivres', Data).then(async (Response) =>{
+                        if(Response.data === 'agendamento permitido'){
+
+                            await Api.post('/registraragendamento', Data).then((Response) => {
+                                alert(Response.data);
+                                alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
+                            }).catch((erro) =>{
+                                alert('Erro ao finalizar o agendamento');
+                            });
+
+                        }else{
+                            alert('Erro ao criar um agendamento futuro.');
+                        };
+
+                    }).catch((erro) =>{
+                        alert('Erro ao criar um agendamento futuro.');
+                    });
+                } else {
+                    alert(Response.data);
+                };
+            }).catch((Erro) =>{
+                alert('Erro ao criar um agendamento futuro.');
+            });
         }else if(horaAtual === ''){
             alert('selecione um Horário.');
         }else if(nome_cliente === ''){
@@ -149,6 +190,8 @@ export default function Agendamento(){
                     <p id='PHorariosDisponiveis'>
                         Horários preenchidos de Hoje.
                     </p>
+                    <br/>
+                    <p id='AlertaHorarios'></p>
                     {ListaHorarios.map((iten, key) =>{
 
                         return(
