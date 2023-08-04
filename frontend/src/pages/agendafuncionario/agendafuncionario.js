@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from  'react';
+import {useNavigate} from 'react-router-dom' 
 import Api from '../../services/api';
-import './style_agendamento.css';
+import './style_funcionario.css';
 import Logo from  '../assets/Logo.png';
 
-export default function Agendamento(){
-    //responsável por armazenar a lista de horários
+export default function AgendaFuncionario(){
+    const History = useNavigate();
+    //responsável por armazenaar a lista de horários
     const [ListaHorarios, setListaHorarios] =  useState([]);
-    //responsável po armazenar a lista de serviços.
-    const [ListaServicos, setListaServicos] = useState([]);
+    //responsavel po armazenar a lista de serviços;
+    const [Listarservicos, setListarServicos] = useState([]);
     //input de data e hora.
     const [Datastring, setDatastring] = useState('');
     const [horaAtual, setHora] = useState('');
@@ -23,12 +25,18 @@ export default function Agendamento(){
     var dia = DataAtual.getDate();
     var mes = DataAtual.getMonth() + 1;
     var ano = DataAtual.getFullYear(); 
-    var cpf_salao = localStorage.getItem('cpf_salao');
+    localStorage.removeItem('cpf_salao');
+    var cpf_funcionario = localStorage.getItem('cpf_funcionario');
+    var cpf_salao = localStorage.getItem('idsalao');;
 
-    //buscando à agenda e os serviços do salão;
-    useEffect( ()=>{
+    if(localStorage.getItem('cpf_funcionario') === null){
+        alert('Erro ao buscar os dados do joao');
+        History('/');
+    };
+    //buscando  horarios preenchidos
+    useEffect(() =>{
         const Data = {
-            cpf_salao,
+            cpf_funcionario,
             dia,
             mes,
             ano
@@ -42,17 +50,26 @@ export default function Agendamento(){
         }).catch(() => {
             alert('Erro ao buscar Horários Preenchidos.');
         });
-        const Dat = {
+        //agenda
+        /*Api.post('/horariospreenchidos', Data).then((Response) =>{
+            setListaHorarios(Response.data);
+            if(Response.data.length === 0){
+                document.querySelector("AlertaHorarios").innerHTML = "Nada Agendado!.";
+            };
+        }).catch(() => {
+            alert('Erro ao buscar Horários Preenchidos.');
+         });*/
+         const Dat = {
             cpf_salao
-        };
-        //serviços
-        Api.post('/servico', Dat).then((Response) => {
-            setListaServicos(Response.data);        
-        }).catch(()=>{
-            alert('Erro ao buscar informações de servoços.');
-        });
+         };
+         //serviços
+         Api.post('/servico', Dat).then((Response) =>{
+            setListarServicos(Response.data);
+         }).catch((erro) =>{
+            alert('Erro ao buscar informações de serviços');
+         });
     });
-    
+
     const Agendar = async (e) =>{
         e.preventDefault();
         var status_servico = "agendado";
@@ -84,7 +101,7 @@ export default function Agendamento(){
         var data_atual = DataAtual.getDate()+'/'+Mes+'/'+DataAtual.getFullYear();
 
         const Data = {
-            cpf_salao, //ok
+            cpf_funcionario, //ok
             dia_semana, //ok
             dia, //ok
             mes, //ok
@@ -105,7 +122,7 @@ export default function Agendamento(){
         }else if(horaAtual === ''){
             alert('selecione um Horário.');
         }else if(isNaN(horaAtual)){
-            alert('selecione um Horário.');
+            alert('selecione um Horários');
         }else if(DATA < DataAtual){
             alert('DATA INVALIDA: selecione uma data de hoje em diante!');
         }else if(DATA > DataAtual){
@@ -160,7 +177,7 @@ export default function Agendamento(){
                 };
             }).catch((err) =>{
                 alert('Erro horarios livres')
-            }); 
+            });  
         };
     };
     return(
@@ -169,8 +186,9 @@ export default function Agendamento(){
                 <img src={Logo} alt='Logo Salão' />
                 <h1 id='H1NomeSalao'>Nome Salão</h1>
             </header>
+
             <div id='DivAgendamento'>
-                <h2>Selecione uma data</h2>
+            <h2>Selecione uma data</h2>
                 <div id='DivCalendario'>
                     <input 
                     id='Calendario' 
@@ -191,12 +209,14 @@ export default function Agendamento(){
                     <br/>
                     <p id='AlertaHorarios'></p>
                     {ListaHorarios.map((iten, key) =>{
+
                         return(
                             <ul key={iten.id}>
                                 <li>
                                     <p>Horário Preenchido : das {iten.hora} Horas as {iten.hora_termino} Horas</p>
                                 </li>
                             </ul>
+
                         );
                     })}           
                 </div>
@@ -205,7 +225,7 @@ export default function Agendamento(){
                 <br/>
                 <div id='Serviços'>
                     <h2>Selecione um Serviço</h2>
-                    {ListaServicos.map((iten, key) =>{
+                    {Listarservicos.map((iten, key) =>{
                         const SelectServico = () =>{
                             setPreco(iten.preco);
                             setServico(iten.servico);
@@ -222,6 +242,7 @@ export default function Agendamento(){
                             </ul>
                         );
                     })}
+                    
                 </div>
                 <br/>
                 <hr/>
@@ -236,7 +257,6 @@ export default function Agendamento(){
                         className='InputFormCliente'
                         placeholder='Nome Completo'
                         onChange={(e) => setNameCliente(e.target.value)}/>
-
                         <p className='PFormCliente'>Número de telefone WhatsApp</p>
                         <input
                         type='number'
@@ -254,6 +274,7 @@ export default function Agendamento(){
                     </form>
                 </div>
             </div>
+
         </div>
     );
 };
