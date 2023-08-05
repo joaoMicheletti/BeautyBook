@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Init from './pages/init/init';
-import AGfuncionario from  './pages/agendafuncionario';
+import AGfuncionario from  './pages/agendafuncionario/agendafuncionario';
 import RegistroSalao from './pages/RegistroSalao/RegistroSalao';
 import LoginSalao from './pages/LoginSalao/LoginSalao';
 import Paninel from './pages/painel/painel';
