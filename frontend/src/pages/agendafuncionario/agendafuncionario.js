@@ -101,6 +101,7 @@ export default function AgendaFuncionario(){
         var data_atual = DataAtual.getDate()+'/'+Mes+'/'+DataAtual.getFullYear();
 
         const Data = {
+            cpf_salao,
             cpf_funcionario, //ok
             dia_semana, //ok
             dia, //ok
@@ -119,9 +120,10 @@ export default function AgendaFuncionario(){
         console.log(Data);
         if(Datastring === ''){
             alert('Selecione uma Data.');
-        }else if(horaAtual === ''){
+        }else if(hora === ''){
             alert('selecione um Horário.');
-        }else if(isNaN(horaAtual)){
+        }else if(isNaN(hora)){
+            console.log(hora)
             alert('selecione um Horários');
         }else if(DATA < DataAtual){
             alert('DATA INVALIDA: selecione uma data de hoje em diante!');

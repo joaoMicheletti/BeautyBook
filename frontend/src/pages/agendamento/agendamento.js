@@ -102,9 +102,9 @@ export default function Agendamento(){
         console.log(Data);
         if(Datastring === ''){
             alert('Selecione uma Data.');
-        }else if(horaAtual === ''){
+        }else if(hora === ''){
             alert('selecione um Horário.');
-        }else if(isNaN(horaAtual)){
+        }else if(isNaN(hora)){
             alert('selecione um Horário.');
         }else if(DATA < DataAtual){
             alert('DATA INVALIDA: selecione uma data de hoje em diante!');

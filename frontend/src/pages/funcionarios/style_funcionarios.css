@@ -76,6 +76,13 @@
     height: 25px;
     margin-bottom: 10px;
 }
+#SenhaFuncionarioss{
+    border-radius: 3px;
+    border: solid black 1px;
+    width: 80%;
+    height: 25px;
+    margin-bottom: 10px
+}
 #BtnFuncionarios {
     cursor: pointer;
     background-color: rgb(129, 124, 124);
