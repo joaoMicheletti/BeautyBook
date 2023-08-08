@@ -35,6 +35,42 @@
     text-align: center;
     text-decoration: underline;
 }
+#Form_dias {
+    margin-left: 10%;
+    width: 80%;
+    text-align: center;
+    font-weight: 600;
+}
+#dia {
+    margin-left: 40PX;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 15px;
+    background-color: rgba(129, 124, 124, 0.671);
+    border: solid black 1px;
+}
+#inicio {
+    margin-left: 40px;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 15px;
+    background-color: rgba(129, 124, 124, 0.671);
+    border: solid black 1px;
+}
+#termino {
+    margin-left:  40px;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 15px;
+    background-color: rgba(129, 124, 124, 0.671);
+    border: solid black 1px;
+}
+#Btn_cad {
+    width: 30%;
+    height: 35px;
+    background-color: rgba(129, 124, 124, 0.671);
+    cursor: pointer;
+}
 #DivHorarios {
     width: 100%;
 }
