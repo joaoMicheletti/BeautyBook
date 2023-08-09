@@ -117,6 +117,33 @@ export default function Ajustes(){
             });
         };
     };
+    //alterar senha do funcionário.
+    const [SenhaFuncionario, setSenhaFuncionario] = useState('');
+    const [csenhaFuncionario, setCSenhaFuncionario] = useState('');
+    const [cpf_funcionario, setCpfFuncionario] = useState('');
+    const FuncionarioSenha = async (e) =>{
+        e.preventDefault();
+        const Data = {
+            senha: SenhaFuncionario,
+            cpf_salao,
+            cpf_funcionario
+        };
+        if(cpf_funcionario === ''){
+            alert('Preencha o campo Cpf Funcionário');
+        } else if(SenhaFuncionario === ''){
+            alert('Preencha o campo Senha.');
+        } else if(csenhaFuncionario === ''){
+            alert('Preencha o campo Confirmar senha.');
+        } else {
+            await Api.post('/passfuncionarios', Data).then((Response) => {
+                if(Response.data > 0) {
+                    alert('Senha Alterada com sucesso.');
+                }
+            }).catch((Erro) => {
+                alert('Erro ao Editar Senha do Funcionário');
+            });
+        }
+    };
     return(
         <div id="PainelSalao">
             <header id="HeaderSalao">
@@ -299,18 +326,26 @@ export default function Ajustes(){
                             </p>
                             <input className="InputEditarSenhaFuncionario"
                             type="text"
-                            placeholder="CPF do funcionário">
-                            </input>
+                            placeholder="CPF do funcionário"
+                            onChange={(e) => setCpfFuncionario(e.target.value)}></input>
 
                             <p className="EditarSenhaFuncionario">
                                 Nova Senha
                             </p>
                             <input className="InputEditarSenhaFuncionario"
                             type="password"
-                            placeholder="Nova Senha">
-                            </input>
+                            placeholder="Nova Senha"
+                            onChange={(e) => setSenhaFuncionario(e.target.value)}></input>
+                            <p className="EditarSenhaFuncionario">
+                                Confirmar Nova Senha
+                            </p>
+                            <input className="InputEditarSenhaFuncionario"
+                            type="password"
+                            placeholder="confirmarNova Senha"
+                            onChange={(e) => setCSenhaFuncionario(e.target.value)}></input>
                             <br/>
-                            <button id="BtnEditarSenhaFuncionario">
+                            <button id="BtnEditarSenhaFuncionario"
+                            onClick={FuncionarioSenha}>
                                 Editar
                             </button>
                         </form>
