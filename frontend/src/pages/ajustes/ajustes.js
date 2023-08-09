@@ -15,15 +15,19 @@ export default function Ajustes(){
     };
     const Intervalo = async (e) => {
         e.preventDefault();
-        await Api.post('/intervalo', Data).then((Response) => {
-            if(Response.data === 'Intervalo definido!'){
-                alert(Response.data);
-            } else {
-                alert('erro ao definir o intervalo');
-            };
-        }).catch((Erro) => {
-            alert('Erro ao auterar o intervalo entre agendamentos.');
-        });
+        if(intervalo_entre_agendamentos === ''){
+            alert('Defina com minutos o intervalo .');
+        } else {
+            await Api.post('/intervalo', Data).then((Response) => {
+                if(Response.data === 'Intervalo definido!'){
+                    alert(Response.data);
+                } else {
+                    alert('erro ao definir o intervalo');
+                };
+            }).catch((Erro) => {
+                alert('Erro ao auterar o intervalo entre agendamentos.');
+            });
+        };        
     };
     return(
         <div id="PainelSalao">
