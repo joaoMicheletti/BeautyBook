@@ -28,7 +28,7 @@ export default function HorarioDeFuncionamento(){
         Api.post('/listarhorariofuncionamento', DATA).then((Response) => {
             setlitaHorarios(Response.data);
             if(Response.data.length === 0){
-                alert('Erro ao Buscar Horários de Serviços');
+                alert('não encontramos Horários cadastrados.');
             };
         }).catch((Erro) =>{
             alert('Erro ao Buscar Horários de Serviço.');
@@ -39,6 +39,8 @@ export default function HorarioDeFuncionamento(){
         e.preventDefault();
         if(dia.length === 0){
             alert('Selecione um dia!');
+        } else if(dia === 'selecione um dia'){
+            alert('Selecione um dia');
         } else if(Inicio_trabalhos.length === 0){
             alert(' Selecione uma Hora de Início!');
         } else if(Fim_trabalhos.length === 0){
@@ -114,6 +116,7 @@ export default function HorarioDeFuncionamento(){
                 </div>
                 <div id="DivHorarios">
                 {ListaHorarios.map((iten, key) => {
+                    // editar Hora;
                     const Editar = async () => {
                         alert('ao inves de usar ( : ) use o ( . )');
                         var inicio_trabalhos = parseFloat(prompt("Novo Horário de início ? :"), 10);
@@ -132,11 +135,26 @@ export default function HorarioDeFuncionamento(){
                             alert('Os dados fornecidos não são validos.');
                         } else {
                             await Api.put('/horariofuncionamento', Data).then((response) => {
-                                console.log(Response.data);
                             }).catch((Erro) => {
                                 alert('Erro ao editar  o Horário.');
                             })
                         };
+                    };
+                    //eletar Horário.
+                    const Deletar = async () => {
+                        var id = iten.id;
+                        const Data = {
+                            id
+                        };
+                        Api.post('/deletarhorario', Data).then((Response) => {
+                            if(Response.data > 0){
+                                alert('Deletado com sucesso.');
+                            } else {
+                                alert('Erro ao Deletar.');
+                            }
+                        }).catch((Erro) => {
+                            alert('Erro ao Deletar Horário.');
+                        });
                         console.log(Data);
                     };
                     return(
@@ -151,6 +169,10 @@ export default function HorarioDeFuncionamento(){
                                 type="submit"
                                 className="BtnHorario"
                                 onClick={Editar}>Editar</button>
+                                <button
+                                type="submit"
+                                className="BtnHorario"
+                                onClick={Deletar}>Excluir</button>
                             </li>
                         </ul>
                     );
