@@ -48,6 +48,24 @@ export default function Ajustes(){
             });
         };
     };
+    // agendamentos futuros.
+    const [permitir_agendamento_ate, SetPermitir] = useState('');
+    const AgendamentoAte = async (e) => {
+        e.preventDefault();
+        const Data = {
+            cpf_salao, permitir_agendamento_ate
+        };
+        if(permitir_agendamento_ate === ''){
+            alert('Defina o prazo para agendamentos futuros');
+        } else {
+            await Api.post('/agendamentoate ', Data).then((Response) => {
+                alert(Response.data);
+            }).catch((Erro) => {
+                alert("Erro ao definir");
+            });
+        };
+    };
+
     return(
         <div id="PainelSalao">
             <header id="HeaderSalao">
@@ -140,11 +158,12 @@ export default function Ajustes(){
                             <input
                             id="MinutosCima"
                             type="number"
-                            placeholder="Defina com dias"></input>
+                            placeholder="Defina com dias"
+                            onChange={(e) => SetPermitir(e.target.value)}></input>
                             <p className="PPreferecias">Após a Data atual.</p>
                             <button
                             type="submit"
-                            id="DefinirCimaHora">Definir</button>
+                            id="DefinirCimaHora" onClick={AgendamentoAte}>Definir</button>
 
                         </li>
                     </ul><br/>
