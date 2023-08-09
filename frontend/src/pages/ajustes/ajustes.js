@@ -91,6 +91,32 @@ export default function Ajustes(){
             alert('as Senha não corresponden.');
         };
     };
+    //editar cadastro do salão;
+    const [nome_salao, setNome] = useState('');
+    const [endereco,  setEndereco] = useState('');
+    const [cep, setCep] = useState('');
+    const [email, setEmail] = useState('');
+    const MeuCadastro = async (e) => {
+        e.preventDefault();
+        const Data = {
+            nome_salao, endereco, cep, email, cpf_salao
+        };
+        if(nome_salao === ''){
+            alert('preencha o campo Nome Estabelecimento.');
+        } else if(endereco === ''){
+            alert('Preencha o campo endereço estabelecimento.');
+        } else if(cep === ''){
+            alert('Preencha oi campo CEP.');
+        } else if(email === ''){
+            alert('Reencha o campo Email.');
+        } else{
+            await Api.post('/editarsalao', Data).then((Response) => {
+                alert(Response.data);
+            }).catch((Erro) => {
+                alert('Erro ao Editar Dados Cadastrais.');
+            });
+        };
+    };
     return(
         <div id="PainelSalao">
             <header id="HeaderSalao">
@@ -231,26 +257,37 @@ export default function Ajustes(){
                             <input 
                             className="InputCadastro"
                             type="text"
-                            placeholder="Nome Do Estabelecimento"></input>
+                            placeholder="Nome Do Estabelecimento"
+                            onChange={(e) => setNome(e.target.value)}></input>
                             <p className="PCadastro">
                                 Endereço estabelecimento
                             </p>
                             <input 
                             className="InputCadastro"
                             type="text"
-                            placeholder="Endereço Do Estabelecimento"></input>
+                            placeholder="Endereço Do Estabelecimento"
+                            onChange={(e) => setEndereco(e.target.value)}></input>
+                            <p className="PCadastro">
+                                CEP estabelecimento
+                            </p>
+                            <input 
+                            className="InputCadastro"
+                            type="text"
+                            placeholder="CEP Do Estabelecimento"
+                            onChange={(e) => setCep(e.target.value)}></input>
                             <p className="PCadastro">
                                 Email
                             </p>
                             <input 
                             className="InputCadastro"
                             type="email"
-                            placeholder="E-mail"></input>
+                            placeholder="E-mail"
+                            onChange={(e) => setEmail(e.target.value)}></input>
                             <br/>
                             <button
                             id="BtnCadastro"
                             type="submit"
-                            >Editar</button>
+                            onClick={MeuCadastro}>Editar</button>
                         </form>
                     </div>
                     <hr/>
