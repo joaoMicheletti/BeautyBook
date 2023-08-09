@@ -8,9 +8,28 @@ import {GrUserWorker} from 'react-icons/gr';
 export default function Ajustes(){
     //referência do salão.
     const cpf_salao = localStorage.getItem('cpf_salao');
+    //logo do salão.
+    const [image , setimage] = useState('');
+    const Logoimg = async (e) => {
+        e.preventDefault();
+        const formdata = new FormData();
+        formdata.append('image', image);
+
+        const headers = { 
+            'headers': {
+                'content-Type': 'multipart/form-data',
+            }
+        };
+        await Api.post('/logo', formdata, headers).then((Response) => {
+            console.log(Response.data);
+            // fazer uma req para salvar na tabela salão o nome a imagem 
+        }).catch((Erro) =>{
+            alert('Erro ao enviar imagem. ');
+        });
+    };
+
     //intervalo_entre_agendamentos.
     const [intervalo_entre_agendamentos, setIntervalo] = useState('');
-    
     const Intervalo = async (e) => {
         e.preventDefault();
         const Data = {
@@ -179,12 +198,12 @@ export default function Ajustes(){
                     <input  
                     type="file"  
                     className="BtnImg"
-                    accept=".doc,.docx,.xml,application" 
-                    />
+                    accept=".jpg, , .jpeg, .png" 
+                    onChange={(e) => setimage(e.target.files[0])}/>
                     <button
                     type="submit"
                     className="BtnImg"
-                    >Adicionar | Editar</button>
+                    onClick={Logoimg}>Adicionar | Editar</button>
                 </div>
                 <hr/>
                 <div id="Preferencias">
