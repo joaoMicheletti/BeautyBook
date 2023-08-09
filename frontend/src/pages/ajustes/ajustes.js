@@ -65,7 +65,32 @@ export default function Ajustes(){
             });
         };
     };
-
+    //alterar Senha Salão.
+    const [senha, setSenha] = useState('');
+    const [CSenha, setCSenha] = useState('');
+    const Pass = async (e) => {
+        e.preventDefault();
+        const Data = {
+            cpf_salao, senha
+        };
+        if(senha === ''){
+            alert('Preencha o campo #Senha.');
+        } else if(CSenha === ''){
+            alert('Preencha o Campo Confirmar Nova Senha');
+        } else if(CSenha === senha){
+            await Api.post('/pass ', Data).then((Response) => {
+                if(Response.data === 'Atualizado...'){
+                    alert('Senha alterada com sucesso!');
+                } else {
+                    alert('Algo nção saiu como esperado.');
+                };
+            }).catch((Erro) => {
+                alert('Erro ao Editar Senha.');
+            });
+        } else {
+            alert('as Senha não corresponden.');
+        };
+    };
     return(
         <div id="PainelSalao">
             <header id="HeaderSalao">
@@ -178,18 +203,20 @@ export default function Ajustes(){
                             <input
                             className='InputFormSenha'
                             type="password"
-                            placeholder="Nova Senha"></input>
+                            placeholder="Nova Senha"
+                            onChange={(e) => setSenha(e.target.value)}></input>
                             <p className="PFormSenha">
                                Confirnmar Nova Senha
                             </p>
                             <input
                             className='InputFormSenha'
                             type="password"
-                            placeholder="Confirmar Nova Senha"></input>
+                            placeholder="Confirmar Nova Senha"
+                            onChange={(e) => setCSenha(e.target.value)}></input>
                             <br/>
                             <button 
                             id="BtnFormSenha"
-                            type="submit">Editar</button>
+                            type="submit" onClick={Pass}>Editar</button>
                         </form>
 
                     </div>
