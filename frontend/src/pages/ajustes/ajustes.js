@@ -1,10 +1,30 @@
-import React from "react";
-import Logo from '../assets/Logo.png'
+import React, {useState} from "react";
+import Api from '../../services/api';
+import Logo from '../assets/Logo.png';
 import './style_ajustes.css';
 import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
 
 export default function Ajustes(){
+    //referência do salão.
+    const cpf_salao = localStorage.getItem('cpf_salao');
+    //intervalo_entre_agendamentos.
+    const [intervalo_entre_agendamentos, setIntervalo] = useState('');
+    const Data = {
+        cpf_salao, intervalo_entre_agendamentos
+    };
+    const Intervalo = async (e) => {
+        e.preventDefault();
+        await Api.post('/intervalo', Data).then((Response) => {
+            if(Response.data === 'Intervalo definido!'){
+                alert(Response.data);
+            } else {
+                alert('erro ao definir o intervalo');
+            };
+        }).catch((Erro) => {
+            alert('Erro ao auterar o intervalo entre agendamentos.');
+        });
+    };
     return(
         <div id="PainelSalao">
             <header id="HeaderSalao">
@@ -60,13 +80,14 @@ export default function Ajustes(){
                     <input
                     id="Minutos"
                     type="number"
-                    placeholder="Defina com minutos"></input>
+                    placeholder="Defina com minutos"
+                    onChange={(e) => setIntervalo(e.target.value)}></input>
                     <br/>
                     <br/>
                     <button
                     id="BtnMinutos"
                     type="submit"
-                    >Definir</button>
+                    onClick={Intervalo}>Definir</button>
                     <hr/>
                     <h2 id="TitlePreferencias">Evitando Agendamentos encima da Hora</h2>
                     <br/>
