@@ -10,11 +10,13 @@ export default function Ajustes(){
     const cpf_salao = localStorage.getItem('cpf_salao');
     //intervalo_entre_agendamentos.
     const [intervalo_entre_agendamentos, setIntervalo] = useState('');
-    const Data = {
-        cpf_salao, intervalo_entre_agendamentos
-    };
+    
     const Intervalo = async (e) => {
         e.preventDefault();
+        const Data = {
+            cpf_salao, intervalo_entre_agendamentos
+        };
+
         if(intervalo_entre_agendamentos === ''){
             alert('Defina com minutos o intervalo .');
         } else {
@@ -28,6 +30,23 @@ export default function Ajustes(){
                 alert('Erro ao auterar o intervalo entre agendamentos.');
             });
         };        
+    };
+    // Evitando agendamento encima da hora.
+    const [agendamento_apos_hora_atual, setCimaHora] = useState('');
+    const Cimahora = async (e) => {
+        e.preventDefault();
+        const Data = {
+            cpf_salao, agendamento_apos_hora_atual
+        };
+        if(agendamento_apos_hora_atual === ''){
+            alert('Defina um praso com minutos');
+        } else {
+            await Api.post('/cimahora', Data).then((Response) =>{
+                alert(Response.data);
+            }).catch((Erro) =>{
+                alert('Erro ao definir.');
+            });
+        };
     };
     return(
         <div id="PainelSalao">
@@ -97,18 +116,18 @@ export default function Ajustes(){
                     <br/>
                     <ul>
                         <li>
-                            
                             <p className="PPreferecias">
                                 Não será mostrado aos clientes Horários até :
                             </p>
                             <input
                             id="MinutosCima"
                             type="number"
-                            placeholder="Defina com minutos"></input>
+                            placeholder="Defina com minutos"
+                            onChange={(e) => setCimaHora(e.target.value)}></input>
                             <p className="PPreferecias">Após o horário atual.</p>
                             <button
                             type="submit"
-                            id="DefinirCimaHora">Definir</button>
+                            id="DefinirCimaHora" onClick={Cimahora}>Definir</button>
 
                         </li>
                     </ul>
