@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Api from '../../services/api';
 import Logo from '../assets/Logo.png';
 import './style_ajustes.css';
@@ -8,6 +8,17 @@ import {GrUserWorker} from 'react-icons/gr';
 export default function Ajustes(){
     //referência do salão.
     const cpf_salao = localStorage.getItem('cpf_salao');
+    //useEffect primeira função a ser ezecutada.
+    //essa função fica responsavel por trazer algunsa dados para serem apresentados nos placeholder
+    const [listaSalao, setListaSalao] = useState([]);
+    useEffect(() => {
+        const Data = {cpf_salao};
+        Api.post('/buscarsalao', Data).then((Response) => {
+            setListaSalao(Response.data);
+        }).catch((Erro) => {
+            alert('Erro ao buscar informações do Salão.');
+        });
+    }, []);
     //logo do salão.
     const [image , setimage] = useState('');
     const Logoimg = async (e) => {
@@ -21,7 +32,7 @@ export default function Ajustes(){
             }
         };
         await Api.post('/logo', formdata, headers).then(async(Response) => {
-            console.log(Response.data);
+            
             const Data = {
                 cpf_salao, logo_salao: Response.data
             };
@@ -204,196 +215,201 @@ export default function Ajustes(){
                     <a id="Ajustes" className="BtnMenu" href="/ajustes"><FcSettings/></a>                    
                 </div>
             </div>
-            <section id="SectionAgendaSalao">
-                <h1 id="TitleAjustes">Preferências</h1>
-                <div id="AjustesImg" >
-                    <p id="ParagrafoImg" >Adicionar / Editar Logo do salão</p>
-                    <input  
-                    type="file"  
-                    className="BtnImg"
-                    accept=".jpg, , .jpeg, .png" 
-                    onChange={(e) => setimage(e.target.files[0])}/>
-                    <button
-                    type="submit"
-                    className="BtnImg"
-                    onClick={Logoimg}>Adicionar | Editar</button>
-                </div>
-                <hr/>
-                <div id="Preferencias">
-                    <p className="PPreferecias">Defina sua preferência de intervalos de marcação 
-                        de horários para sua agenda. Este intervalo 
-                        também é aplicado no agendamento online para clientes.
-                    </p>
-                    <br/>
-                    <p className="PPreferecias">
-                        Defina com "minutos"
-                    </p>
-                    <input
-                    id="Minutos"
-                    type="number"
-                    placeholder="Defina com minutos"
-                    onChange={(e) => setIntervalo(e.target.value)}></input>
-                    <br/>
-                    <br/>
-                    <button
-                    id="BtnMinutos"
-                    type="submit"
-                    onClick={Intervalo}>Definir</button>
-                    <hr/>
-                    <h2 id="TitlePreferencias">Evitando Agendamentos encima da Hora</h2>
-                    <br/>
-                    <ul>
-                        <li>
+            {listaSalao.map((iten, key) => {
+                return(
+                    <section key={iten.id} id="SectionAgendaSalao">
+                        <h1 id="TitleAjustes">Preferências</h1>
+                        <div id="AjustesImg" >
+                            <p id="ParagrafoImg" >Adicionar / Editar Logo do salão</p>
+                            <input  
+                            type="file"  
+                            className="BtnImg"
+                            accept=".jpg, , .jpeg, .png" 
+                            onChange={(e) => setimage(e.target.files[0])}/>
+                            <button
+                            type="submit"
+                            className="BtnImg"
+                            onClick={Logoimg}>Adicionar | Editar</button>
+                        </div>
+                        <hr/>
+                        <div id="Preferencias">
+                            <p className="PPreferecias">Defina sua preferência de intervalos de marcação 
+                                de horários para sua agenda. Este intervalo 
+                                também é aplicado no agendamento online para clientes.
+                            </p>
+                            <br/>
                             <p className="PPreferecias">
-                                Não será mostrado aos clientes Horários até :
+                                Defina com "minutos"
                             </p>
                             <input
-                            id="MinutosCima"
+                            id="Minutos"
                             type="number"
-                            placeholder="Defina com minutos"
-                            onChange={(e) => setCimaHora(e.target.value)}></input>
-                            <p className="PPreferecias">Após o horário atual.</p>
-                            <button
-                            type="submit"
-                            id="DefinirCimaHora" onClick={Cimahora}>Definir</button>
-
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            
-                            <p className="PPreferecias">
-                            Permitir que os clientes gravem agendamentos para até daqui: 
-                            </p>
-                            <input
-                            id="MinutosCima"
-                            type="number"
-                            placeholder="Defina com dias"
-                            onChange={(e) => SetPermitir(e.target.value)}></input>
-                            <p className="PPreferecias">Após a Data atual.</p>
-                            <button
-                            type="submit"
-                            id="DefinirCimaHora" onClick={AgendamentoAte}>Definir</button>
-
-                        </li>
-                    </ul><br/>
-                    <hr/>                    
-                    <br/>
-                    <div id="Senha">
-                        <h2 id="TitleSenha">Alterar Senha</h2>
-                        <form id="FormSenha">
-                            <p className="PFormSenha">
-                               Nova Senha
-                            </p>
-                            <input
-                            className='InputFormSenha'
-                            type="password"
-                            placeholder="Nova Senha"
-                            onChange={(e) => setSenha(e.target.value)}></input>
-                            <p className="PFormSenha">
-                               Confirnmar Nova Senha
-                            </p>
-                            <input
-                            className='InputFormSenha'
-                            type="password"
-                            placeholder="Confirmar Nova Senha"
-                            onChange={(e) => setCSenha(e.target.value)}></input>
+                            placeholder={iten.intervalo_entre_agendamentos + '  minutos'}
+                            onChange={(e) => setIntervalo(e.target.value)}></input>
                             <br/>
-                            <button 
-                            id="BtnFormSenha"
-                            type="submit" onClick={Pass}>Editar</button>
-                        </form>
-
-                    </div>
-                    <hr/>
-                    <br/>
-                    <div id="Cadastro" >
-                        <h2 id="TitleCadastro">Meu Cadastro</h2>
-                        <form>
-                            <p className="PCadastro">
-                                Nome Estabelecimanrto
-                            </p>
-                            <input 
-                            className="InputCadastro"
-                            type="text"
-                            placeholder="Nome Do Estabelecimento"
-                            onChange={(e) => setNome(e.target.value)}></input>
-                            <p className="PCadastro">
-                                Endereço estabelecimento
-                            </p>
-                            <input 
-                            className="InputCadastro"
-                            type="text"
-                            placeholder="Endereço Do Estabelecimento"
-                            onChange={(e) => setEndereco(e.target.value)}></input>
-                            <p className="PCadastro">
-                                CEP estabelecimento
-                            </p>
-                            <input 
-                            className="InputCadastro"
-                            type="text"
-                            placeholder="CEP Do Estabelecimento"
-                            onChange={(e) => setCep(e.target.value)}></input>
-                            <p className="PCadastro">
-                                Email
-                            </p>
-                            <input 
-                            className="InputCadastro"
-                            type="email"
-                            placeholder="E-mail"
-                            onChange={(e) => setEmail(e.target.value)}></input>
                             <br/>
                             <button
-                            id="BtnCadastro"
+                            id="BtnMinutos"
                             type="submit"
-                            onClick={MeuCadastro}>Editar</button>
-                        </form>
-                    </div>
-                    <hr/>
-                    <div id="EditarSenhaFuncionario">
-                        <h2 id="TitleEditarSenhaFuncionario">Editar Senha de Funcionários</h2>
-                        <form>
-                            <p className="EditarSenhaFuncionario">
-                                CPF do Funcionário
-                            </p>
-                            <input className="InputEditarSenhaFuncionario"
-                            type="text"
-                            placeholder="CPF do funcionário"
-                            onChange={(e) => setCpfFuncionario(e.target.value)}></input>
-
-                            <p className="EditarSenhaFuncionario">
-                                Nova Senha
-                            </p>
-                            <input className="InputEditarSenhaFuncionario"
-                            type="password"
-                            placeholder="Nova Senha"
-                            onChange={(e) => setSenhaFuncionario(e.target.value)}></input>
-                            <p className="EditarSenhaFuncionario">
-                                Confirmar Nova Senha
-                            </p>
-                            <input className="InputEditarSenhaFuncionario"
-                            type="password"
-                            placeholder="confirmarNova Senha"
-                            onChange={(e) => setCSenhaFuncionario(e.target.value)}></input>
+                            onClick={Intervalo}>Definir</button>
+                            <hr/>
+                            <h2 id="TitlePreferencias">Evitando Agendamentos encima da Hora</h2>
                             <br/>
-                            <button id="BtnEditarSenhaFuncionario"
-                            onClick={FuncionarioSenha}>
-                                Editar
-                            </button>
-                        </form>
-                    </div>
-                    <hr/>
-                    <div id="Plano">
-                        <h2 id="TitlePlanos">Planos</h2>
-                        <p id="TextoPlano">                    
-                        OBS: Os planos só poderão sofrer alterações após 3 meses de assinatura . 
-                        </p>
-                        <p>Ver os Planos : </p>
-                        <a href="/planos">Clik aqui</a>
-                    </div>
-                </div>
-                
-            </section>
+                            <ul>
+                                <li>
+                                    <p className="PPreferecias">
+                                        Não será mostrado aos clientes Horários até :
+                                    </p>
+                                    <input
+                                    id="MinutosCima"
+                                    type="number"
+                                    placeholder={iten.agendamento_apos_hora_atual + '  minutos'}
+                                    onChange={(e) => setCimaHora(e.target.value)}></input>
+                                    <p className="PPreferecias">Após o horário atual.</p>
+                                    <button
+                                    type="submit"
+                                    id="DefinirCimaHora" onClick={Cimahora}>Definir</button>
+
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    
+                                    <p className="PPreferecias">
+                                    Permitir que os clientes gravem agendamentos para até daqui: 
+                                    </p>
+                                    <input
+                                    id="MinutosCima"
+                                    type="number"
+                                    placeholder={iten.permitir_agendamento_ate + '  dias'}
+                                    onChange={(e) => SetPermitir(e.target.value)}></input>
+                                    <p className="PPreferecias">Após a Data atual.</p>
+                                    <button
+                                    type="submit"
+                                    id="DefinirCimaHora" onClick={AgendamentoAte}>Definir</button>
+
+                                </li>
+                            </ul><br/>
+                            <hr/>                    
+                            <br/>
+                            <div id="Senha">
+                                <h2 id="TitleSenha">Alterar Senha</h2>
+                                <form id="FormSenha">
+                                    <p className="PFormSenha">
+                                    Nova Senha
+                                    </p>
+                                    <input
+                                    className='InputFormSenha'
+                                    type="password"
+                                    placeholder="Nova Senha"
+                                    onChange={(e) => setSenha(e.target.value)}></input>
+                                    <p className="PFormSenha">
+                                    Confirnmar Nova Senha
+                                    </p>
+                                    <input
+                                    className='InputFormSenha'
+                                    type="password"
+                                    placeholder="Confirmar Nova Senha"
+                                    onChange={(e) => setCSenha(e.target.value)}></input>
+                                    <br/>
+                                    <button 
+                                    id="BtnFormSenha"
+                                    type="submit" onClick={Pass}>Editar</button>
+                                </form>
+
+                            </div>
+                            <hr/>
+                            <br/>
+                            <div id="Cadastro" >
+                                <h2 id="TitleCadastro">Meu Cadastro</h2>
+                                <form>
+                                    <p className="PCadastro">
+                                        Nome Estabelecimanrto
+                                    </p>
+                                    <input 
+                                    className="InputCadastro"
+                                    type="text"
+                                    placeholder="Nome Do Estabelecimento"
+                                    onChange={(e) => setNome(e.target.value)}></input>
+                                    <p className="PCadastro">
+                                        Endereço estabelecimento
+                                    </p>
+                                    <input 
+                                    className="InputCadastro"
+                                    type="text"
+                                    placeholder="Endereço Do Estabelecimento"
+                                    onChange={(e) => setEndereco(e.target.value)}></input>
+                                    <p className="PCadastro">
+                                        CEP estabelecimento
+                                    </p>
+                                    <input 
+                                    className="InputCadastro"
+                                    type="text"
+                                    placeholder="CEP Do Estabelecimento"
+                                    onChange={(e) => setCep(e.target.value)}></input>
+                                    <p className="PCadastro">
+                                        Email
+                                    </p>
+                                    <input 
+                                    className="InputCadastro"
+                                    type="email"
+                                    placeholder="E-mail"
+                                    onChange={(e) => setEmail(e.target.value)}></input>
+                                    <br/>
+                                    <button
+                                    id="BtnCadastro"
+                                    type="submit"
+                                    onClick={MeuCadastro}>Editar</button>
+                                </form>
+                            </div>
+                            <hr/>
+                            <div id="EditarSenhaFuncionario">
+                                <h2 id="TitleEditarSenhaFuncionario">Editar Senha de Funcionários</h2>
+                                <form>
+                                    <p className="EditarSenhaFuncionario">
+                                        CPF do Funcionário
+                                    </p>
+                                    <input className="InputEditarSenhaFuncionario"
+                                    type="text"
+                                    placeholder="CPF do funcionário"
+                                    onChange={(e) => setCpfFuncionario(e.target.value)}></input>
+
+                                    <p className="EditarSenhaFuncionario">
+                                        Nova Senha
+                                    </p>
+                                    <input className="InputEditarSenhaFuncionario"
+                                    type="password"
+                                    placeholder="Nova Senha"
+                                    onChange={(e) => setSenhaFuncionario(e.target.value)}></input>
+                                    <p className="EditarSenhaFuncionario">
+                                        Confirmar Nova Senha
+                                    </p>
+                                    <input className="InputEditarSenhaFuncionario"
+                                    type="password"
+                                    placeholder="confirmarNova Senha"
+                                    onChange={(e) => setCSenhaFuncionario(e.target.value)}></input>
+                                    <br/>
+                                    <button id="BtnEditarSenhaFuncionario"
+                                    onClick={FuncionarioSenha}>
+                                        Editar
+                                    </button>
+                                </form>
+                            </div>
+                            <hr/>
+                            <div id="Plano">
+                                <h2 id="TitlePlanos">Planos</h2>
+                                <p id="TextoPlano">                    
+                                OBS: Os planos só poderão sofrer alterações após 3 meses de assinatura . 
+                                </p>
+                                <p>Ver os Planos : </p>
+                                <a href="/planos">Clik aqui</a>
+                            </div>
+                        </div>
+                        
+                    </section>
+                );
+            })}
+            
         </div>
     );
 };
