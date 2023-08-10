@@ -20,8 +20,21 @@ export default function Ajustes(){
                 'content-Type': 'multipart/form-data',
             }
         };
-        await Api.post('/logo', formdata, headers).then((Response) => {
+        await Api.post('/logo', formdata, headers).then(async(Response) => {
             console.log(Response.data);
+            const Data = {
+                cpf_salao, logo_salao: Response.data
+            };
+            await Api.post('/logosalao', Data).then((Res) => {
+                console.log(Res.data);
+                if(Res.data > 0){
+                    alert('imagem salva com sucesso, atualize a pagina!');
+                } else {
+                    alert('algo não saiu como esperado.');
+                }
+            }).catch((Erro) => {
+                alert('Erro ao salvar a imagem,');
+            });
             // fazer uma req para salvar na tabela salão o nome a imagem 
         }).catch((Erro) =>{
             alert('Erro ao enviar imagem. ');
