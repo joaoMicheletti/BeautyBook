@@ -15,7 +15,6 @@ export default function Init(){
             alert('Erro ao carregar os salões.');
         })
     }, []);
-    console.log(ListaSalao);
     return(
         <div id="HomeConteiner">
             <header id="HeaderHome">
@@ -33,6 +32,8 @@ export default function Init(){
                             History('/agendamento');
                         } else if(iten.quantidade_funcionarios > 0){
                             localStorage.setItem('cpf_salao', iten.cpf_salao);
+                            localStorage.setItem('logo_salao', iten.logo_salao);
+                            localStorage.setItem('nome_salao', iten.nome_salao);
                             History('/agendamentofuncionario');
                         } else {
                             alert('Erro interno.');

@@ -22,11 +22,13 @@ export default function AgendamentoFuncionario(){
         });
         
     }, []);
+    //url das imagens no servidor;
+    const Url = "http://127.0.0.1:1998/image/";
     return(
         <div id="AgendamentoFuncionarioConteiner">
             <header id="HeaderAgFuncionario">
-                <img src={Logo} alt="Logo salão. "/>
-                <p id="PHeaderNomeSalão">Nome salão</p>
+                <img src={Url + localStorage.getItem('logo_salao')} alt="Logo salão. "/>
+                <p id="PHeaderNomeSalão">{localStorage.getItem('nome_salao')}</p>
             </header>
             <h1 id="H1AgFuncionario">
                 Agende com um de nossos Profissionais
