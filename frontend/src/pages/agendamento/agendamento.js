@@ -163,11 +163,13 @@ export default function Agendamento(){
             }); 
         };
     };
+    //url das imagens no servidor;
+    const Url = "http://127.0.0.1:1998/image/"
     return(
         <div id='ConteinerAgendamento'>
             <header id='HeaderAgendamento'>
-                <img src={Logo} alt='Logo Salão' />
-                <h1 id='H1NomeSalao'>Nome Salão</h1>
+                <img src={Url + localStorage.getItem('logo_salao')} alt='Logo Salão' />
+                <h1 id='H1NomeSalao'>{localStorage.getItem('nome_salao')}</h1>
             </header>
             <div id='DivAgendamento'>
                 <h2>Selecione uma data</h2>

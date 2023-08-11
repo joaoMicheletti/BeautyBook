@@ -29,6 +29,8 @@ export default function Init(){
                         console.log(iten.quantidade_funcionarios);
                         if(iten.quantidade_funcionarios === null){
                             localStorage.setItem('cpf_salao', iten.cpf_salao);
+                            localStorage.setItem('logo_salao', iten.logo_salao);
+                            localStorage.setItem('nome_salao', iten.nome_salao);
                             History('/agendamento');
                         } else if(iten.quantidade_funcionarios > 0){
                             localStorage.setItem('cpf_salao', iten.cpf_salao);
