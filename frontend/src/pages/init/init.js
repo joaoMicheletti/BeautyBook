@@ -7,6 +7,7 @@ import Api from '../../services/api';
 export default function Init(){
     const History = useNavigate();
     const [ListaSalao, setListaSalao] = useState([]);
+    
     useEffect(() =>{
         Api.get('/listarsalao').then((Response) =>{
             setListaSalao(Response.data);
@@ -14,6 +15,7 @@ export default function Init(){
             alert('Erro ao carregar os salões.');
         })
     }, []);
+    console.log(ListaSalao);
     return(
         <div id="HomeConteiner">
             <header id="HeaderHome">
@@ -23,6 +25,7 @@ export default function Init(){
             <div id="ConteudoHome">
                 <h2>Selecione o Salão.</h2>
                 {ListaSalao.map((iten, key) => {
+                    const URL = 'http://127.0.0.1:1998/image/';
                     const Agenda = () =>{
                         console.log(iten.quantidade_funcionarios);
                         if(iten.quantidade_funcionarios === null){
@@ -37,6 +40,7 @@ export default function Init(){
                     }
                     return(
                         <ul key={iten.id}>
+                            <img src={URL + iten.logo_salao}/>
                             <li>
                                 <p className="PConteudohome">
                                     Salão : {iten.nome_salao}

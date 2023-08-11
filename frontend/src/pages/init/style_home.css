@@ -42,6 +42,9 @@ h1 {
     background-color: rgb(88, 85, 85);
     margin-bottom: 15px;
 }
+#ConteudoHome ul img {
+    width: 180px;
+}
 #ConteudoHome ul li {
     list-style: none;
 }
