@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from  'react';
 import Api from '../../services/api';
 import './style_agendamento.css';
-import Logo from  '../assets/Logo.png';
 
 export default function Agendamento(){
     //responsável por armazenar a lista de horários

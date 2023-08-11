@@ -43,7 +43,7 @@ export default function Init(){
                     }
                     return(
                         <ul key={iten.id}>
-                            <img src={URL + iten.logo_salao}/>
+                            <img src={URL + iten.logo_salao} alt="logo"/>
                             <li>
                                 <p className="PConteudohome">
                                     Salão : {iten.nome_salao}
