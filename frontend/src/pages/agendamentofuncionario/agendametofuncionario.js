@@ -15,6 +15,7 @@ export default function AgendamentoFuncionario(){
             setListaFuncionarios(Response.data);
             if(Response.data.length === 0){
                 alert('funcionários não encontrados');
+                History('/');
             };
         }).catch(() =>{
             alert('Erro ao buscar por funcionários.');

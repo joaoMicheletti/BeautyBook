@@ -23,33 +23,37 @@ export default function Ajustes(){
     const [image , setimage] = useState('');
     const Logoimg = async (e) => {
         e.preventDefault();
-        const formdata = new FormData();
-        formdata.append('image', image);
+        if(image === ""){
+            alert('selecione uma imagem.');
+        } else {        
+            const formdata = new FormData();
+            formdata.append('image', image);
 
-        const headers = { 
-            'headers': {
-                'content-Type': 'multipart/form-data',
-            }
-        };
-        await Api.post('/logo', formdata, headers).then(async(Response) => {
-            
-            const Data = {
-                cpf_salao, logo_salao: Response.data
-            };
-            await Api.post('/logosalao', Data).then((Res) => {
-                console.log(Res.data);
-                if(Res.data > 0){
-                    alert('imagem salva com sucesso, atualize a pagina!');
-                } else {
-                    alert('algo não saiu como esperado.');
+            const headers = { 
+                'headers': {
+                    'content-Type': 'multipart/form-data',
                 }
-            }).catch((Erro) => {
-                alert('Erro ao salvar a imagem,');
+            };
+            await Api.post('/logo', formdata, headers).then(async(Response) => {
+                
+                const Data = {
+                    cpf_salao, logo_salao: Response.data
+                };
+                await Api.post('/logosalao', Data).then((Res) => {
+                    console.log(Res.data);
+                    if(Res.data > 0){
+                        alert('imagem salva com sucesso, atualize a pagina!');
+                    } else {
+                        alert('algo não saiu como esperado.');
+                    }
+                }).catch((Erro) => {
+                    alert('Erro ao salvar a imagem,');
+                });
+                // fazer uma req para salvar na tabela salão o nome a imagem 
+            }).catch((Erro) =>{
+                alert('Erro ao enviar imagem. ');
             });
-            // fazer uma req para salvar na tabela salão o nome a imagem 
-        }).catch((Erro) =>{
-            alert('Erro ao enviar imagem. ');
-        });
+        };
     };
 
     //intervalo_entre_agendamentos.

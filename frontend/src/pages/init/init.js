@@ -5,6 +5,13 @@ import Logo from '../assets/Logo.png'
 import Api from '../../services/api';
 
 export default function Init(){
+    // por precaução caso o usuário selecione um salão e por alguma eventualidade volte para a pagina anterior
+    // removeremos os dados que estarão armazenados no localstorage();
+    localStorage.removeItem('cpf_salao');
+    localStorage.removeItem('logo_salao');
+    localStorage.removeItem('nome_salao');
+    localStorage.removeItem('cpf_funcionario');
+    localStorage.removeItem('idsalao');
     const History = useNavigate();
     const [ListaSalao, setListaSalao] = useState([]);
     

@@ -136,6 +136,7 @@ export default function AgendaFuncionario(){
                             await Api.post('/registraragendamento', Data).then((Response) => {
                                 alert(Response.data);
                                 alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
+                                History('/');
                             }).catch((erro) =>{
                                 alert('Erro ao finalizar o agendamento');
                             });
