@@ -2,6 +2,7 @@
     background-color: transparent;
 }
 #Agenda{
+    background-color: transparent;
     margin-left: 15px;
     font-size: 45px;
 }
@@ -27,6 +28,12 @@
 #Ajustes {
     margin-left: 15px;
     font-size: 45px;
+}
+#SectionAgendaSalao{
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    background-color: white;
 }
 #TitleServicos {
     margin-top: 9px;

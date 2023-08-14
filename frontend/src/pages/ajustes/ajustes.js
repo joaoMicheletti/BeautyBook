@@ -191,15 +191,28 @@ export default function Ajustes(){
             });
         }
     };
+    const [infoSalao, setinfoSalao] = useState([]);
+    useEffect(() => {
+        Api.post('/buscarsalao', {cpf_salao}).then((Response) => {
+            setinfoSalao(Response.data);
+        }).catch((Erro) =>{
+            alert('erro ao buscar oformações do salão');
+        });
+    }, []);
+    const Url = "http://127.0.0.1:1998/image/";
     return(
         <div id="PainelSalao">
-            <header id="HeaderSalao">
-                <img id="LogoSalao" src={Logo} alt="LOgoSalão"/>
-                <h1 id="TitleSalao" >Nome Salão</h1>
-            </header>
+            {infoSalao.map((iten, key) =>{
+                return(
+                    <header key={iten.id} id="HeaderSalao">
+                        <img id="LogoSalao" src={Url + iten.logo_salao} alt="LOgoSalão"/>
+                        <h1 id="TitleSalao" >{iten.nome_salao}</h1>
+                    </header>
+                );
+            })}
             <hr/>
             <div id="ButtonsMenuSalao">
-                <div id='DivAganda' className="DivMenu">
+                <div id='DivAganda' className="DivMenu" style={{backgroundColor: "transparent"}}>
                     <a id='Agenda' className="BtnMenu" href="/painel"><FcCalendar/></a>
                 </div>
                 <div id='DivServicos'className="DivMenu">

@@ -1,15 +1,17 @@
 import React, {useState, useEffect}from "react";
+import {useNavigate } from "react-router-dom";
 import Api from     '../../services/api';
-import Logo from '../assets/Logo.png'
 import './style_funcionarios.css';
 import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
 
 export default function Funcionarios(){
+    const History = useNavigate();
     const [ListaFuncionarios, setListaFuncionarios] = useState([]);
     //buscando funcionarios cadastrados;
+    var cpf_salao = localStorage.getItem('cpf_salao');
     useEffect(() =>{
-        var cpf_salao = localStorage.getItem('cpf_salao');
+        
         const Data = {
             cpf_salao
         };
@@ -63,15 +65,28 @@ export default function Funcionarios(){
             alert('As Senha não Correponden.');
         };
     };
+    const [infoSalao, setinfoSalao] = useState([]);
+    useEffect(() => {
+        Api.post('/buscarsalao', {cpf_salao}).then((Response) => {
+            setinfoSalao(Response.data);
+        }).catch((Erro) =>{
+            alert('erro ao buscar oformações do salão');
+        });
+    }, []);
+    const Url = "http://127.0.0.1:1998/image/";
     return(
         <div id="PainelSalao">
-            <header id="HeaderSalao">
-                <img id="LogoSalao" src={Logo} alt="LOgoSalão"/>
-                <h1 id="TitleSalao" >Nome Salão</h1>
-            </header>
+            {infoSalao.map((iten, key) =>{
+                return(
+                    <header key={iten.id} id="HeaderSalao">
+                        <img id="LogoSalao" src={Url + iten.logo_salao} alt="LOgoSalão"/>
+                        <h1 id="TitleSalao" >{iten.nome_salao}</h1>
+                    </header>
+                );
+            })}
             <hr/>
             <div id="ButtonsMenuSalao">
-                <div id='DivAganda' className="DivMenu">
+                <div id='DivAganda' className="DivMenu" style={{backgroundColor: "transparent"}}>
                     <a id='Agenda' className="BtnMenu" href="/painel"><FcCalendar/></a>
                 </div>
                 <div id='DivServicos'className="DivMenu">
@@ -137,6 +152,12 @@ export default function Funcionarios(){
                     <hr/>
                     <div id="FuncionariosCadastrados">
                         {ListaFuncionarios.map((iten, key) =>{
+                            //ver a agenda do funcionário;
+                            const VerAgenda = () => {
+                                console.log("ver aagenda ");
+                                localStorage.setItem('cpf_funcionario', iten.cpf_funcionario);
+                                History('/agendaF');
+                            };
                             //função para deletar funcinário;
                             const Deletar = () => {
                                 var cpf_salao = parseInt(localStorage.getItem('cpf_salao'), 10);
@@ -159,7 +180,7 @@ export default function Funcionarios(){
                                         <p className="PFuncionariosCadastrado">{iten.nome_completo}</p>
                                         <button
                                         type="submit"
-                                        id="BtnVerAgenda">Ver Agenda</button>
+                                        id="BtnVerAgenda" onClick={VerAgenda} >Ver Agenda</button>
                                         <button 
                                         id="BtnExcluir" 
                                         type="submit" onClick={Deletar}>Excluir</button>

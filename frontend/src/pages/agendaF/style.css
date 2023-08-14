@@ -38,6 +38,9 @@ hr{
     width: 80px;
     margin-left: 5px;
 }
+#DivAganda{
+    background-color: white;
+}
 #Agenda{
     margin-left: 15px;
     font-size: 40px;
@@ -63,7 +66,6 @@ hr{
     font-size: 40px;
 }
 #SectionAgendaSalao{
-    margin-top: -50px;
     width: 100%;
     height: auto;
     background-color: white;

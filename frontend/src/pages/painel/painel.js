@@ -1,6 +1,5 @@
 import React, {useEffect, useState}from "react";
 import Api from "../../services/api";
-import Logo from '../assets/Logo.png';
 import './style.css';
 import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
@@ -26,12 +25,26 @@ export default function Painel(){
             alert('Erro interno.');
         });
     }, []); //não passar dependências retorna um alerta ! porem ao passar o Data como dependência ele cai num loop infinito de requisições.
+    const [infoSalao, setinfoSalao] = useState([]);
+    useEffect(() => {
+        Api.post('/buscarsalao', {cpf_salao}).then((Response) => {
+            setinfoSalao(Response.data);
+        }).catch((Erro) =>{
+            alert('erro ao buscar oformações do salão');
+        });
+    }, []);
+    const Url = "http://127.0.0.1:1998/image/";
     return(
         <div id="PainelSalao">
-            <header id="HeaderSalao">
-                <img id="LogoSalao" src={Logo} alt="LOgoSalão"/>
-                <h1 id="TitleSalao" >Nome Salão</h1>
-            </header>
+            {infoSalao.map((iten, key) =>{
+                return(
+                    <header key={iten.id} id="HeaderSalao">
+                        <img id="LogoSalao" src={Url + iten.logo_salao} alt="LOgoSalão"/>
+                        <h1 id="TitleSalao" >{iten.nome_salao}</h1>
+                    </header>
+                );
+            })}
+            
             <hr/>
             <div id="ButtonsMenuSalao">
                 <div  id='DivAganda' className="DivMenu" style={{backgroundColor: "white"}}>
