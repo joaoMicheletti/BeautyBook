@@ -18,6 +18,7 @@ export default function Servicos(){
     return(
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{
+                localStorage.setItem('cod', infoSalao[0].codigo_indicacao);
                 return(
                     <header key={iten.id} id="HeaderSalao">
                         <img id="LogoSalao" src={Url + iten.logo_salao} alt="LOgoSalão"/>
@@ -53,7 +54,7 @@ export default function Servicos(){
                     <p id="TextInfoLink">
                     Este é o seu link para seus clientes agendarem com você 
                     rapidamente :<br/>
-                    https://XXXXXXXXXXXXXXX.com
+                    https://dominio/lk/{cpf_salao}
                     <br/>
                     Coloque este link na sua página 
                     do Facebook e Instagram, no perfil e na resposta 
@@ -69,7 +70,7 @@ export default function Servicos(){
                     <h2 id="TitleCodigoIndicação" >Indique e Ganhe.</h2>
                     <br/>
                     <p id="pCodigoIndicação" >
-                    Aqui  está seu código de indicação : “”.<br/>
+                    Aqui  está seu código de indicação : {localStorage.getItem('cod')}<br/>
                     Com ele você ganha alguns  benefícios  como, descontos na  próxima parcela.<br/>
                     Porem o benefício será valido para o seu estabelecimento quando o indicado contratar um dos nossos planos.<br/>
                     <br/>                    
