@@ -3,25 +3,37 @@ import Api from '../../services/api';
 import './style_agendamento.css';
 
 export default function Agendamento(){
+
     //responsável por armazenar a lista de horários
     const [ListaHorarios, setListaHorarios] =  useState([]);
+
     //responsável po armazenar a lista de serviços.
     const [ListaServicos, setListaServicos] = useState([]);
+
     //input de data e hora.
     const [Datastring, setDatastring] = useState('');
     const [horaAtual, setHora] = useState('');
+
     //dados cliente 
     const [nome_cliente, setNameCliente] = useState('');
+
+    //contato cliente
     const [contato_cliente, setContatoCliente] = useState('');
+
     // input observação 
     const [obs,  setObs] = useState('');
+
     //serviço e preço de sesrviço
     const [servico, setServico] = useState('');
     const [Preco, setPreco] = useState('');
+
+    //data atual e separando seu dia mes e ano para alterar a orden
     var DataAtual = new Date();
     var dia = DataAtual.getDate();
     var mes = DataAtual.getMonth() + 1;
-    var ano = DataAtual.getFullYear(); 
+    var ano = DataAtual.getFullYear();
+
+    //pegando atraves do estorage o cpf do salão ao quao o cliente gostatria de fazer o agendamento.
     var cpf_salao = localStorage.getItem('cpf_salao');
 
     //buscando à agenda e os serviços do salão;
@@ -39,7 +51,7 @@ export default function Agendamento(){
                 document.querySelector("#AlertaHorarios").innerHTML = "Nada Agendado!.";
             };
         }).catch(() => {
-            alert('Erro ao buscar Horários Preenchidos.');
+            //alert('Erro ao buscar Horários Preenchidos.');
         });
         const Dat = {
             cpf_salao
@@ -48,39 +60,48 @@ export default function Agendamento(){
         Api.post('/servico', Dat).then((Response) => {
             setListaServicos(Response.data);        
         }).catch(()=>{
-            alert('Erro ao buscar informações de servoços.');
+            //alert('Erro ao buscar informações de servoços.');
         });
     });
     
     const Agendar = async (e) =>{
         e.preventDefault();
         var status_servico = "agendado";
-        //pegando o nome do dia da semana;
-        let partes = Datastring.split("-");
-        // Crie um objeto Date (meses em JavaScript vão de 0 a 11, por isso subtraímos 1 do valor do mês)
-        let dataObj = new Date(partes[0], partes[1] - 1, partes[2]);
-        console.log(dataObj);
-        // Crie um array com os nomes dos dias da semana
-        let nomesDiasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
-        // Obtenha o número do dia da semana (0 para Domingo, 1 para Segunda, ..., 6 para Sábado)
-        let numeroDiaSemana = dataObj.getDay();
-        // Acesse o nome do dia da semana usando o número obtido
-        let dia_semana = nomesDiasSemana[numeroDiaSemana];
 
-        //invertendo a ordem da data para dia, mes, ano.
+        //pegando o nome do dia da semana, atraves do input date
+        let partes = Datastring.split("-");
+        console.log(partes);
+        //separando o  dia, mes, ano.
         var dia = parseInt(partes[2], 10);
         var mes = parseInt(partes[1], 10);
         var ano = parseInt(partes[0], 10);
-        // essa variável do tipo Date() será usada para garantir que não seja enviado datas passadas ao back;
-        // ou seja se essa variável for menor que a DataAtual a data já passou.
-        var DATA = new Date(partes[0], partes[1], partes[2]);
+
+        // Crie um objeto Date (meses em JavaScript vão de 0 a 11, por isso subtraímos 1 do valor do mês)
+        let dataObj = new Date(partes[0], partes[1] -1 , partes[2]);
+
+        // Crie um array com os nomes dos dias da semana
+        let nomesDiasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+
+        // Obtenha o número do dia da semana (0 para Domingo, 1 para Segunda, ..., 6 para Sábado)
+        let numeroDiaSemana = dataObj.getDay();
+
+        // Acesse o nome do dia da semana usando o número obtido
+        let dia_semana = nomesDiasSemana[numeroDiaSemana];
+
         //convertendo a hora para um valor float do jeito que o backend espera.
         var hora_ =  horaAtual.replace(':', '.');
         var hora = parseFloat(hora_);
+
         //passando o preço para float
         var preco = parseFloat(Preco);
+        
+
+        //a data atual de ser enviada no formato de String
+        //está varievél 'Mes' referese ao mes da variavél 'DataAtual'
+        //diferente da variavél 'mes' que faz referencia a variavél 'partes'
         var Mes = DataAtual.getMonth() + 1;
         var data_atual = DataAtual.getDate()+'/'+Mes+'/'+DataAtual.getFullYear();
+        
 
         const Data = {
             cpf_salao, //ok
@@ -98,55 +119,32 @@ export default function Agendamento(){
             data_atual, // para a rota de agendamentos futuros;
             //percent50, //falta
         };
-        console.log(Data);
+        
+
         if(Datastring === ''){
             alert('Selecione uma Data.');
         }else if(hora === ''){
             alert('selecione um Horário.');
         }else if(isNaN(hora)){
             alert('selecione um Horário.');
-        }else if(DATA < DataAtual){
-            alert('DATA INVALIDA: selecione uma data de hoje em diante!');
-        }else if(DATA > DataAtual){
-            //agendamentos futuros;
-            await Api.post('/agendamentosfuturos', Data).then(async (Response) =>{
-                if(Response.data === "Dentro do limite para Agendamentos futuros"){
-                    await Api.post('/horarioslivres', Data).then(async (Response) =>{
-                        if(Response.data === 'agendamento permitido'){
-
-                            await Api.post('/registraragendamento', Data).then((Response) => {
-                                alert(Response.data);
-                                alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
-                            }).catch((erro) =>{
-                                alert('Erro ao finalizar o agendamento');
-                            });
-
-                        }else{
-                            alert('Erro ao criar um agendamento futuro.');
-                        };
-
-                    }).catch((erro) =>{
-                        alert('Erro ao criar um agendamento futuro.');
-                    });
-                } else {
-                    alert(Response.data);
-                };
-            }).catch((Erro) =>{
-                alert('Erro ao criar um agendamento futuro.');
-            });
+        }else if(servico === ''){
+            alert('Selecione un serviço!');
         }else if(nome_cliente === ''){
             alert('Preencha o Campo @ Nome Completo');
-        } else if(contato_cliente.length < 11 || contato_cliente.length > 11){
+        }else if(contato_cliente.length < 11 || contato_cliente.length > 11){
             alert('Número de telefone invalido');
-        } else {
-            console.log(Data);
+            // agendamentos atual.
+        } else if(dia === DataAtual.getDate() && mes === DataAtual.getMonth()+1 && ano === DataAtual.getFullYear()){
+            alert("ag atual");
             //verificando se a data e horário estão disponíveis na agenda.
             await Api.post('/horarioslivres', Data).then(async (Response) => {
-                console.log(Response);
+                // fora do horário de funcionamento.
                 if(Response.data === 'Fora do Horário de funcionamento.'){
                     alert("Salão : " + Response.data);
+                    // é possivel que um horário não estará finalizado antes de começar o seu
                 } else if(Response.data === 'conflito entre agendamentos'){
                     alert(Response.data);
+                    //horários já preenchido
                 } else if(Response.data === 'Horário já ocupado'){
                     alert('Desculpe mas: ' + Response.data);
                 } else if(Response.data === 'agendamento permitido'){
@@ -154,14 +152,89 @@ export default function Agendamento(){
                     await Api.post('/registraragendamento', Data).then((Response) => {
                         alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
                     }).catch((erro) =>{
+                        //possivel falha de comunicação com o servidor
                         alert('Erro ao finalizar o agendamento');
                     });
                 };
             }).catch((err) =>{
-                alert('Erro horarios livres')
-            }); 
-        };
+                // falha de comunicação com o servidor
+                alert('Servidor não responde!')
+            });
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////
+            // validações para agendamento futuro.
+        } else if(dia >=  DataAtual.getDate()){
+            if(mes >= DataAtual.getMonth() + 1 && ano >= DataAtual.getFullYear()){
+                //agendamentos futuros;
+            await Api.post('/agendamentosfuturos', Data).then(async (Response) =>{
+
+                //verificar data limite para agendamentos futuros;
+                if(Response.data === "Dentro do limite para Agendamentos futuros"){
+                    
+                    await Api.post('/horarioslivres', Data).then(async (Response) =>{
+                        //confirmar se pode ou nçao realizar o agendamento
+                        if(Response.data === 'agendamento permitido'){
+                            //em fim agendar com o salão.
+                            await Api.post('/registraragendamento', Data).then((Response) => {
+                                alert(Response.data);
+                                alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
+                            }).catch((erro) =>{
+                                // falha de comunicação com o serviodor
+                                alert('Erro ao finalizar o agendamento');
+                            });
+
+                        }else{
+                            // pode ter gerado uim conflito entre agendamentos.
+                            alert('Erro ao criar um agendamento futuro.');
+                        };
+
+                    }).catch((erro) =>{
+                        // erro de comunicação com o servidor.
+                        alert('Erro ao criar um agendamento futuro.');
+                    });
+                } else {
+                    // fora do prazo para agendamentos.
+                    alert(Response.data);
+                };
+            }).catch((Erro) =>{
+                alert('Erro ao criar um agendamento futuro.');
+            });
+            }else{
+                alert("Data invalida");
+            }
+        } else {
+            alert("Data Invalida");
+        }
+        /*
+        else if(DATA > DataAtual){
+            
+        }else if(nome_cliente === ''){
+            alert('Preencha o Campo @ Nome Completo');
+        } else if(contato_cliente.length < 11 || contato_cliente.length > 11){
+            alert('Número de telefone invalido');
+        } else {
+            
+             
+        }; */
     };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //url das imagens no servidor;
     const Url = "http://127.0.0.1:1998/image/"
     return(
