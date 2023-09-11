@@ -27,6 +27,9 @@ export default function Init(){
             <header id="HeaderHome">
                 <img src={Logo} alt="Logo"/>
                 <h1>Seu guia de beleza</h1>
+                <ul>
+                    <li><a>Home</a></li>
+                </ul>
             </header>
             <div id="ConteudoHome">
                 <h2>Selecione o Salão.</h2>

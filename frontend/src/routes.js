@@ -13,7 +13,8 @@ import Agendamento from './pages/agendamento/agendamento';
 import Agendamentofuncionario from './pages/agendamentofuncionario/agendametofuncionario.js';
 import AGfuncionario from  './pages/agendafuncionario/agendafuncionario';
 import AgendaFuncionario from '../src/pages/agendaF/agendaF';
-//criar rota pqra buscar um salão atraves da url routeparams 
+//criar rota pqra buscar um salão atraves da url routeparams
+import LK from '../src/pages/pagelk/lk';
 import Planos from './pages/planos/planos'; 
 import NotFound from './pages/404/NotFound.js';
 export default function Rotas(){
@@ -21,6 +22,7 @@ export default function Rotas(){
         <Router>
             <Routes>
                 <Route path='/' element={<Init/>} />
+                <Route path='/lk/:id' element={<LK/>}/>
                 <Route path='/agendafuncionario' element={<AGfuncionario/>}/>
                 <Route path='/agendamento' element={<Agendamento/>} />
                 <Route path='/agendamentofuncionario' element={<Agendamentofuncionario/>}/>
