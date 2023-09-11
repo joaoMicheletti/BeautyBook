@@ -22,7 +22,7 @@ export default function Rotas(){
         <Router>
             <Routes>
                 <Route path='/' element={<Init/>} />
-                <Route path='/lk/:id' element={<LK/>}/>
+                <Route path='/lk/:cpf_salao' element={<LK/>}/>
                 <Route path='/agendafuncionario' element={<AGfuncionario/>}/>
                 <Route path='/agendamento' element={<Agendamento/>} />
                 <Route path='/agendamentofuncionario' element={<Agendamentofuncionario/>}/>
