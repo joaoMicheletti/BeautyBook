@@ -35,6 +35,10 @@ export default function LoginSalao(){
                 alert("Usuário ou senha invalidos.");
             } else if(Response.data === 'Acesso Negado, problemas com à assinatura do plano.'){
                 alert(Response.data);                
+            } else if(Response.data === "Dias Free exedidos"){
+            	alert('Seus dias Livres de acesso a plataforma acabarm, para continuar eus trabalhos contrate um plano.');
+                localStorage.setItem('cpf_salao', cpf_salao);
+            	Hystory("/planos");
             } else{
                 //logado com sucessu;
                 //salvar no localstorage o cof_salão;

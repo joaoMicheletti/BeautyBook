@@ -1,8 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './style_planos.css';
 import Logo from '../assets/Logo.png';
 
 export default function Planos(){
+    const [quantidade, setquantidade] = useState('');
+
+    const Individual = () => {
+        const Data = {
+            plano : 'individual',
+            preco : 30.00
+        };
+        console.log(Data);
+    };
+
+    const Personalizado = () => {
+        if(quantidade === '' ){
+            alert('Defina a quantidade de funcionários');
+        } else {
+            const Data = {
+                plano : "personalizado",
+                quantidade: quantidade * 30
+            };
+           console.log(Data);
+        };
+    };
+
+
     return(
         <div id='ConteinerPlanos'>
             <header id='HeaderPlanos'>
@@ -15,105 +38,31 @@ export default function Planos(){
             <div id='Planos'>
                 <p id='PPlanos'>Planos</p>
                 <br/>
+                <br/>
                 <ul>
                     <li >
                         <p className='TitlePlano'>
                             Individual
                         </p>
-                        <p>03 Meses</p>
                         <p>30,00 R$ / Mes</p>
                         <p>Suporte 24 H / Dia</p>
-                        <button className='BtnIndividual'>Selecionar</button>
+                        <button className='BtnIndividual'
+                        onClick={Individual}>Selecionar</button>
 
                     </li>
                     <li >
                         <p className='TitlePlano'>
-                            Individual
+                            Personalizado
                         </p>
-                        <p>06 Meses</p>
-                        <p> 25,00 R$ / Mes</p>
+                        <p>quantidade de funcionários</p>
+                        <input type='number' 
+                        id='InputQuantidade' 
+                        placeholder='Quantidade de funcionários' 
+                        onChange={(e) => setquantidade(e.target.value)}></input>
+                        <p>{quantidade * 30},00 R$ / Mes</p>
                         <p>Suporte 24 H / Dia</p>
-                        <button className='BtnIndividual'>Selecionar</button>
-
-                    </li>
-                    <li >
-                        <p className='TitlePlano'>
-                            Individual
-                        </p>
-                        <p>12 Meses</p>
-                        <p> 20,00 R$ / Mes</p>
-                        <p>Suporte 24 H / Dia</p>
-                        <button className='BtnIndividual'>Selecionar</button>
-
-                    </li>
-                </ul>
-                <ul>
-                    <li >
-                        <p className='TitlePlano'>
-                            1X
-                        </p>
-                        <p>03 Meses</p>
-                        <p>60,00 R$ / Mes</p>
-                        <p>Suporte 24 H / Dia</p>
-                        <p>Agenda Individual para +1 Fincionário</p>
-                        <button className='BtnIndividual'>Selecionar</button>
-
-                    </li>
-                    <li >
-                        <p className='TitlePlano'>
-                            1X
-                        </p>
-                        <p>06 Meses</p>
-                        <p> 55,00 R$ / Mes</p>
-                        <p>Suporte 24 H / Dia</p>
-                        <p>Agenda Individual para +1 Fincionário</p>
-                        <button className='BtnIndividual'>Selecionar</button>
-
-                    </li>
-                    <li >
-                        <p className='TitlePlano'>
-                            1X
-                        </p>
-                        <p>12 Meses</p>
-                        <p> 50,00 R$ / Mes</p>
-                        <p>Suporte 24 H / Dia</p>
-                        <p>Agenda Individual para +1 Fincionário</p>
-                        <button className='BtnIndividual'>Selecionar</button>
-
-                    </li>
-                </ul>
-                <ul>
-                    <li >
-                        <p className='TitlePlano'>
-                            4X
-                        </p>
-                        <p>03 Meses</p>
-                        <p>150,00 R$ / Mes</p>
-                        <p>Suporte 24 H / Dia</p>
-                        <p>Agenda Individual para até 4 Fincionário</p>
-                        <button className='BtnIndividual'>Selecionar</button>
-
-                    </li>
-                    <li >
-                        <p className='TitlePlano'>
-                            4X
-                        </p>
-                        <p>06 Meses</p>
-                        <p> 145,00 R$ / Mes</p>
-                        <p>Suporte 24 H / Dia</p>
-                        <p>Agenda Individual para até 4 Fincionário</p>
-                        <button className='BtnIndividual'>Selecionar</button>
-
-                    </li>
-                    <li >
-                        <p className='TitlePlano'>
-                            4X
-                        </p>
-                        <p>12 Meses</p>
-                        <p> 140,00 R$ / Mes</p>
-                        <p>Suporte 24 H / Dia</p>
-                        <p>Agenda Individual para até Fincionário</p>
-                        <button className='BtnIndividual'>Selecionar</button>
+                        <button className='BtnIndividual'
+                        onClick={Personalizado}>Selecionar</button>
 
                     </li>
                 </ul>

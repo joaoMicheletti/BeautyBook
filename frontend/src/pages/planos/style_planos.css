@@ -39,13 +39,16 @@
     justify-content: space-around;
 }
 #Planos ul li {
-    width: 200px;
+    width: 400px;
     height: auto;
     text-align: center;
     line-height: 35px;
     background-color: rgb(88, 85, 85);
     border: solid black 2px;
-
+}
+#InputQuantidade {
+    height: 30px;
+    border: solid black 2px;
 }
 .TitlePlano {
     margin-top: 10px;
