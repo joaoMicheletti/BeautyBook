@@ -13,17 +13,16 @@ export default function AgendaF(){
     const [Agendados, setAgendados] = useState([]);
     const Data = {
         dia, mes, ano, cpf_funcionario
-    };
-    console.log(Data)
+    };    
     
     useEffect( () =>{
         Api.post('/horariospreenchidos', Data).then((Response) =>{
-            setAgendados(Response.data);
-            
+            setAgendados(Response.data);            
         }).catch((erro) =>{
             alert('Erro interno.');
         });
     }, []); //não passar dependências retorna um alerta ! porem ao passar o Data como dependência ele cai num loop infinito de requisições.
+    console.log(Agendados);
     return(
         <div id="PainelSalao">
             <header id="HeaderSalao">

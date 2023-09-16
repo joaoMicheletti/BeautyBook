@@ -50,6 +50,7 @@ export default function AgendaFuncionario(){
     useEffect(() =>{
         const Data = {
             cpf_funcionario,
+            //cpf_salao,
             dia,
             mes,
             ano
@@ -62,7 +63,6 @@ export default function AgendaFuncionario(){
             };
         }).catch(() => {
             //erro de cominucação com o servidor.
-            alert('Erro ao buscar Horários Preenchidos.');
         });
          const Dat = {
             cpf_salao
@@ -72,7 +72,6 @@ export default function AgendaFuncionario(){
             setListarServicos(Response.data);
          }).catch((erro) =>{
             // erro de cominucação com o servidor.
-            alert('Erro ao buscar informações de serviços');
          });
     });
 
@@ -114,8 +113,8 @@ export default function AgendaFuncionario(){
         var data_atual = DataAtual.getDate()+'/'+Mes+'/'+DataAtual.getFullYear();
 
         const Data = {
-            cpf_salao,
-            //cpf_funcionario, //ok
+            //cpf_salao,
+            cpf_funcionario, //ok
             dia_semana, //ok
             dia, //ok
             mes, //ok
@@ -146,7 +145,6 @@ export default function AgendaFuncionario(){
             alert('Número de telefone invalido');
             // agendamentos atual.
         } else if(dia === DataAtual.getDate() && mes === DataAtual.getMonth()+1 && ano === DataAtual.getFullYear()){
-            alert("ag atual");
             //verificando se a data e horário estão disponíveis na agenda.
             await Api.post('/horarioslivres', Data).then(async (Response) => {
                 // fora do horário de funcionamento.

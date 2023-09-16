@@ -4,8 +4,11 @@ import Logo from '../assets/Logo.png';
 import './style_ajustes.css';
 import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
+import { useNavigate } from "react-router-dom";
+import{FiLogOut} from 'react-icons/fi';
 
 export default function Ajustes(){
+    const History = useNavigate();
     //referência do salão.
     const cpf_salao = localStorage.getItem('cpf_salao');
     //useEffect primeira função a ser ezecutada.
@@ -200,6 +203,14 @@ export default function Ajustes(){
         });
     }, []);
     const Url = "http://127.0.0.1:1998/image/";
+
+    const Exit = (e) => {
+        e.preventDefault();
+        localStorage.removeItem(cpf_salao);
+        alert('Até breve');
+        History('/loginsalao');
+    };
+
     return(
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{
@@ -230,6 +241,9 @@ export default function Ajustes(){
                 </div>
                 <div className="DivMenu" style={{backgroundColor: "white"}}>
                     <a id="Ajustes" className="BtnMenu" href="/ajustes"><FcSettings/></a>                    
+                </div>
+                <div className="DivMenu">
+                    <button  onClick={Exit} id='Agenda' className="Btnexit" href="/painel"><FiLogOut/></button>                    
                 </div>
             </div>
             {listaSalao.map((iten, key) => {

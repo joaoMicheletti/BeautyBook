@@ -135,7 +135,6 @@ export default function Agendamento(){
             alert('Número de telefone invalido');
             // agendamentos atual.
         } else if(dia === DataAtual.getDate() && mes === DataAtual.getMonth()+1 && ano === DataAtual.getFullYear()){
-            alert("ag atual");
             //verificando se a data e horário estão disponíveis na agenda.
             await Api.post('/horarioslivres', Data).then(async (Response) => {
                 // fora do horário de funcionamento.

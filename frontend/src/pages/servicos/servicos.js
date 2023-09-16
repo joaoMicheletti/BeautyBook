@@ -3,8 +3,11 @@ import Api from '../../services/api';
 import './style_servicos.css';
 import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
+import {useNavigate} from 'react-router-dom'
+import{FiLogOut} from 'react-icons/fi';
 
 export default function Servicos(){
+    const History = useNavigate();
     var cpf_salao = localStorage.getItem('cpf_salao');
     const [ListaServicos, setListaServicos] = useState([]);
     useEffect(() =>{
@@ -52,6 +55,14 @@ export default function Servicos(){
         });
     }, []);
     const Url = "http://127.0.0.1:1998/image/";
+
+    const Exit = (e) => {
+        e.preventDefault();
+        localStorage.removeItem(cpf_salao);
+        alert('Até breve');
+        History('/loginsalao');
+    };
+
     return(
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{
@@ -82,6 +93,9 @@ export default function Servicos(){
                 </div>
                 <div className="DivMenu">
                     <a id="Ajustes" className="BtnMenu" href="/ajustes"><FcSettings/></a>                    
+                </div>
+                <div className="DivMenu">
+                    <button  onClick={Exit} id='Agenda' className="Btnexit" href="/painel"><FiLogOut/></button>                    
                 </div>
             </div>
             <section id="SectionAgendaSalao">
