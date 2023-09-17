@@ -10,8 +10,8 @@ export default function Home(){
         <header className="header">
         <img src={Logo} alt="Logo da Empresa" />
             <nav className="menu">
-                <Link className='LK' to="/login">Login_Salão</Link>
-                <Link className='LK' to="/registrar">Registrar_Salão</Link>
+                <Link className='LK' to="/loginsalao">Login_Salão</Link>
+                <Link className='LK' to="/registrosalao">Registrar_Salão</Link>
             </nav>
         </header>
         <div className="content">
