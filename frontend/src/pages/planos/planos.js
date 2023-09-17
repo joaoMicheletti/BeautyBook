@@ -19,7 +19,8 @@ export default function Planos(){
         } else {
             const Data = {
                 plano : "personalizado",
-                quantidade: quantidade * 30
+                quantidade,
+                preco: quantidade * 30
             };
            console.log(Data);
         };
