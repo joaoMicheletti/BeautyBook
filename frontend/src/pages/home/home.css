@@ -1,0 +1,105 @@
+.header {
+    width: 100%;
+    height: 110px;
+    box-shadow: black 2px 2px 2px 2px;
+}
+.header img {
+    margin-left: 30px;
+    margin-top: 3px;
+    height: 100px;
+    cursor: pointer;
+}
+.header nav {
+    margin-top: 75px;
+    float: right;
+}
+.header nav .LK {
+    padding-right: 20px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+.header nav .LK:hover{
+    font-weight: 900;
+}
+.content {
+    margin-top: -43px;
+    width: 100%;
+    background-color: white;
+}
+.content .promo-text {
+    width: 90%;
+    margin-left: 5%;
+}
+.content .promo-text #Primary {
+    width: 100%;
+    text-align: center;
+}
+.content .promo-text #Primary h1 {
+    font-size: 22px;
+}
+.content .promo-text #Primary p {
+    margin-top: -10px;
+}
+#Doublediv {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+#porque h2 {
+    font-size: 15px;
+    text-align: center;
+}
+#porque {
+    width: 40%;
+    font-size: 15px;
+}
+#juntese-nos {
+    margin-left: 20%;
+    width: 40%;
+    font-size: 15px;
+}
+#juntese-anos h2 {
+    font-size: 15px;
+    text-align: center;
+}
+#Saloes {
+    margin-top: 50px;
+    width: 100%;
+}
+#img {
+    text-align: center;
+    margin-left: 10%;
+    width: 80%;
+    display: flex;
+}
+#img img {
+    height: 400px;
+}
+#img p {
+    margin-left: 40px;
+    margin-top: 180px;
+}
+
+
+
+
+/* Estilos para o footer */
+footer {
+   background-color: #333; /* Cor de fundo do footer */
+   color: #fff; /* Cor do texto do footer */
+   padding: 20px;
+   text-align: center;
+}
+.contact img {
+   width: 24px; /* Ajuste o tamanho dos ícones conforme necessário */
+   height: 24px;
+   margin: 0 10px; /* Espaçamento entre os ícones */
+}
+.contact a{
+    color: #fff; /* Cor dos links no footer */
+    text-decoration: none;  
+}
+a:hover {
+   text-decoration: underline; /* Efeito de sublinhado ao passar o mouse sobre os links */
+}
