@@ -4,6 +4,7 @@ import Init from './pages/init/init';
 import RegistroSalao from './pages/RegistroSalao/RegistroSalao';
 import LoginSalao from './pages/LoginSalao/LoginSalao';
 import Paninel from './pages/painel/painel';
+import PainelFuncionario from './pages/painelfuncionario/painelfuncionario';
 import Servicos from './pages/servicos/servicos';
 import Funcionarios from './pages/funcionarios/funcionarios';
 import HorarioFuncionamento from './pages/horariofuncionamento/horariofuncionamento';
@@ -30,6 +31,7 @@ export default function Rotas(){
                 <Route path='/registrosalao' element={<RegistroSalao/>}/>
                 <Route path='/loginsalao' element={<LoginSalao/>}/>
                 <Route path='/painel' element={<Paninel/>}/>
+                <Route path='/painelfuncionario' element={<PainelFuncionario/>}/>
                 <Route path='/servicos' element={<Servicos/>}/>
                 <Route path='/funcionarios' element={<Funcionarios/>}/>
                 <Route path='/funcionamento' element={<HorarioFuncionamento/>}/>
