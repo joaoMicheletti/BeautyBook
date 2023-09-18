@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import './style_home.css';
 import Logo from '../assets/Logo.png'
 import Api from '../../services/api';
@@ -28,7 +28,9 @@ export default function Init(){
                 <img src={Logo} alt="Logo"/>
                 <h1>Seu guia de beleza</h1>
                 <ul>
-                    <li><a>Home</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/loginsalao">Login_salão</a></li>
+                    <li><a href="/registrosalao">Registrar_Salão</a></li>
                 </ul>
             </header>
             <div id="ConteudoHome">
