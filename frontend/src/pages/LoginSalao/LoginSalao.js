@@ -92,7 +92,7 @@ export default function LoginSalao(){
                     value='Login'/>
                 </form>
                 <br/>
-                <a href="/registrosalao">Nao possuí uma conta? click aqui</a>
+                <a href="/registrosalao">Não possuí uma conta? click aqui</a>
             </div>
         </div>
     );

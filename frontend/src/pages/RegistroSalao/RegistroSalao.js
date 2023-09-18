@@ -84,6 +84,7 @@ export default function RegistroSalao(){
                 <img src={Logo} alt="Logo"/>
             </header>
             <div id="FomrRegistroSalao">
+            <h1>Registrar-se</h1>
                 <form onSubmit={Registrar}>
                     <p id="PRegistroSalao">
                         CPF 
@@ -164,7 +165,10 @@ export default function RegistroSalao(){
                     type="submit"
                     value='Registrar-se'
                     />
+                    <br/>
                 </form>
+                <br/>
+                <a href="/loginsalao">já possuí uma conta? click aqui</a>
             </div>
         </div>
     );

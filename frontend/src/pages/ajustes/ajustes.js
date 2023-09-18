@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Api from '../../services/api';
-import Logo from '../assets/Logo.png';
+//import Logo from '../assets/Logo.png';
 import './style_ajustes.css';
 import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
@@ -429,9 +429,7 @@ export default function Ajustes(){
                             <hr/>
                             <div id="Plano">
                                 <h2 id="TitlePlanos">Planos</h2>
-                                <p id="TextoPlano">                    
-                                OBS: Os planos só poderão sofrer alterações após 3 meses de assinatura . 
-                                </p>
+                                <p id="TextoPlano">Para alteraçoẽs no plano entre en contato com nosso supote 24 Horas</p>
                                 <p>Ver os Planos : </p>
                                 <a href="/planos">Clik aqui</a>
                             </div>
