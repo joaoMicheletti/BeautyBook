@@ -21,7 +21,7 @@ export default function Home(){
                     <h4>BeutyBook®<br/> Onde a Beleza se Encontra</h4>
                     <br/>
                     <p>
-                        agende um Horário comm um de nossos saloẽs cadastrados.<br/>
+                        <strong>agende um Horário com um de nossos saloẽs cadastrados.</strong><br/>
                         <br/><a href='/init'>Click aqui</a>
                     </p>
                 </div>
