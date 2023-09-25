@@ -1,16 +1,27 @@
 import React, {useState} from 'react';
 import './style_planos.css';
 import Logo from '../assets/Logo.png';
+import Api from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 export default function Planos(){
     const [quantidade, setquantidade] = useState('');
+    const Hystory  = useNavigate();
 
     const Individual = () => {
         const Data = {
-            plano : 'individual',
+            plano : 'plano individual',
+            quantidade: 1,
             preco : 30.00
         };
+        //rota para criar o id de preference
         console.log(Data);
+        Api.post('/preferenceid',Data).then((Response) => {
+            localStorage.setItem('preferenceID', Response.data);
+            Hystory('/pagamento');
+        }).catch((erro) =>{
+            alert('falha na comunicação com o servidor...');
+        });
     };
 
     const Personalizado = () => {
@@ -18,11 +29,18 @@ export default function Planos(){
             alert('Defina a quantidade de funcionários');
         } else {
             const Data = {
-                plano : "personalizado",
+                plano : "plano personalizado",
                 quantidade,
                 preco: quantidade * 30
             };
-           console.log(Data);
+            //rota para criar o id de preference 
+            console.log(Data);
+            Api.post('/preferenceid',Data).then((Response) => {
+                localStorage.setItem('preferenceID', Response.data);
+                Hystory('/pagamento');
+            }).catch((erro) =>{
+                alert('falha na comunicação com o servidor...');
+            });
         };
     };
 
@@ -49,7 +67,6 @@ export default function Planos(){
                         <p>Suporte 24 H / Dia</p>
                         <button className='BtnIndividual'
                         onClick={Individual}>Selecionar</button>
-
                     </li>
                     <li >
                         <p className='TitlePlano'>
@@ -64,7 +81,6 @@ export default function Planos(){
                         <p>Suporte 24 H / Dia</p>
                         <button className='BtnIndividual'
                         onClick={Personalizado}>Selecionar</button>
-
                     </li>
                 </ul>
             </div>
