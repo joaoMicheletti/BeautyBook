@@ -19,6 +19,9 @@ import AgendaFuncionario from '../src/pages/agendaF/agendaF';
 import LK from '../src/pages/pagelk/lk';
 import Planos from './pages/planos/planos';
 import Pagamento from '../src/pages/planos/pagamentos/pagamento.js';
+import Aprovado from './pages/planos/pagamentos/aprovado';
+import Pendente from './pages/planos/pagamentos/pendente';
+import Recusado from './pages/planos/pagamentos/recusado';
 import NotFound from './pages/404/NotFound.js';
 export default function Rotas(){
     return(
@@ -43,6 +46,9 @@ export default function Rotas(){
                 <Route path='/planos' element={<Planos/>} />
                 <Route path='*' element={<NotFound/>}/>
                 <Route path='/pagamento' element={<Pagamento/>} />
+                <Route path='/aprovado' element={<Aprovado/>} />
+                <Route path='/pendente' element={<Pendente/>} />
+                <Route path='/recusado' element={<Recusado/>}/>
             </Routes>
         </Router>
     )
