@@ -19,7 +19,7 @@ export default function Init(){
 
     function redirect(){
         // com fincionarios
-        if(salao[0].imite_funcionarios > 0){
+        if(salao[0].limite_funcionarios > 0){
             localStorage.setItem("cpf_salao", salao[0].cpf_salao);
             localStorage.setItem("logo_salao", salao[0].logo_salao);
             localStorage.setItem("nome_salao", salao[0].nome_salao);
@@ -39,10 +39,8 @@ export default function Init(){
             <header id="HeaderHome">
                 <img src={Logo} alt="Logo"/>
                 <h1>Seu guia de beleza</h1>
-                
             </header>
             <div id="ConteudoHome">
-                     
             </div>
         </div>
     );

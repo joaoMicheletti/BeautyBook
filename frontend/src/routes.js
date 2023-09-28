@@ -47,7 +47,7 @@ export default function Rotas(){
                 <Route path='*' element={<NotFound/>}/>
                 <Route path='/pagamento' element={<Pagamento/>} />
                 <Route path='/aprovado' element={<Aprovado/>} />
-                <Route path='/pendente' element={<Pendente/>} />
+                <Route path='/pendente/' element={<Pendente/>} />
                 <Route path='/recusado' element={<Recusado/>}/>
             </Routes>
         </Router>
