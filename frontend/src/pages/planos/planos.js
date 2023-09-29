@@ -7,12 +7,11 @@ import { useNavigate } from 'react-router-dom';
 export default function Planos(){
     const [quantidade, setquantidade] = useState('');
     const Hystory  = useNavigate();
-
     const Individual = () => {
         const Data = {
             plano : 'plano individual',
             quantidade: 1,
-            preco : 0.01
+            preco : 100.00
         };
         //rota para criar o id de preference
         console.log(Data);
@@ -23,7 +22,6 @@ export default function Planos(){
             alert('falha na comunicação com o servidor...');
         });
     };
-
     const Personalizado = () => {
         if(quantidade === '' ){
             alert('Defina a quantidade de funcionários');
@@ -43,8 +41,6 @@ export default function Planos(){
             });
         };
     };
-
-
     return(
         <div id='ConteinerPlanos'>
             <header id='HeaderPlanos'>

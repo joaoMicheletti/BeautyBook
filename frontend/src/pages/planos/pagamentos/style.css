@@ -1,0 +1,10 @@
+#pendente_Conteiner {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+}
+#alerta {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 600;
+}
