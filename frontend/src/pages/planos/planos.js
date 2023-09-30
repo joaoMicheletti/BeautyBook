@@ -11,7 +11,7 @@ export default function Planos(){
         const Data = {
             plano : 'plano individual',
             quantidade: 1,
-            preco : 100.00
+            preco : 0.01
         };
         //rota para criar o id de preference
         console.log(Data);

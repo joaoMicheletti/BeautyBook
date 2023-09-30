@@ -25,11 +25,45 @@ export default function Pendente(){
     const merchat_account_id = params.get('merchat_account_id');*/
     //buscar se opgamento foi realixado.
     const paymentId = params.get('payment_id'); //isso tem que ser pasado para consultar o pagamento;
-    Api.post('/buscarpg', {paymentId}).then((Response) =>{
+    Api.post('/buscarpg', {paymentId}).then(async(Response) =>{
         if(Response.data === 'pending'){
             document.querySelector('#alerta').innerHTML = "Seu pagamento encontra-se pendente em nosso sistema, em algumas horas você recebera um E-mail liberando o seu acesso a plataforma.";
+        }else if(Response.data.status === 'approved'){
+            //criando objeto com a data atual;
+            const dataAtual = new Date();
+            //separando dia mes ano;
+            var dia = dataAtual.getDate();
+            var mes = dataAtual.getMonth()+ 1;
+            //mes de vencimento;
+            var mesvenc = mes + 1;
+            if(mesvenc === 13 ){
+                mesvenc = 1;
+            };
+            var ano = dataAtual.getFullYear();
+            //criando strings do jeito que é esperado na api para as datas de inicio e de fim de plano;
+            var dataAtualString = dia+'/'+mes+'/'+ano;
+            var dataVencimentoPlano = dia+'/'+mesvenc+'/'+ano;
+            var cpf_Salao = localStorage.getItem('cpf_salao'); 
+            //obj a ser enviado a api;
+            const Data = {
+                "cpf_salao": 38860300835,
+                "plano": Response.data.description,
+                "data_inicio_plano": dataAtualString,
+                "data_vencimento_plano": dataVencimentoPlano,
+                "limite_funcionarios": 0,
+                "assinatura_status": "on",
+            };
+            await Api.put('/plano', Data).then((Response) => {
+                if(Response.data === 'success'){
+                    alert('Vocẽ já está com o acesso liberado a plataforma.');
+                }else{};                
+            }).catch((erro) =>{
+                alert('seu pagamento foi aprovado porem ocorreu um erro na etapa de atualizar a base de dados. estatus code #102030. entre em contato com o suporte');
+            })
+            document.querySelector('#Title').innerHTML = "Pagamento Aprovado!";
+            document.querySelector('#alerta').innerHTML = "seu pagamento foi aprovado, agora é so fazer login na plataforma.";
         }else{
-            alert('not pending');
+            alert('Erro ao precessar o seu pagamento.')
         };        
     }).catch((Erro) => {
         alert('Erro ao comunicar-se com o servidor!!!');
@@ -37,13 +71,15 @@ export default function Pendente(){
     return(
         <div>
             <div id="pendente_Conteiner">
-                <h1>Pendente!</h1>
+                <h1 id="Title">Pendente!</h1>
                 <br/>
                 <p id="alerta"></p>
                 <br/>
                 <br/>
                 <a href="/">Voltar para a página principal.</a>
                 <br/>
+                <br/>
+                <a href="/loginsalao">fazer login</a>
             </div>
         </div>
     );
