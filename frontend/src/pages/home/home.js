@@ -5,6 +5,10 @@ import './home.css';
 //import Cabelo from '../assets/cabelo.jpeg';
 
 export default function Home(){
+    localStorage.removeItem('cpf_salao');
+    localStorage.removeItem('logo_salao');
+    localStorage.removeItem('nome_salao');
+    localStorage.removeItem('cod');
     return(
         <div className="Home">
             <header className="header">

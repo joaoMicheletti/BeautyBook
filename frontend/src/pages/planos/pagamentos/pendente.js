@@ -46,7 +46,7 @@ export default function Pendente(){
             var cpf_Salao = localStorage.getItem('cpf_salao'); 
             //obj a ser enviado a api;
             const Data = {
-                "cpf_salao": 38860300835,
+                "cpf_salao": cpf_Salao,
                 "plano": Response.data.description,
                 "data_inicio_plano": dataAtualString,
                 "data_vencimento_plano": dataVencimentoPlano,
@@ -62,8 +62,9 @@ export default function Pendente(){
             })
             document.querySelector('#Title').innerHTML = "Pagamento Aprovado!";
             document.querySelector('#alerta').innerHTML = "seu pagamento foi aprovado, agora é so fazer login na plataforma.";
-        }else{
-            alert('Erro ao precessar o seu pagamento.')
+        }else if(Response.data === 'recusado'){
+            document.querySelector('#Title').innerHTML = "Pagamento Recusado!";
+            document.querySelector('#alerta').innerHTML = "seu pagamento foi recusado, tente novamente mais tarde!.";
         };        
     }).catch((Erro) => {
         alert('Erro ao comunicar-se com o servidor!!!');

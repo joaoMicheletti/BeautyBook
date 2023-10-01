@@ -54,7 +54,7 @@ export default function Funcionarios(){
                 console.log(Response.data);
                 if(Response.data === 'Desculpe, você já excedeu o limite de funcionários cadastrados...'){
                     alert('seu plano não permite cadastrar mais funcionários');
-                } else if(Response.data === 'Contrate um plano para registrar funcionários.'){
+                } else if(Response.data === 'Desculpe, Seu plano não permite cadastrar funcionários.'){
                     alert(Response.data);
                 } else {
                     alert('Funcionário Registrado');
