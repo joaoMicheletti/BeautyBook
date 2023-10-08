@@ -11,7 +11,7 @@ export default function Servicos(){
     var cpf_salao = localStorage.getItem('cpf_salao');
     const [ListaServicos, setListaServicos] = useState([]);
     Api.post('/assinatura', {cpf_salao}).then((Response) => {
-        if(Response.data[0].assinatura_status != 'on'){
+        if(Response.data[0].assinatura_status !=='on'){
             alert('Sua assinatura expirou, contrate nosso serviço novamente.');
             History('/planos')
         }

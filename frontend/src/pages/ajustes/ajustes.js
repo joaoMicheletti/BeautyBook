@@ -15,7 +15,7 @@ export default function Ajustes(){
     //essa função fica responsavel por trazer algunsa dados para serem apresentados nos placeholder
     const [listaSalao, setListaSalao] = useState([]);
     Api.post('/assinatura', {cpf_salao}).then((Response) => {
-        if(Response.data[0].assinatura_status != 'on'){
+        if(Response.data[0].assinatura_status !== 'on'){
             alert('Sua assinatura expirou, contrate nosso serviço novamente.');
             History('/planos')
         }
