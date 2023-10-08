@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useNavigate} from "react-router-dom";
-import './style_home.css';
+import './style_init.css';
 import Logo from '../assets/Logo.png'
 import Api from '../../services/api';
 
@@ -26,7 +26,7 @@ export default function Init(){
         <div id="HomeConteiner">
             <header id="HeaderHome">
                 <img src={Logo} alt="Logo"/>
-                <h1>Seu guia de beleza</h1>
+                <br/>
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/loginsalao">Login_salão</a></li>
@@ -58,10 +58,10 @@ export default function Init(){
                             <img src={URL + iten.logo_salao} alt="logo"/>
                             <li>
                                 <p className="PConteudohome">
-                                    Salão : {iten.nome_salao}
+                                    {iten.nome_salao}
                                 </p>
                                 <p className="PConteudohome">
-                                    Endereço : {iten.endereco} <br/>
+                                    {iten.endereco} <br/>
                                     CEP : {iten.cep}
                                 </p>
                                 <button className="BtnConteudoHome"
@@ -69,8 +69,7 @@ export default function Init(){
                             </li>
                         </ul>
                     );
-                })}
-                     
+                })} 
             </div>
         </div>
     );

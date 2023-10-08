@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#HomeConteiner {
+    width: 100%;
+    height: auto;
+}
+#HeaderHome {
+    background-color: rgb(88, 85, 85);
+    width: 100%;
+    height: 170px; 
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
+}
+@media(min-width: 200px){
+    #HeaderHome img {
+        width: 60px;
+        height: 60px;
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+    #HeaderHome ul {
+        margin-top: 100px;
+        display: flex;
+    }
+    #HeaderHome ul li {
+        list-style: none;
+        margin-right: 10px;
+    }
+    #HeaderHome ul li a {
+        font-size: 10px;
+        font-weight: 900;
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+    }#HeaderHome ul li a:hover {
+        color: black;
+    }
+}@media(min-width: 700px){
+    #HeaderHome img {
+        width: 130px;
+        height: 130px;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+    #HeaderHome ul {
+        margin-top: 100px;
+        display: flex;
+    }
+    #HeaderHome ul li {
+        list-style: none;
+        margin-right: 10px;
+    }
+    #HeaderHome ul li a {
+        font-size: 18px;
+        font-weight: 900;
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+    }#HeaderHome ul li a:hover {
+        color: black;
+    }
+}
+#ConteudoHome {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+    text-align: center;
+    line-height: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#ConteudoHome h2 {
+    text-decoration: underline;
+    margin-bottom: 50px;
+}
+#ConteudoHome ul {
+    background-color: rgba(88, 85, 85, 0.685);
+    margin-bottom: 15px;
+}
+#ConteudoHome ul img {
+    margin-top: 10px;
+    width: 180px;
+    border-radius: 50%;
+}
+#ConteudoHome ul li {
+    list-style: none;
+}
+.PConteudohome {
+    margin-top: 10px;
+    font-weight: 600;
+}
+.BtnConteudoHome {
+    margin-top: 10px;
+    width: 150px;
+    height: 25px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.BtnConteudoHome:hover{
+    opacity: 80%;
+    background-color: rgb(129, 124, 124);
+}
