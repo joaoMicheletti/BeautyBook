@@ -10,6 +10,14 @@ export default function Servicos(){
     const History = useNavigate();
     const [infoSalao, setinfoSalao] = useState([]);
     var cpf_salao = localStorage.getItem('cpf_salao');
+    Api.post('/assinatura', {cpf_salao}).then((Response) => {
+        if(Response.data[0].assinatura_status != 'on'){
+            alert('Sua assinatura expirou, contrate nosso serviço novamente.');
+            History('/planos')
+        }
+    }).catch((Erro) => {
+        alert('Erro ao validar sua assinatura!');
+    });
     useEffect(() => {
         Api.post('/buscarsalao', {cpf_salao}).then((Response) => {
             setinfoSalao(Response.data);
@@ -18,7 +26,6 @@ export default function Servicos(){
         });
     }, []);
     const Url = "http://127.0.0.1:1998/image/";
-
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);

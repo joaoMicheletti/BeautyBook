@@ -2,13 +2,10 @@ import React from "react";
 //import { useNavigate, useParams } from "react-router-dom";
 import Api from "../../../services/api";
 import './style.css'
-
 export default function Pendente(){
     const currentURL = window.location.href;
-
     // Remove o ponto de interrogação no início da URL, se presente
     const queryString = currentURL.includes('?') ? currentURL.split('?')[1] : currentURL;
-
     // Crie um objeto URLSearchParams a partir da string de consulta
     const params = new URLSearchParams(queryString);
     // Agora você pode acessar os parâmetros individualmente
@@ -45,12 +42,18 @@ export default function Pendente(){
             var dataVencimentoPlano = dia+'/'+mesvenc+'/'+ano;
             var cpf_Salao = localStorage.getItem('cpf_salao'); 
             //obj a ser enviado a api;
+            var limite = 0;
+            console.log('no if'+ limite);
+            if(Response.data.description === 'plano personalizado'){
+                limite = localStorage.getItem('quntidadee');
+                console.log('yes'+limite)
+            }
             const Data = {
                 "cpf_salao": cpf_Salao,
                 "plano": Response.data.description,
                 "data_inicio_plano": dataAtualString,
                 "data_vencimento_plano": dataVencimentoPlano,
-                "limite_funcionarios": 0,
+                "limite_funcionarios": limite,
                 "assinatura_status": "on",
             };
             await Api.put('/plano', Data).then((Response) => {

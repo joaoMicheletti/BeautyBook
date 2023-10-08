@@ -10,18 +10,24 @@ export default function Servicos(){
     const History = useNavigate();
     var cpf_salao = localStorage.getItem('cpf_salao');
     const [ListaServicos, setListaServicos] = useState([]);
+    Api.post('/assinatura', {cpf_salao}).then((Response) => {
+        if(Response.data[0].assinatura_status != 'on'){
+            alert('Sua assinatura expirou, contrate nosso serviço novamente.');
+            History('/planos')
+        }
+    }).catch((Erro) => {
+        alert('Erro ao validar sua assinatura!');
+    });
     useEffect(() =>{
         const Data = {
             cpf_salao,
         };
-
         Api.post('/servico',Data).then((Response) =>{
             setListaServicos(Response.data);
             console.log(ListaServicos);
         }).catch(() =>{
             alert('Erro ao Buscar Os serviços.')
         });
-
     }, []);
     //registrar serviço;
     const [servico, setServico] = useState('');
@@ -55,14 +61,12 @@ export default function Servicos(){
         });
     }, []);
     const Url = "http://127.0.0.1:1998/image/";
-
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);
         alert('Até breve');
         History('/loginsalao');
     };
-
     return(
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{
@@ -131,7 +135,6 @@ export default function Servicos(){
                             const Editar = () =>{
                                 var Preco = window.prompt('Novo preço para o serviço?. OBS: USE o POPNTO inves de VIRGULA');
                                 var preco = parseFloat(Preco, 10);
-
                                 const Data = {
                                     id: iten.id,
                                     preco
@@ -144,7 +147,6 @@ export default function Servicos(){
                                     }).catch((err) =>{
                                         alert('erro ao Editar Serviço');
                                     });
-
                                 };
                                 console.log(Data);
                             };
@@ -168,7 +170,6 @@ export default function Servicos(){
                                         <p className="PServicoCadastrado">{iten.preco}R$</p>
                                         <button id="BtnEditar" type="submit" onClick={Editar}>Editar</button>
                                         <button id="BtnEditar" type="submit" onClick={Apagar}>Apagar</button>
-
                                     </li>
                                 </ul>
                             );

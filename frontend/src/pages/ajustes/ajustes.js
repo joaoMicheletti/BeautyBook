@@ -14,6 +14,14 @@ export default function Ajustes(){
     //useEffect primeira função a ser ezecutada.
     //essa função fica responsavel por trazer algunsa dados para serem apresentados nos placeholder
     const [listaSalao, setListaSalao] = useState([]);
+    Api.post('/assinatura', {cpf_salao}).then((Response) => {
+        if(Response.data[0].assinatura_status != 'on'){
+            alert('Sua assinatura expirou, contrate nosso serviço novamente.');
+            History('/planos')
+        }
+    }).catch((Erro) => {
+        alert('Erro ao validar sua assinatura!');
+    });
     useEffect(() => {
         const Data = {cpf_salao};
         Api.post('/buscarsalao', Data).then((Response) => {
@@ -31,7 +39,6 @@ export default function Ajustes(){
         } else {        
             const formdata = new FormData();
             formdata.append('image', image);
-
             const headers = { 
                 'headers': {
                     'content-Type': 'multipart/form-data',
@@ -58,7 +65,6 @@ export default function Ajustes(){
             });
         };
     };
-
     //intervalo_entre_agendamentos.
     const [intervalo_entre_agendamentos, setIntervalo] = useState('');
     const Intervalo = async (e) => {
@@ -66,7 +72,6 @@ export default function Ajustes(){
         const Data = {
             cpf_salao, intervalo_entre_agendamentos
         };
-
         if(intervalo_entre_agendamentos === ''){
             alert('Defina com minutos o intervalo .');
         } else {
@@ -203,14 +208,12 @@ export default function Ajustes(){
         });
     }, []);
     const Url = "http://127.0.0.1:1998/image/";
-
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);
         alert('Até breve');
         History('/loginsalao');
     };
-
     return(
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{
@@ -300,7 +303,6 @@ export default function Ajustes(){
                                     <button
                                     type="submit"
                                     id="DefinirCimaHora" onClick={Cimahora}>Definir</button>
-
                                 </li>
                             </ul>
                             <ul>
@@ -318,7 +320,6 @@ export default function Ajustes(){
                                     <button
                                     type="submit"
                                     id="DefinirCimaHora" onClick={AgendamentoAte}>Definir</button>
-
                                 </li>
                             </ul><br/>
                             <hr/>                    
@@ -347,7 +348,6 @@ export default function Ajustes(){
                                     id="BtnFormSenha"
                                     type="submit" onClick={Pass}>Editar</button>
                                 </form>
-
                             </div>
                             <hr/>
                             <br/>
@@ -404,7 +404,6 @@ export default function Ajustes(){
                                     type="text"
                                     placeholder="CPF do funcionário"
                                     onChange={(e) => setCpfFuncionario(e.target.value)}></input>
-
                                     <p className="EditarSenhaFuncionario">
                                         Nova Senha
                                     </p>

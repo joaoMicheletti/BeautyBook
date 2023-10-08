@@ -29,8 +29,9 @@ export default function Planos(){
             const Data = {
                 plano : "plano personalizado",
                 quantidade,
-                preco: quantidade * 30
+                preco: quantidade * 0.01
             };
+            localStorage.setItem('quntidadee', quantidade);
             //rota para criar o id de preference 
             console.log(Data);
             Api.post('/preferenceid',Data).then((Response) => {

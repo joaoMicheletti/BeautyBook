@@ -11,6 +11,14 @@ export default function Funcionarios(){
     const [ListaFuncionarios, setListaFuncionarios] = useState([]);
     //buscando funcionarios cadastrados;
     var cpf_salao = localStorage.getItem('cpf_salao');
+    Api.post('/assinatura', {cpf_salao}).then((Response) => {
+        if(Response.data[0].assinatura_status != 'on'){
+            alert('Sua assinatura expirou, contrate nosso serviço novamente.');
+            History('/planos')
+        }
+    }).catch((Erro) => {
+        alert('Erro ao validar sua assinatura!');
+    });
     useEffect(() =>{
         
         const Data = {
@@ -75,14 +83,12 @@ export default function Funcionarios(){
         });
     }, []);
     const Url = "http://127.0.0.1:1998/image/";
-
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);
         alert('Até breve');
         History('/loginsalao');
     };
-
     return(
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{

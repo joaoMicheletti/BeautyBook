@@ -10,6 +10,14 @@ export default function HorarioDeFuncionamento(){
     const History = useNavigate();
     //referência ao salão 
     const cpf_salao = localStorage.getItem('cpf_salao');
+    Api.post('/assinatura', {cpf_salao}).then((Response) => {
+        if(Response.data[0].assinatura_status != 'on'){
+            alert('Sua assinatura expirou, contrate nosso serviço novamente.');
+            History('/planos')
+        }
+    }).catch((Erro) => {
+        alert('Erro ao validar sua assinatura!');
+    });
     //variaveis para o form
     const [dia, setDia] = useState('');
     const [Inicio_trabalhos, setInicio] = useState('');
@@ -55,8 +63,8 @@ export default function HorarioDeFuncionamento(){
                 alert('Registrado com Sucesso!');
             }
             }).catch((Erro) =>{
-                 alert('Erro ao Rgistrar Horário.');
-           });  
+                alert('Erro ao Rgistrar Horário.');
+            });  
         };
     };
     const [infoSalao, setinfoSalao] = useState([]);
@@ -68,14 +76,12 @@ export default function HorarioDeFuncionamento(){
         });
     }, []);
     const Url = "http://127.0.0.1:1998/image/";
-
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);
         alert('Até breve');
         History('/loginsalao');
     };
-
     return(
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{
@@ -129,7 +135,6 @@ export default function HorarioDeFuncionamento(){
                         <label >Hora de Início:</label>
                         <input type="time" id="inicio"
                         onChange={(e) => setInicio(e.target.value)}></input><br/>
-
                         <label >Hora de Término:</label>
                         <input type="time" id="termino"
                         onChange={(e) => setTermino(e.target.value)}></input>
@@ -138,7 +143,6 @@ export default function HorarioDeFuncionamento(){
                         <br/>
                         <br/>
                     </form>
-
                 </div>
                 <div id="DivHorarios">
                 {ListaHorarios.map((iten, key) => {
