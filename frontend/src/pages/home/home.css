@@ -15,7 +15,7 @@ h1 {
     cursor: pointer;
 }
 h1:hover{
-    color: black;
+    color: rgb(26, 25, 25);
 }
 nav {
     float: right;
@@ -28,20 +28,63 @@ nav {
 }.LK:hover {
     color: black;
 }
+@media (min-width: 300px){
+    h1{
+        font-size: 28px;
+    }
+    nav {
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.103);
+    }
+    nav .LK {
+        font-size: 08px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #content {
+        margin-top: 150px;
+    }
+    #slogan {
+        width: 80%;
+        margin-left: 10%;
+        background-color: rgba(128, 128, 128, 0.267);
+    }
+    h4 {
+        color: white;
+    }
+}
+
+@media (min-width: 700px){
+    h1{
+        font-size: 35px;
+    }
+    nav {
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.103);
+    }
+    nav .LK {
+        font-size: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #content {
+        margin-top: 150px;
+    }
+    #slogan {
+        width: 80%;
+        margin-left: 10%;
+        background-color: rgba(128, 128, 128, 0.267);
+    }
+    h4 {
+        color: white;
+    }
+}
 #content {
-    margin-top: 200px;
-    height: 300px;
+    height: auto;
 }
 #slogan {
-    text-align: center;
-    width: 50%;
-    height: 100%;
-    background-color: rgba(128, 128, 128, 0.068);
 }
-h4 {
-    margin-top: 45px;
-    color: white;
-    font-size: 30px; 
+h4 { 
 }
 #slogan p {
     color: white;
