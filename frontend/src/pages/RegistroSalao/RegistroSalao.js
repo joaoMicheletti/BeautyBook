@@ -94,7 +94,6 @@ export default function RegistroSalao(){
                     type="number" 
                     placeholder="CPF "
                     onChange={(e) => setCpf(e.target.value)}/>
-
                     <p id="PRegistroSalao">
                         Nome Do Salão
                     </p>
@@ -103,7 +102,6 @@ export default function RegistroSalao(){
                     type="text"
                     placeholder="Nome Do Salão"
                     onChange={(e) => setNome_salao(e.target.value)}/>
-
                     <p id="PRegistroSalao">
                         Endereço Salão
                     </p>
@@ -120,7 +118,6 @@ export default function RegistroSalao(){
                     type="number"
                     placeholder="Endereço Salão"
                     onChange={(e) => setCep(e.target.value)}/>
-
                     <p id="PRegistroSalao" >
                         E-mail
                     </p>
@@ -129,8 +126,6 @@ export default function RegistroSalao(){
                     type="email"
                     placeholder="janaina.salao@gmail.com"
                     onChange={(e) => setEmail(e.target.value)}/>
-
-
                     <p id="PRegistroSalao">
                     Código de indicação 
                     </p> 
@@ -139,7 +134,6 @@ export default function RegistroSalao(){
                     type="text"
                     placeholder="Senha"
                     onChange={(e) => setCodigo(e.target.value)}/>
-
                     <p id="PRegistroSalao">
                         Senha
                     </p> 
@@ -148,7 +142,6 @@ export default function RegistroSalao(){
                     type="password"
                     placeholder="Senha"
                     onChange={(e) => setSenha(e.target.value)}/>
-
                     <p id="PRegistroSalao">
                         Confirmar Senha
                     </p>
@@ -157,7 +150,6 @@ export default function RegistroSalao(){
                     type="password"
                     placeholder="Confirmar Senha"
                     onChange={(e) => setCsenha(e.target.value)}/>
-
                     <br/>
                     <br/>
                     <input 
