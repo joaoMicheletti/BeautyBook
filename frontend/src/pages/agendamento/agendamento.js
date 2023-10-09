@@ -309,7 +309,6 @@ export default function Agendamento(){
                         className='InputFormCliente'
                         placeholder='Nome Completo'
                         onChange={(e) => setNameCliente(e.target.value)}/>
-
                         <p className='PFormCliente'>Número de telefone WhatsApp</p>
                         <input
                         type='number'
@@ -323,7 +322,7 @@ export default function Agendamento(){
                         className='InputFormCliente'
                         placeholder='observação para o salão'
                         onChange={(e) => setObs(e.target.value)}/>
-                        <button id='BtnFormCliente' type='submit'>Concluir Agendamento</button>
+                        <button id='BtnFormCliente' type='submit'>agendar</button>
                     </form>
                 </div>
             </div>
