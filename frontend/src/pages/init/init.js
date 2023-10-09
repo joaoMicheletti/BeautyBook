@@ -25,12 +25,12 @@ export default function Init(){
     return(
         <div id="HomeConteiner">
             <header id="HeaderHome">
-                <img src={Logo} alt="Logo"/>
+                <img id='Logo'src={Logo} alt="Logo"/>
                 <br/>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/loginsalao">Login_salão</a></li>
-                    <li><a href="/registrosalao">Registrar_Salão</a></li>
+                    <li><a id="A" href="/">Home</a></li>
+                    <li><a id="A" href="/loginsalao">Login_salão</a></li>
+                    <li><a id="A" href="/registrosalao">Registrar_Salão</a></li>
                 </ul>
             </header>
             <div id="ConteudoHome">

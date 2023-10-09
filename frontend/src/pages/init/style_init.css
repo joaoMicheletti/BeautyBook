@@ -15,54 +15,39 @@
     justify-content: space-evenly;
     box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
 }
-@media(min-width: 200px){
-    #HeaderHome img {
-        width: 60px;
-        height: 60px;
-        margin-top: 30px;
-        margin-left: 10px;
-    }
-    #HeaderHome ul {
-        margin-top: 100px;
-        display: flex;
+@media (max-width: 600px){
+    #HeaderHome #Logo {
+        margin-top: 40px;
+        width: 80px;
+        height: 80px;
     }
     #HeaderHome ul li {
-        list-style: none;
-        margin-right: 10px;
-    }
-    #HeaderHome ul li a {
-        font-size: 10px;
-        font-weight: 900;
-        color: white;
-        cursor: pointer;
-        text-decoration: none;
-    }#HeaderHome ul li a:hover {
-        color: black;
-    }
-}@media(min-width: 700px){
-    #HeaderHome img {
-        width: 130px;
-        height: 130px;
         margin-top: 20px;
-        margin-left: 10px;
+        list-style: none;
+        margin-bottom: 10px;
     }
-    #HeaderHome ul {
-        margin-top: 100px;
-        display: flex;
+    #HeaderHome ul li #A {
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+}
+@media (min-width: 600px){
+    #HeaderHome #Logo {
+        margin-top: 10px;
+        width: 150px;
+        height: 150px;
     }
     #HeaderHome ul li {
+        margin-top: 20px;
         list-style: none;
-        margin-right: 10px;
+        margin-bottom: 10px;
     }
-    #HeaderHome ul li a {
-        font-size: 18px;
-        font-weight: 900;
-        color: white;
-        cursor: pointer;
+    #HeaderHome ul li #A {
         text-decoration: none;
-    }#HeaderHome ul li a:hover {
-        color: black;
+        font-size: 20px;
     }
+
 }
 #ConteudoHome {
     width: 80%;
