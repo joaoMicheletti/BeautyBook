@@ -18,10 +18,16 @@ export default function Home(){
             <div id='content'>
                 <div id='slogan'>
                     <br/>
-                    <h4>BeutyBook®<br/> Onde a Beleza se Encontra</h4>
+                    <h4>BeutyBook®<br/> Beleza Unida, ao Alcance de um Clique.</h4>
                     <br/>
-                    <p>
-                        <strong>agende um Horário com um de nossos saloẽs cadastrados.</strong><br/>
+                    <p id='P'>
+                        <strong>Descubra a Magia da Beleza! 
+                            Com nosso sistema inovador, 
+                            você pode explorar uma variedade de salões de beleza, 
+                            encontrar os tratamentos perfeitos e reservar sua 
+                            transformação pessoal em segundos. Deixe sua jornada de beleza começar aqui. 
+                            Faça parte da revolução da beleza!
+                        </strong><br/>
                         <br/><a href='/init'>Click aqui</a>
                     </p>
                 </div>
