@@ -10,8 +10,6 @@ export default function Planos(){
     const Individual = () => {
         const Data = {
             plano : 'plano individual',
-            quantidade: 1,
-            preco : 0.01
         };
         //rota para criar o id de preference
         console.log(Data);
@@ -29,7 +27,6 @@ export default function Planos(){
             const Data = {
                 plano : "plano personalizado",
                 quantidade,
-                preco: quantidade * 0.01
             };
             localStorage.setItem('quntidadee', quantidade);
             //rota para criar o id de preference 
@@ -54,13 +51,12 @@ export default function Planos(){
             <div id='Planos'>
                 <p id='PPlanos'>Planos</p>
                 <br/>
-                <br/>
                 <ul>
                     <li >
                         <p className='TitlePlano'>
                             Individual
                         </p>
-                        <p>30,00 R$ / Mes</p>
+                        <p>50,00 R$ / Mes</p>
                         <p>Suporte 24 H / Dia</p>
                         <button className='BtnIndividual'
                         onClick={Individual}>Selecionar</button>
@@ -74,7 +70,7 @@ export default function Planos(){
                         id='InputQuantidade' 
                         placeholder='Quantidade de funcionários' 
                         onChange={(e) => setquantidade(e.target.value)}></input>
-                        <p>{quantidade * 30},00 R$ / Mes</p>
+                        <p>{quantidade * 50},00 R$ / Mes</p>
                         <p>Suporte 24 H / Dia</p>
                         <button className='BtnIndividual'
                         onClick={Personalizado}>Selecionar</button>
