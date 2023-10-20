@@ -23,9 +23,9 @@ export default function Init(){
         })
     }, []);
     return(
-        <div id="HomeConteiner">
-            <header id="HeaderHome">
-                <img id='Logo'src={Logo} alt="Logo"/>
+        <div id="HomeConteinerInit">
+            <header id="HeaderHomeInit">
+                <img id='LogoInit'src={Logo} alt="Logo"/>
                 <br/>
                 <ul>
                     <li><a id="A" href="/">Home</a></li>
@@ -33,8 +33,8 @@ export default function Init(){
                     <li><a id="A" href="/registrosalao">Registrar_Salão</a></li>
                 </ul>
             </header>
-            <div id="ConteudoHome">
-                <h2>Selecione o Salão.</h2>
+            <div id="ConteudoHomeInit">
+                <h2 id="H">Selecione um Salão.</h2>
                 {ListaSalao.map((iten, key) => {
                     const URL = 'http://127.0.0.1:1998/image/';
                     const Agenda = () =>{
@@ -60,12 +60,14 @@ export default function Init(){
                                 <p className="PConteudohome">
                                     {iten.nome_salao}
                                 </p>
+                                <br/>
+                                <label>Endereço :</label>
                                 <p className="PConteudohome">
                                     {iten.endereco} <br/>
                                     CEP : {iten.cep}
                                 </p>
-                                <button className="BtnConteudoHome"
-                                onClick={Agenda}>Ver agenda</button>
+                                <button className="BtnConteudoHomeInit"
+                                onClick={Agenda}>Selecionar</button>
                             </li>
                         </ul>
                     );
