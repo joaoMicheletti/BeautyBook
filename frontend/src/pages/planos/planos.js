@@ -10,6 +10,7 @@ export default function Planos(){
     const Individual = () => {
         const Data = {
             plano : 'plano individual',
+            quantidade : 1,
         };
         //rota para criar o id de preference
         console.log(Data);
@@ -25,8 +26,9 @@ export default function Planos(){
             alert('Defina a quantidade de funcionários');
         } else {
             const Data = {
+                x : quantidade,
                 plano : "plano personalizado",
-                quantidade,
+                quantidade: 1,
             };
             localStorage.setItem('quntidadee', quantidade);
             //rota para criar o id de preference 
