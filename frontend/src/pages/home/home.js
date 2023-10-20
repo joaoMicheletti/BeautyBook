@@ -18,7 +18,7 @@ export default function Home(){
             <div id='content'>
                 <div id='slogan'>
                     <br/>
-                    <h4>BeutyBook®<br/> Beleza Unida, ao Alcance de um Clique.</h4>
+                    <h4>Beleza Unida, ao Alcance de um Clique.</h4>
                     <br/>
                     <p id='P'>
                         <strong>Descubra a Magia da Beleza! 
