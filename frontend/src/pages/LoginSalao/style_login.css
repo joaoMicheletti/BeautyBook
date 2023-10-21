@@ -3,26 +3,40 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-body {
-    background-color: rgb(129, 124, 124);
+#LoginSalao {
+    background-color: #bfd7ea;
 }
 #HeaderLoginSalao {
     width: 100%;
-    height: 155px;
+    height: 80px;
+}
+#HeaderLoginSalao ul{
+    margin-top: -63px;
+    float: right;
 }
 #LogoImg {
-    width: 150px;
-    margin-left: 30px;
-    margin-top: 10px;
+    width: 100px;
 }
 #FormLoginSalao {
+    display: flex;
     text-align: center;
     margin-top: 50px;
     width: 80%;
     margin-left: 10%;
 }
+form {
+    margin-left: 10%;
+    width: 40%;
+}
+#imgDiv {
+    width: 50%;
+}
+#Complemento {
+    width: 400px;
+}
 h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
     margin-top: 10px;
     margin-bottom: 20px;
 }
@@ -33,14 +47,14 @@ h1 {
     font-weight: 400;
 }
 .InpLoginSalao {
-    width: 400px;
-    height: 30px;
+    width: 100%;
+    height: 40px;
     border: none;
     border-radius: 5px;
 }
 #BtnLoginSalao {
     cursor: pointer;
-    height: 33px;
+    height: 40px;
     width: 300px;
     margin-top: 19px;
     border: none;
@@ -51,8 +65,25 @@ h1 {
 #BtnLoginSalao:hover {
     background-color: rgb(88, 88, 88);
 }
+@media(min-width: 900px){
+    form{
+    }
+}
 
-@media(max-width: 500px){
+@media(max-width: 950px){
+    #FormLoginSalao {
+        text-align: center;
+        margin-top: 50px;
+        width: 80%;
+        margin-left: 10%;
+    }
+    #imgDiv {
+        display: none;
+    }
+    form{
+        margin-left: 0;
+        width: 100%;
+    }
     #LogoImg  {
         width: 100px;
         margin-left: 10px;

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import Logo from '../assets/Logo.png';
-import './style.css';
+import Logo from '../assets/borboleta.png';
+import Complemeto from '../assets/esmalte0.png';
+import './style_login.css';
 import Api from '../../services/api';
 import {useNavigate} from 'react-router-dom';
 
@@ -8,7 +9,6 @@ export default function LoginSalao(){
     const Hystory = useNavigate();
     const [cpf_salao,  setCpf] = useState('');
     const [senha, setSenha] = useState('');
-
     
     const Logar = async (e) => {
         e.preventDefault();
@@ -16,7 +16,6 @@ export default function LoginSalao(){
             cpf_salao,
             senha
         };
-
         if(cpf_salao.length === 0){
             alert('Preencha o campo Cpf');
         }else if(cpf_salao.length > 11) {
@@ -36,9 +35,9 @@ export default function LoginSalao(){
             } else if(Response.data === 'Acesso Negado, problemas com à assinatura do plano.'){
                 alert(Response.data);                
             } else if(Response.data === "Dias Free exedidos"){
-            	alert('Seus dias Livres de acesso a plataforma acabarm, para continuar eus trabalhos contrate um plano.');
+                alert('Seus dias Livres de acesso a plataforma acabarm, para continuar eus trabalhos contrate um plano.');
                 localStorage.setItem('cpf_salao', cpf_salao);
-            	Hystory("/planos");
+                Hystory("/planos");
             } else{
                 //logado com sucessu;
                 //salvar no localstorage o cof_salão;
@@ -63,11 +62,15 @@ export default function LoginSalao(){
     return(
         <div id="LoginSalao">
             <header id="HeaderLoginSalao">
-                <img id="LogoImg" src={Logo} alt="logo"/>
+                <h1 id="Title">Beauty Book</h1>
+                <ul>
+                    <img id="LogoImg" src={Logo} alt="logo"/>
+                </ul>
             </header>
             <div id="FormLoginSalao">
-                <h1>Login.</h1>
+                
                 <form onSubmit={Logar}>
+                    <h1>Login</h1>
                     <p id="PLoginSalao">
                         CPF salão / Funcionário
                     </p>
@@ -76,7 +79,6 @@ export default function LoginSalao(){
                     type="number"
                     placeholder="____CPF"
                     onChange={(e) => setCpf(e.target.value)}/>
-
                     <p id="PLoginSalao">
                         Senha
                     </p>
@@ -90,9 +92,14 @@ export default function LoginSalao(){
                     id="BtnLoginSalao"
                     type="submit"
                     value='Login'/>
+                    <br/>
+                    <br/>
+                    <a href="/registrosalao">Não possuí uma conta? click aqui</a>
                 </form>
                 <br/>
-                <a href="/registrosalao">Não possuí uma conta? click aqui</a>
+                <div id="imgDiv">
+                    <img id="Complemento" src={Complemeto}/>
+                </div>
             </div>
         </div>
     );
