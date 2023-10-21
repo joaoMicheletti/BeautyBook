@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import Logo from '../assets/borboleta.png';
+import Logo from '../assets/Logo.png';
+import Borboleta from '../assets/borboleta.png';
 import Complemeto from '../assets/esmalte0.png';
 import './style_login.css';
 import Api from '../../services/api';
@@ -62,9 +63,9 @@ export default function LoginSalao(){
     return(
         <div id="LoginSalao">
             <header id="HeaderLoginSalao">
-                <h1 id="Title">Beauty Book</h1>
+                <img id="Beuty" src={Logo}/>
                 <ul>
-                    <img id="LogoImg" src={Logo} alt="logo"/>
+                    <img id="LogoImg" src={Borboleta} alt="logo"/>
                 </ul>
             </header>
             <div id="FormLoginSalao">

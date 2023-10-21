@@ -8,10 +8,14 @@
 }
 #HeaderLoginSalao {
     width: 100%;
-    height: 80px;
+    height: 95px;
+}
+#Beuty{
+    margin-top: 2px;
+    margin-left: 30px;
+    width: 100px;
 }
 #HeaderLoginSalao ul{
-    margin-top: -63px;
     float: right;
 }
 #LogoImg {
@@ -26,7 +30,7 @@
 }
 #Form_Login {
     margin-left: 10%;
-    width: 40%;
+    width: 80%;
 }
 #imgDiv {
     width: 50%;
@@ -46,7 +50,7 @@ h1 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 400;
 }
-.InpLoginSalao {
+#Form_Login .InpLoginSalao {
     width: 100%;
     height: 40px;
     border: none;
@@ -55,7 +59,7 @@ h1 {
 #BtnLoginSalao {
     cursor: pointer;
     height: 40px;
-    width: 300px;
+    width: 80%;
     margin-top: 19px;
     border: none;
     border-radius: 5px;
@@ -65,12 +69,8 @@ h1 {
 #BtnLoginSalao:hover {
     background-color: rgb(88, 88, 88);
 }
-@media(min-width: 900px){
-    form{
-    }
-}
 
-@media(max-width: 950px){
+@media(max-width: 900px){
     #FormLoginSalao {
         text-align: center;
         margin-top: 50px;
