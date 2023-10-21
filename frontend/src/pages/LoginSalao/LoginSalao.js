@@ -96,6 +96,10 @@ export default function LoginSalao(){
                     <br/>
                     <br/>
                     <a href="/registrosalao">Não possuí uma conta? click aqui</a>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                 </form>
                 <br/>
                 <div id="imgDiv">
