@@ -69,7 +69,7 @@ export default function LoginSalao(){
             </header>
             <div id="FormLoginSalao">
                 
-                <form onSubmit={Logar}>
+                <form id="Form_Login" onSubmit={Logar}>
                     <h1>Login</h1>
                     <p id="PLoginSalao">
                         CPF salão / Funcionário
@@ -98,7 +98,7 @@ export default function LoginSalao(){
                 </form>
                 <br/>
                 <div id="imgDiv">
-                    <img id="Complemento" src={Complemeto}/>
+                    <img id="Complemento" src={Complemeto} alt="ola"/>
                 </div>
             </div>
         </div>
