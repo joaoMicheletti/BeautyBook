@@ -63,7 +63,7 @@ export default function LoginSalao(){
     return(
         <div id="LoginSalao">
             <header id="HeaderLoginSalao">
-                <img id="Beuty" src={Logo}/>
+                <img id="Beuty" src={Logo} alt="Logo"/>
                 <ul>
                     <img id="LogoImg" src={Borboleta} alt="logo"/>
                 </ul>

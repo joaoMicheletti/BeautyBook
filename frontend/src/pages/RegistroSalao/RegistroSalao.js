@@ -163,7 +163,7 @@ export default function RegistroSalao(){
                     <br/>
                 </form>
                 <div id="Barber">
-                    <img src={Men}/>
+                    <img src={Men} alt="Men"/>
                 </div>
             </div>
         </div>
