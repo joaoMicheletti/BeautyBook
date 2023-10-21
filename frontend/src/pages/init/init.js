@@ -64,8 +64,10 @@ export default function Init(){
                                 <label>Endereço :</label>
                                 <p className="PConteudohome">
                                     {iten.endereco} <br/>
+                                    <br/>
                                     CEP : {iten.cep}
                                 </p>
+                                <br/>
                                 <button className="BtnConteudoHomeInit"
                                 onClick={Agenda}>Selecionar</button>
                             </li>
