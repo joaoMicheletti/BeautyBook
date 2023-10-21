@@ -159,6 +159,8 @@ export default function RegistroSalao(){
                     <br/>
                     <br/>
                     <a href="/loginsalao">já possuí uma conta? click aqui</a>
+                    <br/>
+                    <br/>
                 </form>
                 <div id="Barber">
                     <img src={Men}/>

@@ -9,7 +9,7 @@
     background-image: url(../assets/salao.jpg);
     background-position: center center;
 }
-h1 {
+.header h1 {
     color: white;
     margin-left: 20px;
     cursor: pointer;
