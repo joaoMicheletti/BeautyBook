@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import Logo from '../assets/Logo.png';
+import Barber from '../assets/big.png';
+import Men from '../assets/men.png';
 import './style.css';
 import Api from '../../services/api';
 import {useNavigate} from 'react-router-dom'
@@ -18,10 +20,8 @@ export default function RegistroSalao(){
     var data_cadastro = DataAtual.getDate() + '/' + mes + '/' + DataAtual.getFullYear();
     const Hystori = useNavigate();
 
-
     const Registrar = async (e) =>{
         e.preventDefault();
-
         if(cpf_salao.length === 0){
             alert("Preencha o Campo *CPF");
         } else if( cpf_salao.length > 11) {
@@ -45,7 +45,6 @@ export default function RegistroSalao(){
                 } else if(Csenha.length === 0) {
                     alert("Preencha o campo Confirmar Senha.");
                 } else if(senha === Csenha){
-
                     const Data = {
                         cpf_salao,
                         nome_salao,
@@ -69,7 +68,6 @@ export default function RegistroSalao(){
                     }).catch((Erro) => {
                         alert('Erro interno!');
                     });
-
                 } else {
                     alert("As Senhas não Corresponden!");
                 };
@@ -81,11 +79,12 @@ export default function RegistroSalao(){
     return(
         <div id="RegistroSalao">
             <header id="HeaderRegistroSalao">
-                <img src={Logo} alt="Logo"/>
+                <img id="R" src={Logo} alt="Logo"/>
+                <img src={Barber} alt="Logo"/>
             </header>
             <div id="FomrRegistroSalao">
-            <h1>Registrar-se</h1>
                 <form onSubmit={Registrar}>
+                    <h1>Registrar-se</h1>
                     <p id="PRegistroSalao">
                         CPF 
                     </p>
@@ -158,9 +157,12 @@ export default function RegistroSalao(){
                     value='Registrar-se'
                     />
                     <br/>
+                    <br/>
+                    <a href="/loginsalao">já possuí uma conta? click aqui</a>
                 </form>
-                <br/>
-                <a href="/loginsalao">já possuí uma conta? click aqui</a>
+                <div id="Barber">
+                    <img src={Men}/>
+                </div>
             </div>
         </div>
     );
