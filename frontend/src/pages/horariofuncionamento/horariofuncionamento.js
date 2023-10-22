@@ -117,7 +117,7 @@ export default function HorarioDeFuncionamento(){
                     <button  onClick={Exit} id='Agenda' className="Btnexit" href="/painel"><FiLogOut/></button>                    
                 </div>
             </div>
-            <section id="SectionAgendaSalao">
+            <section id="SectionHorarios">
                 <h1 id='TitleHorarios'>Horário de funcionamento</h1>
                 <div id="Form_dias">
                     <form onSubmit={Registrar}>

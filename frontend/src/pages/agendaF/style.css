@@ -4,9 +4,7 @@
     margin: 0;
     box-sizing: border-box;
 }
-body {
-    background-color: rgb(129, 124, 124);
-}
+
 #HeaderSalao {
     display: flex;
     width: 100%;
@@ -28,19 +26,13 @@ hr{
     border: 1px solid;
     margin-bottom: 5px;
 }
-#ButtonsMenuSalao {
-    display: flex;
-    width: 100%;
-    height: 50px;
-}
+
 .DivMenu{
     height: 50px;
     width: 80px;
     margin-left: 5px;
 }
-#DivAganda{
-    background-color: white;
-}
+
 #Agenda{
     margin-left: 15px;
     font-size: 40px;
@@ -65,42 +57,28 @@ hr{
     margin-left: 15px;
     font-size: 40px;
 }
-#SectionAgendaSalao{
-    width: 100%;
-    height: auto;
-    background-color: white;
-}
-
 
 #TitleAgenda {
     text-align: center;
     text-decoration: underline;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 #ConteinerAgenda {
-    background-color:  rgb(129, 124, 124);
     border: solid black 1px;
     width: 60%;
     margin-left: 20%;
 }
 #DiaMesAno {
-    background-color: rgba(129, 124, 124, 0.603);
     width: 80%;
     height: 35px;
     margin-left: 10%;
     display: flex;
     justify-content: space-around;
 }
-#SelectMes {
-    width: 300px;
-    height: 35px;
-    text-align: center;
-}
 #BtnAgenda {
     border: solid black 1px;
     cursor: pointer;
     width: 100px;
-    background-color: rgba(163, 163, 163, 0.836);
 }
 #BtnAgenda:hover {
     opacity: 80%;
@@ -111,7 +89,6 @@ hr{
 #Agendados ul {
     border: black solid 1px;
     margin-bottom: 15px;
-    background-color: rgb(129, 124, 124);
     text-align: center;
 }
 #Agendados ul li p {
@@ -129,7 +106,6 @@ hr{
     justify-content: space-around;
 }
 .BtnStatus {
-    background-color: rgba(163, 163, 163, 0.836);
     border: solid black 1px;
     width: 100px;
     cursor: pointer;

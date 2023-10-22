@@ -3,37 +3,37 @@
 }
 #Agenda{
     background-color: transparent;
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Services {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #DivServicos {
     background-color: white;
 }
 #Funcionarios {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Horarios {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #ConvidarCliente {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Ajustes {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
-#SectionAgendaSalao{
+#SectionServicosSalao{
     margin-top: 10px;
     width: 100%;
     height: auto;
-    background-color: white;
+    background-color: #bfd7ea;
 }
 #TitleServicos {
     color: black;
@@ -73,14 +73,14 @@
 }
 #BtnServicos {
     cursor: pointer;
-    background-color: rgb(129, 124, 124);
+    background-color: rgb(250, 250, 250);
     width: 200px;
     height: 25px;
     border-radius: 3px;
     margin-bottom: 10px;
 }
 #BtnServicos:hover {
-    opacity: 80%;
+    background-color: rgb(80, 79, 78);
 }
 @media(max-width: 600px){
     #TipodeServico {
@@ -99,7 +99,6 @@
     border: solid black 1px;
 }
 #ServicosCadastrados ul li {
-    background-color: rgba(129, 124, 124, 0.671);
     display: flex;
     justify-content: space-around;
 }
@@ -109,10 +108,9 @@
 }
 #BtnEditar {
     cursor: pointer;
-    background-color: rgb(129, 124, 124);
     width: 80px;
     border-radius: 3px;
 }
 #BtnEditar:hover{
-    opacity: 80%;
+    background-color: rgb(80, 79, 78);
 }

@@ -2,36 +2,37 @@
     background-color: transparent;
 }
 #Agenda{
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Services {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #DivServicos {
     background-color: transparent;
 }
 #Funcionarios {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #DivFuncionarios{
     background-color: transparent;
 }
 #Horarios {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #ConvidarCliente {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Ajustes {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #TitleHorarios {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: black;
     text-align: center;
     text-decoration: underline;
@@ -47,7 +48,6 @@
     width: 200px;
     height: 30px;
     margin-bottom: 15px;
-    background-color: rgba(129, 124, 124, 0.671);
     border: solid black 1px;
 }
 #inicio {
@@ -55,7 +55,6 @@
     width: 200px;
     height: 30px;
     margin-bottom: 15px;
-    background-color: rgba(129, 124, 124, 0.671);
     border: solid black 1px;
 }
 #termino {
@@ -63,20 +62,19 @@
     width: 200px;
     height: 30px;
     margin-bottom: 15px;
-    background-color: rgba(129, 124, 124, 0.671);
     border: solid black 1px;
 }
 #Btn_cad {
+    border-radius: 5px;
     width: 30%;
     height: 35px;
-    background-color: rgba(129, 124, 124, 0.671);
     cursor: pointer;
 }
+
 #DivHorarios {
     width: 100%;
 }
 #DivHorarios ul li {
-    background-color: rgba(129, 124, 124, 0.671);
     height: 30px;
     display: flex;
     justify-content: space-around;
@@ -91,7 +89,6 @@
 .BtnHorario {
     cursor: pointer;
     width: 80px;
-    background-color: rgb(129, 124, 124);
 }
 .BtnHorario:hover{
     opacity: 80%;

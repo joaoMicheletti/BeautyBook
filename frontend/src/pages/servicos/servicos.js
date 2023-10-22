@@ -102,7 +102,7 @@ export default function Servicos(){
                     <button  onClick={Exit} id='Agenda' className="Btnexit" href="/painel"><FiLogOut/></button>                    
                 </div>
             </div>
-            <section id="SectionAgendaSalao">
+            <section id="SectionServicosSalao">
                 <h1 id="TitleServicos">Serviços</h1>
                 <div id='RegistrarServico'>
                     <form id="FormServicos">

@@ -69,7 +69,7 @@ export default function Servicos(){
                     <button  onClick={Exit} id='Agenda' className="Btnexit" href="/painel"><FiLogOut/></button>                    
                 </div>
             </div>
-            <section id="SectionAgendaSalao">
+            <section id="SectionConvidar">
                 <h1 id="TitleLinkAgendamento" >Meu Link de Agendamento</h1>
                 <div id="InfoLink">
                     <p id="TextInfoLink">

@@ -124,7 +124,7 @@ export default function Funcionarios(){
                     <button  onClick={Exit} id='Agenda' className="Btnexit" href="/painel"><FiLogOut/></button>                    
                 </div>
             </div>
-            <section id="SectionAgendaSalao">
+            <section id="SectionFuncionariosSalao">
                 <h1 id="TitleFuncionarios">Funcionários</h1>
                 <div id="DivCadastroFuncionarios">
                 <form id="FormFuncionarios">
@@ -164,7 +164,7 @@ export default function Funcionarios(){
                         onChange={(e) => setCsenha(e.target.value)}/>
                         <br/>
                         <button
-                        id="BtnFuncionarios"
+                        id="BtnFunc"
                         type="submit" onClick={Registrar}>Registrar</button>
                     </form>
                     <hr/>

@@ -5,43 +5,32 @@ import './style_funcionario.css';
 
 export default function AgendaFuncionario(){
     const History = useNavigate();
-
     //responsável por armazenaar a lista de horários
     const [ListaHorarios, setListaHorarios] =  useState([]);
-
     //responsavel po armazenar a lista de serviços;
     const [Listarservicos, setListarServicos] = useState([]);
-
     //input de data e hora.
     const [Datastring, setDatastring] = useState('');
     const [horaAtual, setHora] = useState('');
-
     //dados cliente 
     const [nome_cliente, setNameCliente] = useState('');
-
     //contato cliente.
     const [contato_cliente, setContatoCliente] = useState('');
-
     // input observação 
     const [obs,  setObs] = useState('');
-
     //serviço e preço de sesrviço
     const [servico, setServico] = useState('');
     const [Preco, setPreco] = useState('');
-
     //data atual e separando seu dia mes e ano para alterar a orden
     var DataAtual = new Date();
     var dia = DataAtual.getDate();
     var mes = DataAtual.getMonth() + 1;
     var ano = DataAtual.getFullYear(); 
-
     // removendo o localstorage para evitar mal funcionamneto da ferrament;
     localStorage.removeItem('cpf_salao');
-
     //pegando atraves do storage as informaçoes referentes ao salao e funcionario selecionado.
     var cpf_funcionario = localStorage.getItem('cpf_funcionario');
     var cpf_salao = localStorage.getItem('idsalao');;
-
     if(localStorage.getItem('cpf_funcionario') === null){
         alert('Erro ao buscar os dados do Funcionário');
         History('/');
@@ -64,54 +53,44 @@ export default function AgendaFuncionario(){
         }).catch(() => {
             //erro de cominucação com o servidor.
         });
-         const Dat = {
+        const Dat = {
             cpf_salao
-         };
+        };
          //serviços
-         Api.post('/servico', Dat).then((Response) =>{
+        Api.post('/servico', Dat).then((Response) =>{
             setListarServicos(Response.data);
-         }).catch((erro) =>{
+        }).catch((erro) =>{
             // erro de cominucação com o servidor.
-         });
+        });
     });
-
     const Agendar = async (e) =>{
         e.preventDefault();        
         var status_servico = "agendado";
-
         //pegando o nome do dia da semana;
         let partes = Datastring.split("-");
         //invertendo a ordem da data para dia, mes, ano.
         var dia = parseInt(partes[2], 10);
         var mes = parseInt(partes[1], 10);
         var ano = parseInt(partes[0], 10);
-
         // Crie um objeto Date (meses em JavaScript vão de 0 a 11, por isso subtraímos 1 do valor do mês)
         let dataObj = new Date(partes[0], partes[1] - 1, partes[2]);
         
         // Crie um array com os nomes dos dias da semana
         let nomesDiasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
-
         // Obtenha o número do dia da semana (0 para Domingo, 1 para Segunda, ..., 6 para Sábado)
         let numeroDiaSemana = dataObj.getDay();
-
         // Acesse o nome do dia da semana usando o número obtido
         let dia_semana = nomesDiasSemana[numeroDiaSemana];
-
         //convertendo a hora para um valor float do jeito que o backend espera.
         var hora_ =  horaAtual.replace(':', '.');
         var hora = parseFloat(hora_);
-
         //passando o preço para float
         var preco = parseFloat(Preco);
-
-
         //a data atual de ser enviada no formato de String
         //está varievél 'Mes' referese ao mes da variavél 'DataAtual'
         //diferente da variavél 'mes' que faz referencia a variavél 'partes'
         var Mes = DataAtual.getMonth() + 1;
         var data_atual = DataAtual.getDate()+'/'+Mes+'/'+DataAtual.getFullYear();
-
         const Data = {
             //cpf_salao,
             cpf_funcionario, //ok
@@ -129,8 +108,6 @@ export default function AgendaFuncionario(){
             data_atual, // para a rota de agendamentos futuros;
             //percent50, //falta
         };
-
-
         if(Datastring === ''){
             alert('Selecione uma Data.');
         }else if(hora === ''){
@@ -175,7 +152,6 @@ export default function AgendaFuncionario(){
             if(mes >= DataAtual.getMonth() + 1 && ano >= DataAtual.getFullYear()){
                 //agendamentos futuros;
             await Api.post('/agendamentosfuturos', Data).then(async (Response) =>{
-
                 //verificar data limite para agendamentos futuros;
                 if(Response.data === "Dentro do limite para Agendamentos futuros"){
                     
@@ -190,12 +166,10 @@ export default function AgendaFuncionario(){
                                 // falha de comunicação com o serviodor
                                 alert('Erro ao finalizar o agendamento');
                             });
-
                         }else{
                             // pode ter gerado uim conflito entre agendamentos.
                             alert('Erro ao criar um agendamento futuro.');
                         };
-
                     }).catch((erro) =>{
                         // erro de comunicação com o servidor.
                         alert('Erro ao criar um agendamento futuro.');
@@ -228,7 +202,6 @@ export default function AgendaFuncionario(){
                 <img src={Url + localStorage.getItem('logo_salao')} alt='Logo Salão' />
                 <h1 id='H1NomeSalao'>{localStorage.getItem('nome_salao')}</h1>
             </header>
-
             <div id='DivAgendamento'>
             <h2>Selecione uma data</h2>
                 <div id='DivCalendario'>
@@ -251,14 +224,12 @@ export default function AgendaFuncionario(){
                     <br/>
                     <p id='AlertaHorarios'></p>
                     {ListaHorarios.map((iten, key) =>{
-
                         return(
                             <ul key={iten.id}>
                                 <li>
                                     <p>Horário Preenchido : das {iten.hora} Horas as {iten.hora_termino} Horas</p>
                                 </li>
                             </ul>
-
                         );
                     })}           
                 </div>
@@ -316,7 +287,6 @@ export default function AgendaFuncionario(){
                     </form>
                 </div>
             </div>
-
         </div>
     );
 };

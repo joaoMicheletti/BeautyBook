@@ -2,40 +2,44 @@
     background-color: transparent;
 }
 #Agenda{
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Services {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #DivServicos {
     background-color: transparent;
 }
 #Funcionarios {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #DivFuncionarios{
     background-color: transparent;
 }
 #Horarios {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #ConvidarCliente {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Ajustes {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 
 #TitleAjustes {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: black;
     text-align: center;
     text-decoration: underline;
+}
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 #AjustesImg {
     border: solid black 1px;
@@ -44,8 +48,6 @@
     width: 80%;
     margin-left: 10%;
     margin-bottom: 10px;
-    background-color: rgba(129, 124, 124, 0.671);
-
 }
 #ParagrafoImg {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -56,7 +58,6 @@
     border-radius: 2px;
     font-weight: 600;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgb(129, 124, 124);
 }
 .BtnImg:hover {
     opacity: 80%;
@@ -85,22 +86,18 @@
     border-radius: 2px;
 }
 #BtnMinutos{
+    cursor: pointer;
     width: 200px;
     height: 30px;
-    background-color: rgb(129, 124, 124);
     margin-bottom: 10px;
 }
-#BtnMinutos:hover {
-    opacity: 80%;
-}
+
 #Preferencias ul li {
     border: solid black 1px;
     display: flex;
     justify-content: space-around;
     list-style: none;
     margin-bottom: 10px;
-    background-color: rgba(129, 124, 124, 0.671);
-
 }
 #MinutosCima {
     border: solid black 1px;
@@ -109,7 +106,6 @@
 #DefinirCimaHora{
     font-weight: 600;
     width: 100px;
-    background-color: rgb(129, 124, 124);
 }
 #DefinirCimaHora:hover{
     opacity: 80%;
@@ -123,6 +119,7 @@
     text-decoration: underline;
     margin-bottom: 10px;
 }
+
 .PFormSenha {
     font-weight: 600;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -139,7 +136,6 @@
     margin-bottom: 10px;
     width: 125px;
     height: 25px;
-    background-color: rgb(129, 124, 124);
     font-weight: 600;
     cursor: pointer;
 }
@@ -168,7 +164,6 @@
     margin-bottom: 10px;
     width: 125px;
     height: 25px;
-    background-color: rgb(129, 124, 124);
     cursor: pointer;
 }
 #BtnCadastro:hover {
@@ -194,7 +189,6 @@
 #BtnEditarSenhaFuncionario {
     margin-top: 10px;
     cursor: pointer;
-    background-color: rgb(129, 124, 124);
     width: 125px;
     height: 25px;
 }

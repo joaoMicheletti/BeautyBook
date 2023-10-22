@@ -4,10 +4,11 @@
     margin: 0;
     box-sizing: border-box;
 }
-body {
-    background-color: rgb(129, 124, 124);
+#PainelSalao {
+    background-color: #bfd7ea;
 }
 #HeaderSalao {
+    background-color: #0b3954;
     display: flex;
     width: 100%;
     height: 105px;
@@ -41,51 +42,41 @@ hr{
     width: 80px;
     margin-left: 5px;
 }
-#Agenda{
-    margin-left: 15px;
-    font-size: 40px;
+#Agendaa{
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Services {
-    margin-left: 15px;
-    font-size: 40px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Funcionarios {
-    margin-left: 15px;
-    font-size: 40px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Horarios {
-    margin-left: 15px;
-    font-size: 40px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #ConvidarCliente {
-    margin-left: 15px;
-    font-size: 40px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Ajustes {
-    margin-left: 15px;
-    font-size: 40px;
+    margin-left: 10px;
+    font-size: 50px;
 }
-#SectionAgendaSalao{
-    margin-top: -50px;
+#SectionAgendaSalaoPainel{
     width: 100%;
     height: auto;
-    background-color: white;
+    background-color: #bfd7ea;
 }
 
-
-#TitleAgenda {
-    text-align: center;
-    text-decoration: underline;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-#ConteinerAgenda {
-    background-color:  rgb(129, 124, 124);
-    border: solid black 1px;
+#ConteinerAgendaPainel {
     width: 60%;
     margin-left: 20%;
 }
 #DiaMesAno {
-    background-color: rgba(129, 124, 124, 0.603);
     width: 80%;
     height: 35px;
     margin-left: 10%;
@@ -101,7 +92,6 @@ hr{
     border: solid black 1px;
     cursor: pointer;
     width: 100px;
-    background-color: rgba(163, 163, 163, 0.836);
 }
 #BtnAgenda:hover {
     opacity: 80%;
@@ -112,7 +102,6 @@ hr{
 #Agendados ul {
     border: black solid 1px;
     margin-bottom: 15px;
-    background-color: rgb(129, 124, 124);
     text-align: center;
 }
 #Agendados ul li p {
@@ -130,7 +119,6 @@ hr{
     justify-content: space-around;
 }
 .BtnStatus {
-    background-color: rgba(163, 163, 163, 0.836);
     border: solid black 1px;
     width: 100px;
     cursor: pointer;

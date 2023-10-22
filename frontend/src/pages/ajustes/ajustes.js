@@ -251,7 +251,7 @@ export default function Ajustes(){
             </div>
             {listaSalao.map((iten, key) => {
                 return(
-                    <section key={iten.id} id="SectionAgendaSalao">
+                    <section key={iten.id} id="SectionAjustes">
                         <h1 id="TitleAjustes">Preferências</h1>
                         <div id="AjustesImg" >
                             <p id="ParagrafoImg" >Adicionar / Editar Logo do salão</p>
@@ -430,7 +430,10 @@ export default function Ajustes(){
                                 <h2 id="TitlePlanos">Planos</h2>
                                 <p id="TextoPlano">Para alteraçoẽs no plano entre en contato com nosso supote 24 Horas</p>
                                 <p>Ver os Planos : </p>
+                                <br/>
                                 <a href="/planos">Clik aqui</a>
+                                <br/>
+                                <br/>
                             </div>
                         </div>
                         

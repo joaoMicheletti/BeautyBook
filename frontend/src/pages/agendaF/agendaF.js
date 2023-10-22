@@ -29,15 +29,12 @@ export default function AgendaF(){
                 <h1 id="TitleSalao" >Agenda de funcionários</h1>
             </header>
             <hr/>
-            
-            <section id="SectionAgendaSalao">
-
+            <section id="SectionFuncionarioAgenda">
                 <h1 id="TitleAgenda">Agenda</h1>
-
                 <div id="ConteinerAgenda">
                     <div id="DiaMesAno">
-                         <input id="SelectMes" type="date"></input>
-                         <button id="BtnAgenda" type="sybmit">Buscar</button>
+                        <input id="SelectMes" type="date"></input>
+                        <button id="BtnAgenda" type="sybmit">Buscar</button>
                     </div>
                 </div>
                 <br/>

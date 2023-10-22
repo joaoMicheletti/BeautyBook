@@ -65,7 +65,7 @@ export default function Painel(){
             <hr/>
             <div id="ButtonsMenuSalao">
                 <div  id='DivAganda' className="DivMenu" style={{backgroundColor: "white"}}>
-                    <a id='Agenda' className="BtnMenu" href="/painel"><FcCalendar/></a>
+                    <a id='Agendaa' className="BtnMenu" href="/painel"><FcCalendar/></a>
                 </div>
                 <div className="DivMenu">
                     <a id="Services" className="BtnMenu" href="/servicos"><FcServices/></a>                    
@@ -86,16 +86,13 @@ export default function Painel(){
                 <div className="DivMenu">
                     <button  onClick={Exit} id='Agenda' className="Btnexit" href="/painel"><FiLogOut/></button>                    
                 </div>
-                
             </div>
-            <section id="SectionAgendaSalao">
-
-                <h1 id="TitleAgenda">Agenda</h1>
-
-                <div id="ConteinerAgenda">
+            <section id="SectionAgendaSalaoPainel">
+                <br/>
+                <div id="ConteinerAgendaPainel">
                     <div id="DiaMesAno">
-                         <input id="SelectMes" type="date"></input>
-                         <button id="BtnAgenda" type="sybmit">Buscar</button>
+                        <input id="SelectMes" type="date"></input>
+                        <button id="BtnAgenda" type="sybmit">Buscar</button>
                     </div>
                 </div>
                 <br/>

@@ -2,36 +2,37 @@
     background-color: transparent;
 }
 #Agenda{
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Services {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #DivServicos {
     background-color: transparent;
 }
 #Funcionarios {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #DivFuncionarios{
     background-color: white;
 }
 #Horarios {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #ConvidarCliente {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #Ajustes {
-    margin-left: 15px;
-    font-size: 45px;
+    margin-left: 10px;
+    font-size: 50px;
 }
 #TitleFuncionarios {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: black;
     text-align: center;
     text-decoration: underline;
@@ -84,21 +85,18 @@
     height: 25px;
     margin-bottom: 10px
 }
-#BtnFuncionarios {
+#BtnFunc{
     cursor: pointer;
-    background-color: rgb(129, 124, 124);
     width: 200px;
     height: 25px;
-    border-radius: 3px;
+    border-radius: 5px;
     margin-bottom: 10px;
 }
-#BtnServicos:hover {
-    opacity: 80%;
+#BtnFunc:hover {
+    background-color: rgb(70, 73, 72);
 }
 
-
 #FuncionariosCadastrados {
-    
     width: 100%;
 }
 #FuncionariosCadastrados ul {
@@ -106,7 +104,6 @@
     border: solid black 1px;
 }
 #FuncionariosCadastrados ul li {
-    background-color: rgba(129, 124, 124, 0.671);
     display: flex;
     justify-content: space-around;
 }
@@ -116,21 +113,19 @@
 }
 #BtnVerAgenda {
     cursor: pointer;
-    background-color: rgb(129, 124, 124);
     width: 80px;
     border-radius: 3px;
 
 }
 #BtnExcluir {
     cursor: pointer;
-    background-color: rgb(129, 124, 124);
     width: 80px;
     border-radius: 3px;
 }
 #BtnExcluir:hover{
-    opacity: 80%;
+    background-color: rgb(63, 62, 61);
 }
 #BtnVerAgenda:hover{
-    opacity:  80%;
+    background-color: rgb(63, 62, 61);
 
 }
