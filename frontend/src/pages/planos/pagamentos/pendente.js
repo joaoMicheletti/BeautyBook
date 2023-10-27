@@ -23,8 +23,13 @@ export default function Pendente(){
     //buscar se opgamento foi realixado.
     const paymentId = params.get('payment_id'); //isso tem que ser pasado para consultar o pagamento;
     Api.post('/buscarpg', {paymentId}).then(async(Response) =>{
-        if(Response.data === 'pending'){
-            document.querySelector('#alerta').innerHTML = "Seu pagamento encontra-se pendente em nosso sistema, em algumas horas você recebera um E-mail liberando o seu acesso a plataforma.";
+        console.log(Response.data.id);
+        //pagamento pendente e via boleto;
+        if(Response.data.status === 'pending' && Response.data.id === 'bolbradesco'){
+            document.querySelector('#alerta').innerHTML = "Seu pagamento encontra-se pendente em nosso sistema, Você optou pelo pagamento VIA BOLETO, após efetuar o pagamento espere de 1 a 2 dias UTEIS para aprovação.";
+        //pagamento pendente e via lotericas;
+        } else if(Response.data.status === 'pending' && Response.data.id === 'pec'){
+            document.querySelector('#alerta').innerHTML = "Seu pagamento encontra-se pendente em nosso sistema, Você optou pelo pagamento na loterica, após efetuar o pagamento é so fazer login em nosso sistema!";
         }else if(Response.data.status === 'approved'){
             //criando objeto com a data atual;
             const dataAtual = new Date();
