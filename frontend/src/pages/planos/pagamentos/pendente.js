@@ -26,10 +26,38 @@ export default function Pendente(){
         console.log(Response.data.id);
         //pagamento pendente e via boleto;
         if(Response.data.status === 'pending' && Response.data.id === 'bolbradesco'){
-            document.querySelector('#alerta').innerHTML = "Seu pagamento encontra-se pendente em nosso sistema, Você optou pelo pagamento VIA BOLETO, após efetuar o pagamento espere de 1 a 2 dias UTEIS para aprovação.";
+            var salao = localStorage.getItem('cpf_salao');
+            console.log(salao);
+            var Data = {
+                salao, paymentId
+            };
+            //rota para salvar o pymentId no data base para tratamento futuro;
+            Api.post('/pending', Data).then((Response) => {
+                if(Response.data === 1){
+                    document.querySelector('#alerta').innerHTML = "Seu pagamento encontra-se pendente em nosso sistema, Você optou pelo pagamento VIA BOLETO, após efetuar o pagamento espere de 1 a 2 dias UTEIS para aprovação.";
+                } else {
+                    alert('Ocorreu um erro inesperado, caso tenha efetuado o pagamento entre encontato como suport.');
+                };
+            }).catch((erro) =>{
+                alert('Erro ao comunicar-se com o servidor.');
+            });
         //pagamento pendente e via lotericas;
         } else if(Response.data.status === 'pending' && Response.data.id === 'pec'){
-            document.querySelector('#alerta').innerHTML = "Seu pagamento encontra-se pendente em nosso sistema, Você optou pelo pagamento na loterica, após efetuar o pagamento é so fazer login em nosso sistema!";
+            var salao = localStorage.getItem('cpf_salao');
+            console.log(salao);
+            var Data = {
+                salao, paymentId
+            };
+            //rota para salvar o pymentId no data base para tratamento futuro;
+            Api.post('/pending', Data).then((Response) => {
+                if(Response.data === 1){
+                    document.querySelector('#alerta').innerHTML = "Seu pagamento encontra-se pendente em nosso sistema, Você optou pelo pagamento na loterica, após efetuar o pagamento é so fazer login em nosso sistema!";
+                } else {
+                    alert('Ocorreu um erro inesperado, caso tenha efetuado o pagamento entre encontato como suport.');
+                };
+            }).catch((erro) =>{
+                alert('Erro ao comunicar-se com o servidor.');
+            });
         }else if(Response.data.status === 'approved'){
             //criando objeto com a data atual;
             const dataAtual = new Date();
@@ -75,6 +103,7 @@ export default function Pendente(){
             document.querySelector('#alerta').innerHTML = "seu pagamento foi recusado, tente novamente mais tarde!.";
         };        
     }).catch((Erro) => {
+        document.querySelector('#Title').innerHTML = "Erro ao comunicar-se com o servidor!!!";
         alert('Erro ao comunicar-se com o servidor!!!');
     });
     return(
