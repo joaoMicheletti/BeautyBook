@@ -20,8 +20,13 @@ export default function Painel(){
         dia, mes, ano, cpf_salao
     };
     Api.post('/assinatura', {cpf_salao}).then((Response) => {
-        if(Response.data[0].assinatura_status !== 'on'){
-            alert('Sua assinatura expirou, contrate nosso serviço novamente.');
+        if(Response.data === false){
+            alert('Seus dias de acesso livre a plataforma acabaram, contrate um plano.');
+            History('/planos')
+        } else if(Response.data === true){
+            console.log(Response.data);
+        } else if(Response.data === null){
+            alert('Seu plano encontra-se "Expirado", regularize para ter acesso a plataforma.')
             History('/planos')
         }
     }).catch((Erro) => {

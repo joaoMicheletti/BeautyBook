@@ -12,11 +12,17 @@ export default function Funcionarios(){
     //buscando funcionarios cadastrados;
     var cpf_salao = localStorage.getItem('cpf_salao');
     Api.post('/assinatura', {cpf_salao}).then((Response) => {
-        if(Response.data[0].assinatura_status !== 'on'){
-            alert('Sua assinatura expirou, contrate nosso serviço novamente.');
+        console.log(Response);
+        if(Response.data === false){
+            alert('Seus dias de acesso livre a plataforma acabaram, contrate um plano.');
             History('/planos')
-        }
-    }).catch((Erro) => {
+        } else if(Response.data === true){
+            console.log(Response.data);
+        } else if(Response.data === null){
+            alert('Seu plano encontra-se "Expirado", regularize para ter acesso a plataforma.')
+            History('/planos')
+        };
+    }).catch(() => {
         alert('Erro ao validar sua assinatura!');
     });
     useEffect(() =>{
