@@ -28,7 +28,7 @@ export default function LoginSalao(){
         } else {
         };
         await Api.post('/loginsalao', Data).then((Response) => {
-            console.log(Response.data);
+            console.log(Response.data, "this");
             if(Response.data === 'não encontramos nenhum salão ou funcionário com esses dados!'){
                 alert(Response.data);
             } else if(Response.data === 'erro no login'){
@@ -46,10 +46,21 @@ export default function LoginSalao(){
                 var data = Response.data;
                 // si data.cpf_funcionario === undefined; logado como salão 
                 if(data.cpf_funcionario === undefined){
-                    localStorage.setItem('cpf_salao', data.cpf_salao);
-                    //encaminha para o painel;
-                    alert("Logado com sucesso, Bom Trabalho.");
-                    Hystory('/painel');                    
+                    if(data.statusPagamento === 'pending'){
+                        alert('Seu pagamento ainda encontra-se pendente, certifique-se de que ele foi efetuado.');
+                        Hystory('/');
+                    } else if(data.statusPagamento === 'approved'){
+                        alert('Seu pagamento foi aprovado, é  bom ter você de volta!');
+                        localStorage.setItem('cpf_salao', data.cpf_salao);
+                        Hystory('/painel'); 
+                    } else if(data.statusPagamento === ''){
+                        alert('O pagamento do seu plano foi recusado.');
+                    } else {
+                        // se passou por essas etapas o salão ainda esta com os dias free liberados;
+                        localStorage.setItem('cpf_salao', data.cpf_salao);
+                        alert('Aproveite seu periudo de teste.')
+                        Hystory('/painel');
+                    }
                 } else {
                     //logado como funcionário;
                     //encaminar para painel do funcionário;

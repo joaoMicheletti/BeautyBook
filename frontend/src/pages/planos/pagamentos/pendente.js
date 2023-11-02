@@ -33,6 +33,7 @@ export default function Pendente(){
             };
             //rota para salvar o pymentId no data base para tratamento futuro;
             Api.post('/pending', Data).then((Response) => {
+                console.log(Response.data);
                 if(Response.data === 1){
                     document.querySelector('#alerta').innerHTML = "Seu pagamento encontra-se pendente em nosso sistema, Você optou pelo pagamento VIA BOLETO, após efetuar o pagamento espere de 1 a 2 dias UTEIS para aprovação.";
                 } else {
