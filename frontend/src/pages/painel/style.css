@@ -97,10 +97,16 @@ hr{
     opacity: 80%;
 }
 #Agendados {
+    display: flex;
+    flex-flow: row wrap;
     width: 100%;
 }
 #Agendados ul {
+    background-color: #0b395477;
     border: black solid 1px;
+    border-radius: 10px;
+    list-style: none;
+    width: 20%;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -113,14 +119,18 @@ hr{
 }
 .DivStatus {
     margin-left: 25%;
-    width: 50%;
+    width: 100%;
     height: 35px;
     display: flex;
     justify-content: space-around;
 }
 .BtnStatus {
     border: solid black 1px;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 10px;
     width: 100px;
+    font-weight: 600;
     cursor: pointer;
 }
 .BtnStatus:hover {

@@ -127,18 +127,16 @@ export default function Painel(){
                             };                            
                             await Api.put('/finalizarservico', Data).then((Response) =>{
                                 alert(Response.data);
-
                             }).catch(() =>{
                                 alert('Erro interno.')
                             });
                         };
-
                         return(
                             <ul key={iten.id}>
                                 <li>
                                     <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
                                     <br/>
-                                    <p>Horário : {iten.hora}  AS {iten.hora_termino}</p>
+                                    <p>Início: {iten.hora} <br/> Término: {iten.hora_termino}</p>
                                     <p>Cliente :  {iten.nome_cliente}</p>
                                     <p>WhatsApp Cliente : </p> 
                                     <a target="_blank"
@@ -147,12 +145,11 @@ export default function Painel(){
                                     className="LKWhatsapp">{iten.contato_cliente}</a>
                                     <br/>
                                     <br/>
-                                    <p> Funcionário : {iten.nome_completo}</p>
                                     <p>Serviços :  {iten.servico}</p>
                                     <p>Observação : {iten.obs}
                                     </p>
                                     <br/>
-                                    <p className="UnderLine">Valro Serviço : {iten.preco} _R$</p><br/>
+                                    <p className="UnderLine">Valro Serviço : R${iten.preco}</p><br/>
                                     <div className="DivStatus">
                                         <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
                                         <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
@@ -161,9 +158,7 @@ export default function Painel(){
                             </ul>
                             
                         );
-
                     })}
-                     
                 </div>
             </section>
         </div>
