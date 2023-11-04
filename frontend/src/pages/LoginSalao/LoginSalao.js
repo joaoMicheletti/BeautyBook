@@ -55,9 +55,14 @@ export default function LoginSalao(){
                         Hystory('/painel'); 
                     } else if(data.statusPagamento === ''){
                         alert('O pagamento do seu plano foi recusado.');
+                    }else if(data.assinatura_status === "on"){
+                        localStorage.setItem('cpf_salao', data.cpf_salao)
+                        alert('Logado com sucesso!');
+                        Hystory('/painel');
                     } else {
                         // se passou por essas etapas o salão ainda esta com os dias free liberados;
                         localStorage.setItem('cpf_salao', data.cpf_salao);
+                        console.log(data);
                         alert('Aproveite seu periudo de teste.')
                         Hystory('/painel');
                     }
@@ -65,6 +70,8 @@ export default function LoginSalao(){
                     //logado como funcionário;
                     //encaminar para painel do funcionário;
                     localStorage.setItem('cpf_funcionario', data.cpf_funcionario);
+                    alert("logado com sucesso");
+                    Hystory('/painelfuncionario');
                 };
             }
         }).catch((Erro) => {

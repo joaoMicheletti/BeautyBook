@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Api from '../../services/api';
 import './painelfuncionario.css';
+import{FiLogOut} from 'react-icons/fi';
 export default function PainelFuncionario(){
-    //const History = useNavigate();
+    const History = useNavigate();
     const DataAtual = new Date();// oibjeto data atual;
     //o servidor espera receber semaradamente o diam, mes e ano,
     var dia = parseInt(DataAtual.getDate(), 10);
@@ -24,11 +25,19 @@ export default function PainelFuncionario(){
             alert('Erro interno.');
         });
     }, []); //não passar dependências retorna um alerta ! porem ao passar o Data como dependência ele cai num loop infinito de requisições.
-    
+    function Exit(){
+        localStorage.removeItem('cpf_salao');
+        localStorage.removeItem('cpf_funcionario');
+        alert('Até Breve');
+        History('/');
+        console.log('exit');
+    };
     return(
-        <div>
+        <div id='corpo'>
             <header className='cabeçalho'>
-                <h1 id="TitleFuncionario" >Olá funcionário</h1>
+                <br/>
+                <h5 id="TitleFuncionario" >Olá Colaborador.</h5>
+                <button  onClick={Exit} id='Agenda' className="BtnExit" href="/painel"><FiLogOut/></button>
             </header>
             <br/>
             <h2>Agenda do Dia.</h2>
@@ -43,6 +52,7 @@ export default function PainelFuncionario(){
                     };                            
                     await Api.put('/cancelarservico', Data).then((Response) =>{
                         alert(Response.data);
+                        window.location.reload(true);
                     }).catch(() =>{
                         alert('Erro interno.')
                     });
@@ -55,6 +65,7 @@ export default function PainelFuncionario(){
                         };                            
                         await Api.put('/finalizarservico', Data).then((Response) =>{
                             alert(Response.data);
+                            window.location.reload(true);
                         }).catch(() =>{
                             alert('Erro interno.')
                         });
@@ -81,7 +92,7 @@ export default function PainelFuncionario(){
                             <p className="UnderLine">Valro Serviço : {iten.preco} _R$</p><br/>
                             <div className="DivStatus">
                                 <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
-                                <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
+                                <br/><button className="BtnStatus" onClick={Finalizar}>finalizado</button>
                             </div>
                             </li>
                         </ul>

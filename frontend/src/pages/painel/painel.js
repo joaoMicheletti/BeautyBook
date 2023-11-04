@@ -114,6 +114,7 @@ export default function Painel(){
                             };                            
                             await Api.put('/cancelarservico', Data).then((Response) =>{
                                 alert(Response.data);
+                                window.location.reload(true);
                                 
                             }).catch(() =>{
                                 alert('Erro interno.')
@@ -127,6 +128,7 @@ export default function Painel(){
                             };                            
                             await Api.put('/finalizarservico', Data).then((Response) =>{
                                 alert(Response.data);
+                                window.location.reload(true);
                             }).catch(() =>{
                                 alert('Erro interno.')
                             });
@@ -137,8 +139,8 @@ export default function Painel(){
                                     <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
                                     <br/>
                                     <p>Início: {iten.hora} <br/> Término: {iten.hora_termino}</p>
-                                    <p>Cliente :  {iten.nome_cliente}</p>
-                                    <p>WhatsApp Cliente : </p> 
+                                    <p>Cliente:  {iten.nome_cliente}</p>
+                                    <p>WhatsApp Cliente: </p> 
                                     <a target="_blank"
                                     rel='noreferrer'  
                                     href='https://api.whatsapp.com/send?phone=5511932223533&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?' 
@@ -149,7 +151,7 @@ export default function Painel(){
                                     <p>Observação : {iten.obs}
                                     </p>
                                     <br/>
-                                    <p className="UnderLine">Valro Serviço : R${iten.preco}</p><br/>
+                                    <p className="UnderLine">Valro Serviço: R${iten.preco}</p><br/>
                                     <div className="DivStatus">
                                         <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
                                         <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
