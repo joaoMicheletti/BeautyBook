@@ -141,6 +141,9 @@ export default function Painel(){
                         var fim = String(iten.hora_termino);
                         var partesFim = fim.split('.');
                         var fimFormatado = partesFim[0]+':'+partesFim[1];
+                        //url whatsapp;
+                        //'https://api.whatsapp.com/send?phone=5511932223533&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?'
+                        var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
                         return(
                             <ul key={iten.id}>
                                 <li>
@@ -151,7 +154,7 @@ export default function Painel(){
                                     <p>WhatsApp Cliente: </p> 
                                     <a target="_blank"
                                     rel='noreferrer'  
-                                    href='https://api.whatsapp.com/send?phone=5511932223533&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?' 
+                                    href={whatsapp} 
                                     className="LKWhatsapp">{iten.contato_cliente}</a>
                                     <br/>
                                     <br/>
