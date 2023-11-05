@@ -22,6 +22,11 @@
     margin-right: 30px;
     margin-top: 10px;
 }
+#HeaderRegistroSalao #Link_reg {
+    color: white;
+    margin-left: 10px;
+    text-decoration: none;
+}
 
 #FomrRegistroSalao {
     display: flex;

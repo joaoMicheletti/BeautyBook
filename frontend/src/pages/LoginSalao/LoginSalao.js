@@ -82,6 +82,9 @@ export default function LoginSalao(){
         <div id="LoginSalao">
             <header id="HeaderLoginSalao">
                 <img id="Beuty" src={Logo} alt="Logo"/>
+                <a id="Link" href="/">Home</a>
+                <a id="Link" href="/loginsalao">Login</a>
+                <a id="Link" href="/registrosalao">Registrar-se</a>
                 <ul>
                     <img id="LogoImg" src={Borboleta} alt="logo"/>
                 </ul>

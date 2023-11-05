@@ -45,6 +45,7 @@ export default function Planos(){
         <div id='ConteinerPlanos'>
             <header id='HeaderPlanos'>
                 <img src={Logo} alt='logo BeautyBook'/>
+                <a id="Link_AF" href="/painel">Voltar</a>
                 <p id='TitlePlanos'>
                     Conheça nossos Planos
                 </p>

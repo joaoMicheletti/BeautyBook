@@ -22,6 +22,11 @@
 #LogoImg {
     width: 100px;
 }
+#Link {
+    color: white;
+    margin-left: 10px;
+    text-decoration: none;
+}
 #FormLoginSalao {
     display: flex;
     text-align: center;

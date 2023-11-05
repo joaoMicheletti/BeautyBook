@@ -25,6 +25,7 @@ export default function AgendaF(){
     return(
         <div id="PainelSalao">
             <header id="HeaderSalao">
+                <a id="Link_AF" href="/painel">Voltar</a>
                 <h1 id="TitleSalao" >Agenda de funcionários</h1>
             </header>
             <hr/>

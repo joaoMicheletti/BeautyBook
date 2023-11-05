@@ -40,7 +40,7 @@ export default function Servicos(){
     };
     
     return(
-        <div id="PainelSalao">
+        <div id="PainelSalao" className="Convidar">
             {infoSalao.map((iten, key) =>{
                 localStorage.setItem('cod', infoSalao[0].codigo_indicacao);
                 return(

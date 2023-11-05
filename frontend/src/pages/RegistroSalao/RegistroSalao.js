@@ -80,6 +80,9 @@ export default function RegistroSalao(){
         <div id="RegistroSalao">
             <header id="HeaderRegistroSalao">
                 <img id="R" src={Logo} alt="Logo"/>
+                <a id="Link_reg" href="/">Home</a>
+                <a id="Link_reg" href="/loginsalao">Login</a>
+                <a id="Link_reg" href="/registrosalao">Registrar-se</a>
                 <img src={Barber} alt="Logo"/>
             </header>
             <div id="FomrRegistroSalao">
