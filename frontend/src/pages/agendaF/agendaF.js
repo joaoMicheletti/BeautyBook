@@ -22,7 +22,6 @@ export default function AgendaF(){
             alert('Erro interno.');
         });
     }, []); //não passar dependências retorna um alerta ! porem ao passar o Data como dependência ele cai num loop infinito de requisições.
-    console.log(Agendados);
     return(
         <div id="PainelSalao">
             <header id="HeaderSalao">
@@ -64,18 +63,24 @@ export default function AgendaF(){
                             };                            
                             await Api.put('/finalizarservico', Data).then((Response) =>{
                                 alert(Response.data);
-
                             }).catch(() =>{
                                 alert('Erro interno.')
                             });
                         };
-
+                        //formatando hora de inicio;
+                        var init = String(iten.hora);
+                        var partesInicio = init.split('.');
+                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        //formatando hora do termino;
+                        var fim = String(iten.hora_termino);
+                        var partesFim = fim.split('.');
+                        var fimFormatado = partesFim[0]+':'+partesFim[1];
                         return(
                             <ul key={iten.id}>
                                 <li>
                                     <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
                                     <br/>
-                                    <p>Horário : {iten.hora}  AS {iten.hora_termino}</p>
+                                    <p>Início: {inicioFormatado}<br/>  Término: {fimFormatado}</p>
                                     <p>Cliente :  {iten.nome_cliente}</p>
                                     <p>WhatsApp Cliente : </p> 
                                     <a target="_blank"
@@ -89,7 +94,7 @@ export default function AgendaF(){
                                     <p>Observação : {iten.obs}
                                     </p>
                                     <br/>
-                                    <p className="UnderLine">Valro Serviço : {iten.preco} _R$</p><br/>
+                                    <p className="UnderLine">Valro Serviço : R$ {iten.preco.toFixed(2)}</p><br/>
                                     <div className="DivStatus">
                                         <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
                                         <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
@@ -98,9 +103,7 @@ export default function AgendaF(){
                             </ul>
                             
                         );
-
                     })}
-                     
                 </div>
             </section>
         </div>

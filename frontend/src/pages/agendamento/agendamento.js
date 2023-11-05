@@ -67,7 +67,6 @@ export default function Agendamento(){
     const Agendar = async (e) =>{
         e.preventDefault();
         var status_servico = "agendado";
-
         //pegando o nome do dia da semana, atraves do input date
         let partes = Datastring.split("-");
         console.log(partes);
@@ -75,34 +74,26 @@ export default function Agendamento(){
         var dia = parseInt(partes[2], 10);
         var mes = parseInt(partes[1], 10);
         var ano = parseInt(partes[0], 10);
-
         // Crie um objeto Date (meses em JavaScript vão de 0 a 11, por isso subtraímos 1 do valor do mês)
         let dataObj = new Date(partes[0], partes[1] -1 , partes[2]);
-
         // Crie um array com os nomes dos dias da semana
         let nomesDiasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
-
         // Obtenha o número do dia da semana (0 para Domingo, 1 para Segunda, ..., 6 para Sábado)
         let numeroDiaSemana = dataObj.getDay();
-
         // Acesse o nome do dia da semana usando o número obtido
         let dia_semana = nomesDiasSemana[numeroDiaSemana];
-
         //convertendo a hora para um valor float do jeito que o backend espera.
         var hora_ =  horaAtual.replace(':', '.');
         var hora = parseFloat(hora_);
-
-        //passando o preço para float
+       //passando o preço para float
         var preco = parseFloat(Preco);
         
-
         //a data atual de ser enviada no formato de String
         //está varievél 'Mes' referese ao mes da variavél 'DataAtual'
         //diferente da variavél 'mes' que faz referencia a variavél 'partes'
         var Mes = DataAtual.getMonth() + 1;
         var data_atual = DataAtual.getDate()+'/'+Mes+'/'+DataAtual.getFullYear();
         
-
         const Data = {
             cpf_salao, //ok
             dia_semana, //ok
@@ -120,7 +111,6 @@ export default function Agendamento(){
             //percent50, //falta
         };
         
-
         if(Datastring === ''){
             alert('Selecione uma Data.');
         }else if(hora === ''){
@@ -165,7 +155,6 @@ export default function Agendamento(){
             if(mes >= DataAtual.getMonth() + 1 && ano >= DataAtual.getFullYear()){
                 //agendamentos futuros;
             await Api.post('/agendamentosfuturos', Data).then(async (Response) =>{
-
                 //verificar data limite para agendamentos futuros;
                 if(Response.data === "Dentro do limite para Agendamentos futuros"){
                     
@@ -180,12 +169,10 @@ export default function Agendamento(){
                                 // falha de comunicação com o serviodor
                                 alert('Erro ao finalizar o agendamento');
                             });
-
                         }else{
                             // pode ter gerado uim conflito entre agendamentos.
                             alert('Erro ao criar um agendamento futuro.');
                         };
-
                     }).catch((erro) =>{
                         // erro de comunicação com o servidor.
                         alert('Erro ao criar um agendamento futuro.');
@@ -210,30 +197,9 @@ export default function Agendamento(){
             alert('Preencha o Campo @ Nome Completo');
         } else if(contato_cliente.length < 11 || contato_cliente.length > 11){
             alert('Número de telefone invalido');
-        } else {
-            
-             
+        } else {        
         }; */
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //url das imagens no servidor;
     const Url = "http://127.0.0.1:1998/image/"
     return(
@@ -264,10 +230,17 @@ export default function Agendamento(){
                     <br/>
                     <p id='AlertaHorarios'></p>
                     {ListaHorarios.map((iten, key) =>{
+                        var init = String(iten.hora);
+                        var partesInicio = init.split('.');
+                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        //formatando a hora de termino do agendamento.
+                        var termino = String(iten.hora_termino);
+                        var partesFim = termino.split('.');
+                        var fimFormatado = partesFim[0]+':'+partesFim[1];
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p>Horário Preenchido : das {iten.hora} Horas as {iten.hora_termino} Horas</p>
+                                    <p>Horário Preenchido : das {inicioFormatado} Horas as {fimFormatado} Horas</p>
                                 </li>
                             </ul>
                         );
@@ -288,7 +261,7 @@ export default function Agendamento(){
                             <ul key={iten.id}>
                                 <li>
                                     <p className='TipoServiço'>
-                                        {iten.servico} : {iten.preco}R$
+                                        {iten.servico} : R$ {iten.preco.toFixed(2)}
                                     </p>
                                     <input type='button' onClick={SelectServico} value='Selecionar'/>
                                 </li>

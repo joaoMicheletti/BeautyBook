@@ -188,12 +188,6 @@ export default function AgendaFuncionario(){
             alert("Data Invalida");
         }
     };
-
-
-
-
-
-
     //url das imagens no servidor;
     const Url = "http://127.0.0.1:1998/image/"
     return(
@@ -224,10 +218,18 @@ export default function AgendaFuncionario(){
                     <br/>
                     <p id='AlertaHorarios'></p>
                     {ListaHorarios.map((iten, key) =>{
+                        //formatando a ohra de inicio do agenda mento;
+                        var init = String(iten.hora);
+                        var partesInicio = init.split('.');
+                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        //formatando a hora de termino do agendamento.
+                        var termino = String(iten.hora_termino);
+                        var partesFim = termino.split('.');
+                        var fimFormatado = partesFim[0]+':'+partesFim[1];
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p>Horário Preenchido : das {iten.hora} Horas as {iten.hora_termino} Horas</p>
+                                    <p>Horário Preenchido : das {inicioFormatado} Horas as {fimFormatado} Horas</p>
                                 </li>
                             </ul>
                         );
@@ -248,7 +250,7 @@ export default function AgendaFuncionario(){
                             <ul key={iten.id}>
                                 <li>
                                     <p className='TipoServiço'>
-                                        {iten.servico} : {iten.preco}R$
+                                        {iten.servico} : R$ {iten.preco.toFixed(2)}
                                     </p>
                                     <input type='button' onClick={SelectServico} value='Selecionar'/>
                                 </li>

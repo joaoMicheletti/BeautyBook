@@ -133,12 +133,20 @@ export default function Painel(){
                                 alert('Erro interno.')
                             });
                         };
+                        //formatando  a hora de inicio do serviço;
+                        var init = String(iten.hora);
+                        var partesInicio = init.split('.');
+                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        //formatando a hora de termino do serviço;
+                        var fim = String(iten.hora_termino);
+                        var partesFim = fim.split('.');
+                        var fimFormatado = partesFim[0]+':'+partesFim[1];
                         return(
                             <ul key={iten.id}>
                                 <li>
                                     <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
                                     <br/>
-                                    <p>Início: {iten.hora} <br/> Término: {iten.hora_termino}</p>
+                                    <p>Início: {inicioFormatado} <br/> Término: {fimFormatado}</p>
                                     <p>Cliente:  {iten.nome_cliente}</p>
                                     <p>WhatsApp Cliente: </p> 
                                     <a target="_blank"
@@ -151,7 +159,7 @@ export default function Painel(){
                                     <p>Observação : {iten.obs}
                                     </p>
                                     <br/>
-                                    <p className="UnderLine">Valro Serviço: R${iten.preco}</p><br/>
+                                    <p className="UnderLine">Valro Serviço: R$ {iten.preco.toFixed(2)}</p><br/>
                                     <div className="DivStatus">
                                         <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
                                         <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
