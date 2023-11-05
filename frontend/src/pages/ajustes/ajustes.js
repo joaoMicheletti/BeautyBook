@@ -72,15 +72,20 @@ export default function Ajustes(){
         };
     };
     //intervalo_entre_agendamentos.
-    const [intervalo_entre_agendamentos, setIntervalo] = useState('');
+    const [intervalo_entre_agendamentosS, setIntervalo] = useState('');
     const Intervalo = async (e) => {
         e.preventDefault();
-        const Data = {
-            cpf_salao, intervalo_entre_agendamentos
-        };
-        if(intervalo_entre_agendamentos === ''){
-            alert('Defina com minutos o intervalo .');
+        var intervalo_entre_agendamentos = intervalo_entre_agendamentosS;
+        if(intervalo_entre_agendamentosS === ''){
+            alert('Defina o intervalo .');
+        } else if(intervalo_entre_agendamentos.includes(".")){
+            alert("Valor não permitido!");
+        } else if(intervalo_entre_agendamentos.includes(",")){
+            alert('Valore não permitido');
         } else {
+            const Data = {
+                cpf_salao, intervalo_entre_agendamentos
+            };
             await Api.post('/intervalo', Data).then((Response) => {
                 if(Response.data === 'Intervalo definido!'){
                     alert(Response.data);
@@ -90,7 +95,7 @@ export default function Ajustes(){
             }).catch((Erro) => {
                 alert('Erro ao auterar o intervalo entre agendamentos.');
             });
-        };        
+        };
     };
     // Evitando agendamento encima da hora.
     const [agendamento_apos_hora_atual, setCimaHora] = useState('');
@@ -273,18 +278,17 @@ export default function Ajustes(){
                         </div>
                         <hr/>
                         <div id="Preferencias">
-                            <p className="PPreferecias">Defina sua preferência de intervalos de marcação 
-                                de horários para sua agenda. Este intervalo 
-                                também é aplicado no agendamento online para clientes.
+                            <p className="PPreferecias">
+                                Defina o tempo de cada serviço agendado.
                             </p>
                             <br/>
                             <p className="PPreferecias">
-                                Defina com "minutos"
+                                Defina com Horas. 
                             </p>
                             <input
                             id="Minutos"
                             type="number"
-                            placeholder={iten.intervalo_entre_agendamentos + '  minutos'}
+                            placeholder={iten.intervalo_entre_agendamentos + ' horas'}
                             onChange={(e) => setIntervalo(e.target.value)}></input>
                             <br/>
                             <br/>
