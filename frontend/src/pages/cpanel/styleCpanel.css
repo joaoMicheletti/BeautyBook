@@ -1,0 +1,43 @@
+#CpanelHeader{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 100px;
+    background-color: #0b3954;
+}
+#CpanelHeader #Menu {
+    margin-left: 30px;
+    margin-top: 75px;
+}
+#CpanelHeader #Menu a {
+    color: white;
+    font-weight: 600;
+    font-size: 19px;
+}
+#CpanelHeader #Menu a:hover {
+    font-size: 20px;
+}
+#CpanelHeader img {
+    margin-left: 30px;
+    margin-top: 5px;
+    width: 100px;
+}
+h1 {
+    text-align: center;
+    text-decoration: underline;
+}
+#ConteudoContainer {
+    text-align: center;
+    background-color: blue;
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+}
+#ConteudoContainer #inp {
+    width: 40%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}

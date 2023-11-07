@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Cpanel from './pages/cpanel/cpanel.js';
 import Home from './pages/home/home';
 import Init from './pages/init/init';
 import RegistroSalao from './pages/RegistroSalao/RegistroSalao';
@@ -45,6 +46,7 @@ export default function Rotas(){
                 <Route path='*' element={<NotFound/>}/>
                 <Route path='/pagamento' element={<Pagamento/>} />
                 <Route path='/pendente/' element={<Pendente/>} />
+                <Route path='/cpanel' element={<Cpanel/>}/>
             </Routes>
         </Router>
     )
