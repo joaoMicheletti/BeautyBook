@@ -5,6 +5,7 @@ import Api from '../../services/api';
 
 export default function Cpanel(){
     const [infoSalao, setInfoSalao] = useState("");
+    //buscar salão;
     async function BuscarSalao(){
         const Data = {
             cpf_salao: document.querySelector(".cpf_salao").value
@@ -32,23 +33,68 @@ export default function Cpanel(){
         document.querySelector('#data_vencimento_plano').innerHTML = infoSalao.data_vencimento_plano;
         document.querySelector('#limite_funcionarios').innerHTML = infoSalao.limite_funcionarios;
         document.querySelector('#quantidade_funcionarios').innerHTML = infoSalao.quantidade_funcionarios;
-
+    }
+    //funcionalidades;
+    let [funcionalidade, setFuncionalidade] = useState('');
+    //obj a ser enviado nas request's;
+    const Data = {funcionalidade};
+    function Executar(){
+        alert(funcionalidade)
+        if (funcionalidade === 'funcionalidades'|| funcionalidade === ''){
+            alert('Selecione uma funcionalidade');
+            //editar senha;
+        } else if (funcionalidade === 'editar senha'){
+            alert('atenção na forma de informar os valores!');
+            var senha = window.prompt('Senha: ');
+            Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                alert('Erro ao comunicar-se com o servidor');
+            });
+            //editar plano;
+        } else if (funcionalidade === 'editar plano'){
+            Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                alert('Erro ao comunicar-se com o servidor');
+            });
+            //editar assinatura;
+        } else if (funcionalidade === 'editar assinatura'){
+            Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                alert('Erro ao comunicar-se com o servidor');
+            });
+            //editar assinatura status;
+        }else if (funcionalidade === 'editar assinatura status'){
+            Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                alert('Erro ao comunicar-se com o servidor');
+            });
+            // editar iniio de plano;
+        }else if (funcionalidade === 'editar inicio de plano'){
+            Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                alert('Erro ao comunicar-se com o servidor');
+            });
+            // editar vencimento de plano
+        }else if (funcionalidade === 'editar vencimento de plano'){
+            Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                alert('Erro ao comunicar-se com o servidor');
+            });
+        }else if (funcionalidade === 'editar limite de funionarios'){
+            Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                alert('Erro ao comunicar-se com o servidor');
+            });
+        }
     };
     return(
         <div id="CpanelContainer">
             <header id="CpanelHeader">
                 <img id="LogoImg" src={Logo} alt="logo"/>
                 <nav id="Menu">
-                    <a>Log Out</a>
+                    <a>Log-Out</a>
                 </nav>
             </header>
             <h1 id="CpanelTitle" >Painel de Suporte</h1>
             <div id="ConteudoContainer">
                 <label>Cpf Do salão:<br/>
-                    <input type="text" className="cpf_salao" id="inp" placeholder="Cpf Salão:"/>
+                    <input type="text" className="cpf_salao" id="inp" placeholder=" Cpf Salão:"/>
                     <button onClick={BuscarSalao} id="btnBuscar">Buscar</button>
                 </label><br/>
-                <label>
+                <div>
                     Registro do salão.
                     <div id="infoSalao">
                         <br/>
@@ -67,7 +113,25 @@ export default function Cpanel(){
                         <label>limite_funcionarios: <p id="limite_funcionarios"></p></label><br/>
                         <label>quantidade_funcionarios: <p id="quantidade_funcionarios"></p></label><br/>
                     </div>
+                </div>
+            </div>
+            <div id="UpdateArea">
+                <p>Área de Ajustes</p>
+                <br/>
+                <label>
+                    Selecionar função:
+                    <select onChange={(e) => setFuncionalidade(e.target.value)} name="dia" id="dia">
+                        <option value="funcionalidades">funcionalidades</option>
+                        <option value="editar senha">editar senha</option>
+                        <option value="editar plano">editar plano</option>
+                        <option value="editar assinatura">editar assinatura</option>
+                        <option value="editar assinatura status">editar assinatura status</option>
+                        <option value="editar inicio de plano">editar inicio de plano</option>
+                        <option value="editar vencimento de plano">editar vencimento de plano</option>
+                        <option value="editar limite de funcionarios">editar limite de funcionarios</option>
+                        </select>
                 </label>
+                <button onClick={Executar} id="BtnExecutar">Executar</button>
             </div>
         </div>
     );
