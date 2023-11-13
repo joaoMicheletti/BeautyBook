@@ -36,48 +36,120 @@ export default function Cpanel(){
     }
     //funcionalidades;
     let [funcionalidade, setFuncionalidade] = useState('');
-    //obj a ser enviado nas request's;
-    const Data = {funcionalidade};
     function Executar(){
-        alert(funcionalidade)
         if (funcionalidade === 'funcionalidades'|| funcionalidade === ''){
             alert('Selecione uma funcionalidade');
             //editar senha;
         } else if (funcionalidade === 'editar senha'){
-            alert('atenção na forma de informar os valores!');
-            var senha = window.prompt('Senha: ');
-            Api.post('', Data).then((Response) => {}).catch((erro) =>{
-                alert('Erro ao comunicar-se com o servidor');
-            });
+            var cpf = document.querySelector('#cpf').value;
+            var senha  = document.querySelector('#Alteracao').value;
+            if(cpf === '' || cpf === undefined){
+                alert('Nenhun salão selecionado.');
+            } else if(senha === ''){
+                alert('Preencaha o campo Alteração.')
+            } else {
+                const Data = {funcionalidade, senha}
+                console.log(Data);
+                /*
+                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                    alert('Erro ao comunicar-se com o servidor');
+                });*/
+            };            
             //editar plano;
         } else if (funcionalidade === 'editar plano'){
-            Api.post('', Data).then((Response) => {}).catch((erro) =>{
-                alert('Erro ao comunicar-se com o servidor');
-            });
+            var plano  = document.querySelector('#Alteracao').value;
+            var cpf = document.querySelector('#cpf').value;
+            if(cpf === '' || cpf === undefined){
+                alert('Nenhun salão selecionado.');
+            } else if(plano === ''){
+                alert('Preencaha o campo Alteração.')
+            } else {
+                const Data = {funcionalidade, plano}
+                console.log(Data);
+                /*
+                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                    alert('Erro ao comunicar-se com o servidor');
+                });*/
+            };             
             //editar assinatura;
         } else if (funcionalidade === 'editar assinatura'){
-            Api.post('', Data).then((Response) => {}).catch((erro) =>{
-                alert('Erro ao comunicar-se com o servidor');
-            });
+            var assinatura  = document.querySelector('#Alteracao').value;
+            var cpf = document.querySelector('#cpf').value;
+            if(cpf === '' || cpf === undefined){
+                alert('Nenhun salão selecionado.');
+            } else if(assinatura === ''){
+                alert('Preencaha o campo Alteração.')
+            } else {
+                const Data = {funcionalidade, assinatura}
+                console.log(Data);
+                /*
+                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                    alert('Erro ao comunicar-se com o servidor');
+                });*/
+            }; 
             //editar assinatura status;
         }else if (funcionalidade === 'editar assinatura status'){
-            Api.post('', Data).then((Response) => {}).catch((erro) =>{
-                alert('Erro ao comunicar-se com o servidor');
-            });
-            // editar iniio de plano;
+            var assinatura_status  = document.querySelector('#Alteracao').value;
+            var cpf = document.querySelector('#cpf').value;
+            if(cpf === '' || cpf === undefined){
+                alert('Nenhun salão selecionado.');
+            } else if(assinatura_status === ''){
+                alert('Preencaha o campo Alteração.')
+            } else {
+                const Data = {funcionalidade, assinatura_status}
+                console.log(Data);
+                /*
+                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                    alert('Erro ao comunicar-se com o servidor');
+                });*/
+            }; 
+            // editar inicio de plano;
         }else if (funcionalidade === 'editar inicio de plano'){
-            Api.post('', Data).then((Response) => {}).catch((erro) =>{
-                alert('Erro ao comunicar-se com o servidor');
-            });
+            var data_inicio_plano  = document.querySelector('#Alteracao').value;
+            var cpf = document.querySelector('#cpf').value;
+            if(cpf === '' || cpf === undefined){
+                alert('Nenhun salão selecionado.');
+            } else if(data_inicio_plano === ''){
+                alert('Preencaha o campo Alteração.')
+            } else {
+                const Data = {funcionalidade, data_inicio_plano}
+                console.log(Data);
+                /*
+                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                    alert('Erro ao comunicar-se com o servidor');
+                });*/
+            }; 
             // editar vencimento de plano
         }else if (funcionalidade === 'editar vencimento de plano'){
-            Api.post('', Data).then((Response) => {}).catch((erro) =>{
-                alert('Erro ao comunicar-se com o servidor');
-            });
-        }else if (funcionalidade === 'editar limite de funionarios'){
-            Api.post('', Data).then((Response) => {}).catch((erro) =>{
-                alert('Erro ao comunicar-se com o servidor');
-            });
+            var data_vencimento_plano  = document.querySelector('#Alteracao').value;
+            var cpf = document.querySelector('#cpf').value;
+            if(cpf === '' || cpf === undefined){
+                alert('Nenhun salão selecionado.');
+            }else if(data_vencimento_plano === ''){
+                alert('Preencaha o campo Alteração.')
+            } else {
+                const Data = {funcionalidade, data_vencimento_plano}
+                console.log(Data);
+                /*
+                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                    alert('Erro ao comunicar-se com o servidor');
+                });*/
+            }; 
+        }else if (funcionalidade === 'editar limite de funcionarios'){
+            var limite_funcionarios  = document.querySelector('#Alteracao').value;
+            var cpf = document.querySelector('#cpf').value;
+            if(cpf === '' || cpf === undefined){
+                alert('Nenhun salão selecionado.');
+            } else if(limite_funcionarios === ''){
+                alert('Preencaha o campo Alteração.')
+            } else {
+                const Data = {funcionalidade, limite_funcionarios}
+                console.log(Data);
+                /*
+                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                    alert('Erro ao comunicar-se com o servidor');
+                });*/
+            }; 
         }
     };
     return(
@@ -118,6 +190,8 @@ export default function Cpanel(){
             <div id="UpdateArea">
                 <p>Área de Ajustes</p>
                 <br/>
+                <p>***###   Lenbrese de informar os valores da forma correta   ###***</p>
+                <br/>
                 <label>
                     Selecionar função:
                     <select onChange={(e) => setFuncionalidade(e.target.value)} name="dia" id="dia">
@@ -131,7 +205,15 @@ export default function Cpanel(){
                         <option value="editar limite de funcionarios">editar limite de funcionarios</option>
                         </select>
                 </label>
-                <button onClick={Executar} id="BtnExecutar">Executar</button>
+                <br/>
+                <div id="Value">
+                    <label>Alteração:
+                        <input id="Alteracao" type="text" placeholder="  ALTERAÇÃO"/>
+                    </label>
+                    <button onClick={Executar} id="BtnExecutar">Executar</button>
+                </div>
+                <br/>
+                <br/>   
             </div>
         </div>
     );
