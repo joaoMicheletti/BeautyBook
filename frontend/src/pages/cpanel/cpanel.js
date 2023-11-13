@@ -41,114 +41,129 @@ export default function Cpanel(){
             alert('Selecione uma funcionalidade');
             //editar senha;
         } else if (funcionalidade === 'editar senha'){
-            var cpf = document.querySelector('#cpf').value;
+            var cpf = document.querySelector('#cpf').textContent;
             var senha  = document.querySelector('#Alteracao').value;
             if(cpf === '' || cpf === undefined){
                 alert('Nenhun salão selecionado.');
             } else if(senha === ''){
                 alert('Preencaha o campo Alteração.')
             } else {
-                const Data = {funcionalidade, senha}
-                console.log(Data);
-                /*
-                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                const Data = {senha, cpf}                
+                Api.post('/cpanelpass', Data).then((Response) => {
+                    if(Response.data === 'sucesso'){
+                        alert('Sucesso')
+                    }
+                }).catch((erro) =>{
                     alert('Erro ao comunicar-se com o servidor');
-                });*/
+                });
             };            
             //editar plano;
         } else if (funcionalidade === 'editar plano'){
             var plano  = document.querySelector('#Alteracao').value;
-            var cpf = document.querySelector('#cpf').value;
+            var cpf = document.querySelector('#cpf').textContent;
             if(cpf === '' || cpf === undefined){
                 alert('Nenhun salão selecionado.');
             } else if(plano === ''){
                 alert('Preencaha o campo Alteração.')
             } else {
-                const Data = {funcionalidade, plano}
-                console.log(Data);
-                /*
-                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                const Data = {plano, cpf}
+                Api.post('/cpanelplano', Data).then((Response) => {
+                    if(Response.data === 'sucesso'){
+                        alert('Sucesso')
+                    }
+                }).catch((erro) =>{
                     alert('Erro ao comunicar-se com o servidor');
-                });*/
+                });
             };             
             //editar assinatura;
         } else if (funcionalidade === 'editar assinatura'){
             var assinatura  = document.querySelector('#Alteracao').value;
-            var cpf = document.querySelector('#cpf').value;
+            var cpf = document.querySelector('#cpf').textContent;
             if(cpf === '' || cpf === undefined){
                 alert('Nenhun salão selecionado.');
             } else if(assinatura === ''){
                 alert('Preencaha o campo Alteração.')
             } else {
-                const Data = {funcionalidade, assinatura}
-                console.log(Data);
-                /*
-                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                const Data = {assinatura, cpf}
+                Api.post('/cpanelassinatura', Data).then((Response) => {
+                    if( Response.data === 'sucesso'){
+                        alert('sucesso');
+                    }
+                }).catch((erro) =>{
                     alert('Erro ao comunicar-se com o servidor');
-                });*/
+                });
             }; 
             //editar assinatura status;
         }else if (funcionalidade === 'editar assinatura status'){
             var assinatura_status  = document.querySelector('#Alteracao').value;
-            var cpf = document.querySelector('#cpf').value;
+            var cpf = document.querySelector('#cpf').textContent;
             if(cpf === '' || cpf === undefined){
                 alert('Nenhun salão selecionado.');
             } else if(assinatura_status === ''){
                 alert('Preencaha o campo Alteração.')
             } else {
-                const Data = {funcionalidade, assinatura_status}
-                console.log(Data);
-                /*
-                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                const Data = {assinatura_status, cpf}
+                Api.post('/cpanelassinatura_status', Data).then((Response) => {
+                    if(Response.data === 'sucesso'){
+                        alert('sucesso');
+                    }
+                }).catch((erro) =>{
                     alert('Erro ao comunicar-se com o servidor');
-                });*/
+                });
             }; 
             // editar inicio de plano;
         }else if (funcionalidade === 'editar inicio de plano'){
             var data_inicio_plano  = document.querySelector('#Alteracao').value;
-            var cpf = document.querySelector('#cpf').value;
+            var cpf = document.querySelector('#cpf').textContent;
             if(cpf === '' || cpf === undefined){
                 alert('Nenhun salão selecionado.');
             } else if(data_inicio_plano === ''){
                 alert('Preencaha o campo Alteração.')
             } else {
-                const Data = {funcionalidade, data_inicio_plano}
-                console.log(Data);
-                /*
-                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                const Data = {data_inicio_plano, cpf}
+                Api.post('/cpaneldata_inicio_plano', Data).then((Response) => {
+                    if(Response.data === 'sucesso'){
+                        alert('sucesso');
+                    }
+                }).catch((erro) =>{
                     alert('Erro ao comunicar-se com o servidor');
-                });*/
+                });
             }; 
             // editar vencimento de plano
         }else if (funcionalidade === 'editar vencimento de plano'){
             var data_vencimento_plano  = document.querySelector('#Alteracao').value;
-            var cpf = document.querySelector('#cpf').value;
+            var cpf = document.querySelector('#cpf').textContent;
             if(cpf === '' || cpf === undefined){
                 alert('Nenhun salão selecionado.');
             }else if(data_vencimento_plano === ''){
                 alert('Preencaha o campo Alteração.')
             } else {
-                const Data = {funcionalidade, data_vencimento_plano}
-                console.log(Data);
-                /*
-                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                const Data = {data_vencimento_plano, cpf}
+                Api.post('/cpaneldata_vencimento_plano', Data).then((Response) => {
+                    if(Response.data === 'sucesso'){
+                        alert('sucesso');
+                    };
+                }).catch((erro) =>{
                     alert('Erro ao comunicar-se com o servidor');
-                });*/
+                });
             }; 
+            //limite de funcionario
         }else if (funcionalidade === 'editar limite de funcionarios'){
             var limite_funcionarios  = document.querySelector('#Alteracao').value;
-            var cpf = document.querySelector('#cpf').value;
+            var cpf = document.querySelector('#cpf').textContent;
             if(cpf === '' || cpf === undefined){
                 alert('Nenhun salão selecionado.');
             } else if(limite_funcionarios === ''){
                 alert('Preencaha o campo Alteração.')
             } else {
-                const Data = {funcionalidade, limite_funcionarios}
-                console.log(Data);
-                /*
-                Api.post('', Data).then((Response) => {}).catch((erro) =>{
+                const Data = {limite_funcionarios, cpf}
+                Api.post('/cpanellimite_funcionarios', Data).then((Response) => {
+                    if(Response.data === 'sucesso'){
+                        alert("sucesso");
+                    }
+                }).catch((erro) =>{
                     alert('Erro ao comunicar-se com o servidor');
-                });*/
+                });
             }; 
         }
     };
