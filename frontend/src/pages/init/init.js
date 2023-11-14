@@ -33,8 +33,9 @@ export default function Init(){
                     <li><a id="A" href="/registrosalao">Registrar_Salão</a></li>
                 </ul>
             </header>
+            <h2 id="H">Selecione um Salão.</h2>
             <div id="ConteudoHomeInit">
-                <h2 id="H">Selecione um Salão.</h2>
+                
                 {ListaSalao.map((iten, key) => {
                     const URL = 'http://127.0.0.1:1998/image/';
                     const Agenda = () =>{
