@@ -5,6 +5,11 @@ import Api from '../../services/api';
 
 export default function Cpanel(){
     const [infoSalao, setInfoSalao] = useState("");
+    var validationAcess = localStorage.getItem('user');
+    if(validationAcess === '' || validationAcess === null || validationAcess === undefined){
+        alert("Você não tem permição para acessar está pagina");
+        window.location.href ='/cpanellogin';
+    }
     //buscar salão;
     async function BuscarSalao(){
         const Data = {

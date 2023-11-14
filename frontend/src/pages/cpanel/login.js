@@ -1,8 +1,10 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom'
 import Logo from '../assets/Logo.png';
 import './login.css';
 import Api from '../../services/api';
 export default function LoginCpanel(){
+    const History = useNavigate();
     async function Entrar(){
         const Data = {
             user: document.querySelector('.user').value,
@@ -20,6 +22,7 @@ export default function LoginCpanel(){
                     localStorage.setItem('user', Response.data.user);
                     localStorage.setItem('pass', Response.data.pass);
                     //redirect;
+                    History('/cpanel');
                 }
             }).catch((Erro) => {
                 alert('Erro na conexão com o servidor');
