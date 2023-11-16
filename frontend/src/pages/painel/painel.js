@@ -32,6 +32,27 @@ export default function Painel(){
     }).catch((Erro) => {
         alert('Erro ao validar sua assinatura!');
     });
+    // função para buscar agenda de uma determindada data;
+    function Buscar(){
+        // escondendo a div agendados
+        document.querySelector('#Agendados').style.display = 'none';
+        // mostrando a div Buscados 
+        document.querySelector('#Buscados').style.display = 'flex';
+        var inputData = document.querySelector('#SelectMes').value;
+        var partes = inputData.split('-');
+        var dia = partes[2];
+        var mes = partes[1];
+        var ano = partes[0];
+        const Data = {
+            dia, mes, ano, cpf_salao
+        };
+        console.log(Data);
+        Api.post('/buscasalao', Data).then((Response) => {
+            console.log(Response.data);
+        }).catch((Erro) => {
+            alert('Erro ao cominicar-se com o servidor');
+        });
+    };
     
     useEffect( () =>{
         Api.post('/horariospreenchidos', Data).then((Response) =>{
@@ -97,7 +118,7 @@ export default function Painel(){
                 <div id="ConteinerAgendaPainel">
                     <div id="DiaMesAno">
                         <input id="SelectMes" type="date"></input>
-                        <button id="BtnAgenda" type="sybmit">Buscar</button>
+                        <button id="BtnAgenda" onClick={Buscar}>Buscar</button>
                     </div>
                 </div>
                 <br/>
@@ -167,6 +188,73 @@ export default function Painel(){
                                         <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
                                         <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
                                     </div>
+                                </li>
+                            </ul>
+                            
+                        );
+                    })}
+                </div>
+                <div id="Buscados">
+                    {Agendados.map((iten, key) =>{
+                        //funções de cancelar e finalizar;
+                        //cancelar;
+                        const Cancelar = async (e) =>{
+                            var id = iten.id;
+                            var Data = {
+                                id
+                            };                            
+                            await Api.put('/cancelarservico', Data).then((Response) =>{
+                                alert(Response.data);
+                                window.location.reload(true);
+                                
+                            }).catch(() =>{
+                                alert('Erro interno.')
+                            });
+                        };
+                        //finalizar;
+                        const Finalizar = async (e) =>{
+                            var id = iten.id;
+                            var Data = {
+                                id
+                            };                            
+                            await Api.put('/finalizarservico', Data).then((Response) =>{
+                                alert(Response.data);
+                                window.location.reload(true);
+                            }).catch(() =>{
+                                alert('Erro interno.')
+                            });
+                        };
+                        //formatando  a hora de inicio do serviço;
+                        var init = String(iten.hora);
+                        var partesInicio = init.split('.');
+                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        //formatando a hora de termino do serviço;
+                        var fim = String(iten.hora_termino);
+                        var partesFim = fim.split('.');
+                        var fimFormatado = partesFim[0]+':'+partesFim[1];
+                        //url whatsapp;
+                        //'https://api.whatsapp.com/send?phone=5511932223533&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?'
+                        var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
+                        return(
+                            <ul key={iten.id}>
+                                <li>
+                                    <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    <br/>
+                                    <p>Início: {inicioFormatado} <br/> Término: {fimFormatado}</p>
+                                    <p>Cliente:  {iten.nome_cliente}</p>
+                                    <p>WhatsApp Cliente: </p> 
+                                    <a target="_blank"
+                                    rel='noreferrer'  
+                                    href={whatsapp} 
+                                    className="LKWhatsapp">{iten.contato_cliente}</a>
+                                    <br/>
+                                    <br/>
+                                    <p>Serviços :  {iten.servico}</p>
+                                    <p>Observação : {iten.obs}
+                                    </p>
+                                    <br/>
+                                    <p className="UnderLine">Valro Serviço: R$ {iten.preco.toFixed(2)}</p><br/>
+                                    <p> Status: {iten.status_servico} </p>
                                 </li>
                             </ul>
                             
