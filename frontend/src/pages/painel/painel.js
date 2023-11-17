@@ -16,6 +16,7 @@ export default function Painel(){
     //pegando do storage o cpf do salão;
     var cpf_salao = localStorage.getItem('cpf_salao');
     const [Agendados, setAgendados] = useState([]);
+    const [Buscados, setBuscados] =  useState([]);
     const Data = {
         dia, mes, ano, cpf_salao
     };
@@ -39,6 +40,9 @@ export default function Painel(){
         // mostrando a div Buscados 
         document.querySelector('#Buscados').style.display = 'flex';
         var inputData = document.querySelector('#SelectMes').value;
+        if(inputData === ''){
+            alert('Preencha o Campo com uma data ')
+        }
         var partes = inputData.split('-');
         var dia = partes[2];
         var mes = partes[1];
@@ -48,12 +52,16 @@ export default function Painel(){
         };
         console.log(Data);
         Api.post('/buscasalao', Data).then((Response) => {
-            console.log(Response.data);
+            if(Response.data === 'nenhum agendamento encontrado.'){
+                alert(Response.data)
+            } else {
+                setBuscados(Response.data);
+            };
+            
         }).catch((Erro) => {
             alert('Erro ao cominicar-se com o servidor');
         });
-    };
-    
+    };    
     useEffect( () =>{
         Api.post('/horariospreenchidos', Data).then((Response) =>{
             setAgendados(Response.data);
@@ -195,35 +203,7 @@ export default function Painel(){
                     })}
                 </div>
                 <div id="Buscados">
-                    {Agendados.map((iten, key) =>{
-                        //funções de cancelar e finalizar;
-                        //cancelar;
-                        const Cancelar = async (e) =>{
-                            var id = iten.id;
-                            var Data = {
-                                id
-                            };                            
-                            await Api.put('/cancelarservico', Data).then((Response) =>{
-                                alert(Response.data);
-                                window.location.reload(true);
-                                
-                            }).catch(() =>{
-                                alert('Erro interno.')
-                            });
-                        };
-                        //finalizar;
-                        const Finalizar = async (e) =>{
-                            var id = iten.id;
-                            var Data = {
-                                id
-                            };                            
-                            await Api.put('/finalizarservico', Data).then((Response) =>{
-                                alert(Response.data);
-                                window.location.reload(true);
-                            }).catch(() =>{
-                                alert('Erro interno.')
-                            });
-                        };
+                    {Buscados.map((iten, key) =>{
                         //formatando  a hora de inicio do serviço;
                         var init = String(iten.hora);
                         var partesInicio = init.split('.');

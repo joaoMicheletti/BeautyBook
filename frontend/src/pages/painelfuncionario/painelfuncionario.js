@@ -11,10 +11,38 @@ export default function PainelFuncionario(){
     var mes = parseInt(DataAtual.getMonth(), 10) + 1;
     var ano = parseInt(DataAtual.getFullYear(), 10); 
     //pegando do storage o cpf do salão;
-    var cpf_funcionario = localStorage.getItem('cpf_fincionario');
+    var cpf_funcionario = localStorage.getItem('cpf_funcionario');
     const [Agendados, setAgendados] = useState([]);
+    const [Buscados, setBuscados] =  useState([]);
     const Data = {
         dia, mes, ano, cpf_funcionario
+    };
+    function Buscar(){
+        // escondendo a div agendados
+        document.querySelector('.ContainerAgenda').style.display = 'none';
+        // mostrando a div Buscados 
+        document.querySelector('#Buscados').style.display = 'flex';
+        var inputData = document.querySelector('#SelectMes').value;
+        if(inputData === ''){
+            alert('Preencha o Campo com uma data ')
+        }
+        var partes = inputData.split('-');
+        var dia = partes[2];
+        var mes = partes[1];
+        var ano = partes[0];
+        const Data = {
+            dia, mes, ano, cpf_funcionario
+        };
+        console.log(Data);
+        Api.post('/buscafuncionario', Data).then((Response) => {
+            if ( Response.data === 'nenhum agendamento encontrado.'){
+                alert(Response.data);
+            } else{
+                setBuscados(Response.data);
+            };
+        }).catch((Erro) => {
+            alert('Erro ao cominicar-se com o servidor');
+        });
     };
     
     useEffect( () =>{
@@ -40,9 +68,15 @@ export default function PainelFuncionario(){
                 <button  onClick={Exit} id='Agenda' className="BtnExit" href="/painel"><FiLogOut/></button>
             </header>
             <br/>
-            <h2>Agenda do Dia.</h2>
+            <br/>
+            <div id="ConteinerAgendaPainel">
+                    <div id="DiaMesAno">
+                        <input id="SelectMes" type="date"></input>
+                        <button id="BtnAgenda" onClick={Buscar}>Buscar</button>
+                    </div>
+                </div>
             <div className='ContainerAgenda'>
-            {Agendados.map((iten, key) =>{
+                {Agendados.map((iten, key) =>{
                 //funções de cancelar e finalizar;
                 //cancelar;
                 const Cancelar = async (e) =>{
@@ -99,6 +133,45 @@ export default function PainelFuncionario(){
                         );                      
                     })}
             </div>
+            <div id="Buscados">
+                    {Buscados.map((iten, key) =>{
+                        //formatando  a hora de inicio do serviço;
+                        var init = String(iten.hora);
+                        var partesInicio = init.split('.');
+                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        //formatando a hora de termino do serviço;
+                        var fim = String(iten.hora_termino);
+                        var partesFim = fim.split('.');
+                        var fimFormatado = partesFim[0]+':'+partesFim[1];
+                        //url whatsapp;
+                        //'https://api.whatsapp.com/send?phone=5511932223533&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?'
+                        var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
+                        return(
+                            <ul key={iten.id}>
+                                <li>
+                                    <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    <br/>
+                                    <p>Início: {inicioFormatado} <br/> Término: {fimFormatado}</p>
+                                    <p>Cliente:  {iten.nome_cliente}</p>
+                                    <p>WhatsApp Cliente: </p> 
+                                    <a target="_blank"
+                                    rel='noreferrer'  
+                                    href={whatsapp} 
+                                    className="LKWhatsapp">{iten.contato_cliente}</a>
+                                    <br/>
+                                    <br/>
+                                    <p>Serviços :  {iten.servico}</p>
+                                    <p>Observação : {iten.obs}
+                                    </p>
+                                    <br/>
+                                    <p className="UnderLine">Valro Serviço: R$ {iten.preco.toFixed(2)}</p><br/>
+                                    <p> Status: {iten.status_servico} </p>
+                                </li>
+                            </ul>
+                            
+                        );
+                    })}
+                </div>
         </div>
     );
 };

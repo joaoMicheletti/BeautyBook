@@ -40,6 +40,22 @@ h5{
     margin-bottom: 15px;
     text-align: center;
 }
+#Buscados {
+    margin-top: 50px;
+    display: none;
+    flex-flow: row wrap;
+    width: 100%;
+}
+#Buscados ul {
+    background-color: #0b395477;
+    border: black solid 1px;
+    border-radius: 10px;
+    list-style: none;
+    margin-left: 4%;
+    width: 20%;
+    margin-bottom: 15px;
+    text-align: center;
+}
 @media(max-width: 650px){
     .ContainerAgenda ul {
         width: 80%;
