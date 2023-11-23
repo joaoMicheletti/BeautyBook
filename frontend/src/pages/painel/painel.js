@@ -241,6 +241,26 @@ export default function Painel(){
                         );
                     })}
                 </div>
+                <div id="Relatorio">
+                    <h3>Análise diaria</h3>
+                    <br/>
+                    <div id="Today">
+                        <div>
+                            <h3>Finalizados</h3>
+                            <br/>
+                            <p>Quantidade : {} </p>
+                            <br/>
+                            <p>valor Total : {} </p>
+                        </div>
+                        <div>
+                            <h3>Cancelados</h3>
+                            <br/>
+                            <p>Quantidade : {} </p>
+                            <br/>
+                            <p>valor Total : {} </p>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     );

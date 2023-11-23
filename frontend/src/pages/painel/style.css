@@ -159,3 +159,17 @@ hr{
 .BtnStatus:hover {
     opacity: 80%;
 }
+#Relatorio {
+    margin-top: 20px;
+    margin-left: 10%;
+    width: 80%;
+}
+#Today {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+}
+#Today div {
+    width: 40%;
+    margin: 5%;
+}
