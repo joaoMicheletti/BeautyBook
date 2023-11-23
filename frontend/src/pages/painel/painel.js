@@ -85,6 +85,28 @@ export default function Painel(){
         alert('Até breve');
         History('/loginsalao');
     };
+    //relatório diario;
+    function RelatorioDiarioFinalizado(){
+        
+        Api.post('/relatoriodiario', {cpf_salao} ).then((Response) => {
+            console.log(Response.data);
+            document.querySelector('#quantF').innerHTML += Response.data.finalizado;
+            document.querySelector('#valorF').innerHTML += Response.data.total;
+        }).catch((erro) => {
+            alert('Erro ao criar o relatório diario');
+        })
+    };
+    //relatório diario;
+    function RelatorioDiarioCancelados(){
+        
+        Api.post('/relatoriodiariocancelado', {cpf_salao} ).then((Response) => {
+            console.log(Response.data);
+            document.querySelector('#quantC').innerHTML += Response.data.finalizado;
+            document.querySelector('#valorC').innerHTML += Response.data.total;
+        }).catch((erro) => {
+            alert('Erro ao criar o relatório diario');
+        })
+    };
     return(
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{
@@ -246,18 +268,20 @@ export default function Painel(){
                     <br/>
                     <div id="Today">
                         <div>
+                            <button onClick={RelatorioDiarioFinalizado}>Buscar valores</button>
                             <h3>Finalizados</h3>
                             <br/>
-                            <p>Quantidade : {} </p>
+                            <p id="quantF">Quantidade : {} </p>
                             <br/>
-                            <p>valor Total : {} </p>
+                            <p id="valorF">valor Total : {} </p>
                         </div>
                         <div>
+                        <button onClick={RelatorioDiarioCancelados}>Buscar valores</button>
                             <h3>Cancelados</h3>
                             <br/>
-                            <p>Quantidade : {} </p>
+                            <p id="quantC">Quantidade : {} </p>
                             <br/>
-                            <p>valor Total : {} </p>
+                            <p id="valorC">valor Total : {} </p>
                         </div>
                     </div>
                 </div>
