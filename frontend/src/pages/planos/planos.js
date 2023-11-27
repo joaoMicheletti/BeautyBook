@@ -61,6 +61,9 @@ export default function Planos(){
                         </p>
                         <p>50,00 R$ / Mes</p>
                         <p>Suporte 24 H / Dia</p>
+                        <p>Relatório Diário</p>
+                        <p>*Serviços Finalizados</p>
+                        <p>Serviços Cancelados</p>
                         <button className='BtnIndividual'
                         onClick={Individual}>Selecionar</button>
                     </li>
@@ -75,11 +78,21 @@ export default function Planos(){
                         onChange={(e) => setquantidade(e.target.value)}></input>
                         <p>{quantidade * 50},00 R$ / Mes</p>
                         <p>Suporte 24 H / Dia</p>
+                        <p>Relatório Diário</p>
+                        <p>*Serviços Finalizados</p>
+                        <p>Serviços Cancelados</p>
+                        <p>Exceto Funcionários</p>
+                        <hr/>
+                        <p>Gestor de Estoque</p>
+                        <p>Fluxo de Caixa</p>
                         <button className='BtnIndividual'
                         onClick={Personalizado}>Selecionar</button>
                     </li>
                 </ul>
             </div>
+            <br/>
+            <br/>
+            <br/>
         </div>
     );
 };
