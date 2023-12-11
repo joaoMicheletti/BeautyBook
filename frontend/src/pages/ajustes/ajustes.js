@@ -235,9 +235,8 @@ export default function Ajustes(){
         } else if(funcionalidade === 'bruto'){
             //buscar o valor bruto
             Api.post('/rentrada', {cpf_salao}).then((Response) => {
-                console.log(Response.data.quantidade)
                 document.querySelector('#quant').innerText = `Quantidade Bruta de Serviços Realizados : ${Response.data.quantidade}`;
-                document.querySelector('#tot').innerText = `O valor Bruto de entrada do su caixa foi de  : ${Response.data.valorTotal}`;     
+                document.querySelector('#tot').innerText = `O valor Bruto de entrada do seu caixa foi de  : ${Response.data.valorTotal}`;     
             }).catch((erro) => {
                 alert("Erro ao cominicar-se com o servidor.")
             })
@@ -245,8 +244,17 @@ export default function Ajustes(){
             var op = document.querySelector('#relat').value;
             if(op > 12){
                 alert('Defina um valor valido');
+            } else if (op === ''){
+                alert('Defina um valor')
             } else {
                 // fazer a busca.
+                var Data = {mes: op, cpf_salao};
+                Api.post('/remes', Data).then((Response) => {
+                    document.querySelector('#quant').innerText = `Quantidade  de Serviços Realizados neste mes é : ${Response.data.quantidade}`;
+                    document.querySelector('#tot').innerText = `O valor de entrada do seu caixa foi de  : ${Response.data.valorTotal}`; 
+                }).catch((erro) => {
+                    alert("Erro ao comunicar-se com o servidor");
+                })
             };
         } else if(funcionalidade === 'anual'){
             var op = document.querySelector('#relat').value;
@@ -491,7 +499,7 @@ export default function Ajustes(){
                                 <select onChange={(e) => setFuncionalidade(e.target.value)} name="dia" id="dia">
                                     <option value="funcionalidades">funcionalidades</option>
                                     <option value="bruto">Relatório Bruto</option>
-                                    <option value="menal">Relatório Mensal</option>
+                                    <option value="mensal">Relatório Mensal</option>
                                     <option value="anual">Relatório Anual</option>
                                 </select>
                                 </label>
