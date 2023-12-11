@@ -79,12 +79,10 @@ export default function Planos(){
                         <p>{quantidade * 50},00 R$ / Mes</p>
                         <p>Suporte 24 H / Dia</p>
                         <p>Relatório Diário</p>
-                        <p>*Serviços Finalizados</p>
-                        <p>Serviços Cancelados</p>
-                        <p>Exceto Funcionários</p>
-                        <hr/>
-                        <p>Gestor de Estoque</p>
-                        <p>Fluxo de Caixa</p>
+                        <p>-Serviços Finalizados</p>
+                        <p>-Serviços Cancelados</p>
+                        <p>-Relatŕio de entrada de CAixa</p>
+                        <p>***Exceto Para os Funcionários</p>
                         <button className='BtnIndividual'
                         onClick={Personalizado}>Selecionar</button>
                     </li>

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Api from '../../services/api';
 //import Logo from '../assets/Logo.png';
 import './style_ajustes.css';
-import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
+import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings, FcBullish} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
 import { useNavigate } from "react-router-dom";
 import{FiLogOut} from 'react-icons/fi';
@@ -225,6 +225,39 @@ export default function Ajustes(){
         alert('Até breve');
         History('/loginsalao');
     };
+    //funcionalidades
+    let [funcionalidade, setFuncionalidade] = useState('');
+    function Relatorio(){
+        if(funcionalidade === ''){
+            alert('Selecione uma opção');
+        } else if(funcionalidade === 'funcionalidades'){
+            alert('Selecione uma opção valida');
+        } else if(funcionalidade === 'bruto'){
+            //buscar o valor bruto
+            Api.post('/rentrada', {cpf_salao}).then((Response) => {
+                console.log(Response.data.quantidade)
+                document.querySelector('#quant').innerText = `Quantidade Bruta de Serviços Realizados : ${Response.data.quantidade}`;
+                document.querySelector('#tot').innerText = `O valor Bruto de entrada do su caixa foi de  : ${Response.data.valorTotal}`;     
+            }).catch((erro) => {
+                alert("Erro ao cominicar-se com o servidor.")
+            })
+        } else if(funcionalidade === 'mensal'){
+            var op = document.querySelector('#relat').value;
+            if(op > 12){
+                alert('Defina um valor valido');
+            } else {
+                // fazer a busca.
+            };
+        } else if(funcionalidade === 'anual'){
+            var op = document.querySelector('#relat').value;
+            if(op < 2023){
+                alert('Defina um valor valido');
+            } else {
+                // fazer a busca.
+            };
+        };
+    };
+    
     return(
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{
@@ -438,12 +471,36 @@ export default function Ajustes(){
                             <hr/>
                             <div id="Plano">
                                 <h2 id="TitlePlanos">Planos</h2>
+                                <br/>
                                 <p id="TextoPlano">Para alteraçoẽs no plano entre en contato com nosso supote 24 Horas</p>
                                 <p>Ver os Planos : </p>
                                 <br/>
                                 <a href="/planos">Clik aqui</a>
                                 <br/>
                                 <br/>
+                            </div>
+                            <hr/>
+                            <div id="gestao">
+                                <h2>Relatório de Entrada</h2>
+                                <br/>
+                                <label>
+                                <label>
+                                    Valor  :  
+                                    <input id="relat" type="text" placeholder=" mes  ou  ano"/>
+                                </label>
+                                <select onChange={(e) => setFuncionalidade(e.target.value)} name="dia" id="dia">
+                                    <option value="funcionalidades">funcionalidades</option>
+                                    <option value="bruto">Relatório Bruto</option>
+                                    <option value="menal">Relatório Mensal</option>
+                                    <option value="anual">Relatório Anual</option>
+                                </select>
+                                </label>
+                                <br/>
+                                <button onClick={Relatorio} >Buscar</button>
+                                <hr/>
+                                <p id="quant"></p>
+                                <br/>
+                                <p id="tot"></p>
                             </div>
                         </div>
                         
