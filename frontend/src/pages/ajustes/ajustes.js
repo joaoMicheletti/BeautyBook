@@ -250,7 +250,7 @@ export default function Ajustes(){
                 // fazer a busca.
                 var Data = {mes: op, cpf_salao};
                 Api.post('/remes', Data).then((Response) => {
-                    document.querySelector('#quant').innerText = `Quantidade  de Serviços Realizados neste mes é : ${Response.data.quantidade}`;
+                    document.querySelector('#quant').innerText = `Quantidade  de Serviços Realizados neste mes foi : ${Response.data.quantidade}`;
                     document.querySelector('#tot').innerText = `O valor de entrada do seu caixa foi de  : ${Response.data.valorTotal}`; 
                 }).catch((erro) => {
                     alert("Erro ao comunicar-se com o servidor");
@@ -260,8 +260,17 @@ export default function Ajustes(){
             var op = document.querySelector('#relat').value;
             if(op < 2023){
                 alert('Defina um valor valido');
+            } else if (op === ''){
+                alert('Defina um valor valido')
             } else {
                 // fazer a busca.
+                var Data = {ano: op, cpf_salao};
+                Api.post('/reano', Data).then((Response) => {
+                    document.querySelector('#quant').innerText = `Quantidade  de Serviços Realizados neste ano foi : ${Response.data.quantidade}`;
+                    document.querySelector('#tot').innerText = `O valor de entrada do seu caixa foi de  : ${Response.data.valorTotal}`; 
+                }).catch((erro) => {
+                    alert("Erro ao comunicar-se com o servidor");
+                })
             };
         };
     };
