@@ -17,6 +17,7 @@ export default function LoginSalao(){
             cpf_salao,
             senha
         };
+        console.log(Data);
         if(cpf_salao.length === 0){
             alert('Preencha o campo Cpf');
         }else if(cpf_salao.length > 11) {
@@ -26,57 +27,58 @@ export default function LoginSalao(){
         } else if(senha.length === 0){
             alert('Preencha o campo Senha');
         } else {
-        };
-        await Api.post('/loginsalao', Data).then((Response) => {
-            console.log(Response.data, "this");
-            if(Response.data === 'não encontramos nenhum salão ou funcionário com esses dados!'){
-                alert(Response.data);
-            } else if(Response.data === 'erro no login'){
-                alert("Usuário ou senha invalidos.");
-            } else if(Response.data === 'Acesso Negado, problemas com à assinatura do plano.'){
-                alert(Response.data);                
-            } else if(Response.data === "Dias Free exedidos"){
-                alert('Seus dias Livres de acesso a plataforma acabarm, para continuar eus trabalhos contrate um plano.');
-                localStorage.setItem('cpf_salao', cpf_salao);
-                Hystory("/planos");
-            } else{
-                //logado com sucessu;
-                //salvar no localstorage o cof_salão;
-                //salvando a resposta na variavel data;
-                var data = Response.data;
-                // si data.cpf_funcionario === undefined; logado como salão 
-                if(data.cpf_funcionario === undefined){
-                    if(data.statusPagamento === 'pending'){
-                        alert('Seu pagamento ainda encontra-se pendente, certifique-se de que ele foi efetuado.');
-                        Hystory('/');
-                    } else if(data.statusPagamento === 'approved'){
-                        alert('Seu pagamento foi aprovado, é  bom ter você de volta!');
-                        localStorage.setItem('cpf_salao', data.cpf_salao);
-                        Hystory('/painel'); 
-                    } else if(data.statusPagamento === ''){
-                        alert('O pagamento do seu plano foi recusado.');
-                    }else if(data.assinatura_status === "on"){
-                        localStorage.setItem('cpf_salao', data.cpf_salao)
-                        alert('Logado com sucesso!');
-                        Hystory('/painel');
+            await Api.post('/loginsalao', Data).then((Response) => {
+                console.log(Response, '<<<<');
+                if(Response.data.res === 'Salão ou funcionário não encontrado!'){
+                    alert(Response.data.res);
+                } else if(Response.data.res === 'Erro no login'){
+                    alert("Usuário ou senha invalidos.");
+                } else if(Response.data.res === 'Acesso Negado, problemas com à assinatura do plano.'){
+                    alert(Response.data.res);                
+                } else if(Response.data.res === "Dias Free excedidos"){
+                    alert('Seus dias Livres de acesso a plataforma acabarm, para continuar eus trabalhos contrate um plano.');
+                    localStorage.setItem('cpf_salao', cpf_salao);
+                    Hystory("/planos");
+                } else{
+                    //logado com sucessu;
+                    //salvar no localstorage o cof_salão;
+                    //salvando a resposta na variavel data;
+                    var data = Response;
+                    console.log(data, 'this data');
+                    // si data.cpf_funcionario === undefined; logado como salão 
+                    if(data.cpf_funcionario === undefined){
+                        if(data.statusPagamento === 'pending'){
+                            alert('Seu pagamento ainda encontra-se pendente, certifique-se de que ele foi efetuado.');
+                            Hystory('/');
+                        } else if(data.statusPagamento === 'approved'){
+                            alert('Seu pagamento foi aprovado, é  bom ter você de volta!');
+                            localStorage.setItem('cpf_salao', cpf_salao);
+                            Hystory('/painel'); 
+                        } else if(data.statusPagamento === ''){
+                            alert('O pagamento do seu plano foi recusado.');
+                        }else if(data.assinatura_status === "on"){
+                            localStorage.setItem('cpf_salao', cpf_salao)
+                            alert('Logado com sucesso!');
+                            Hystory('/painel');
+                        } else {
+                            // se passou por essas etapas o salão ainda esta com os dias free liberados;
+                            localStorage.setItem('cpf_salao', cpf_salao);
+                            console.log(data);
+                            alert('Aproveite seu periudo de teste.')
+                            Hystory('/painel');
+                        }
                     } else {
-                        // se passou por essas etapas o salão ainda esta com os dias free liberados;
-                        localStorage.setItem('cpf_salao', data.cpf_salao);
-                        console.log(data);
-                        alert('Aproveite seu periudo de teste.')
-                        Hystory('/painel');
-                    }
-                } else {
-                    //logado como funcionário;
-                    //encaminar para painel do funcionário;
-                    localStorage.setItem('cpf_funcionario', data.cpf_funcionario);
-                    alert("logado com sucesso");
-                    Hystory('/painelfuncionario');
-                };
-            }
-        }).catch((Erro) => {
-            alert('Erro interno.');
-        });
+                        //logado como funcionário;
+                        //encaminar para painel do funcionário;
+                        localStorage.setItem('cpf_funcionario', data.cpf_funcionario);
+                        alert("logado com sucesso");
+                        Hystory('/painelfuncionario');
+                    };
+                }
+            }).catch((Erro) => {
+                alert('Erro internoo.');
+            });
+        };
     };
     return(
         <div id="LoginSalao">

@@ -56,16 +56,25 @@ export default function RegistroSalao(){
                         indicado_por,
                         data_cadastro
                     };
-                    await Api.post('/registrarsalao', Data).then((Response) =>{
-                        if(Response.data === 'cadastrado Com sucesso!'){
-                            alert(Response.data);
-                            Hystori('/loginsalao');
-                        } else if(Response.data === 'Erro ao Cadastrar SAlão.'){
+                    console.log('oi')
+                    await Api.post('/registrarsalao', Data)
+                    .then((response) => {
+                        console.log('Response:', response); // Log da resposta completa
+                        console.log('Response data:', response.data); // Log dos dados da resposta
+
+                        if (response.data === 'cadastrado com sucesso!') {
+                        alert(response.data);
+                        Hystori('/loginsalao');
+                        } else if(response.data === 'salão já cadastrado'){
+                            alert('salão já cadastrado');
+                        } else if (response.data === 'Erro ao Cadastrar Salão.') {
                             alert('Erro ao Cadastrar Salão');
-                        } else if(Response.data === 'Erro interno'){
-                            alert(Response.data);
-                        };
-                    }).catch((Erro) => {
+                        } else if (response.data === 'Erro interno') {
+                            alert(response.data);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error); // Log do erro completo
                         alert('Erro interno!');
                     });
                 } else {

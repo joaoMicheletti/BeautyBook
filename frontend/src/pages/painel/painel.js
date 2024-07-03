@@ -52,8 +52,9 @@ export default function Painel(){
         };
         console.log(Data);
         Api.post('/buscasalao', Data).then((Response) => {
-            if(Response.data === 'nenhum agendamento encontrado.'){
-                alert(Response.data)
+            console.log(Response)
+            if(Response.data.res === 'nenhum agendamento encontrado.'){
+                alert(Response.data.res)
             } else {
                 setBuscados(Response.data);
             };
@@ -74,6 +75,8 @@ export default function Painel(){
     useEffect(() => {
         Api.post('/buscarsalao', {cpf_salao}).then((Response) => {
             setinfoSalao(Response.data);
+            console.log(Response, '<><><>',infoSalao);
+            console.log(Response.data);
         }).catch((Erro) =>{
             alert('erro ao buscar oformações do salão');
         });

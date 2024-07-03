@@ -10,9 +10,9 @@ export default function Home(){
             <header className="header">
             <h1>BeautyBook</h1>
                 <nav className="menu">
-                    <Link className='LK' to="/loginsalao">Login_Salão</Link>
-                    <Link className='LK' to="/registrosalao">Registrar_Salão</Link>
-                    <Link className='LK' to="/init">Agendar Horário</Link>
+                    <Link className='LK' to="/init">Agendar Horário</Link>                    
+                    <Link className='LK' to="/registrosalao">Registrar-se</Link>
+                    <Link className='LK' to="/loginsalao">Login</Link>                    
                 </nav>
             </header>
             <div id='content'>
