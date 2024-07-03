@@ -44,7 +44,6 @@ export default function HorarioDeFuncionamento(){
         Api.post('/listarhorariofuncionamento', DATA).then((Response) => {
             setlitaHorarios(Response.data);
             if(Response.data.length === 0){
-                alert('não encontramos Horários cadastrados.');
             };
         }).catch((Erro) =>{
             alert('Erro ao Buscar Horários de Serviço.');
@@ -171,6 +170,12 @@ export default function HorarioDeFuncionamento(){
                             alert('Os dados fornecidos não são validos.');
                         } else {
                             await Api.put('/horariofuncionamento', Data).then((response) => {
+                                if(response.data === 'Atualizado'){
+                                    alert('Horáriode funcionamento Atualizado!');
+                                }else {
+                                    alert('erro ao atulizar o Horário')
+                                }
+                                console.log(response)
                             }).catch((Erro) => {
                                 alert('Erro ao editar  o Horário.');
                             })
@@ -182,8 +187,8 @@ export default function HorarioDeFuncionamento(){
                         const Data = {
                             id
                         };
-                        Api.post('/deletarhorario', Data).then((Response) => {
-                            if(Response.data > 0){
+                        Api.put('/deletarhorario', Data).then((Response) => {
+                            if(Response.data === 'Deletado'){
                                 alert('Deletado com sucesso.');
                             } else {
                                 alert('Erro ao Deletar.');

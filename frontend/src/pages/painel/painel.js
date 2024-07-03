@@ -90,6 +90,7 @@ export default function Painel(){
     };
     //relatório diario;
     function RelatorioDiarioFinalizado(){
+        console.log('click on function relatorios diarios');
         
         Api.post('/relatoriodiario', {cpf_salao} ).then((Response) => {
             console.log(Response.data);

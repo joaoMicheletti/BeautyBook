@@ -51,10 +51,12 @@ export default function Ajustes(){
                 }
             };
             await Api.post('/logo', formdata, headers).then(async(Response) => {
+                console.log(Response);
                 
                 const Data = {
-                    cpf_salao, logo_salao: Response.data
+                    cpf_salao, logo_salao: Response.data.filename
                 };
+                console.log(Data, "dados retornados ao salvar a img ");
                 await Api.post('/logosalao', Data).then((Res) => {
                     console.log(Res.data);
                     if(Res.data > 0){
