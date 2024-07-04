@@ -92,7 +92,8 @@ export default function AgendaFuncionario(){
         var Mes = DataAtual.getMonth() + 1;
         var data_atual = DataAtual.getDate()+'/'+Mes+'/'+DataAtual.getFullYear();
         const Data = {
-            cpf_salao,
+            //cpf_salao, nao enviar o cpf do salão!!!!!!!
+            //para dar continuidade no proceso de agendamento com um funcionário.
             cpf_funcionario, //ok
             dia_semana, //ok
             dia, //ok
@@ -125,6 +126,7 @@ export default function AgendaFuncionario(){
             //verificando se a data e horário estão disponíveis na agenda.
             await Api.post('/horarioslivres', Data).then(async (Response) => {
                 // fora do horário de funcionamento.
+                console.log('<><><><>', Response);
                 if(Response.data === 'Fora do Horário de funcionamento.'){
                     alert("Salão : " + Response.data);
                     // é possivel que um horário não estará finalizado antes de começar o seu
@@ -145,7 +147,7 @@ export default function AgendaFuncionario(){
             }).catch((err) =>{
                 // falha de comunicação com o servidor
                 alert('Servidor não responde!')
-            });
+            });////////////////////
             ///////////////////////////////////////////////////////////////////////////////////////////////////////
             // validações para agendamento futuro.
         } else if(dia >=  DataAtual.getDate()){

@@ -94,8 +94,8 @@ export default function Painel(){
         
         Api.post('/relatoriodiario', {cpf_salao} ).then((Response) => {
             console.log(Response.data);
-            document.querySelector('#quantF').innerHTML += Response.data.finalizado;
-            document.querySelector('#valorF').innerHTML += Response.data.total;
+            document.querySelector('#quantF').innerHTML = Response.data.finalizado;
+            document.querySelector('#valorF').innerHTML = Response.data.total;
         }).catch((erro) => {
             alert('Erro ao criar o relatório diario');
         })
@@ -105,8 +105,8 @@ export default function Painel(){
         
         Api.post('/relatoriodiariocancelado', {cpf_salao} ).then((Response) => {
             console.log(Response.data);
-            document.querySelector('#quantC').innerHTML += Response.data.finalizado;
-            document.querySelector('#valorC').innerHTML += Response.data.total;
+            document.querySelector('#quantC').innerHTML = Response.data.finalizado;
+            document.querySelector('#valorC').innerHTML = Response.data.total;
         }).catch((erro) => {
             alert('Erro ao criar o relatório diario');
         })
@@ -180,7 +180,8 @@ export default function Painel(){
                             var id = iten.id;
                             var Data = {
                                 id
-                            };                            
+                            };               
+                            console.log(Data)             
                             await Api.put('/finalizarservico', Data).then((Response) =>{
                                 alert(Response.data);
                                 window.location.reload(true);
@@ -275,17 +276,17 @@ export default function Painel(){
                             <button onClick={RelatorioDiarioFinalizado}>Buscar valores</button>
                             <h3>Finalizados</h3>
                             <br/>
-                            <p id="quantF">Quantidade : {} </p>
+                            Quantidade :<p id="quantF"> {} </p>
                             <br/>
-                            <p id="valorF">valor Total : {} </p>
+                            valor Total :<p id="valorF"> {} </p>
                         </div>
                         <div>
                         <button onClick={RelatorioDiarioCancelados}>Buscar valores</button>
                             <h3>Cancelados</h3>
                             <br/>
-                            <p id="quantC">Quantidade : {} </p>
+                            Quantidade :<p id="quantC"> {} </p>
                             <br/>
-                            <p id="valorC">valor Total : {} </p>
+                            valor Total :<p id="valorC"> {} </p>
                         </div>
                     </div>
                 </div>

@@ -63,6 +63,7 @@ export default function AgendaF(){
                                 id
                             };                            
                             await Api.put('/finalizarservico', Data).then((Response) =>{
+                                console.log(Response);
                                 alert(Response.data);
                             }).catch(() =>{
                                 alert('Erro interno.')

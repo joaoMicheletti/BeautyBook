@@ -40,6 +40,7 @@ export default function Init(){
                     const URL = 'http://127.0.0.1:1998/image/';
                     const Agenda = () =>{
                         console.log(iten.quantidade_funcionarios);
+                        console.log(iten.logo_salao);
                         if(iten.quantidade_funcionarios === null){
                             localStorage.setItem('cpf_salao', iten.cpf_salao);
                             localStorage.setItem('logo_salao', iten.logo_salao);
