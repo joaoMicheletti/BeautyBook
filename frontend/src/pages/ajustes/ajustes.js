@@ -84,6 +84,8 @@ export default function Ajustes(){
             alert("Valor não permitido!");
         } else if(intervalo_entre_agendamentos.includes(",")){
             alert('Valore não permitido');
+        } else if(intervalo_entre_agendamentos < 1){
+            alert('Defina um intervalo Valido!')
         } else {
             const Data = {
                 cpf_salao, intervalo_entre_agendamentos
@@ -237,8 +239,12 @@ export default function Ajustes(){
         } else if(funcionalidade === 'bruto'){
             //buscar o valor bruto
             Api.post('/rentrada', {cpf_salao}).then((Response) => {
-                document.querySelector('#quant').innerText = `Quantidade Bruta de Serviços Realizados : ${Response.data.quantidade}`;
-                document.querySelector('#tot').innerText = `O valor Bruto de entrada do seu caixa foi de  : ${Response.data.valorTotal}`;     
+                if(Response.data.resp === 'Nada encontrado'){
+                    document.querySelector('#quant').innerText = `Seu Salão ainda Não possuí serviços Finalizados`;
+                }else {
+                    document.querySelector('#quant').innerText = `Quantidade Bruta de Serviços Realizados : ${Response.data.quantidade}`;
+                    document.querySelector('#tot').innerText = `O valor Bruto de entrada do seu caixa foi de  : ${Response.data.valorTotal}`;     
+                };
             }).catch((erro) => {
                 alert("Erro ao cominicar-se com o servidor.")
             })
@@ -331,11 +337,11 @@ export default function Ajustes(){
                         <hr/>
                         <div id="Preferencias">
                             <p className="PPreferecias">
-                                Defina o tempo de cada serviço agendado.
+                                Tempo de duração de cada Serviço.
                             </p>
                             <br/>
                             <p className="PPreferecias">
-                                Defina com Horas. 
+                                Definir Tempo. 
                             </p>
                             <input
                             id="Minutos"
@@ -504,22 +510,24 @@ export default function Ajustes(){
                                 <br/>
                                 <label>
                                 <label>
-                                    Valor  :  
+                                    Referência :  
                                     <input id="relat" type="text" placeholder=" mes  ou  ano"/>
                                 </label>
                                 <select onChange={(e) => setFuncionalidade(e.target.value)} name="dia" id="dia">
-                                    <option value="funcionalidades">funcionalidades</option>
+                                    <option value="funcionalidades">Selecionar</option>
                                     <option value="bruto">Relatório Bruto</option>
                                     <option value="mensal">Relatório Mensal</option>
                                     <option value="anual">Relatório Anual</option>
                                 </select>
                                 </label>
                                 <br/>
-                                <button onClick={Relatorio} >Buscar</button>
+                                <button onClick={Relatorio} >Gerar Relatório</button>
                                 <hr/>
                                 <p id="quant"></p>
                                 <br/>
                                 <p id="tot"></p>
+                                <br/>
+                                <br/>
                             </div>
                         </div>
                         
