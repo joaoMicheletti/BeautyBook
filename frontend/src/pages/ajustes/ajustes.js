@@ -59,7 +59,7 @@ export default function Ajustes(){
                 console.log(Data, "dados retornados ao salvar a img ");
                 await Api.post('/logosalao', Data).then((Res) => {
                     console.log(Res.data);
-                    if(Res.data > 0){
+                    if(Res.data.list > 0){
                         alert('imagem salva com sucesso, atualize a pagina!');
                     } else {
                         alert('algo não saiu como esperado.');
