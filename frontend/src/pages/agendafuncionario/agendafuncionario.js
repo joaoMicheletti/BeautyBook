@@ -92,7 +92,7 @@ export default function AgendaFuncionario(){
         var Mes = DataAtual.getMonth() + 1;
         var data_atual = DataAtual.getDate()+'/'+Mes+'/'+DataAtual.getFullYear();
         const Data = {
-            //cpf_salao,
+            cpf_salao,
             cpf_funcionario, //ok
             dia_semana, //ok
             dia, //ok
