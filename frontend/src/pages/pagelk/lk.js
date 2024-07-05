@@ -6,28 +6,35 @@ import Api from '../../services/api';
 
 export default function Init(){
     const [salao, setSalao] = useState('');
+    const [img, setImg] = useState('');
+    const [nome, setNome] = useState('');
     const History = useNavigate();
     
-    const cpf_salao  = useParams();   
+    const cpf_salao  = useParams();
+
     useEffect(() =>{
         Api.post('/buscarsalao', cpf_salao).then((Response) =>{
-            setSalao(Response.data);
-            console.log(Response.data)              
+            console.log(typeof(Response.data[0].quantidade_funcionarios));
+            setSalao(Response.data[0].quantidade_funcionarios);
+            setImg(Response.data[0].logo_salao);
+            setNome(Response.data[0].nome_salao);
+            console.log(salao > 0)            
         })
         
     }, []);
-
+    console.log(salao > 0);
     function redirect(){
         // com fincionarios
-        if(salao[0].limite_funcionarios > 0){
-            localStorage.setItem("cpf_salao", salao[0].cpf_salao);
-            localStorage.setItem("logo_salao", salao[0].logo_salao);
-            localStorage.setItem("nome_salao", salao[0].nome_salao);
+        if(salao > 0){
+            localStorage.setItem("cpf_salao", cpf_salao.cpf_salao);
+            console.log(cpf_salao);
+            localStorage.setItem("logo_salao", img);
+            localStorage.setItem("nome_salao", nome);
             History("/agendamentofuncionario");
         } else {
-            localStorage.setItem("cpf_salao", salao[0].cpf_salao);
-            localStorage.setItem("logo_salao", salao[0].logo_salao);
-            localStorage.setItem("nome_salao", salao[0].nome_salao);
+            localStorage.setItem("cpf_salao", cpf_salao.cpf_salao);
+            localStorage.setItem("logo_salao", img);
+            localStorage.setItem("nome_salao", nome);
             //sem funcionarios.
             History("/agendamento");
         };

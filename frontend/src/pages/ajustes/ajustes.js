@@ -239,6 +239,7 @@ export default function Ajustes(){
         } else if(funcionalidade === 'bruto'){
             //buscar o valor bruto
             Api.post('/rentrada', {cpf_salao}).then((Response) => {
+                console.log(Response);
                 if(Response.data.resp === 'Nada encontrado'){
                     document.querySelector('#quant').innerText = `Seu Salão ainda Não possuí serviços Finalizados`;
                 }else {

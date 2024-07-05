@@ -162,19 +162,20 @@ export default function AgendaFuncionario(){
                         if(Response.data === 'agendamento permitido'){
                             //em fim agendar com o salão.
                             await Api.post('/registraragendamento', Data).then((Response) => {
-                                alert(Response.data);
-                                alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
+                                console.log(Response);
+                                //alert(Response.data);
+                                //alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
                             }).catch((erro) =>{
                                 // falha de comunicação com o serviodor
-                                alert('Erro ao finalizar o agendamento');
+                                console.log('Erro ao finalizar o agendamento');
                             });
                         }else{
                             // pode ter gerado uim conflito entre agendamentos.
-                            alert('Erro ao criar um agendamento futuro.');
+                            console.log('Erro ao criar um agendamento futuro.');
                         };
                     }).catch((erro) =>{
                         // erro de comunicação com o servidor.
-                        alert('Erro ao criar um agendamento futuro.');
+                        console.log('1111Erro ao criar um agendamento futuro.');
                     });
                 } else {
                     // fora do prazo para agendamentos.
