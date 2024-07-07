@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useNavigate} from "react-router-dom";
 import './style_init.css';
-import Logo from '../assets/Logo.png'
+import Logo from '../assets/Logo.jpeg'
 import Api from '../../services/api';
 
 export default function Init(){

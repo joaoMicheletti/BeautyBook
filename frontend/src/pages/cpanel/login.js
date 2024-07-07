@@ -1,6 +1,6 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom'
-import Logo from '../assets/Logo.png';
+import Logo from '../assets/Logo.jpeg';
 import './login.css';
 import Api from '../../services/api';
 export default function LoginCpanel(){

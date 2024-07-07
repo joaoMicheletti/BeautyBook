@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './style_planos.css';
-import Logo from '../assets/Logo.png';
+import Logo from '../assets/Logo.jpeg';
 import Api from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 

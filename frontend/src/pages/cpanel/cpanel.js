@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Logo from '../assets/Logo.png';
+import Logo from '../assets/Logo.jpeg';
 import './styleCpanel.css';
 import Api from '../../services/api';
 

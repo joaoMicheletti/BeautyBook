@@ -1,7 +1,4 @@
 import React, {useState} from "react";
-import Logo from '../assets/Logo.png';
-import Borboleta from '../assets/borboleta.png';
-import Complemeto from '../assets/esmalte0.png';
 import './style_login.css';
 import Api from '../../services/api';
 import {useNavigate} from 'react-router-dom';
@@ -83,13 +80,13 @@ export default function LoginSalao(){
     return(
         <div id="LoginSalao">
             <header id="HeaderLoginSalao">
-                <img id="Beuty" src={Logo} alt="Logo"/>
-                <a id="Link" href="/">Home</a>
-                <a id="Link" href="/loginsalao">Login</a>
-                <a id="Link" href="/registrosalao">Registrar-se</a>
+                <h4>Hidden Beauty</h4>
                 <ul>
-                    <img id="LogoImg" src={Borboleta} alt="logo"/>
+                    <a id="Link" href="/">Home</a>
+                    <a id="Link" href="/loginsalao">Login</a>
+                    <a id="Link" href="/registrosalao">Registrar-se</a> 
                 </ul>
+                
             </header>
             <div id="FormLoginSalao">
                 
@@ -116,18 +113,9 @@ export default function LoginSalao(){
                     id="BtnLoginSalao"
                     type="submit"
                     value='Login'/>
-                    <br/>
-                    <br/>
                     <a href="/registrosalao">Não possuí uma conta? click aqui</a>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
                 </form>
                 <br/>
-                <div id="imgDiv">
-                    <img id="Complemento" src={Complemeto} alt="ola"/>
-                </div>
             </div>
         </div>
     );

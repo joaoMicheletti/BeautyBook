@@ -8,7 +8,7 @@ export default function Home(){
     return(
         <div className="Home">
             <header className="header">
-            <h1>BeautyBook</h1>
+            <h1>Hidden Beauty</h1>
                 <nav className="menu">
                     <Link className='LK' to="/init">Agendar Horário</Link>                    
                     <Link className='LK' to="/registrosalao">Registrar-se</Link>
@@ -18,7 +18,7 @@ export default function Home(){
             <div id='content'>
                 <div id='slogan'>
                     <br/>
-                    <h4>Beleza Unida, ao Alcance de um Clique.</h4>
+                    <h4 id='H4' >Beleza Unida, ao Alcance de um Clique.</h4>
                     <br/>
                     <p id='P'>
                         <strong>Descubra a Magia da Beleza! 

@@ -1,7 +1,4 @@
 import React, {useState} from "react";
-import Logo from '../assets/Logo.png';
-import Barber from '../assets/big.png';
-import Men from '../assets/men.png';
 import './style.css';
 import Api from '../../services/api';
 import {useNavigate} from 'react-router-dom'
@@ -88,95 +85,98 @@ export default function RegistroSalao(){
     return(
         <div id="RegistroSalao">
             <header id="HeaderRegistroSalao">
-                <img id="R" src={Logo} alt="Logo"/>
-                <a id="Link_reg" href="/">Home</a>
-                <a id="Link_reg" href="/loginsalao">Login</a>
-                <a id="Link_reg" href="/registrosalao">Registrar-se</a>
-                <img src={Barber} alt="Logo"/>
+                <h4>Hidden Beauty</h4>
+                <ul>
+                    <a id="Link_reg" href="/">Home</a>
+                    <a id="Link_reg" href="/loginsalao">Login</a>
+                    <a id="Link_reg" href="/registrosalao">Registrar-se</a>
+                </ul>
+                
             </header>
+            <h1 id="registerTitulo">Registrar-se</h1>
             <div id="FomrRegistroSalao">
                 <form onSubmit={Registrar}>
-                    <h1>Registrar-se</h1>
-                    <p id="PRegistroSalao">
-                        CPF 
-                    </p>
-                    <input
-                    className="InpRegistroSalao" 
-                    type="number" 
-                    placeholder="CPF "
-                    onChange={(e) => setCpf(e.target.value)}/>
-                    <p id="PRegistroSalao">
-                        Nome Do Salão
-                    </p>
-                    <input
-                    className="InpRegistroSalao" 
-                    type="text"
-                    placeholder="Nome Do Salão"
-                    onChange={(e) => setNome_salao(e.target.value)}/>
-                    <p id="PRegistroSalao">
-                        Endereço Salão
-                    </p>
-                    <input
-                    className="InpRegistroSalao" 
-                    type="text"
-                    placeholder="Endereço Salão"
-                    onChange={(e) => setEndereco_Salao(e.target.value)}/>
-                    <p id="PRegistroSalao">
-                        CEP
-                    </p>
-                    <input
-                    className="InpRegistroSalao" 
-                    type="number"
-                    placeholder="Endereço Salão"
-                    onChange={(e) => setCep(e.target.value)}/>
-                    <p id="PRegistroSalao" >
-                        E-mail
-                    </p>
-                    <input
-                    className="InpRegistroSalao" 
-                    type="email"
-                    placeholder="janaina.salao@gmail.com"
-                    onChange={(e) => setEmail(e.target.value)}/>
-                    <p id="PRegistroSalao">
-                    Código de indicação 
-                    </p> 
-                    <input
-                    className="InpRegistroSalao"
-                    type="text"
-                    placeholder="Senha"
-                    onChange={(e) => setCodigo(e.target.value)}/>
-                    <p id="PRegistroSalao">
-                        Senha
-                    </p> 
-                    <input
-                    className="InpRegistroSalao"
-                    type="password"
-                    placeholder="Senha"
-                    onChange={(e) => setSenha(e.target.value)}/>
-                    <p id="PRegistroSalao">
-                        Confirmar Senha
-                    </p>
-                    <input
-                    className="InpRegistroSalao"
-                    type="password"
-                    placeholder="Confirmar Senha"
-                    onChange={(e) => setCsenha(e.target.value)}/>
-                    <br/>
-                    <br/>
-                    <input 
-                    id="BtnRegistroSalao"
-                    type="submit"
-                    value='Registrar-se'
-                    />
-                    <br/>
-                    <br/>
-                    <a href="/loginsalao">já possuí uma conta? click aqui</a>
-                    <br/>
-                    <br/>
+                    <div id='um'>
+                        <p id="PRegistroSalao">
+                            CPF 
+                        </p>
+                        <input
+                        className="InpRegistroSalao" 
+                        type="number" 
+                        placeholder="CPF "
+                        onChange={(e) => setCpf(e.target.value)}/>
+                        <p id="PRegistroSalao">
+                            Nome Do Salão
+                        </p>
+                        <input
+                        className="InpRegistroSalao" 
+                        type="text"
+                        placeholder="Nome Do Salão"
+                        onChange={(e) => setNome_salao(e.target.value)}/>
+                        <p id="PRegistroSalao">
+                            Endereço Salão
+                        </p>
+                        <input
+                        className="InpRegistroSalao" 
+                        type="text"
+                        placeholder="Endereço Salão"
+                        onChange={(e) => setEndereco_Salao(e.target.value)}/>
+                        <p id="PRegistroSalao">
+                            CEP
+                        </p>
+                        <input
+                        className="InpRegistroSalao" 
+                        type="number"
+                        placeholder="Endereço Salão"
+                        onChange={(e) => setCep(e.target.value)}/>
+                    </div>
+                    <div id="dois">
+                        <p id="PRegistroSalao" >
+                            E-mail
+                        </p>
+                        <input
+                        className="InpRegistroSalao" 
+                        type="email"
+                        placeholder="janaina.salao@gmail.com"
+                        onChange={(e) => setEmail(e.target.value)}/>
+                        <p id="PRegistroSalao">
+                        Código de indicação 
+                        </p> 
+                        <input
+                        className="InpRegistroSalao"
+                        type="text"
+                        placeholder="Senha"
+                        onChange={(e) => setCodigo(e.target.value)}/>
+                        <p id="PRegistroSalao">
+                            Senha
+                        </p> 
+                        <input
+                        className="InpRegistroSalao"
+                        type="password"
+                        placeholder="Senha"
+                        onChange={(e) => setSenha(e.target.value)}/>
+                        <p id="PRegistroSalao">
+                            Confirmar Senha
+                        </p>
+                        <input
+                        className="InpRegistroSalao"
+                        type="password"
+                        placeholder="Confirmar Senha"
+                        onChange={(e) => setCsenha(e.target.value)}/>
+                        <br/>
+                        <br/>
+                        <input 
+                        id="BtnRegistroSalao"
+                        type="submit"
+                        value='Registrar-se'
+                        />
+                        <br/>
+                        <br/>
+                        <a href="/loginsalao">já possuí uma conta? click aqui</a>
+                        <br/>
+                        <br/>
+                    </div>                
                 </form>
-                <div id="Barber">
-                    <img src={Men} alt="Men"/>
-                </div>
             </div>
         </div>
     );

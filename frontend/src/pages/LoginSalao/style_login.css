@@ -4,23 +4,22 @@
     box-sizing: border-box;
 }
 #LoginSalao {
-    background-color: #bfd7ea;
+    background-color: #ffffffd3;
 }
 #HeaderLoginSalao {
-    background-color: #0b3954;
+    background-color: #000000;
     width: 100%;
-    height: 95px;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
 }
-#Beuty{
-    margin-top: 2px;
-    margin-left: 30px;
-    width: 100px;
+#HeaderLoginSalao h4 {
+    margin-left: 10px;
+    margin-top: 20px;
 }
-#HeaderLoginSalao ul{
-    float: right;
-}
-#LogoImg {
-    width: 100px;
+#HeaderLoginSalao ul {
+    margin-top: 55px;
+    margin-right: 20px;
 }
 #Link {
     color: white;
@@ -28,22 +27,19 @@
     text-decoration: none;
 }
 #FormLoginSalao {
-    display: flex;
-    text-align: center;
-    margin-top: 50px;
-    width: 80%;
-    margin-left: 10%;
+    margin-top: 100px;
+    background-color: #ffffff;
+    
 }
 #Form_Login {
+    text-align: center;
     margin-left: 10%;
     width: 80%;
+    display: flex;
+    flex-direction: column;
 }
-#imgDiv {
-    width: 50%;
-}
-#Complemento {
-    width: 400px;
-}
+
+
 h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: black;
@@ -57,23 +53,23 @@ h1 {
     font-weight: 400;
 }
 #Form_Login .InpLoginSalao {
-    width: 100%;
+    margin-left: 10%;
+    width: 80%;
     height: 40px;
     border: none;
     border-radius: 5px;
+    background-color: #a09a9a69;
 }
 #BtnLoginSalao {
     cursor: pointer;
     height: 40px;
     width: 80%;
+    margin-left: 10%;
     margin-top: 19px;
     border: none;
     border-radius: 5px;
     font-size: 19px;
     margin-bottom: 100px;
-    
-}
-#BtnLoginSalao:hover {
     background-color: rgb(88, 88, 88);
 }
 
