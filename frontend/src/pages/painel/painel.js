@@ -35,6 +35,7 @@ export default function Painel(){
     });
     // função para buscar agenda de uma determindada data;
     function Buscar(){
+        console.log('Click here!')
         // escondendo a div agendados
         document.querySelector('#Agendados').style.display = 'none';
         // mostrando a div Buscados 
