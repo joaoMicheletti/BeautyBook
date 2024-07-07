@@ -158,20 +158,26 @@ export default function AgendaFuncionario(){
                 if(Response.data === "Dentro do limite para Agendamentos futuros"){
                     
                     await Api.post('/horarioslivres', Data).then(async (Response) =>{
+                        console.log(Response);
                         //confirmar se pode ou nçao realizar o agendamento
                         if(Response.data === 'agendamento permitido'){
                             //em fim agendar com o salão.
                             await Api.post('/registraragendamento', Data).then((Response) => {
-                                console.log(Response);
                                 //alert(Response.data);
-                                //alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
+                                console.log(Response.data);
+                                if(Response.data > 0 ){
+                                    alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
+                                } else {
+                                    alert('Erro ao finalizar agendamento, tente mais tarde!');
+                                };                                
                             }).catch((erro) =>{
                                 // falha de comunicação com o serviodor
                                 console.log('Erro ao finalizar o agendamento');
                             });
-                        }else{
-                            // pode ter gerado uim conflito entre agendamentos.
-                            console.log('Erro ao criar um agendamento futuro.');
+                        }else if(Response.data === 'Horário já ocupado'){
+                            alert(Response.data);
+                        } else if(Response.data === 'Fora do Horário de funcionamento.'){
+                            alert('Fora do Horário de funcionamento.')
                         };
                     }).catch((erro) =>{
                         // erro de comunicação com o servidor.

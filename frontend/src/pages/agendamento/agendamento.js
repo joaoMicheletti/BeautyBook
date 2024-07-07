@@ -127,16 +127,20 @@ export default function Agendamento(){
         } else if(dia === DataAtual.getDate() && mes === DataAtual.getMonth()+1 && ano === DataAtual.getFullYear()){
             //verificando se a data e horário estão disponíveis na agenda.
             await Api.post('/horarioslivres', Data).then(async (Response) => {
+                console.log("espaço livre>>> ", Response.data);
                 // fora do horário de funcionamento.
                 if(Response.data === 'Fora do Horário de funcionamento.'){
+                    console.log("Fora de funcionamento", Response.data);
                     alert("Salão : " + Response.data);
                     // é possivel que um horário não estará finalizado antes de começar o seu
                 } else if(Response.data === 'conflito entre agendamentos'){
+                    console.log('conflito entre agendamentos', Response.data);
                     alert(Response.data);
                     //horários já preenchido
                 } else if(Response.data === 'Horário já ocupado'){
                     alert('Desculpe mas: ' + Response.data);
                 } else if(Response.data === 'agendamento permitido'){
+                    console.log('indo agendar');
                     //rota para finalizar o agendamento;
                     await Api.post('/registraragendamento', Data).then((Response) => {
                         alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
@@ -154,28 +158,30 @@ export default function Agendamento(){
         } else if(dia >=  DataAtual.getDate()){
             if(mes >= DataAtual.getMonth() + 1 && ano >= DataAtual.getFullYear()){
                 //agendamentos futuros;
+                console.log('top agendameto futuro');
             await Api.post('/agendamentosfuturos', Data).then(async (Response) =>{
+                
                 //verificar data limite para agendamentos futuros;
                 if(Response.data === "Dentro do limite para Agendamentos futuros"){
                     
                     await Api.post('/horarioslivres', Data).then(async (Response) =>{
+                        console.log(Response.data)
                         //confirmar se pode ou nçao realizar o agendamento
                         if(Response.data === 'agendamento permitido'){
                             //em fim agendar com o salão.
                             await Api.post('/registraragendamento', Data).then((Response) => {
-                                alert(Response.data);
                                 alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
                             }).catch((erro) =>{
                                 // falha de comunicação com o serviodor
                                 alert('Erro ao finalizar o agendamento');
                             });
-                        }else{
+                        }else if(Response.data === 'Horário já ocupado'){
                             // pode ter gerado uim conflito entre agendamentos.
-                            alert('Erro ao criar um agendamento futuro.');
+                            alert(Response.data);
                         };
                     }).catch((erro) =>{
                         // erro de comunicação com o servidor.
-                        alert('Erro ao criar um agendamento futuro.');
+                        alert('Erro ao criar um agendamento futuros.');
                     });
                 } else {
                     // fora do prazo para agendamentos.
