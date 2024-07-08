@@ -5,7 +5,7 @@
 }
 #HomeConteinerInit {
     width: 100%;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
 }
 #HeaderHomeInit {
     background-color: #000000;
@@ -42,13 +42,6 @@
     line-height: 25px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-#H {
-    margin-top: 40px;
-    text-decoration: none;
-    font-size: 30px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-bottom: 50px;
-}
 #ConteudoHomeInit ul {
     background-color: #4a4a4b77;
     border: black solid 1px;
@@ -61,25 +54,59 @@
 }
 #ConteudoHomeInit ul img {
     margin-top: 10px;
-    width: 100px;
+    width: 150px;
 }
-#ConteudoHomeInit ul li {
-    list-style: none;
-}
-#ConteudoHomeInit ul li p {
+#H {
+    margin-top: 40px;
+    text-decoration: none;
+    font-size: 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.PConteudohome {
-    margin-top: 10px;
+    margin-bottom: 50px;
+    }
+@media(max-width: 700px){
+    #ConteudoHomeInit {
+        text-align: center;
+        flex-direction: column;
+    }
+    #H {
+    margin-top: 40px;
+    text-decoration: none;
+    font-size: 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 600;
-}
-.BtnConteudoHomeInit {
-    margin-top: 10px;
-    width: 80%;
-    height: 25px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    font-weight: 550;
-    border-radius: 5px;
+    margin-bottom: 50px;
+    }
+    #ConteudoHomeInit ul {
+        background-color: #4a4a4b77;
+        border: black solid 1px;
+        border-radius: 10px;
+        list-style: none;
+        margin-left: 30%;
+        width: 40%;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    #ConteudoHomeInit ul img {
+        margin-top: 10px;
+        width: 150px;
+    }
+    #ConteudoHomeInit ul li {
+        list-style: none;
+    }
+    #ConteudoHomeInit ul li p {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .PConteudohome {
+        margin-top: 10px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: 600;
+    }
+    .BtnConteudoHomeInit {
+        margin-top: 10px;
+        width: 80%;
+        height: 25px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        font-weight: 550;
+        border-radius: 5px;
+    }
 }
