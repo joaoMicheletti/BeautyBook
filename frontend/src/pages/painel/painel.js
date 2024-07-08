@@ -274,7 +274,7 @@ export default function Painel(){
                     <br/>
                     <div id="Today">
                         <div>
-                            <button onClick={RelatorioDiarioFinalizado}>Buscar valores</button>
+                            <button className="btnValor" onClick={RelatorioDiarioFinalizado}>Buscar valores</button>
                             <h3>Finalizados</h3>
                             <br/>
                             Quantidade :<p id="quantF"> {} </p>
@@ -282,7 +282,7 @@ export default function Painel(){
                             valor Total :<p id="valorF"> {} </p>
                         </div>
                         <div>
-                        <button onClick={RelatorioDiarioCancelados}>Buscar valores</button>
+                        <button className="btnValor" onClick={RelatorioDiarioCancelados}>Buscar valores</button>
                             <h3>Cancelados</h3>
                             <br/>
                             Quantidade :<p id="quantC"> {} </p>

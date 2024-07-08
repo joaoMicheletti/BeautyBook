@@ -1,14 +1,14 @@
 *{
     padding: 0;
     border: 0;
-    margin: 0;
+    margin: 0; 
     box-sizing: border-box;
 }
 #PainelSalao {
-    background-color: #bfd7ea;
+    background-color: #fafafa;
 }
 #HeaderSalao {
-    background-color: #0b3954;
+    background-color: #000000;
     display: flex;
     width: 100%;
     height: 105px;
@@ -21,10 +21,10 @@
     margin-right: 30px;
 }
 #TitleAgenda {
-    color: black;
+    color: rgb(255, 255, 255);
 }
 #TitleSalao{ 
-    margin-top: 30px;
+    color: white;
 }
 hr{
     width: 100%;
@@ -33,6 +33,7 @@ hr{
     margin-bottom: 5px;
 }
 #ButtonsMenuSalao {
+    background-color: rgb(213, 218, 218);
     display: flex;
     width: 100%;
     height: 50px;
@@ -69,7 +70,7 @@ hr{
 #SectionAgendaSalaoPainel{
     width: 100%;
     height: auto;
-    background-color: #bfd7ea;
+    background-color: #ffffff;
 }
 
 #ConteinerAgendaPainel {
@@ -87,11 +88,15 @@ hr{
     width: 300px;
     height: 35px;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 5px;
 }
 #BtnAgenda {
     border: solid black 1px;
     cursor: pointer;
     width: 100px;
+    border-radius: 5px;
 }
 #BtnAgenda:hover {
     opacity: 80%;
@@ -125,6 +130,11 @@ hr{
     width: 20%;
     margin-bottom: 15px;
     text-align: center;
+}
+.btnValor {
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
 }
 @media(max-width: 650px){
     #Agendados ul {

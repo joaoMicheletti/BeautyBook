@@ -41,6 +41,9 @@
     text-align: center;
     width: 80%;
     margin-left: 10%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 #ParagrafoRegistrarFuncionarios {
     font-size: 19px;
@@ -48,10 +51,12 @@
     margin-bottom: 10px;
 }
 #NomeFuncionario {
-    border-radius: 3px;
+    border-radius: 5px;
     border: solid black 1px;
+    background-color: rgb(228, 230, 231);
     width: 80%;
     height: 25px;
+    margin-left: 10%;
     margin-bottom: 10px;
 }
 #ParagrafoCpfFuncionario {
@@ -60,10 +65,12 @@
     margin-bottom: 10px;
 }
 #CpfFuncionarios {
-    border-radius: 3px;
+    border-radius: 5px;
     border: solid black 1px;
-    width: 80%;    
+    background-color: rgb(228, 230, 231);
+    width: 80%;
     height: 25px;
+    margin-left: 10%;
     margin-bottom: 10px;
 }
 #PSenhaFuncionarios{
@@ -72,25 +79,31 @@
     margin-bottom:  10px;
 }
 #SenhaFuncionarios {
-    border-radius: 3px;
+    border-radius: 5px;
     border: solid black 1px;
+    background-color: rgb(228, 230, 231);
     width: 80%;
     height: 25px;
+    margin-left: 10%;
     margin-bottom: 10px;
 }
 #SenhaFuncionarioss{
-    border-radius: 3px;
+    border-radius: 5px;
     border: solid black 1px;
+    background-color: rgb(228, 230, 231);
     width: 80%;
     height: 25px;
-    margin-bottom: 10px
+    margin-left: 10%;
+    margin-bottom: 10px;
 }
 #BtnFunc{
     cursor: pointer;
-    width: 200px;
+    width: 40%;
+    margin-left: 30%;
     height: 25px;
     border-radius: 5px;
     margin-bottom: 10px;
+    background-color: rgb(206, 207, 207);
 }
 #BtnFunc:hover {
     background-color: rgb(70, 73, 72);
@@ -112,15 +125,17 @@
     font-weight: 600;
 }
 #BtnVerAgenda {
+    background-color: rgb(228, 230, 231);
     cursor: pointer;
     width: 80px;
-    border-radius: 3px;
+    border-radius: 5px;
 
 }
 #BtnExcluir {
     cursor: pointer;
     width: 80px;
-    border-radius: 3px;
+    border-radius: 5px;
+    background-color: rgb(228, 230, 231);
 }
 #BtnExcluir:hover{
     background-color: rgb(63, 62, 61);

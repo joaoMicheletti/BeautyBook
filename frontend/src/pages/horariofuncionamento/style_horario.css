@@ -43,32 +43,45 @@
     text-align: center;
     font-weight: 600;
 }
+form {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 #dia {
-    margin-left: 40PX;
-    width: 200px;
+    width: 80%;
+    margin-left: 10%;
     height: 30px;
     margin-bottom: 15px;
     border: solid black 1px;
+    background-color: rgb(206, 207, 207);
 }
 #inicio {
-    margin-left: 40px;
-    width: 200px;
+    width: 80%;
+    margin-left: 10%;
     height: 30px;
     margin-bottom: 15px;
     border: solid black 1px;
+    background-color: rgb(206, 207, 207);
 }
 #termino {
-    margin-left:  40px;
-    width: 200px;
+    width: 80%;
+    margin-left: 10%;
     height: 30px;
     margin-bottom: 15px;
     border: solid black 1px;
+    background-color: rgb(206, 207, 207);
 }
 #Btn_cad {
-    border-radius: 5px;
-    width: 30%;
-    height: 35px;
     cursor: pointer;
+    width: 40%;
+    margin-left: 30%;
+    height: 25px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: rgb(206, 207, 207);
 }
 
 #DivHorarios {
@@ -87,8 +100,10 @@
     font-weight: 600;
 }
 .BtnHorario {
-    cursor: pointer;
-    width: 80px;
+    cursor: pointer;border-radius: 5px;
+    width: 100px;
+    background-color: rgb(206, 207, 207);
+    
 }
 .BtnHorario:hover{
     opacity: 80%;
