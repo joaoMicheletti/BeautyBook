@@ -93,7 +93,15 @@ hr{
 #Agendados {
     width: 100%;
 }
+#Buscados ul {
+    background-color: rgb(197, 202, 202);
+    border: black solid 1px;
+    margin-bottom: 15px;
+    text-align: center;
+
+}
 #Agendados ul {
+    background-color: rgb(197, 202, 202);
     border: black solid 1px;
     margin-bottom: 15px;
     text-align: center;
@@ -106,15 +114,14 @@ hr{
     text-decoration: underline;
 }
 .DivStatus {
-    margin-left: 25%;
-    width: 50%;
+    float: left;
+    width: 100%;
     height: 35px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around;    
 }
 .BtnStatus {
     border: solid black 1px;
-    width: 100px;
     cursor: pointer;
 }
 .BtnStatus:hover {

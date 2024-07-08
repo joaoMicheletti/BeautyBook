@@ -48,7 +48,7 @@ export default function AgendaFuncionario(){
         Api.post('/horariospreenchidos', Data).then((Response) =>{
             setListaHorarios(Response.data);
             if(Response.data.length === 0){
-                document.querySelector("#AlertaHorarios").innerHTML = "Nada Agendado!.";
+                document.querySelector("#AlertaHorarios").innerHTML = "Agenda Livre!.";
             };
         }).catch(() => {
             //erro de cominucação com o servidor.

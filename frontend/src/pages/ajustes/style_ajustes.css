@@ -114,6 +114,11 @@ h2 {
     width: 80%;
     margin-left: 10%;
 }
+#FormSenha {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 #TitleSenha {
     text-align: center;
     text-decoration: underline;
@@ -125,7 +130,8 @@ h2 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .InputFormSenha {
-    width: 250px;
+    width: 80%;
+    margin-left: 10%;
     height: 25px;
     border: solid black 1px;
     margin-top: 5px;
@@ -134,7 +140,8 @@ h2 {
 #BtnFormSenha {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 125px;
+    width: 40%;
+    margin-left: 30%;
     height: 25px;
     font-weight: 600;
     cursor: pointer;
@@ -144,6 +151,12 @@ h2 {
 }
 #Cadastro {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#Cadastro form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
 }
 #TitleCadastro {
     font-weight: 600;
@@ -155,14 +168,16 @@ h2 {
     margin-bottom: 5px;
 }
 .InputCadastro {
-    width: 250px;
+    width: 80%;
+    margin-left: 10%;
     height: 25px;
     border: solid black 1px;
 }
 #BtnCadastro {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 125px;
+    width: 40%;
+    margin-left: 30%;
     height: 25px;
     cursor: pointer;
 }
@@ -182,14 +197,16 @@ h2 {
     margin-top: 10px;
 }
 .InputEditarSenhaFuncionario{
-    width: 250px;
+    width: 80%;
+    margin-left: 10%;
     height: 25px;
     border: solid black 1px;
 }
 #BtnEditarSenhaFuncionario {
     margin-top: 10px;
     cursor: pointer;
-    width: 125px;
+    width: 40%;
+    margin-left: 30%;
     height: 25px;
 }
 #BtnEditarSenhaFuncionario:hover {

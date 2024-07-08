@@ -111,7 +111,10 @@ export default function AgendaF(){
                         //formatando hora do termino;
                         var fim = String(iten.hora_termino);
                         var partesFim = fim.split('.');
+                        console.log(partesFim);
                         var fimFormatado = partesFim[0]+':'+partesFim[1];
+                        console.log(partesInicio[1])
+                        console.log(partesInicio)
                         //url whatsapp;
                         var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
                         return(
@@ -119,7 +122,8 @@ export default function AgendaF(){
                                 <li>
                                     <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
                                     <br/>
-                                    <p>Início: {inicioFormatado}<br/>  Término: {fimFormatado}</p>
+                                    <p>Início: {partesInicio[0]+':'+partesInicio[1]}<br/>  
+                                    Término: {partesFim[0]+':'+partesFim[1]}</p>
                                     <p>Cliente :  {iten.nome_cliente}</p>
                                     <p>WhatsApp Cliente : </p> 
                                     <a target="_blank"
@@ -134,11 +138,12 @@ export default function AgendaF(){
                                     </p>
                                     <br/>
                                     <p className="UnderLine">Valro Serviço : R$ {iten.preco.toFixed(2)}</p><br/>
-                                    <div className="DivStatus">
+                                    
+                                </li>
+                                <div className="DivStatusB">
                                         <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
                                         <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
-                                    </div>
-                                </li>
+                                </div>
                             </ul>
                             
                         );
@@ -188,7 +193,8 @@ export default function AgendaF(){
                                 <li>
                                     <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
                                     <br/>
-                                    <p>Início: {inicioFormatado}<br/>  Término: {fimFormatado}</p>
+                                    <p>Início: {partesInicio[0]+':'+partesInicio[1]}<br/>  
+                                    Término: {partesFim[0]+':'+partesFim[1]}</p>
                                     <p>Cliente :  {iten.nome_cliente}</p>
                                     <p>WhatsApp Cliente : </p> 
                                     <a target="_blank"
@@ -203,7 +209,7 @@ export default function AgendaF(){
                                     </p>
                                     <br/>
                                     <p className="UnderLine">Valro Serviço : R$ {iten.preco.toFixed(2)}</p><br/>
-                                    <div className="DivStatus">
+                                    <div className="DivStatusA">
                                         <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
                                         <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
                                     </div>

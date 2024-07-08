@@ -5,56 +5,35 @@
 }
 #HomeConteinerInit {
     width: 100%;
-    height: auto;
-    background-color: #bfd7ea;
+    background-color: #f5f5f5;
 }
 #HeaderHomeInit {
-    background-color: #0b3954;
+    background-color: #000000;
     width: 100%;
     height: 83px; 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
 }
+#HeaderHomeInit #hh1 {
+    margin-top: -7px;
+    margin-left: 10px;
+    color: white;
+}
+#HeaderHomeInit ul  {
+    margin-top: 40px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+}
+#HeaderHomeInit ul li {
+    list-style: none;
+    margin-right: 20px;
+}#HeaderHomeInit ul li #A {
+    color: white;
+    text-decoration: none;
+}
 
-@media (max-width: 600px){
-    #HeaderHomeInit #Logo {
-        margin-top: 40px;
-        width: 80px;
-        height: 80px;
-    }
-    #HeaderHomeInit ul li {
-        margin-top: 5px;
-        list-style: none;
-        margin-bottom: 5px;
-    }
-    #HeaderHomeInit ul li #A {
-        text-decoration: none;
-        color: aliceblue;
-        font-size: 15px;
-    }
-}
-@media (min-width: 600px){
-    #HeaderHomeInit #Logo {
-        margin-top: 10px;
-        width: 150px;
-        height: 150px;
-    }
-    #HeaderHomeInit ul li {
-        margin-top: 2px;
-        list-style: none;
-        margin-bottom: 2px;
-    }
-    #HeaderHomeInit ul li #A {
-        text-decoration: none;
-        font-size: 20px;
-        color: aliceblue;
-    }
-    #ConteudoHomeInit ul li p {
-        font-size: 25px;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-}
 #ConteudoHomeInit {
     display: flex;
     flex-flow: row wrap;
@@ -71,7 +50,7 @@
     margin-bottom: 50px;
 }
 #ConteudoHomeInit ul {
-    background-color: #0b395477;
+    background-color: #4a4a4b77;
     border: black solid 1px;
     border-radius: 10px;
     list-style: none;
@@ -82,7 +61,7 @@
 }
 #ConteudoHomeInit ul img {
     margin-top: 10px;
-    width: 170px;
+    width: 100px;
 }
 #ConteudoHomeInit ul li {
     list-style: none;
@@ -97,7 +76,7 @@
 }
 .BtnConteudoHomeInit {
     margin-top: 10px;
-    width: 150px;
+    width: 80%;
     height: 25px;
     margin-bottom: 5px;
     cursor: pointer;

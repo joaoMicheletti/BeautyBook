@@ -5,10 +5,10 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #ConteinerAgendamento {
-    background-color: #bfd7ea;
+    background-color: #ffffff;
 }
 #HeaderAgendamento {
-    background-color: #0b3954;
+    background-color: #000000;
     width: 100%;
     height: 170px; 
     display: flex;
@@ -21,8 +21,9 @@
     margin-top: 10px;
     margin-left: 10px;
 }
-h1 {
+#H1NomeSalao{
     font-weight: 600;
+    color: white;
 }
 #DivAgendamento {
     text-align: center;
@@ -57,6 +58,7 @@ h1 {
 #Horarios ul {
     width: 100%;
     margin-top: 15px;
+    border: 1px solid black;
 }
 #Horarios ul li {
     display: flex;
@@ -82,6 +84,7 @@ h1 {
 #Serviços ul {
     margin-top: 15px;
     width: 100%;
+    border: 1px solid black;
 }
 #Serviços ul li {
     width: 100%;
@@ -103,6 +106,7 @@ h1 {
 #DivFormCliente {
     text-align: center;
 }
+
 #DivFormCliente form .PFormCliente {
     font-size: 18px;
     font-weight: 600;
@@ -110,13 +114,16 @@ h1 {
 }
 #DivFormCliente form .InputFormCliente {
     border: solid black 1px;
-    width: 60%;
+    width: 80%;
+    margin-left: 10%;
     height: 35px;
     margin-bottom: 10px;
+    background-color: rgb(214, 214, 214);
 }
 #BtnFormCliente {
     border:  solid black 1px;
-    width: 50%;
+    width: 40%;
+    margin-left: 30%;
     height: 30px;
     margin-bottom: 20px;
     cursor: pointer;

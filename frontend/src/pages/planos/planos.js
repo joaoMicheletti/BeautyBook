@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './style_planos.css';
-import Logo from '../assets/Logo.jpeg';
 import Api from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 
@@ -44,15 +43,14 @@ export default function Planos(){
     return(
         <div id='ConteinerPlanos'>
             <header id='HeaderPlanos'>
-                <img src={Logo} alt='logo BeautyBook'/>
-                <a id="Link_AF" href="/painel">Voltar</a>
-                <p id='TitlePlanos'>
-                    Conheça nossos Planos
-                </p>
+                <h1>Hidden Beauty</h1>
+                <ul>
+                    <a id="Link_AF" href="/painel">Voltar</a>
+                </ul>                
             </header>
             
             <div id='Planos'>
-                <p id='PPlanos'>Planos</p>
+                <p id='PPlanos'>Conheça nossos Planos</p>
                 <br/>
                 <ul>
                     <li >

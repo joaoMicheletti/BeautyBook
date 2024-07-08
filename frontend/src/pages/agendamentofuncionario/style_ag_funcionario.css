@@ -6,11 +6,11 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #AgendamentoFuncionarioConteiner{
-    background-color: #bfd7ea;
+    background-color: #ffffff;
 
 }
 #HeaderAgFuncionario {
-    background-color: #0b3954;
+    background-color: #0f0f0f;
     width: 100%;
     height: 170px; 
     display: flex;
@@ -27,6 +27,7 @@
     margin-top: 50px;
     font-size: 19px;
     font-weight: 600;
+    color: white;
 }
 #H1AgFuncionario {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -42,6 +43,7 @@
     margin-bottom: 15px;
     width: 100%;
     height: 45px;
+    border: solid 1px black;
 }
 #ListFuncionarios ul li {
     list-style: none;

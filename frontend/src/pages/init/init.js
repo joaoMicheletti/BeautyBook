@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useNavigate} from "react-router-dom";
 import './style_init.css';
-import Logo from '../assets/Logo.jpeg'
+
 import Api from '../../services/api';
 
 export default function Init(){
@@ -25,7 +25,7 @@ export default function Init(){
     return(
         <div id="HomeConteinerInit">
             <header id="HeaderHomeInit">
-                <img id='LogoInit'src={Logo} alt="Logo"/>
+                <h1 id="hh1">Hidden Beauty</h1>
                 <br/>
                 <ul>
                     <li><a id="A" href="/">Home</a></li>
