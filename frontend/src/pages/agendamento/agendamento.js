@@ -178,6 +178,8 @@ export default function Agendamento(){
                         }else if(Response.data === 'Horário já ocupado'){
                             // pode ter gerado uim conflito entre agendamentos.
                             alert(Response.data);
+                        } else if(Response.data === 'conflito entre agendamentos'){
+                            alert(Response.data);
                         };
                     }).catch((erro) =>{
                         // erro de comunicação com o servidor.

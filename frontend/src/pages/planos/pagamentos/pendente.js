@@ -23,9 +23,28 @@ export default function Pendente(){
     //buscar se opgamento foi realixado.
     const paymentId = params.get('payment_id'); //isso tem que ser pasado para consultar o pagamento;
     Api.post('/buscarpg', {paymentId}).then(async(Response) =>{
-        console.log(Response.data.id);
+        console.log(Response.data);
         //pagamento pendente e via boleto;
-        if(Response.data.status === 'pending' && Response.data.id === 'bolbradesco'){
+        if(Response.data.status === 'pending' && Response.data.id === 'pix'){
+            var salao = localStorage.getItem('cpf_salao');
+            console.log(salao)
+            console.log(salao);
+            var Data = {
+                salao, paymentId
+            };
+            //rota para salvar o pymentId no data base para tratamento futuro;
+            Api.post('/pending', Data).then((Response) => {
+                console.log(Response.data);
+                if(Response.data === 1){
+                    document.querySelector('#alerta').innerHTML = "Seu pagamento encontra-se pendente em nosso sistema, Você optou pelo pagamento VIA pix, espere pela aprovação.";
+                } else {
+                    alert('Ocorreu um erro inesperado, caso tenha efetuado o pagamento entre encontato como suport.');
+                };
+            }).catch((erro) =>{
+                alert('Erro ao comunicar-se com o servidor.');
+            });
+
+        }else if(Response.data.status === 'pending' && Response.data.id === 'bolbradesco'){
             var salao = localStorage.getItem('cpf_salao');
             console.log(salao);
             var Data = {
@@ -60,6 +79,7 @@ export default function Pendente(){
                 alert('Erro ao comunicar-se com o servidor.');
             });
         }else if(Response.data.status === 'approved'){
+            console.log('aproved');
             //criando objeto com a data atual;
             const dataAtual = new Date();
             //separando dia mes ano;
@@ -90,7 +110,9 @@ export default function Pendente(){
                 "limite_funcionarios": limite,
                 "assinatura_status": "on",
             };
+            console.log(Data, "DATATATATA");
             await Api.put('/plano', Data).then((Response) => {
+                console.log('planoooo', Response)
                 if(Response.data === 'success'){
                     alert('Vocẽ já está com o acesso liberado a plataforma.');
                 }else{};                

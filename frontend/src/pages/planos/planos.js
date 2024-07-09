@@ -11,10 +11,12 @@ export default function Planos(){
             plano : 'plano individual',
             quantidade : 1,
         };
+        console.log(Data)
         //rota para criar o id de preference
         console.log(Data);
         Api.post('/preferenceid',Data).then((Response) => {
-            localStorage.setItem('preferenceID', Response.data);
+            console.log(Response.data)
+            localStorage.setItem('preferenceID', Response.data.id);
             Hystory('/pagamento');
         }).catch((erro) =>{
             alert('falha na comunicação com o servidor...');
@@ -45,7 +47,7 @@ export default function Planos(){
             <header id='HeaderPlanos'>
                 <h1>Hidden Beauty</h1>
                 <ul>
-                    <a id="Link_AF" href="/painel">Voltar</a>
+                    <a id="Link_AF" href="/">Voltar</a>
                 </ul>                
             </header>
             

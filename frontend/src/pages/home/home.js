@@ -21,12 +21,11 @@ export default function Home(){
                     <h4 id='H4' >Beleza Unida, ao Alcance de um Clique.</h4>
                     <br/>
                     <p id='P'>
-                        <strong>Descubra a Magia da Beleza! 
-                            Com nosso sistema inovador, 
-                            você pode explorar uma variedade de salões de beleza, 
+                        <strong>Descubra a Magia da Beleza, 
+                            Com nosso sistema inovador,<br/> 
+                            você pode explorar uma variedade de salões de beleza,<br/> 
                             encontrar os tratamentos perfeitos e reservar sua 
-                            transformação pessoal em segundos. Deixe sua jornada de beleza começar aqui. 
-                            Faça parte da revolução da beleza!
+                            transformação pessoal em segundos.<br/>Deixe sua jornada de beleza começar aqui.
                         </strong><br/>
                         <br/><a href='/init'>Click aqui</a>
                     </p>

@@ -61,7 +61,6 @@ export default function LoginSalao(){
                             // se passou por essas etapas o salão ainda esta com os dias free liberados;
                             localStorage.setItem('cpf_salao', cpf_salao);
                             console.log(data);
-                            alert('Aproveite seu periudo de teste.')
                             Hystory('/painel');
                         }
                     } else {

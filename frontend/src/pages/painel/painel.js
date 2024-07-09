@@ -197,7 +197,9 @@ export default function Painel(){
                         //formatando a hora de termino do serviço;
                         var fim = String(iten.hora_termino);
                         var partesFim = fim.split('.');
-                        var fimFormatado = partesFim[0]+':'+partesFim[1];
+                        var final = partesFim[1];
+                        var Fim = parseInt(final);
+                        var fimFormatado = partesFim[0]+':'+Fim;
                         //url whatsapp;
                         //'https://api.whatsapp.com/send?phone=5511932223533&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?'
                         var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
@@ -220,11 +222,11 @@ export default function Painel(){
                                     </p>
                                     <br/>
                                     <p className="UnderLine">Valro Serviço: R$ {iten.preco.toFixed(2)}</p><br/>
-                                    <div className="DivStatus">
-                                        <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
-                                        <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
-                                    </div>
                                 </li>
+                                <div className="D">
+                                    <button className="Bt" onClick={Cancelar}>Cancelar</button>
+                                    <button className="Bt" onClick={Finalizar}>finalizado</button>
+                                </div>
                             </ul>
                             
                         );

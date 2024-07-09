@@ -92,15 +92,6 @@ hr{
     border-radius: 5px;
     margin-right: 5px;
 }
-#BtnAgenda {
-    border: solid black 1px;
-    cursor: pointer;
-    width: 100px;
-    border-radius: 5px;
-}
-#BtnAgenda:hover {
-    opacity: 80%;
-}
 #Agendados {
     display: flex;
     flex-flow: row wrap;
@@ -131,6 +122,22 @@ hr{
     margin-bottom: 15px;
     text-align: center;
 }
+#Agendados ul .D {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.D .Bt {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    height: 30px;
+    font-weight: 600;
+    color: #000000;
+    background-color: #817f7f;
+}
+
 .btnValor {
     height: 35px;
     width: 100px;
@@ -150,25 +157,7 @@ hr{
 .UnderLine{
     text-decoration: underline;
 }
-.DivStatus {
-    margin-left: 25%;
-    width: 100%;
-    height: 35px;
-    display: flex;
-    justify-content: space-around;
-}
-.BtnStatus {
-    border: solid black 1px;
-    border-radius: 5px;
-    margin-left: 5px;
-    padding: 10px;
-    width: 100px;
-    font-weight: 600;
-    cursor: pointer;
-}
-.BtnStatus:hover {
-    opacity: 80%;
-}
+
 #Relatorio {
     margin-top: 20px;
     margin-left: 10%;
