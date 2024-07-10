@@ -10,10 +10,17 @@
 #HeaderHomeInit {
     background-color: #000000;
     width: 100%;
-    height: 83px; 
+    height: 100px; 
     display: flex;
-    justify-content: space-between;
     box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
+}
+@media(min-width: 300px){
+    #HeaderHomeInit {
+        display: block;
+        width: 100%;
+        height: 110px; 
+        box-shadow: 2px 5px 8px 3px rgba(214, 183, 183, 0.719);
+    }
 }
 #HeaderHomeInit #hh1 {
     margin-top: -7px;
@@ -21,8 +28,7 @@
     color: white;
 }
 #HeaderHomeInit ul  {
-    margin-top: 40px;
-    margin-right: 10px;
+    margin-left: 10px;
     display: flex;
     flex-direction: row;
 }
@@ -51,10 +57,11 @@
     width: 20%;
     margin-bottom: 15px;
     text-align: center;
+    box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
 }
 #ConteudoHomeInit ul img {
     margin-top: 10px;
-    width: 150px;
+    width: 80%;
 }
 #H {
     margin-top: 40px;
@@ -92,14 +99,14 @@
         border: black solid 1px;
         border-radius: 10px;
         list-style: none;
-        margin-left: 30%;
-        width: 40%;
+        margin-left: 25%;
+        width: 50%;
         margin-bottom: 15px;
         text-align: center;
     }
     #ConteudoHomeInit ul img {
         margin-top: 10px;
-        width: 150px;
+        width: 80%;
     }
     #ConteudoHomeInit ul li {
         list-style: none;

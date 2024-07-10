@@ -25,8 +25,7 @@ export default function Init(){
     return(
         <div id="HomeConteinerInit">
             <header id="HeaderHomeInit">
-                <h1 id="hh1">Hidden Beauty</h1>
-                <br/>
+                <h1 id="hh1">HiddenBeauty</h1>
                 <ul>
                     <li><a id="A" href="/">Home</a></li>
                     <li><a id="A" href="/loginsalao">Login_salão</a></li>

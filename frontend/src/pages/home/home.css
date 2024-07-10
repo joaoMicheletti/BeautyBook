@@ -34,25 +34,27 @@ nav {
     color: rgb(90, 81, 81);
 }
 @media (min-width: 200px){
+    .Home {
+        background-image: url(../assets/fundo2.jpg);
+        background-position: center ;
+    }
     h1{
-        font-size: 30px;
+        font-size: 40px;
         margin-top: 30px;
     }
-    nav {
-    }
     nav .LK {
-        font-size: 11px;
-        padding-right: 9px;
+        font-size: 20px;
+        padding-right: 25px;
     }
     #content {
-        margin-top: 100px;
+        margin-top: 230px;
     }
     #slogan {
         width: 80%;
         margin-left: 10%;
     }
     h4 {
-        font-size: 18px;
+        font-size: 40px;
         font-family: Georgia, 'Times New Roman', Times, serif;
         color: white;
     }
@@ -64,7 +66,7 @@ nav {
 
 @media (min-width: 700px){
     h1{
-        font-size: 35px;
+        font-size: 40px;
     }   
     nav .LK {
         font-size: 15px;
@@ -72,18 +74,12 @@ nav {
         padding-right: 10px;
     }
     #content {
-        margin-top: 200px;
+        margin-top: 280px;
     }
     #slogan {
         width: 80%;
         margin-left: 10%;
     }
-    h4 {
-        color: white;
-    }
-}
-#content {
-    height: auto;
 }
 #slogan p {
     line-height: 30px;
