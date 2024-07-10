@@ -85,11 +85,10 @@ export default function RegistroSalao(){
     return(
         <div id="RegistroSalao">
             <header id="HeaderRegistroSalao">
-                <h4>Hidden Beauty</h4>
+                <h4>HiddenBeauty</h4>
                 <ul>
                     <a id="Link_reg" href="/">Home</a>
                     <a id="Link_reg" href="/loginsalao">Login</a>
-                    <a id="Link_reg" href="/registrosalao">Registrar-se</a>
                 </ul>
                 
             </header>

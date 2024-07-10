@@ -79,10 +79,9 @@ export default function LoginSalao(){
     return(
         <div id="LoginSalao">
             <header id="HeaderLoginSalao">
-                <h4>Hidden Beauty</h4>
+                <h4>HiddenBeauty</h4>
                 <ul>
                     <a id="Link" href="/">Home</a>
-                    <a id="Link" href="/loginsalao">Login</a>
                     <a id="Link" href="/registrosalao">Registrar-se</a> 
                 </ul>
                 
