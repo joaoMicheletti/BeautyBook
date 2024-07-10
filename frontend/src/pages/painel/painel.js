@@ -82,7 +82,7 @@ export default function Painel(){
             alert('erro ao buscar oformações do salão');
         });
     }, []);
-    const Url = "http://127.0.0.1:1998/image/";
+    const Url = "https://useful-incredibly-goldfish.ngrok-free.app/image/";
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);

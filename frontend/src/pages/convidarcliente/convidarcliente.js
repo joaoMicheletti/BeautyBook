@@ -31,7 +31,7 @@ export default function Servicos(){
             alert('erro ao buscar oformações do salão');
         });
     }, []);
-    const Url = "http://127.0.0.1:1998/image/";
+    const Url = "https://useful-incredibly-goldfish.ngrok-free.app/image/";
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);
@@ -81,7 +81,7 @@ export default function Servicos(){
                     <p id="TextInfoLink">
                     Este é o seu link para seus clientes agendarem com você 
                     rapidamente :<br/>
-                    https://dominio/lk/{cpf_salao}
+                    https://useful-incredibly-goldfish.ngrok-free.app/lk/{cpf_salao}
                     <br/>
                     Coloque este link na sua página 
                     do Facebook e Instagram, no perfil e na resposta 
