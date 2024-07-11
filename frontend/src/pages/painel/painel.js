@@ -169,7 +169,7 @@ export default function Painel(){
                                 id
                             };                            
                             await Api.put('/cancelarservico', Data).then((Response) =>{
-                                alert(Response.data);
+                                alert('cancelado');
                                 window.location.reload(true);
                                 
                             }).catch(() =>{
@@ -193,9 +193,17 @@ export default function Painel(){
                         //formatando  a hora de inicio do serviço;
                         var init = String(iten.hora);
                         var partesInicio = init.split('.');
-                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        var inicioFormatado = 0;//partesInicio[0]+':'+partesInicio[1];
+                        if(partesInicio[1] === undefined){
+                            inicioFormatado = partesInicio[0];
+                        } else {
+                            inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        }
+                        console.log(partesInicio)
+                        console.log(inicioFormatado, '<><><><><><<<<<<<>>>>>>><<<<<>>>><><><><><><><><><><><><');
                         //formatando a hora de termino do serviço;
                         var fim = String(iten.hora_termino);
+                        console.log("FIM',", fim)
                         var partesFim = fim.split('.');
                         var final = partesFim[1];
                         var Fim = parseInt(final);
@@ -237,11 +245,21 @@ export default function Painel(){
                         //formatando  a hora de inicio do serviço;
                         var init = String(iten.hora);
                         var partesInicio = init.split('.');
-                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        var inicioFormatado = 0;//partesInicio[0]+':'+partesInicio[1];
+                        if(partesInicio[1] === undefined){
+                            inicioFormatado = partesInicio[0];
+                        } else {
+                            inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        }
+                        console.log(partesInicio)
+                        console.log(inicioFormatado, '<><><><><><<<<<<<>>>>>>><<<<<>>>><><><><><><><><><><><><');
                         //formatando a hora de termino do serviço;
                         var fim = String(iten.hora_termino);
+                        console.log("FIM',", fim)
                         var partesFim = fim.split('.');
-                        var fimFormatado = partesFim[0]+':'+partesFim[1];
+                        var final = partesFim[1];
+                        var Fim = parseInt(final);
+                        var fimFormatado = partesFim[0]+':'+Fim;
                         //url whatsapp;
                         //'https://api.whatsapp.com/send?phone=5511932223533&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?'
                         var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
