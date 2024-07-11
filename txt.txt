@@ -1,5 +1,5 @@
-ngrok.exe config add-authtoken 6uLiD7VfnUTkxSY478m4w_6wnkZ5Pd2mSRVDnaA3JEk
+./ngrok.exe config add-authtoken 6uLiD7VfnUTkxSY478m4w_6wnkZ5Pd2mSRVDnaA3JEk
 front
-ngrok.exe http --domain=urchin-upright-hardly.ngrok-free.app 3000
+./ngrok.exe http --domain=urchin-upright-hardly.ngrok-free.app 3000
 
 https://urchin-upright-hardly.ngrok-free.app

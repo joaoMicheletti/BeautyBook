@@ -2,38 +2,19 @@
     background-color: transparent;
 }
 #Agenda{
-    margin-left: 10px;
-    font-size: 50px;
+    font-size: 45px;
 }
 .Convidar {
     height: 100vh;
 }
-#Services {
-    margin-left: 10px;
-    font-size: 50px;
-}
 #DivServicos {
     background-color: transparent;
 }
-#Funcionarios {
-    margin-left: 10px;
-    font-size: 50px;
-}
+
 #DivFuncionarios{
     background-color: transparent;
 }
-#Horarios {
-    margin-left: 10px;
-    font-size: 50px;
-}
-#ConvidarCliente {
-    margin-left: 10px;
-    font-size: 50px;
-}
-#Ajustes {
-    margin-left: 10px;
-    font-size: 50px;
-}
+
 #TitleLinkAgendamento {
     color: black;
     text-align: center;

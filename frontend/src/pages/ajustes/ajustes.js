@@ -324,7 +324,7 @@ export default function Ajustes(){
                     <section key={iten.id} id="SectionAjustes">
                         <h1 id="TitleAjustes">Preferências</h1>
                         <div id="AjustesImg" >
-                            <p id="ParagrafoImg" >Adicionar / Editar Logo do salão</p>
+                            <p id="ParagrafoImg" >Logo</p>
                             <input  
                             type="file"  
                             className="BtnImg"
@@ -333,7 +333,7 @@ export default function Ajustes(){
                             <button
                             type="submit"
                             className="BtnImg"
-                            onClick={Logoimg}>Adicionar | Editar</button>
+                            onClick={Logoimg}>Adicionar</button>
                         </div>
                         <hr/>
                         <div id="Preferencias">

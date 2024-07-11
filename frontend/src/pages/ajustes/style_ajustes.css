@@ -1,36 +1,15 @@
 #DivAganda{
     background-color: transparent;
 }
-#Agenda{
-    margin-left: 10px;
-    font-size: 50px;
-}
-#Services {
-    margin-left: 10px;
-    font-size: 50px;
-}
+
 #DivServicos {
     background-color: transparent;
 }
-#Funcionarios {
-    margin-left: 10px;
-    font-size: 50px;
-}
+
 #DivFuncionarios{
     background-color: transparent;
 }
-#Horarios {
-    margin-left: 10px;
-    font-size: 50px;
-}
-#ConvidarCliente {
-    margin-left: 10px;
-    font-size: 50px;
-}
-#Ajustes {
-    margin-left: 10px;
-    font-size: 50px;
-}
+
 
 #TitleAjustes {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -48,6 +27,9 @@ h2 {
     width: 80%;
     margin-left: 10%;
     margin-bottom: 10px;
+}
+#AjustesImg input {
+    width: 60%;
 }
 #ParagrafoImg {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

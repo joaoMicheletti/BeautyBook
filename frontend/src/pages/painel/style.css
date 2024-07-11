@@ -25,6 +25,7 @@
 }
 #TitleSalao{ 
     color: white;
+    font-size: 20px;
 }
 hr{
     width: 100%;
@@ -38,34 +39,28 @@ hr{
     width: 100%;
     height: 50px;
 }
+
+#Agendaa{
+    font-size: 40px;
+}
 .DivMenu{
     height: 50px;
     width: 80px;
-    margin-left: 5px;
-}
-#Agendaa{
-    margin-left: 10px;
-    font-size: 50px;
 }
 #Services {
-    margin-left: 10px;
-    font-size: 50px;
+    font-size: 40px;
 }
 #Funcionarios {
-    margin-left: 10px;
-    font-size: 50px;
+    font-size: 40px;
 }
 #Horarios {
-    margin-left: 10px;
-    font-size: 50px;
+    font-size: 40px;
 }
 #ConvidarCliente {
-    margin-left: 10px;
-    font-size: 50px;
+    font-size: 40px;
 }
 #Ajustes {
-    margin-left: 10px;
-    font-size: 50px;
+    font-size: 40px;
 }
 #SectionAgendaSalaoPainel{
     width: 100%;

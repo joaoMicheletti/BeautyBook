@@ -3,32 +3,10 @@
 }
 #Agenda{
     background-color: transparent;
-    margin-left: 10px;
-    font-size: 50px;
+    
+    font-size: 40px;
 }
-#Services {
-    margin-left: 10px;
-    font-size: 50px;
-}
-#DivServicos {
-    background-color: white;
-}
-#Funcionarios {
-    margin-left: 10px;
-    font-size: 50px;
-}
-#Horarios {
-    margin-left: 10px;
-    font-size: 50px;
-}
-#ConvidarCliente {
-    margin-left: 10px;
-    font-size: 50px;
-}
-#Ajustes {
-    margin-left: 10px;
-    font-size: 50px;
-}
+
 #SectionServicosSalao{
     margin-top: 10px;
     width: 100%;

@@ -40,31 +40,6 @@ hr{
     margin-left: 5px;
 }
 
-#Agenda{
-    margin-left: 15px;
-    font-size: 40px;
-}
-#Services {
-    margin-left: 15px;
-    font-size: 40px;
-}
-#Funcionarios {
-    margin-left: 15px;
-    font-size: 40px;
-}
-#Horarios {
-    margin-left: 15px;
-    font-size: 40px;
-}
-#ConvidarCliente {
-    margin-left: 15px;
-    font-size: 40px;
-}
-#Ajustes {
-    margin-left: 15px;
-    font-size: 40px;
-}
-
 #TitleAgenda {
     text-align: center;
     text-decoration: underline;

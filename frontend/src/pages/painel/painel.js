@@ -221,7 +221,7 @@ export default function Painel(){
                                     <p>Observação : {iten.obs}
                                     </p>
                                     <br/>
-                                    <p className="UnderLine">Valro Serviço: R$ {iten.preco.toFixed(2)}</p><br/>
+                                    <p className="UnderLine">Valor Serviço: R$ {iten.preco.toFixed(2)}</p><br/>
                                 </li>
                                 <div className="D">
                                     <button className="Bt" onClick={Cancelar}>Cancelar</button>
