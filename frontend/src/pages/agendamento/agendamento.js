@@ -209,7 +209,7 @@ export default function Agendamento(){
         }; */
     };
     //url das imagens no servidor;
-    const Url = "https://useful-incredibly-goldfish.ngrok-free.app/image/"
+    const Url = "http://172.17.3.187:1998/image/"
     return(
         <div id='ConteinerAgendamento'>
             <header id='HeaderAgendamento'>

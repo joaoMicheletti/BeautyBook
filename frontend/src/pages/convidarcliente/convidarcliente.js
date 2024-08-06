@@ -31,7 +31,7 @@ export default function Servicos(){
             alert('erro ao buscar oformações do salão');
         });
     }, []);
-    const Url = "https://useful-incredibly-goldfish.ngrok-free.app/image/";
+    const Url = "http://172.17.3.187:1998/image/";
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);

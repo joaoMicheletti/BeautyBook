@@ -36,7 +36,7 @@ export default function Init(){
             <div id="ConteudoHomeInit">
                 
                 {ListaSalao.map((iten, key) => {
-                    const URL = 'https://useful-incredibly-goldfish.ngrok-free.app/image/';
+                    const URL = 'http://172.17.3.187:1998/image/';
                     const Agenda = () =>{
                         console.log(iten.quantidade_funcionarios);
                         console.log(iten.logo_salao);

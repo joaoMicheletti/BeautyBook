@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://useful-incredibly-goldfish.ngrok-free.app',
+    baseURL: 'http://172.17.3.187:1998',
     timeout: 10000,
     headers: {'Content-Type': 'application/json; charset=utf-8'}
 });
