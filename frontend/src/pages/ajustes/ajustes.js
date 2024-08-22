@@ -222,7 +222,7 @@ export default function Ajustes(){
             alert('erro ao buscar oformações do salão');
         });
     }, []);
-    const Url = "http://172.17.3.187:1998/image/";
+    const Url = "http://127.0.0.1:1998/image/";
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);
@@ -252,9 +252,9 @@ export default function Ajustes(){
         } else if(funcionalidade === 'mensal'){
             var op = document.querySelector('#relat').value;
             if(op > 12){
-                alert('Defina um valor valido');
+                alert('Defina uma referência VAlida');
             } else if (op === ''){
-                alert('Defina um valor')
+                alert('Defina uma referência');
             } else {
                 // fazer a busca.
                 var Data = {mes: op, cpf_salao};

@@ -235,20 +235,33 @@ export default function Agendamento(){
                     <p id='PHorariosDisponiveis'>
                         Horários preenchidos de Hoje.
                     </p>
-                    <br/>
                     <p id='AlertaHorarios'></p>
                     {ListaHorarios.map((iten, key) =>{
-                        var init = String(iten.hora);
-                        var partesInicio = init.split('.');
-                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
-                        //formatando a hora de termino do agendamento.
-                        var termino = String(iten.hora_termino);
-                        var partesFim = termino.split('.');
-                        var fimFormatado = partesFim[0]+':'+partesFim[1];
+                        function formatarHora(hora) {
+                            // Garantir que a entrada seja uma string e tenha pelo menos 4 caracteres
+                            var horaStr = String(hora).padStart(4, '0');
+                            
+                            // Separar a hora e os minutos, assumindo que a entrada pode ser "HHMM" ou "HH.MM"
+                            var partes = horaStr.includes('.') ? horaStr.split('.') : [horaStr.slice(0, 2), horaStr.slice(2)];
+                        
+                            // Se a entrada for em formato "HH.MM", partes[0] será a hora e partes[1] serão os minutos
+                            // Se a entrada for em formato "HHMM", você precisa separar os minutos manualmente
+                            var horas = partes[0].padStart(2, '0');
+                            var minutos = partes[1] ? partes[1].padEnd(2, '0') : '00';
+                        
+                            return horas + ':' + minutos;
+                        }
+                        // Formatar a hora de início
+                        var inicioFormatado = formatarHora(iten.hora);
+                        
+                        // Formatar a hora de término
+                        var fimFormatado = formatarHora(iten.hora_termino);
+                        var inicio = inicioFormatado.split(":");
+                        var fim = fimFormatado.split(":");
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p>Horário Preenchido : das {inicioFormatado} Horas as {fimFormatado} Horas</p>
+                                    <p>Horário Preenchido : das {inicio[1]} Horas as {fim[1]} Horas</p>
                                 </li>
                             </ul>
                         );

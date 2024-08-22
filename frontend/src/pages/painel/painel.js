@@ -82,7 +82,7 @@ export default function Painel(){
             alert('erro ao buscar oformações do salão');
         });
     }, []);
-    const Url = "http://172.17.3.187:1998/image/";
+    const Url = "http://127.0.01:1998/image/";
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);
@@ -201,13 +201,23 @@ export default function Painel(){
                         }
                         console.log(partesInicio)
                         console.log(inicioFormatado, '<><><><><><<<<<<<>>>>>>><<<<<>>>><><><><><><><><><><><><');
-                        //formatando a hora de termino do serviço;
+                        // formatando a hora de término do serviço
                         var fim = String(iten.hora_termino);
-                        console.log("FIM',", fim)
                         var partesFim = fim.split('.');
-                        var final = partesFim[1];
-                        var Fim = parseInt(final);
-                        var fimFormatado = partesFim[0]+':'+Fim;
+                        var fimFormatado = 0;
+
+                        if (partesFim[1] === undefined) {
+                            fimFormatado = partesFim[0];
+                        } else {
+                            // Formata a parte dos minutos para garantir que tenha exatamente dois dígitos
+                            var minutos = partesFim[1].slice(0, 2);
+                            if (minutos.length === 1) {
+                                minutos += '0';
+                            }
+                            fimFormatado = partesFim[0] + ':' + minutos;
+                        }
+
+                        console.log(fimFormatado);;
                         //url whatsapp;
                         //'https://api.whatsapp.com/send?phone=5511932223533&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?'
                         var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
