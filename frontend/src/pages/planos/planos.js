@@ -54,20 +54,35 @@ export default function Planos(){
             <div id='Planos'>
                 <p id='PPlanos'>Conheça nossos Planos</p>
                 <br/>
-                <ul>
-                    <li >
-                        <p className='TitlePlano'>
-                            Individual
-                        </p>
-                        <p>50,00 R$ / Mes</p>
-                        <p>Suporte 24 H / Dia</p>
-                        <p>Relatório Diário</p>
-                        <p>*Serviços Finalizados</p>
-                        <p>Serviços Cancelados</p>
-                        <button className='BtnIndividual'
-                        onClick={Individual}>Selecionar</button>
-                    </li>
-                    <li >
+                <div className='UL'>
+                    <div className='DivPlanos' >
+                        <div  className='indMensal'>
+                            <p className='TitlePlano'>
+                                Individual| Mensal
+                            </p>
+                            <p>50,00 R$ / Mes</p>
+                            <p>Suporte 24 H / Dia</p>
+                            <p>Relatório Diário</p>
+                            <p>*Serviços Finalizados</p>
+                            <p>Serviços Cancelados</p>
+                            <button className='BtnIndividual'
+                            onClick={Individual}>Selecionar</button>
+                        </div>
+                        <div  className='indAnoal'>
+                            <p className='TitlePlano'>
+                                    Individual | Anoal
+                            </p>
+                            <p> de R$600.00 por R$480,00  20% OFF</p>
+                            <p>Suporte 24 H / Dia</p>
+                            <p>Relatório Diário</p>
+                            <p>*Serviços Finalizados</p>
+                            <p>Serviços Cancelados</p>
+                            <button className='BtnIndividual'
+                            onClick={Individual}>Selecionar</button>
+                        </div>
+                        
+                    </div>
+                    <div className='DivPlanos' >
                         <p className='TitlePlano'>
                             Personalizado
                         </p>
@@ -85,8 +100,8 @@ export default function Planos(){
                         <p>***Exceto Para os Funcionários</p>
                         <button className='BtnIndividual'
                         onClick={Personalizado}>Selecionar</button>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
             <br/>
             <br/>

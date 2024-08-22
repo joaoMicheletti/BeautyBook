@@ -33,27 +33,45 @@
 }
 #Planos {
     margin-top: 30px;
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
 }
 #Planos #PPlanos {
     text-decoration: underline;
     font-size: 20px;
     text-align: center
 }
-#Planos ul {
+#Planos .UL {
+    display: flex;
+    flex-direction: column;
     list-style: none;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-around;
 }
-#Planos ul li {
-    width: 400px;
+#Planos .UL .DivPlanos {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 30px;
     height: auto;
     text-align: center;
     line-height: 35px;
-    background-color: #606364;
-    border: solid black 2px;
+    display: flex;
+    flex-direction: row;
+}
+.indMensal {
+    width: 40%;
+    border: solid 1px rgb(58, 56, 56);
+    margin-left: 5%;
+    margin-right: 5%;
+    box-shadow: 2px 2px 2px #000000;
+}.indAnoal {
+    width: 40%;
+    border: solid 1px rgb(58, 56, 56);
+    margin-left: 5%;
+    box-shadow: 2px 2px 2px #000000;
 }
 #InputQuantidade {
     height: 30px;
