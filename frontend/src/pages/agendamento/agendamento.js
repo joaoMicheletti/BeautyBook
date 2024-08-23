@@ -209,7 +209,7 @@ export default function Agendamento(){
         }; */
     };
     //url das imagens no servidor;
-    const Url = "http://172.17.3.187:1998/image/"
+    const Url = "http://127.0.0.1:1998/image/"
     return(
         <div id='ConteinerAgendamento'>
             <header id='HeaderAgendamento'>
@@ -261,7 +261,7 @@ export default function Agendamento(){
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p>Horário Preenchido : das {inicio[1]} Horas as {fim[1]} Horas</p>
+                                    <p>Horário Preenchido : das {inicio[1]+":"+inicio[0]} Horas as {fim[1]+":"+fim[0]} Horas</p>
                                 </li>
                             </ul>
                         );

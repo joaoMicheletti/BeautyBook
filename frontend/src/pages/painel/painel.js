@@ -252,7 +252,6 @@ export default function Painel(){
                 </div>
                 <div id="Buscados">
                     {Buscados.map((iten, key) =>{
-                        //formatando  a hora de inicio do serviço;
                         var init = String(iten.hora);
                         var partesInicio = init.split('.');
                         var inicioFormatado = 0;//partesInicio[0]+':'+partesInicio[1];

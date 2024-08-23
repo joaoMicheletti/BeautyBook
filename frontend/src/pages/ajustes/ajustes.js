@@ -259,8 +259,16 @@ export default function Ajustes(){
                 // fazer a busca.
                 var Data = {mes: op, cpf_salao};
                 Api.post('/remes', Data).then((Response) => {
-                    document.querySelector('#quant').innerText = `Quantidade  de Serviços Realizados neste mes foi : ${Response.data.quantidade}`;
-                    document.querySelector('#tot').innerText = `O valor de entrada do seu caixa foi de  : ${Response.data.valorTotal}`; 
+                    console.log(Response.data)
+                    if(Response.data.resp === 'Nada encontrado'){
+                        document.querySelector('#quant').innerText = `Quantidade  de Serviços Realizados neste mes foi : ${Response.data.resp}`;
+                        document.querySelector('#tot').innerText = `O valor de entrada do seu caixa foi de  : ${Response.data.resp}`;
+
+                    } else {
+                        document.querySelector('#quant').innerText = `Quantidade  de Serviços Realizados neste mes foi : ${Response.data.quantidade}`;
+                        document.querySelector('#tot').innerText = `O valor de entrada do seu caixa foi de  : ${Response.data.valorTotal}`; 
+                    }
+                    
                 }).catch((erro) => {
                     alert("Erro ao comunicar-se com o servidor");
                 })
