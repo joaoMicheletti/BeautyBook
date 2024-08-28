@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#ConteinerNotFound {
+    background-image: url('../assets/404.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pageN {
+    text-align: center;
+    width: 50%;
+    margin-left: 5%;
+    max-width: 600px; /* Limite máximo para melhor ajuste em telas grandes */
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    #pageN {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    #pageN {
+        width: 100%;
+        margin-left: 0;
+    }
+}

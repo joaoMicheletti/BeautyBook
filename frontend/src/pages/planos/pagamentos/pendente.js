@@ -101,6 +101,8 @@ export default function Pendente(){
             if(Response.data.description === 'plano personalizado'){
                 limite = localStorage.getItem('quntidadee');
                 console.log('yes'+limite)
+                // verificaçoes essenciais para os planos anoasis 
+                //ajustar data de termino de plano
             }
             const Data = {
                 "cpf_salao": cpf_Salao,
