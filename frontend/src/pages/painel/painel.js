@@ -169,7 +169,6 @@ export default function Painel(){
                                 id
                             };                            
                             await Api.put('/cancelarservico', Data).then((Response) =>{
-                                alert('cancelado');
                                 window.location.reload(true);
                                 
                             }).catch(() =>{
@@ -184,7 +183,6 @@ export default function Painel(){
                             };               
                             console.log(Data)             
                             await Api.put('/finalizarservico', Data).then((Response) =>{
-                                alert(Response.data);
                                 window.location.reload(true);
                             }).catch(() =>{
                                 alert('Erro interno.')
@@ -224,10 +222,12 @@ export default function Painel(){
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    <div id="DivHeaderAgenda"><br/>
+                                        <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    </div>
                                     <br/>
                                     <p>Início: {inicioFormatado} <br/> Término: {fimFormatado}</p>
-                                    <p>Cliente:  {iten.nome_cliente}</p>
+                                    <p>Cliente: <br/> {iten.nome_cliente}</p>
                                     <p>WhatsApp Cliente: </p> 
                                     <a target="_blank"
                                     rel='noreferrer'  
@@ -235,8 +235,8 @@ export default function Painel(){
                                     className="LKWhatsapp">{iten.contato_cliente}</a>
                                     <br/>
                                     <br/>
-                                    <p>Serviços :  {iten.servico}</p>
-                                    <p>Observação : {iten.obs}
+                                    <p>Serviços:  {iten.servico}</p>
+                                    <p>Observação:<br/> {iten.obs}
                                     </p>
                                     <br/>
                                     <p className="UnderLine">Valor Serviço: R$ {iten.preco.toFixed(2)}</p><br/>
@@ -286,10 +286,12 @@ export default function Painel(){
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    <div id="DivHeaderAgenda"><br/>
+                                        <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    </div>
                                     <br/>
                                     <p>Início: {inicioFormatado} <br/> Término: {fimFormatado}</p>
-                                    <p>Cliente:  {iten.nome_cliente}</p>
+                                    <p>Cliente: <br/>  {iten.nome_cliente}</p>
                                     <p>WhatsApp Cliente: </p> 
                                     <a target="_blank"
                                     rel='noreferrer'  
@@ -297,8 +299,8 @@ export default function Painel(){
                                     className="LKWhatsapp">{iten.contato_cliente}</a>
                                     <br/>
                                     <br/>
-                                    <p>Serviços :  {iten.servico}</p>
-                                    <p>Observação : {iten.obs}
+                                    <p>Serviços:  {iten.servico}</p>
+                                    <p>Observação: {iten.obs}
                                     </p>
                                     <br/>
                                     <p className="UnderLine">Valro Serviço: R$ {iten.preco.toFixed(2)}</p><br/>
@@ -309,6 +311,7 @@ export default function Painel(){
                         );
                     })}
                 </div>
+                <hr/>
                 <div id="Relatorio">
                     <h3>Análise diaria</h3>
                     <br/>

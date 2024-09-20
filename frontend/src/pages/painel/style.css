@@ -102,6 +102,17 @@ hr{
     margin-bottom: 15px;
     text-align: center;
 }
+#Agendados ul li p {
+    font-family: sans-serif;
+}
+#DivHeaderAgenda{
+    height: 60px;
+    background-color: #000000;
+    border-radius: 10px 10px 0px 0px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
 #Buscados {
     display: none;
     flex-flow: row wrap;

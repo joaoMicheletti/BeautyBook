@@ -79,17 +79,10 @@ export default function Servicos(){
                 <h1 id="TitleLinkAgendamento" >Meu Link de Agendamento</h1>
                 <div id="InfoLink">
                     <p id="TextInfoLink">
-                    Este é o seu link para seus clientes agendarem com você 
-                    rapidamente :<br/>
+                    Este é o link para que seus clientes agendem com você rapidamente:<br/>
                     https://useful-incredibly-goldfish.ngrok-free.app/lk/{cpf_salao}
                     <br/>
-                    Coloque este link na sua página 
-                    do Facebook e Instagram, no perfil e na resposta 
-                    automática de seu Whatsapp Business, no chatbot do 
-                    seu messenger, nas informações de localização de seu 
-                    estabelecimento no Google Maps, e onde mais você tiver 
-                    publidade na internet. Distribua este link em todos os 
-                    locais de divulgação...
+                    Coloque este link na sua página do Facebook, Instagram (no perfil e na resposta automática do WhatsApp Business), no chatbot do Messenger, nas informações de localização do seu estabelecimento no Google Maps, e em todos os lugares onde você tenha publicidade online. Distribua este link em todos os canais de divulgação.
                     </p>
                 </div>
                 <br/>
@@ -97,12 +90,13 @@ export default function Servicos(){
                     <h2 id="TitleCodigoIndicação" >Indique e Ganhe.</h2>
                     <br/>
                     <p id="pCodigoIndicação" >
-                    Aqui  está seu código de indicação : {localStorage.getItem('cod')}<br/>
-                    Com ele você ganha alguns  benefícios  como, descontos na  próxima parcela.<br/>
-                    Porem o benefício será valido para o seu estabelecimento quando o indicado contratar um dos nossos planos.<br/>
+                    Aqui está o seu código de indicação: {localStorage.getItem('cod')}<br/>
+                    Com ele, você ganha alguns benefícios, como descontos na próxima parcela.
+                    Porém, o benefício será válido para o seu estabelecimento quando o indicado contratar um dos nossos planos.<br/>
                     <br/>                    
-                    BENEFÍCIOS :<br/> 
-                    desconto de até 50% na proxima mensalidade!
+                    BENEFÍCIOS:<br/> 
+                    Desconto de até 40% na próxima mensalidade caso o plano sejá mensal.<br/>
+                    Desconto de até 50% ao renovar assinatura anoal.
                     </p>
                 </div>
             </section>
