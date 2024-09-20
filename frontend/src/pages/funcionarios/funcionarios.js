@@ -65,10 +65,10 @@ export default function Funcionarios(){
                 senha
             };
             Api.post('/funcionario', Data).then((Response) => {
-                console.log(Response.data);
+                console.log(Response.data.res);
                 if(Response.data.res === 'você exedeu o limite de funcionários cadastrado'){
                     alert('seu plano não permite cadastrar mais funcionários');
-                } else if(Response.data === 'Desculpe, Seu plano não permite cadastrar funcionários.'){
+                } else if(Response.data === 'Seu Plano não permite cadastrar Funcionários'){
                     alert(Response.data);
                 } else {
                     alert('Funcionário Registrado');

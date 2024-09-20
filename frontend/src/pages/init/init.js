@@ -25,6 +25,7 @@ export default function Init(){
     return(
         <div id="HomeConteinerInit">
             <header id="HeaderHomeInit">
+                <br/>
                 <h1 id="hh1">HiddenBeauty</h1>
                 <ul>
                     <li><a id="A" href="/">Home</a></li>
@@ -32,7 +33,7 @@ export default function Init(){
                     <li><a id="A" href="/registrosalao">Registrar_Salão</a></li>
                 </ul>
             </header>
-            <h2 id="H">Selecione um Salão.</h2>
+            <h2 id="H">Conheça nossos salões parceiros</h2>
             <div id="ConteudoHomeInit">
                 
                 {ListaSalao.map((iten, key) => {
@@ -58,17 +59,13 @@ export default function Init(){
                         <ul key={iten.id}>
                             <img src={URL + iten.logo_salao} alt="logo"/>
                             <li>
-                                <p className="PConteudohome">
+                                <h3 className="PConteudohome">
                                     {iten.nome_salao}
-                                </p>
-                                <br/>
-                                <label>Endereço :</label>
+                                </h3>
                                 <p className="PConteudohome">
                                     {iten.endereco} <br/>
-                                    <br/>
                                     CEP : {iten.cep}
                                 </p>
-                                <br/>
                                 <button className="BtnConteudoHomeInit"
                                 onClick={Agenda}>Selecionar</button>
                             </li>

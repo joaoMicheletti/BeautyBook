@@ -61,7 +61,7 @@ export default function AgendaF(){
         <div id="PainelSalao">
             <header id="HeaderSalao">
                 <a id="Link_AF" href="/painel">Voltar</a>
-                <h1 id="TitleSalao" >Agenda de funcionários</h1>
+                <h1 id="TitleSalao" >Agenda do funcionário</h1>
             </header>
             <hr/>
             <section id="SectionFuncionarioAgenda">
@@ -120,7 +120,9 @@ export default function AgendaF(){
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    <div id="Header_agendamento">
+                                        <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    </div>                                    
                                     <br/>
                                     <p>Início: {partesInicio[0]+':'+partesInicio[1]}<br/>  
                                     Término: {partesFim[0]+':'+partesFim[1]}</p>
@@ -191,7 +193,9 @@ export default function AgendaF(){
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    <div id="Header_agendamento">
+                                        <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    </div>
                                     <br/>
                                     <p>Início: {partesInicio[0]+':'+partesInicio[1]}<br/>  
                                     Término: {partesFim[0]+':'+partesFim[1]}</p>
