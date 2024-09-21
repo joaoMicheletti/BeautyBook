@@ -7,7 +7,10 @@
     text-align: center;
 }
 #RegistroSalao {
-    background-color: #ffffff;
+    background-image: url(../assets/404.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #HeaderRegistroSalao {
     background-color: #000000;
@@ -18,7 +21,6 @@
 }
 #HeaderRegistroSalao h4 {
     margin-left: 10px;
-    margin-top: 20px;
 }
 #HeaderRegistroSalao ul {
     margin-top: 20px;

@@ -15,7 +15,6 @@
 }
 #HeaderLoginSalao h4 {
     margin-left: 10px;
-    margin-top: 10px;
 }
 #HeaderLoginSalao ul {
     margin-top: 20px;
@@ -28,8 +27,12 @@
     font-size: 20px;
 }
 #FormLoginSalao {
-    background-color: #ffffff;
-    
+    height: 100vh;
+    width: 100%;
+    background-image: url(../assets/404.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #Form_Login {
     text-align: center;

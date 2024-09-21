@@ -198,7 +198,7 @@ export default function AgendaFuncionario(){
         }
     };
     //url das imagens no servidor;
-    const Url = "http://172.17.3.187:1998/image/"
+    const Url = "http://127.0.0.1:1998/image/"
     return(
         <div id='ConteinerAgendamento'>
             <header id='HeaderAgendamento'>

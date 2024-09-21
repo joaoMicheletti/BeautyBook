@@ -6,13 +6,14 @@
     margin-top: -50px;
     width: 100%;
     height: 100vh;
-    background-image: url(../assets/fundo2.jpg);
+    background-image: url(../assets/salao.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 25  ;
 }
 .header h1 {
-    color: rgb(0, 0, 0);
+    padding-top: 10px;
+    color: rgb(255, 255, 255);
     margin-left: 20px;
     cursor: pointer;
 }
@@ -20,22 +21,22 @@ h1:hover{
     color: rgb(90, 81, 81);
 }
 #H4 {
-    color: black;
+    color: rgb(255, 255, 255);
 }
 nav {
     float: right;
 }nav .LK {
-    color: rgb(0, 0, 0);
-    font-size: 19px;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
     font-weight: 900;
     text-decoration: none;
     padding-right: 20px;
 }.LK:hover {
-    color: rgb(90, 81, 81);
+    font-size: 25px;
 }
 @media (min-width: 200px){
     .Home {
-        background-image: url(../assets/fundo2.jpg);
+        background-image: url(../assets/salao.jpg);
         background-position: center ;
     }
     h1{
@@ -83,11 +84,11 @@ nav {
 }
 #slogan p {
     line-height: 30px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 20px;
 }
 #slogan a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 18px;
 }
 #slogan a:hover{
