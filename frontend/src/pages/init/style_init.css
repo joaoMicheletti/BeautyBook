@@ -3,9 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: rgb(235, 231, 227);
+}
 #HomeConteinerInit {
     width: 100%;
-    background-color: #ffffff;
 }
 #HeaderHomeInit {
     background-color: #000000;
@@ -13,6 +15,42 @@
     height: 100px; 
     display: flex;
     box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
+}
+#Search {
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 50px;
+}
+#Search p {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+#Buscar{
+    width: 50%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+
+}
+#btnSearch  {
+    height: 35px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    background-color: #000000;
+    color: white;
+}
+#responseBusca {
+    width: 80%;
+    margin-left: 10%;
+    height: auto;
+    color: red;
+    display: none;
 }
 @media(min-width: 300px){
     #HeaderHomeInit {
@@ -42,33 +80,43 @@
 
 #ConteudoHomeInit {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
     margin-top: 20px;
     text-align: center;
     line-height: 25px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #ConteudoHomeInit ul {
-    background-color: #4a4a4b77;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     border: black solid 1px;
     border-radius: 10px;
     list-style: none;
-    margin-left: 4%;
-    width: 20%;
-    margin-bottom: 15px;
+    margin-left: 10%;
+    width: 80%;
+    margin-bottom: 20px;
     text-align: center;
     box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
 }
+#ConteudoHomeInit ul:hover {
+    margin-left: 7%;
+    width: 85%;
+}
 #ConteudoHomeInit ul img {
-    height: 200px;
-    width: 100%;
-    border-radius: 10px 10px 0px 0px;
+ width: 200px;
+ height: 200px;
+ border-radius: 10px;
+}
+#ConteudoHomeInit ul li {  
+    text-align: center;  
+    width: 60%;
+    padding-top: 20px;
 }
 #H {
     margin-top: 40px;
     text-decoration: none;
     font-size: 30px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 50px;
 }
 .BtnConteudoHomeInit {
@@ -89,28 +137,44 @@
         flex-direction: column;
     }
     #H {
-    margin-top: 40px;
     text-decoration: none;
-    font-size: 30px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
     margin-bottom: 50px;
     }
-    #ConteudoHomeInit ul {
-        background-color: #4a4a4b77;
-        border: black solid 1px;
-        border-radius: 10px;
-        list-style: none;
-        margin-left: 25%;
+    #Search {
+        background-color: #dacccc;
+        width: 90%;
+        height: auto;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: column;
+    }
+    #Buscar {
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 20px;
+    }
+    #btnSearch {
         width: 50%;
-        margin-bottom: 15px;
-        text-align: center;
+        margin-left: 25%;
+    }
+    #ConteudoHomeInit ul {
+        list-style: none;
+        margin-left: 5%;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
     }
     #ConteudoHomeInit ul img {
-        margin-top: 10px;
+        margin-top: 5%;
         width: 80%;
+        margin-left: 10%;
     }
     #ConteudoHomeInit ul li {
         list-style: none;
+        width: 90%;
+        margin-left: 5%;
+        padding-bottom: 20px;
     }
     #ConteudoHomeInit ul li p {
         font-family: Georgia, 'Times New Roman', Times, serif;
