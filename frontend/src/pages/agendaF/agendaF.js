@@ -108,13 +108,17 @@ export default function AgendaF(){
                         var init = String(iten.hora);
                         var partesInicio = init.split('.');
                         var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
-                        //formatando hora do termino;
-                        var fim = String(iten.hora_termino);
-                        var partesFim = fim.split('.');
-                        console.log(partesFim);
+                        if(partesInicio[1] === undefined){
+                            inicioFormatado = partesInicio[0]+':'+'00';
+                        }
+                        console.log(init)
+                        //formatando a hora de termino do agendamento.
+                        var termino = String(iten.hora_termino);
+                        var partesFim = termino.split('.');
                         var fimFormatado = partesFim[0]+':'+partesFim[1];
-                        console.log(partesInicio[1])
-                        console.log(partesInicio)
+                        if(partesFim[1] === undefined){
+                            fimFormatado = partesFim[0]+':'+'00';
+                        }
                         //url whatsapp;
                         var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
                         return(

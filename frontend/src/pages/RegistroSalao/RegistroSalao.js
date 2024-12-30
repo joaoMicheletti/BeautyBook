@@ -105,7 +105,7 @@ export default function RegistroSalao(){
                         placeholder="CPF "
                         onChange={(e) => setCpf(e.target.value)}/>
                         <p id="PRegistroSalao">
-                            Nome Do Salão
+                            Razão social
                         </p>
                         <input
                         className="InpRegistroSalao" 
@@ -113,7 +113,7 @@ export default function RegistroSalao(){
                         placeholder="Nome Do Salão"
                         onChange={(e) => setNome_salao(e.target.value)}/>
                         <p id="PRegistroSalao">
-                            Endereço Salão
+                            Endereço
                         </p>
                         <input
                         className="InpRegistroSalao" 

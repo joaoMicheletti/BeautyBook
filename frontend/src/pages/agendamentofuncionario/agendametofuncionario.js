@@ -23,7 +23,7 @@ export default function AgendamentoFuncionario(){
         
     }, []);
     //url das imagens no servidor;
-    const Url = "http://172.17.3.187:1998/image/";
+    const Url = "http://127.0.0.1:1998/image/";
     return(
         <div id="AgendamentoFuncionarioConteiner">
             <header id="HeaderAgFuncionario">
@@ -31,10 +31,11 @@ export default function AgendamentoFuncionario(){
                 <p id="PHeaderNomeSalão">{localStorage.getItem('nome_salao')}</p>
             </header>
             <h1 id="H1AgFuncionario">
-                Agende com um de nossos Profissionais
+                Selecione um Profissiona
             </h1>
             <div id="ListFuncionarios"> 
                 {ListaFuncionarios.map((iten, key) =>{
+                    console.log(ListaFuncionarios)
                     const AgendaFuncionario = () => {
                         localStorage.setItem('idsalao', iten.cpf_salao);
                         localStorage.setItem('cpf_funcionario', iten.cpf_funcionario);
@@ -43,8 +44,9 @@ export default function AgendamentoFuncionario(){
                     return(
                         <ul key={iten.id}>
                             <li>
+                                <img src={Url + localStorage.getItem('logo_salao')} alt="Logo salão. "/>
                                 <p id="PListFuncionarios">
-                                    Agendar Com : {iten.nome_completo}
+                                    {iten.nome_completo}
                                 </p>
                                 <button className="BtnListFuncionarios"
                                 onClick={AgendaFuncionario}>Selecionar</button>

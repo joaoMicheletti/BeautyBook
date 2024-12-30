@@ -217,14 +217,14 @@ export default function Agendamento(){
                 <h1 id='H1NomeSalao'>{localStorage.getItem('nome_salao')}</h1>
             </header>
             <div id='DivAgendamento'>
-                <h2>Selecione uma data</h2>
+                <h2 className='h2'>Data</h2>
                 <div id='DivCalendario'>
                     <input 
                     id='Calendario' 
                     type='date'
                     onChange={(e) => setDatastring(e.target.value)}></input>
                     <br/>
-                    <p>Selecione a Hora.</p>
+                    <p id='Phora'>Selecione a Hora.</p>
                     <input 
                     type="time" id="hora" name="hora"
                     onChange={(e) => setHora(e.target.value)}></input>
@@ -261,7 +261,7 @@ export default function Agendamento(){
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p>Horário Preenchido : das {inicio[1]+":"+inicio[0]} Horas as {fim[1]+":"+fim[0]} Horas</p>
+                                    <p>{iten.servico} - Inicio - {inicio[1]+":"+inicio[0]} - termino {fim[1]+":"+fim[0]} Horas</p>
                                 </li>
                             </ul>
                         );
@@ -271,7 +271,7 @@ export default function Agendamento(){
                 <hr/>
                 <br/>
                 <div id='Serviços'>
-                    <h2>Selecione um Serviço</h2>
+                    <h2 className='h2'>Serviços</h2>
                     {ListaServicos.map((iten, key) =>{
                         const SelectServico = () =>{
                             setPreco(iten.preco);
@@ -294,7 +294,7 @@ export default function Agendamento(){
                 <hr/>
                 <br/>
                 <div id='DivFormCliente'>
-                    <h2>Dados Do Cliente</h2>
+                    <h2 className='h2'>Formulário de agendamento</h2>
                     <br/>
                     <form onSubmit={Agendar}>
                         <p className='PFormCliente'>Nome Completo</p>
@@ -303,18 +303,18 @@ export default function Agendamento(){
                         className='InputFormCliente'
                         placeholder='Nome Completo'
                         onChange={(e) => setNameCliente(e.target.value)}/>
-                        <p className='PFormCliente'>Número de telefone WhatsApp</p>
+                        <p className='PFormCliente'>Número do WhatsApp</p>
                         <input
                         type='number'
                         className='InputFormCliente'
                         placeholder='Telefone WhatsApp'
                         onChange={(e) => setContatoCliente(e.target.value)}/>
                         <br/>
-                        <p className='PFormCliente'>Nos envie uma Observação.</p>
-                        <input
+                        <p className='PFormCliente'>Observação.</p>
+                        <textarea
                         type='text'
                         className='InputFormCliente'
-                        placeholder='observação para o salão'
+                        placeholder='___mensagem'
                         onChange={(e) => setObs(e.target.value)}/>
                         <button id='BtnFormCliente' type='submit'>agendar</button>
                     </form>

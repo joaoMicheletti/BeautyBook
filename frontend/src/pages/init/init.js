@@ -62,7 +62,7 @@ export default function Init(){
                     <li><a id="A" href="/registrosalao">Registrar_Salão</a></li>
                 </ul>
             </header>
-            <h2 id="H">Conheça nossos salões parceiros</h2>
+            <h2 id="H">Conheça nossos parceiros</h2>
             <div id="Search">
                 <input id="Buscar" type="text"  placeholder=" __Buscar por parceiro " onChange={(e) => setBuscar(e.target.value)}/>
                 <input onClick={buscarParceiro} id="btnSearch" type="submet" value="Buscar"/>

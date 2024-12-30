@@ -6,6 +6,9 @@
 body{
     background-color: rgb(235, 231, 227);
 }
+#H {
+    text-align: center;
+}
 #HomeConteinerInit {
     width: 100%;
 }

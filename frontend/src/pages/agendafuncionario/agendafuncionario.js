@@ -231,14 +231,22 @@ export default function AgendaFuncionario(){
                         var init = String(iten.hora);
                         var partesInicio = init.split('.');
                         var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        if(partesInicio[1] === undefined){
+                            inicioFormatado = partesInicio[0]+':'+'00';
+                        }
+                        console.log(init)
                         //formatando a hora de termino do agendamento.
                         var termino = String(iten.hora_termino);
                         var partesFim = termino.split('.');
                         var fimFormatado = partesFim[0]+':'+partesFim[1];
+                        if(partesFim[1] === undefined){
+                            fimFormatado = partesFim[0]+':'+'00';
+                        }
+                        console.log(ListaHorarios)
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p>Horário Preenchido : das {inicioFormatado} Horas as {fimFormatado} Horas</p>
+                                    <p>{iten.servico} Inicio - {inicioFormatado} - termino {fimFormatado} </p>
                                 </li>
                             </ul>
                         );
@@ -281,18 +289,18 @@ export default function AgendaFuncionario(){
                         className='InputFormCliente'
                         placeholder='Nome Completo'
                         onChange={(e) => setNameCliente(e.target.value)}/>
-                        <p className='PFormCliente'>Número de telefone WhatsApp</p>
+                        <p className='PFormCliente'>Número do WhatsApp</p>
                         <input
                         type='number'
                         className='InputFormCliente'
                         placeholder='Telefone WhatsApp'
                         onChange={(e) => setContatoCliente(e.target.value)}/>
                         <br/>
-                        <p className='PFormCliente'>Nos envie uma Observação.</p>
+                        <p className='PFormCliente'>Observação.</p>
                         <input
                         type='text'
                         className='InputFormCliente'
-                        placeholder='observação para o salão'
+                        placeholder='mensaguem'
                         onChange={(e) => setObs(e.target.value)}/>
                         <button id='BtnFormCliente' type='submit'>Concluir Agendamento</button>
                     </form>

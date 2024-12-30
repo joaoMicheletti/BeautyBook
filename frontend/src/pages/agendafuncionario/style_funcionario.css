@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+h2 {
+    margin-bottom: 20px;
+}
 #ConteinerAgendamento {
     background-color: #ffffff;
 }
@@ -30,9 +33,6 @@
     margin-top: 20px;
     width: 80%;
     margin-left: 10%;
-}
-#DivAgendamento h2 {
-    text-decoration: underline;
 }
 #DivCalendario {    
     width: 80%;

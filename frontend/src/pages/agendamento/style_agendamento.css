@@ -18,17 +18,21 @@
     margin-left: 10px;
 }
 h1 {
+    font-size: 20px;
     margin-top: 50px;
     font-weight: 600;
+}
+.h2 {
+    margin-bottom: 10px;
+}
+#Phora {
+    margin-top: 20px;
 }
 #DivAgendamento {
     text-align: center;
     margin-top: 20px;
     width: 80%;
     margin-left: 10%;
-}
-#DivAgendamento h2 {
-    text-decoration: underline;
 }
 #DivCalendario {    
     width: 80%;
@@ -49,7 +53,8 @@ h1 {
 }
 #PHorariosDisponiveis {
     font-size: 15px;
-    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 #Horarios ul {
     width: 100%;
