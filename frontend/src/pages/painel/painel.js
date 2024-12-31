@@ -5,6 +5,12 @@ import './style.css';
 import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
 import {GrUserWorker} from 'react-icons/gr';
 import{FiLogOut} from 'react-icons/fi';
+import Relogio from '../assets/relogio.png';
+import Perfil from '../assets/perfil.png';
+import Whats from '../assets/whats.png';
+import Servico from '../assets/servico.png';
+import Cash  from '../assets/cash.png';
+import Status from '../assets/status.png';
 
 export default function Painel(){
     const History = useNavigate();
@@ -193,7 +199,7 @@ export default function Painel(){
                         var partesInicio = init.split('.');
                         var inicioFormatado = 0;//partesInicio[0]+':'+partesInicio[1];
                         if(partesInicio[1] === undefined){
-                            inicioFormatado = partesInicio[0];
+                            inicioFormatado = partesInicio[0]+":"+'00';
                         } else {
                             inicioFormatado = partesInicio[0]+':'+partesInicio[1];
                         }
@@ -205,7 +211,7 @@ export default function Painel(){
                         var fimFormatado = 0;
 
                         if (partesFim[1] === undefined) {
-                            fimFormatado = partesFim[0];
+                            fimFormatado = partesFim[0] + ":" + '00';
                         } else {
                             // Formata a parte dos minutos para garantir que tenha exatamente dois dígitos
                             var minutos = partesFim[1].slice(0, 2);
@@ -226,20 +232,38 @@ export default function Painel(){
                                         <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
                                     </div>
                                     <br/>
-                                    <p>Início: {inicioFormatado} <br/> Término: {fimFormatado}</p>
-                                    <p>Cliente: <br/> {iten.nome_cliente}</p>
-                                    <p>WhatsApp Cliente: </p> 
-                                    <a target="_blank"
-                                    rel='noreferrer'  
-                                    href={whatsapp} 
-                                    className="LKWhatsapp">{iten.contato_cliente}</a>
-                                    <br/>
-                                    <br/>
-                                    <p>Serviços:  {iten.servico}</p>
-                                    <p>Observação:<br/> {iten.obs}
-                                    </p>
-                                    <br/>
-                                    <p className="UnderLine">Valor Serviço: R$ {iten.preco.toFixed(2)}</p><br/>
+                                    <div className="Relogio">
+                                        <img className="imgRelogio" src={Relogio} />
+                                        <p>{inicioFormatado} <br/> {fimFormatado}</p>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Perfil} />
+                                        <p><br/>  {iten.nome_cliente}</p>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Whats} />
+                                        <br/>
+                                        <a target="_blank"
+                                            rel='noreferrer'  
+                                            href={whatsapp} 
+                                            className="LKWhatsapp">{iten.contato_cliente} .
+                                            </a>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Servico} />
+                                        <p className="LKWhatsapp" > {iten.servico}</p>
+                                    </div>
+                                    <div id="OBS">
+                                        <div id="TitleOBS">
+                                            <p>Observação</p>
+                                        </div>
+                                        <p> {iten.obs}
+                                        </p>
+                                    </div>
+                                    <div className="Relogio">
+                                        <img className="imgRelogio" src={Cash} />
+                                        <p className="LKWhatsapp"> R${iten.preco.toFixed(2)}</p><br/>
+                                    </div>
                                 </li>
                                 <div className="D">
                                     <button className="Bt" onClick={Cancelar}>Cancelar</button>
@@ -256,7 +280,7 @@ export default function Painel(){
                         var partesInicio = init.split('.');
                         var inicioFormatado = 0;//partesInicio[0]+':'+partesInicio[1];
                         if(partesInicio[1] === undefined){
-                            inicioFormatado = partesInicio[0];
+                            inicioFormatado = partesInicio[0] + ":" + '00';
                         } else {
                             inicioFormatado = partesInicio[0]+':'+partesInicio[1];
                         }
@@ -268,7 +292,7 @@ export default function Painel(){
                         var fimFormatado = 0;
 
                         if (partesFim[1] === undefined) {
-                            fimFormatado = partesFim[0];
+                            fimFormatado = partesFim[0] + ":" + '00';
                         } else {
                             // Formata a parte dos minutos para garantir que tenha exatamente dois dígitos
                             var minutos = partesFim[1].slice(0, 2);
@@ -284,27 +308,48 @@ export default function Painel(){
                         //'https://api.whatsapp.com/send?phone=5511932223533&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?'
                         var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
                         return(
-                            <ul key={iten.id}>
+                            <ul id="ULb" key={iten.id}>
                                 <li>
                                     <div id="DivHeaderAgenda"><br/>
                                         <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
                                     </div>
                                     <br/>
-                                    <p>Início: {inicioFormatado} <br/> Término: {fimFormatado}</p>
-                                    <p>Cliente: <br/>  {iten.nome_cliente}</p>
-                                    <p>WhatsApp Cliente: </p> 
-                                    <a target="_blank"
-                                    rel='noreferrer'  
-                                    href={whatsapp} 
-                                    className="LKWhatsapp">{iten.contato_cliente}</a>
-                                    <br/>
-                                    <br/>
-                                    <p>Serviços:  {iten.servico}</p>
-                                    <p>Observação: {iten.obs}
-                                    </p>
-                                    <br/>
-                                    <p className="UnderLine">Valro Serviço: R$ {iten.preco.toFixed(2)}</p><br/>
-                                    <p> Status: {iten.status_servico} </p>
+                                    <div className="Relogio">
+                                        <img className="imgRelogio" src={Relogio} />
+                                        <p>{inicioFormatado} <br/> {fimFormatado}</p>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Perfil} />
+                                        <p><br/>  {iten.nome_cliente}</p>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Whats} />
+                                        <br/>
+                                        <a target="_blank"
+                                            rel='noreferrer'  
+                                            href={whatsapp} 
+                                            className="LKWhatsapp">{iten.contato_cliente} .
+                                            </a>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Servico} />
+                                        <p className="LKWhatsapp" > {iten.servico}</p>
+                                    </div>
+                                    <div id="OBS">
+                                        <div id="TitleOBS">
+                                            <p>Observação</p>
+                                        </div>
+                                        <p> {iten.obs}
+                                        </p>
+                                    </div>
+                                    <div className="Relogio">
+                                        <img className="imgRelogio" src={Cash} />
+                                        <p className="LKWhatsapp"> R${iten.preco.toFixed(2)}</p><br/>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Status} />
+                                        <p className="LKWhatsapp"> {iten.status_servico}</p>
+                                    </div>
                                 </li>
                             </ul>
                             
