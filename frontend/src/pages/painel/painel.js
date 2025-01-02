@@ -35,6 +35,7 @@ export default function Painel(){
         } else if(Response.data === null){
             alert('Seu plano encontra-se "Expirado", regularize para ter acesso a plataforma.')
             History('/planos')
+        } else {
         }
     }).catch((Erro) => {
         alert('Erro ao validar sua assinatura!');

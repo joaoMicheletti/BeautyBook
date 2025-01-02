@@ -14,7 +14,6 @@ export default function LoginSalao(){
             cpf_salao,
             senha
         };
-        console.log(Data);
         if(cpf_salao.length === 0){
             alert('Preencha o campo Cpf');
         }else if(cpf_salao.length > 11) {
@@ -29,6 +28,7 @@ export default function LoginSalao(){
                 if(Response.data.res === 'Salão ou funcionário não encontrado!'){
                     alert(Response.data.res);
                 } else if(Response.data.res === 'Erro no login'){
+                    Hystory("/loginsalao");
                     alert("Usuário ou senha invalidos.");
                 } else if(Response.data.res === 'Acesso Negado, problemas com à assinatura do plano.'){
                     alert(Response.data.res);                
@@ -37,13 +37,14 @@ export default function LoginSalao(){
                     localStorage.setItem('cpf_salao', cpf_salao);
                     Hystory("/planos");
                 } else{
+                    console.log("aqui modeuzi")
                     //logado com sucessu;
                     //salvar no localstorage o cof_salão;
                     //salvando a resposta na variavel data;
                     var data = Response;
-                    console.log(data, 'this data');
+                    console.log(data.data.cpf_funcionario);
                     // si data.cpf_funcionario === undefined; logado como salão 
-                    if(data.cpf_funcionario === undefined){
+                    if(data.data.cpf_funcionario === undefined){
                         if(data.statusPagamento === 'pending'){
                             alert('Seu pagamento ainda encontra-se pendente, certifique-se de que ele foi efetuado.');
                             Hystory('/');
