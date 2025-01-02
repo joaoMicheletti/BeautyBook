@@ -514,32 +514,7 @@ export default function Ajustes(){
                                 <br/>
                             </div>
                             <hr/>
-                            <div id="gestao">
-                                <h2>Relatório de Entrada</h2>
-                                <br/>
-                                <label>
-                                <label>
-                                    Referência :  
-                                    <input id="relat" type="text" placeholder=" mes  ou  ano"/>
-                                </label>
-                                <select onChange={(e) => setFuncionalidade(e.target.value)} name="dia" id="dia">
-                                    <option value="funcionalidades">Selecionar</option>
-                                    <option value="bruto">Relatório Bruto</option>
-                                    <option value="mensal">Relatório Mensal</option>
-                                    <option value="anual">Relatório Anual</option>
-                                </select>
-                                </label>
-                                <br/>
-                                <button onClick={Relatorio} >Gerar Relatório</button>
-                                <hr/>
-                                <p id="quant"></p>
-                                <br/>
-                                <p id="tot"></p>
-                                <br/>
-                                <br/>
-                            </div>
-                        </div>
-                        
+                        </div>                        
                     </section>
                 );
             })}
