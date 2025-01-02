@@ -40,6 +40,7 @@
     width: 100%;
     height: auto;
     border: solid 1px black;
+    box-shadow: 1px 3px 5px 2px black;
 }
 #ListFuncionarios ul li {
     list-style: none;

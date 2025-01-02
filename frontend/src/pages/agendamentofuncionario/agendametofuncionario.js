@@ -44,7 +44,7 @@ export default function AgendamentoFuncionario(){
                     return(
                         <ul key={iten.id}>
                             <li>
-                                <img src={Url + localStorage.getItem('logo_salao')} alt="Logo salão. "/>
+                                <img src={Url + iten.foto_fincionario} alt="Logo salão. "/>
                                 <p id="PListFuncionarios">
                                     {iten.nome_completo}
                                 </p>
