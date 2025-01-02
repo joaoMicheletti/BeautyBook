@@ -23,9 +23,8 @@
 #NomeFuncionario {
     border-radius: 5px;
     border: solid black 1px;
-    background-color: rgb(228, 230, 231);
     width: 80%;
-    height: 25px;
+    height: 35px;
     margin-left: 10%;
     margin-bottom: 10px;
 }
@@ -37,9 +36,8 @@
 #CpfFuncionarios {
     border-radius: 5px;
     border: solid black 1px;
-    background-color: rgb(228, 230, 231);
     width: 80%;
-    height: 25px;
+    height: 35px;
     margin-left: 10%;
     margin-bottom: 10px;
 }
@@ -51,18 +49,16 @@
 #SenhaFuncionarios {
     border-radius: 5px;
     border: solid black 1px;
-    background-color: rgb(228, 230, 231);
     width: 80%;
-    height: 25px;
+    height: 35px;
     margin-left: 10%;
     margin-bottom: 10px;
 }
 #SenhaFuncionarioss{
     border-radius: 5px;
     border: solid black 1px;
-    background-color: rgb(228, 230, 231);
     width: 80%;
-    height: 25px;
+    height: 35px;
     margin-left: 10%;
     margin-bottom: 10px;
 }
@@ -70,10 +66,10 @@
     cursor: pointer;
     width: 40%;
     margin-left: 30%;
-    height: 25px;
+    height: 35px;
     border-radius: 5px;
     margin-bottom: 10px;
-    background-color: rgb(206, 207, 207);
+    background-color: #0b395477;
 }
 #BtnFunc:hover {
     background-color: rgb(70, 73, 72);
@@ -83,12 +79,62 @@
     width: 100%;
 }
 #FuncionariosCadastrados ul {
-    margin-bottom: 10px;
+    margin-top: 20px;
     border: solid black 1px;
+    box-shadow: 3PX 3PX 3PX black;
+    width: 80%;
+    margin-left: 10%;
 }
 #FuncionariosCadastrados ul li {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
+}
+#FuncionariosCadastrados ul li div{
+    width: 30%;
+}
+#imgFuncionarios {
+    text-align: center;
+}
+#imgFuncionarios img {
+    padding-top: 10px;
+    width: 100px;
+    border-radius: 100%;
+}
+#imgFuncionarios button {
+    width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #0b395477;
+}
+#infoFincionario {
+    text-align: center;
+    padding-top: 50px;
+}
+#ButtonsFuncionario{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+#ButtonsFuncionario button{
+    width: 80%;
+    margin-left: 10%;
+    height: 35px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #0b395477;
+}
+
+@media(max-width: 800px){
+    #FuncionariosCadastrados ul li {
+        display: flex;
+        flex-direction: column;
+    }
+    #FuncionariosCadastrados ul li div {
+        width: 100%;
+    }
 }
 .PFuncionariosCadastrado {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

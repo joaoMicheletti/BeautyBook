@@ -9,10 +9,10 @@ import{FiLogOut} from 'react-icons/fi';
 export default function Funcionarios(){
     const History = useNavigate();
     const [ListaFuncionarios, setListaFuncionarios] = useState([]);
+    const [image , setimage] = useState('');
     //buscando funcionarios cadastrados;
     var cpf_salao = localStorage.getItem('cpf_salao');
     Api.post('/assinatura', {cpf_salao}).then((Response) => {
-        console.log(Response);
         if(Response.data === false){
             alert('Seus dias de acesso livre a plataforma acabaram, contrate um plano.');
             History('/planos')
@@ -66,6 +66,8 @@ export default function Funcionarios(){
             };
             Api.post('/funcionario', Data).then((Response) => {
                 console.log(Response.data.res);
+                if(Response.data.res === 'Contrate um plano para cadastrar seus funcionáriuos.'){
+                    alert(Response.data.res);                }
                 if(Response.data.res === 'você exedeu o limite de funcionários cadastrado'){
                     alert('seu plano não permite cadastrar mais funcionários');
                 } else if(Response.data === 'Seu Plano não permite cadastrar Funcionários'){
@@ -197,17 +199,65 @@ export default function Funcionarios(){
                                 })
                                 console.log(Data);
                             };
+                            async function EditImage(){
+                                var ImgFuncionario = document.querySelector("#IMGFuncionario").alt;
+                                
+
+                                //função para salvar a imgame no data base
+                                const formdata = new FormData();
+                                formdata.append('image', image);
+                                const headers = { 
+                                    'headers': {
+                                        'content-Type': 'multipart/form-data',
+                                    }
+                                };
+                                await Api.post('/logo', formdata, headers).then(async(Response) => {
+                                    const Data = {
+                                        cpf_funcionario: ImgFuncionario, logo_salao: Response.data.filename
+                                    };
+                                    console.log(Data, "dados retornados ao salvar a img ");
+                                    await Api.post('/logosalao', Data).then((Res) => {
+                                        console.log(Res.data);
+                                        if(Res.data.list > 0){
+                                            alert('imagem salva com sucesso, atualize a pagina!');
+                                        } else {
+                                            alert('algo não saiu como esperado.');
+                                        }
+                                    }).catch((Erro) => {
+                                        alert('Erro ao salvar a imagem,');
+                                    });
+                                    // fazer uma req para salvar na tabela salão o nome a imagem 
+                                }).catch((Erro) =>{
+                                    alert('Erro ao enviar imagem. ');
+                                });
+                            };
                             return(
                                 <ul key={iten.id}>
                                     <li>
                                         <p id="Alerta_Funcionarios"></p>
-                                        <p className="PFuncionariosCadastrado">{iten.nome_completo}</p>
-                                        <button
-                                        type="submit"
-                                        id="BtnVerAgenda" onClick={VerAgenda} >Ver Agenda</button>
-                                        <button 
-                                        id="BtnExcluir" 
-                                        type="submit" onClick={Deletar}>Excluir</button>
+                                        <div id="imgFuncionarios">
+                                            <a ><img id="IMGFuncionario" src={Url+iten.foto_fincionario} alt={iten.cpf_funcionario} /></a>
+                                            <input  
+                                                type="file"  
+                                                className="BtnImg"
+                                                accept=".jpg, , .jpeg, .png" 
+                                                onChange={(e) => setimage(e.target.files[0])}/>
+                                            <button type="submit"
+                                                onClick={EditImage}>Editar
+                                            </button>
+                                        </div>
+                                        <div id="infoFincionario">
+                                            <p className="PFuncionariosCadastrado">{iten.nome_completo}</p>
+                                        </div>                                        
+                                        <div id="ButtonsFuncionario">
+                                            <button
+                                            type="submit"
+                                            id="BtnVerAgenda" onClick={VerAgenda} >Ver Agenda</button>
+                                            <button 
+                                            id="BtnExcluir" 
+                                            type="submit" onClick={Deletar}>Excluir</button>
+                                        </div>
+                                        
                                     </li>
                                 </ul>
                             );
