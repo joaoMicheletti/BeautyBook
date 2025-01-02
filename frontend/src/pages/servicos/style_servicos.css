@@ -36,10 +36,9 @@
 #TipodeServico {
     border-radius: 5px;
     border: solid black 1px;
-    background-color: #e7e4e4;
     width: 80%;
     margin-left: 10%;
-    height: 25px;
+    height: 35px;
     margin-bottom: 10px;
 
 }
@@ -51,19 +50,18 @@
 #PrecoServico {
     border-radius: 5px;
     border: solid black 1px;
-    background-color: #e7e4e4;
     width: 80%;
     margin-left: 10%;
-    height: 25px;
+    height: 35px;
     margin-bottom: 10px;
 }
 #BtnServicos {
     text-align: center;
     cursor: pointer;
-    background-color: rgb(224, 223, 223);
+    background-color: #0b395477;
     width: 40%;
     margin-left: 30%;
-    height: 25px;
+    height: 35px;
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -83,8 +81,11 @@
     width: 100%;
 }
 #ServicosCadastrados ul {
-    margin-bottom: 10px;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
     border: solid black 1px;
+    box-shadow: 1px 2px 5px 1px black;
 }
 #ServicosCadastrados ul li {
     display: flex;
@@ -98,6 +99,7 @@
     cursor: pointer;
     width: 80px;
     border-radius: 3px;
+    background-color: #0b395477;
 }
 #BtnEditar:hover{
     background-color: rgb(80, 79, 78);

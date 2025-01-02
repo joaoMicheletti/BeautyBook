@@ -172,8 +172,7 @@ export default function Servicos(){
                                 <ul key={iten.id}>
                                     <li>
                                         <p className="PServicoCadastrado">{iten.servico}</p>
-                                        <p className="PServicoCadastrado">Valor:</p>
-                                        <p className="PServicoCadastrado">{iten.preco}R$</p>
+                                        <p className="PServicoCadastrado">R${iten.preco}</p>
                                         <button id="BtnEditar" type="submit" onClick={Editar}>Editar</button>
                                         <button id="BtnEditar" type="submit" onClick={Apagar}>Apagar</button>
                                     </li>

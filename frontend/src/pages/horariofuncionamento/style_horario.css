@@ -18,7 +18,6 @@
 }
 form {
     width: 100%;
-    
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -26,48 +25,51 @@ form {
 #dia {
     width: 80%;
     margin-left: 10%;
-    height: 30px;
+    height: 35px;
     margin-bottom: 15px;
     border: solid black 1px;
-    background-color: rgb(206, 207, 207);
+    
 }
 #inicio {
     width: 80%;
     margin-left: 10%;
-    height: 30px;
+    height: 35px;
     margin-bottom: 15px;
     border: solid black 1px;
-    background-color: rgb(206, 207, 207);
 }
 #termino {
     width: 80%;
     margin-left: 10%;
-    height: 30px;
+    height: 35px;
     margin-bottom: 15px;
     border: solid black 1px;
-    background-color: rgb(206, 207, 207);
 }
 #Btn_cad {
     cursor: pointer;
     width: 40%;
     margin-left: 30%;
-    height: 25px;
+    height: 35px;
     border-radius: 5px;
     margin-bottom: 10px;
-    background-color: rgb(206, 207, 207);
+    background-color: #0b395477;
 }
 
 #DivHorarios {
     width: 100%;
 }
+#DivHorarios ul {
+    width: 80%;
+    margin-left: 10%;
+}
 #DivHorarios ul li {
     font-size: 10px;
-    height: 30px;
+    height: auto;
     display: flex;
     justify-content: space-around;
     list-style: none;
     border: solid black 1px;
     margin-bottom: 10px;
+    box-shadow: 1px 2px 5px 1px black;
 }
 .DiaSemana {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -76,7 +78,8 @@ form {
 .BtnHorario {
     cursor: pointer;border-radius: 5px;
     width: 100px;
-    background-color: rgb(206, 207, 207);
+    height: 35px;
+    background-color: #0b395477;
     
 }
 .BtnHorario:hover{
