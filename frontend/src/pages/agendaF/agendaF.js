@@ -1,6 +1,12 @@
 import React, {useEffect, useState}from "react";
 import Api from "../../services/api";
 import './style.css';
+import Relogio from '../assets/relogio.png';
+import Perfil from '../assets/perfil.png';
+import Whats from '../assets/whats.png';
+import Servico from '../assets/servico.png';
+import Cash  from '../assets/cash.png';
+import Status from '../assets/status.png';
 
 export default function AgendaF(){
     const DataAtual = new Date();// oibjeto data atual;
@@ -122,41 +128,57 @@ export default function AgendaF(){
                         //url whatsapp;
                         var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
                         return(
-                            <ul key={iten.id}>
+                            <ul id="ULb" key={iten.id}>
                                 <li>
-                                    <div id="Header_agendamento">
+                                    <div id="DivHeaderAgenda"><br/>
                                         <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
-                                    </div>                                    
+                                    </div>
                                     <br/>
-                                    <p>Início: {partesInicio[0]+':'+partesInicio[1]}<br/>  
-                                    Término: {partesFim[0]+':'+partesFim[1]}</p>
-                                    <p>Cliente :  {iten.nome_cliente}</p>
-                                    <p>WhatsApp Cliente : </p> 
-                                    <a target="_blank"
-                                    rel='noreferrer'  
-                                    href={whatsapp}
-                                    className="LKWhatsapp">{iten.contato_cliente}</a>
-                                    <br/>
-                                    <br/>
-                                    <p> Funcionário : {iten.nome_completo}</p>
-                                    <p>Serviços :  {iten.servico}</p>
-                                    <p>Observação : {iten.obs}
-                                    </p>
-                                    <br/>
-                                    <p className="UnderLine">Valro Serviço : R$ {iten.preco.toFixed(2)}</p><br/>
+                                    <div className="Relogio">
+                                        <img className="imgRelogio" src={Relogio} />
+                                        <p>{inicioFormatado} <br/> {fimFormatado}</p>
+                                    </div>
                                     
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Perfil} />
+                                        <p><br/>  {iten.nome_cliente}</p>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Whats} />
+                                        <br/>
+                                        <a target="_blank"
+                                            rel='noreferrer'  
+                                            href={whatsapp} 
+                                            className="LKWhatsapp">{iten.contato_cliente} .
+                                         </a>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Servico} />
+                                        <p className="LKWhatsapp" > {iten.servico}</p>
+                                    </div>
+                                    <div id="OBS">
+                                        <div id="TitleOBS">
+                                            <p>Observação</p>
+                                        </div>
+                                        <p> {iten.obs}
+                                        </p>
+                                    </div>
+                                    <div className="Relogio">
+                                        <img className="imgRelogio" src={Cash} />
+                                        <p className="LKWhatsapp"> R${iten.preco.toFixed(2)}</p><br/>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Status} />
+                                        <p className="LKWhatsapp"> {iten.status_servico}</p>
+                                    </div>
                                 </li>
-                                <div className="DivStatusB">
-                                        <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
-                                        <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
-                                </div>
                             </ul>
-                            
+                                                    
                         );
                     })}
                 </div>
                 <div id="Agendados">
-                    {Agendados.map((iten, key) =>{
+                {Agendados.map((iten, key) =>{
                         //funções de cancelar e finalizar;
                         //cancelar;
                         const Cancelar = async (e) =>{
@@ -165,7 +187,7 @@ export default function AgendaF(){
                                 id
                             };                            
                             await Api.put('/cancelarservico', Data).then((Response) =>{
-                                alert(Response.data);
+                                window.location.reload(true);
                                 
                             }).catch(() =>{
                                 alert('Erro interno.')
@@ -176,52 +198,89 @@ export default function AgendaF(){
                             var id = iten.id;
                             var Data = {
                                 id
-                            };                            
+                            };               
+                            console.log(Data)             
                             await Api.put('/finalizarservico', Data).then((Response) =>{
-                                console.log(Response);
-                                alert(Response.data);
+                                window.location.reload(true);
                             }).catch(() =>{
                                 alert('Erro interno.')
                             });
                         };
-                        //formatando hora de inicio;
+                        //formatando  a hora de inicio do serviço;
                         var init = String(iten.hora);
                         var partesInicio = init.split('.');
-                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
-                        //formatando hora do termino;
+                        var inicioFormatado = 0;//partesInicio[0]+':'+partesInicio[1];
+                        if(partesInicio[1] === undefined){
+                            inicioFormatado = partesInicio[0]+":"+'00';
+                        } else {
+                            inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        }
+                        console.log(partesInicio)
+                        console.log(inicioFormatado, '<><><><><><<<<<<<>>>>>>><<<<<>>>><><><><><><><><><><><><');
+                        // formatando a hora de término do serviço
                         var fim = String(iten.hora_termino);
                         var partesFim = fim.split('.');
-                        var fimFormatado = partesFim[0]+':'+partesFim[1];
+                        var fimFormatado = 0;
+
+                        if (partesFim[1] === undefined) {
+                            fimFormatado = partesFim[0] + ":" + '00';
+                        } else {
+                            // Formata a parte dos minutos para garantir que tenha exatamente dois dígitos
+                            var minutos = partesFim[1].slice(0, 2);
+                            if (minutos.length === 1) {
+                                minutos += '0';
+                            }
+                            fimFormatado = partesFim[0] + ':' + minutos;
+                        }
+
+                        console.log(fimFormatado);;
                         //url whatsapp;
-                        var whatsapp = "https://api.whatsapp.com/send?phone="+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
+                        //'https://api.whatsapp.com/send?phone=5511932223533&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?'
+                        var whatsapp = "https://api.whatsapp.com/send?phone=55"+iten.contato_cliente+"&text=Ol%C3%A1,%20Passando%20para%20lembrar-lhe%20que%20hoje%20voc%C3%AA%20tem%20um%20Hor%C3%A1rio%20marcado%20conosco.%20Posso%20Confirmar?"
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <div id="Header_agendamento">
+                                    <div id="DivHeaderAgenda"><br/>
                                         <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
                                     </div>
                                     <br/>
-                                    <p>Início: {partesInicio[0]+':'+partesInicio[1]}<br/>  
-                                    Término: {partesFim[0]+':'+partesFim[1]}</p>
-                                    <p>Cliente :  {iten.nome_cliente}</p>
-                                    <p>WhatsApp Cliente : </p> 
-                                    <a target="_blank"
-                                    rel='noreferrer'  
-                                    href={whatsapp}
-                                    className="LKWhatsapp">{iten.contato_cliente}</a>
-                                    <br/>
-                                    <br/>
-                                    <p> Funcionário : {iten.nome_completo}</p>
-                                    <p>Serviços :  {iten.servico}</p>
-                                    <p>Observação : {iten.obs}
-                                    </p>
-                                    <br/>
-                                    <p className="UnderLine">Valro Serviço : R$ {iten.preco.toFixed(2)}</p><br/>
-                                    <div className="DivStatusA">
-                                        <button className="BtnStatus" onClick={Cancelar}>Cancelar</button>
-                                        <button className="BtnStatus" onClick={Finalizar}>finalizado</button>
+                                    <div className="Relogio">
+                                        <img className="imgRelogio" src={Relogio} />
+                                        <p>{inicioFormatado} <br/> {fimFormatado}</p>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Perfil} />
+                                        <p><br/>  {iten.nome_cliente}</p>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Whats} />
+                                        <br/>
+                                        <a target="_blank"
+                                            rel='noreferrer'  
+                                            href={whatsapp} 
+                                            className="LKWhatsapp">{iten.contato_cliente} .
+                                            </a>
+                                    </div>
+                                    <div className="perfilCliente">
+                                        <img className="imgRelogio" src={Servico} />
+                                        <p className="LKWhatsapp" > {iten.servico}</p>
+                                    </div>
+                                    <div id="OBS">
+                                        <div id="TitleOBS">
+                                            <p>Observação</p>
+                                        </div>
+                                        <p> {iten.obs}
+                                        </p>
+                                    </div>
+                                    <div className="Relogio">
+                                        <img className="imgRelogio" src={Cash} />
+                                        <p className="LKWhatsapp"> R${iten.preco.toFixed(2)}</p><br/>
                                     </div>
                                 </li>
+                                <div className="D">
+                                    <button className="Bt" onClick={Cancelar}>Cancelar</button>
+                                    <button className="Bt" onClick={Finalizar}>finalizado</button>
+                                </div>
                             </ul>
                             
                         );

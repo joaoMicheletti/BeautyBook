@@ -67,7 +67,7 @@ export default function LoginSalao(){
                     } else {
                         //logado como funcionário;
                         //encaminar para painel do funcionário;
-                        localStorage.setItem('cpf_funcionario', data.cpf_funcionario);
+                        localStorage.setItem('cpf_funcionario', data.data.cpf_funcionario);
                         alert("logado com sucesso");
                         Hystory('/painelfuncionario');
                     };
