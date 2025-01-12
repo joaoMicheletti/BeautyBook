@@ -93,7 +93,17 @@ export default function Pendente(){
             var ano = dataAtual.getFullYear();
             //criando strings do jeito que é esperado na api para as datas de inicio e de fim de plano;
             var dataAtualString = dia+'/'+mes+'/'+ano;
-            var dataVencimentoPlano = dia+'/'+mesvenc+'/'+ano;
+            var dataVencimentoPlano = 0
+            if(Response.data.description === 'plano individual Anoal'){
+                var anoPlus = ano + 1 ;
+                dataVencimentoPlano = dia+'/'+mesvenc+'/'+anoPlus;
+            } else if(Response.data.description === 'plano personalizado'){
+                dataVencimentoPlano = dia+'/'+mesvenc+'/'+ano;
+            } else if(Response.data.description === 'plano personalizado Anoal'){
+                var anoPlus = ano + 1 ;
+                dataVencimentoPlano = dia+'/'+mesvenc+'/'+anoPlus;
+            }
+            
             var cpf_Salao = localStorage.getItem('cpf_salao'); 
             //obj a ser enviado a api;
             var limite = 0;
@@ -101,8 +111,8 @@ export default function Pendente(){
             if(Response.data.description === 'plano personalizado'){
                 limite = localStorage.getItem('quntidadee');
                 console.log('yes'+limite)
-                // verificaçoes essenciais para os planos anoasis 
-                //ajustar data de termino de plan
+            } else if(Response.data.description === 'plano personalizado Anoal') {
+                limite = localStorage.getItem('quntidadee');
             }
             const Data = {
                 "cpf_salao": cpf_Salao,

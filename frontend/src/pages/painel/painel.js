@@ -27,12 +27,13 @@ export default function Painel(){
         dia, mes, ano, cpf_salao
     };
     Api.post('/assinatura', {cpf_salao}).then((Response) => {
-        if(Response.data === false){
+        console.log("ai ai ai ai ", Response)
+        if(Response.data.res === 'Seus dias de acesso livre a plataforma acabaram, contrate um plano.'){
             alert('Seus dias de acesso livre a plataforma acabaram, contrate um plano.');
             History('/planos')
-        } else if(Response.data === true){
-            console.log(Response.data);
-        } else if(Response.data === null){
+        } else if(Response.data.res === true){
+            console.log(Response.data.res);
+        } else if(Response.data.res === 'null'){
             alert('Seu plano encontra-se "Expirado", regularize para ter acesso a plataforma.')
             History('/planos')
         } else {
