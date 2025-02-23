@@ -1,17 +1,8 @@
-#DivAganda{ 
-    background-color: transparent;
-}
-#Agenda{
-    background-color: transparent;
-    
-    font-size: 40px;
-}
-
 #SectionServicosSalao{
     margin-top: 10px;
-    width: 100%;
+    width: 80%;
+    margin-left: 20%;
     height: auto;
-    background-color: #ffffff;
 }
 #TitleServicos {
     color: black;

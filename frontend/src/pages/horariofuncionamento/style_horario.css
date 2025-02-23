@@ -1,8 +1,6 @@
-#DivAganda{
-    background-color: transparent;
-}
-#DivServicos {
-    background-color: transparent;
+#SectionHorarios {
+    width: 80%;
+    margin-left: 20%;
 }
 #TitleHorarios {
     font-family: Georgia, 'Times New Roman', Times, serif;

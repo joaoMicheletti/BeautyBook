@@ -1,19 +1,10 @@
-#DivAganda{
-    background-color: transparent;
+#SectionAjustes {
+    width: 80%;
+    margin-left: 20%;
 }
-
-#DivServicos {
-    background-color: transparent;
-}
-
-#DivFuncionarios{
-    background-color: transparent;
-}
-
-
 #TitleAjustes {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black;
+    color: rgb(245, 0, 0);
     text-align: center;
     text-decoration: underline;
 }

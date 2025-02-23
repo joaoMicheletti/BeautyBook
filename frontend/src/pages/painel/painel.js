@@ -2,15 +2,20 @@ import React, {useEffect, useState}from "react";
 import Api from "../../services/api";
 import {useNavigate} from 'react-router-dom'
 import './style.css';
-import {FcCalendar, FcServices, FcAlarmClock, FcInvite, FcSettings} from 'react-icons/fc';
-import {GrUserWorker} from 'react-icons/gr';
-import{FiLogOut} from 'react-icons/fi';
 import Relogio from '../assets/relogio.png';
 import Perfil from '../assets/perfil.png';
 import Whats from '../assets/whats.png';
 import Servico from '../assets/servico.png';
 import Cash  from '../assets/cash.png';
 import Status from '../assets/status.png';
+import { FaCalendar } from "react-icons/fa";
+import { IoIosPeople } from "react-icons/io";
+import { MdOutlineMiscellaneousServices } from "react-icons/md";
+import { FaClock } from "react-icons/fa";
+import { IoSend } from "react-icons/io5";
+import { IoSettings } from "react-icons/io5";
+import { ImExit } from "react-icons/im";
+
 
 export default function Painel(){
     const History = useNavigate();
@@ -124,38 +129,42 @@ export default function Painel(){
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{
                 return(
-                    <header key={iten.id} id="HeaderSalao">
-                        <img id="LogoSalao" src={Url + iten.logo_salao} alt="LOgoSalão"/>
-                        <h1 id="TitleSalao" >{iten.nome_salao}</h1>
+                    <header key={iten.id} id="HeadePainel">
+                        <div id="UsserHead">
+                            <img id="LogoSalaoPainle" src={Url + iten.logo_salao} alt="LOgoSalão"/>
+                        </div>
+                        <div className="LinksPage" id="LKpainel">
+                            <FaCalendar color="#5e5e74" size={30} />
+                            <a href="/painel">Agenda</a>
+                        </div>
+                        <div className="LinksPage">
+                            <MdOutlineMiscellaneousServices color="#5e5e74" size={30} />
+                            <a href="/servicos">Serviços</a>
+                        </div>
+                        <div className="LinksPage">
+                            <IoIosPeople color='#5e5e74' size={30} />
+                            <a href="/funcionarios">Funcionários</a>
+                        </div>
+                        <div className="LinksPage">
+                        
+                            <FaClock  color='#5e5e74' size={30} />
+                            <a href="/funcionamento">Horários</a>
+                        </div>
+                        <div className="LinksPage">
+                            <IoSend color='#5e5e74' size={30} />
+                            <a href="/convidarcliente">Indique</a>
+                        </div>
+                        <div className="LinksPage">
+                            <IoSettings color="#5e5e74" size={30}/>
+                            <a href="/ajustes">Ajustes</a>
+                        </div>
+                        <div className="LinksPage">
+                            <ImExit color="#5e5e74" size={30} />
+                            <a onClick={Exit}>Sair</a>
+                        </div>
                     </header>
                 );
             })}
-            
-            <hr/>
-            <div id="ButtonsMenuSalao">
-                <div  id='DivAganda' className="DivMenu" style={{backgroundColor: "white"}}>
-                    <a id='Agendaa' className="BtnMenu" href="/painel"><FcCalendar/></a>
-                </div>
-                <div className="DivMenu">
-                    <a id="Services" className="BtnMenu" href="/servicos"><FcServices/></a>                    
-                </div>
-                
-                <div className="DivMenu">
-                    <a id="Funcionarios" className="BtnMenu" href="/funcionarios"><GrUserWorker/></a>
-                </div>
-                <div className="DivMenu">
-                    <a id="Horarios" className="BtnMenu" href="/funcionamento"><FcAlarmClock/></a>
-                </div>
-                <div className="DivMenu">
-                    <a id="ConvidarCliente" className="BtnMenu" href="/convidarcliente"><FcInvite/></a>                   
-                </div>
-                <div className="DivMenu">
-                    <a id="Ajustes" className="BtnMenu" href="/ajustes"><FcSettings/></a>                    
-                </div>
-                <div className="DivMenu">
-                    <button  onClick={Exit} id='Agenda' className="Btnexit" href="/painel"><FiLogOut/></button>                    
-                </div>
-            </div>
             <section id="SectionAgendaSalaoPainel">
                 <br/>
                 <div id="ConteinerAgendaPainel">

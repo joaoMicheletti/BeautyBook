@@ -1,11 +1,13 @@
-#DivAganda{
-    background-color: transparent;
-}
 #TitleFuncionarios {
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: black;
     text-align: center;
     text-decoration: underline;
+}
+#SectionFuncionariosSalao {
+    width: 80%;
+    margin-left: 20%;
+    height: auto;
 }
 #FormFuncionarios{
     text-align: center;

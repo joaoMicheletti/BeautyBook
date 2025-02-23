@@ -1,26 +1,14 @@
-#DivAganda{
-    background-color: transparent;
+#SectionConvidar {
+    width: 80%;
+    margin-left: 20%;
 }
-#Agenda{
-    font-size: 45px;
-}
-.Convidar {
-    height: 100vh;
-}
-#DivServicos {
-    background-color: transparent;
-}
-
-#DivFuncionarios{
-    background-color: transparent;
-}
-
 #TitleLinkAgendamento {
-    color: black;
+    color: rgb(253, 6, 6);
     text-align: center;
     text-decoration: underline;
 }
 #InfoLink{
+    background-color: aqua;
     width: 80%;
     margin-left: 10%;
 }

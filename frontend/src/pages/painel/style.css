@@ -5,65 +5,84 @@
     box-sizing: border-box;
 }
 #PainelSalao {
-    background-color: #fafafa;
-}
-#HeaderSalao {
-    background-color: #000000;
+    height: auto;
     display: flex;
-    width: 100%;
-    height: 105px;
-}
-#LogoSalao{
-    width: 100px;
-    height: 90px;
-    margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 30px;
-}
-#TitleAgenda {
-    color: rgb(255, 255, 255);
-}
-#TitleSalao{ 
-    color: white;
-    font-size: 20px;
-}
-hr{
-    width: 100%;
-    color: black;
-    border: 1px solid;
-    margin-bottom: 5px;
-}
-#ButtonsMenuSalao {
-    background-color: rgb(213, 218, 218);
-    display: flex;
-    width: 100%;
-    height: 50px;
+    flex-direction: row;
 }
 
-#Agendaa{
-    font-size: 40px;
+
+
+
+#HeadePainel {
+    border-radius: 0px 15px 15px 0px;
+    background-color: #0d0e23;
+    width: 20%;
+    height: 100vh;
+    position: fixed ;
 }
-.DivMenu{
-    height: 50px;
+
+#UsserHead {
+    margin-top: 10px;
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}
+#UsserHead #LogoSalaoPainle {
+    padding: 10PX;
     width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }
-#Services {
-    font-size: 40px;
+#HeadePainel .LinksPage {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+    border-radius: 5px;
+    height: 40px;
+    background-color: #24253a;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
 }
-#Funcionarios {
-    font-size: 40px;
+#HeadePainel .LinksPage a {
+    margin-top: 5px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
 }
-#Horarios {
-    font-size: 40px;
+#HeadePainel .LinksPage:hover{
+    width: 85%;
+    margin-left: 7%;
+    
 }
-#ConvidarCliente {
-    font-size: 40px;
+#HeadePainel #LKpainel {
+    background-color: #5741d1;
 }
-#Ajustes {
-    font-size: 40px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#TitleAgenda {
+    color: rgb(41, 173, 41);
 }
 #SectionAgendaSalaoPainel{
-    width: 100%;
+    width: 80%;
+    margin-left: 20%;
     height: auto;
     background-color: #ffffff;
 }
