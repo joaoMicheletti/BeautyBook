@@ -77,22 +77,21 @@
 
 
 
-#TitleAgenda {
-    color: rgb(41, 173, 41);
-}
+
 #SectionAgendaSalaoPainel{
     width: 80%;
     margin-left: 20%;
     height: auto;
-    background-color: #ffffff;
 }
 
 #ConteinerAgendaPainel {
-    width: 60%;
-    margin-left: 20%;
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
 }
 #DiaMesAno {
-    width: 80%;
+    width: 50%;
     height: 35px;
     margin-left: 10%;
     display: flex;
@@ -102,9 +101,18 @@
     width: 300px;
     height: 35px;
     text-align: center;
-    border: 1px solid black;
+    border: none;
     border-radius: 5px;
-    margin-right: 5px;
+    background-color: #5e5e74;
+    color: white;
+    cursor: pointer;
+}
+#DiaMesAno #BtnAgenda {
+    width: 150px;
+    background-color: #5e5e74;
+    border-radius: 10px;
+    border: none;
+    color: white;
 }
 #Agendados {
     display: flex;
@@ -113,7 +121,6 @@
 }
 
 #Agendados ul {
-    background-color: #0b395477;
     border: black solid 1px;
     border-radius: 10px;
     list-style: none;
@@ -122,10 +129,20 @@
     margin-bottom: 15px;
     text-align: center;
 }
+#Agendados ul li {
+    border-radius: 10px 10px 0px 0px;
+    background-color: #0d0e22;
+}
+#Buscados ul li {
+    border-radius: 10px 10px 0px 0px;
+    background-color: #0d0e22;
+}#Buscados ul li .LKWhatsapp {
+    font-size: 12px;
+}
 
 #DivHeaderAgenda{
     height: 60px;
-    background-color: #000000;
+    background-color: #24253a; 
     border-radius: 10px 10px 0px 0px;
     text-decoration: none;
     color: white;
@@ -136,47 +153,53 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #0d0e22;
+    border-radius: 0px 0px 10px 10px;
 }
 .D .Bt {
     width: 80%;
     margin-left: 10%;
     margin-bottom: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
     height: 30px;
     font-weight: 600;
     color: #000000;
-    background-color: #0b395477;
+    background-color: #24253a;
+    color: white;
 }
 
 .btnValor {
     height: 35px;
-    width: 100px;
+    width: 80%;
     border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #5e5e74;
+    color: white;
+    cursor: pointer;
 }
 #Agendados ul li p {
     line-height: 25px;
     font-weight: 600;
 }
-.UnderLine{
-    text-decoration: underline;
-}
 
 #Relatorio {
+    color: white;
+    text-align: center;
     margin-top: 20px;
     margin-left: 10%;
     width: 80%;
 }
 #Today {
-    width: 80%;
-    margin-left: 10%;
+    width: 100%;
     display: flex;
 }
 #Today div {
-    width: 40%;
-    margin: 5%;
+    width: 50%;
 }
-
-
+#Today div p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
 @media(max-width: 800px){
     #Agendados ul {
@@ -192,15 +215,21 @@
     }
 }
 .Relogio {
+    color: white;
     width: 90%;
     margin-left: 5%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.Relogio img {
+    margin-top: 0px;
 }
 .imgRelogio {
-    width: 50px;
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
     margin-left: 10px;
 }
 .Relogio p {
@@ -209,7 +238,7 @@
 .perfilCliente{
     width: 90%;
     border-radius: 10px;
-    background-color: #0b395477;
+    background-color: #24253a;
     margin-left: 5%;
     display: flex;
     flex-direction: row;
@@ -217,10 +246,15 @@
     margin-bottom: 10px;
 }
 .perfilCliente p {
-    margin-right: 5px;
+    margin-right: 10px;
+    color: white;
+    font-size: 12px;
 }
 
 .LKWhatsapp {
+    text-decoration: none;
+    color: white;
+    margin-right: 5px;
     padding-top: 20px;
     margin-left: 10px;
 }
@@ -228,9 +262,11 @@
     border-radius: 10px 10px 0px 0px;
     width: 90%;
     height: auto;
-    background-color: #fafafa;
+    background-color: #24253a;
     margin-left: 5%;
     margin-bottom: 10px;
+    color: white;
+    font-size: 10px;
 }
 #TitleOBS {
     border-radius: 10px 10px 0px 0px;
@@ -238,5 +274,6 @@
     height: 20px;
     background-color: #000000;
     color: white;
+    font-size: 12px;
     margin-bottom: 10px;
 }

@@ -7,9 +7,6 @@
 h2 {
     margin-bottom: 20px;
 }
-#ConteinerAgendamento {
-    background-color: #ffffff;
-}
 #HeaderAgendamento {
     background-color: #000000;
     width: 100%;
@@ -118,7 +115,6 @@ h2 {
     margin-left: 10%;
     height: 35px;
     margin-bottom: 10px;
-    background-color: rgb(214, 214, 214);
 }
 #BtnFormCliente {
     border:  solid black 1px;

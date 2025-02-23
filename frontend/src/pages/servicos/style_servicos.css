@@ -5,10 +5,11 @@
     height: auto;
 }
 #TitleServicos {
-    color: black;
+    color: white;
     margin-top: 9px;
     text-align: center;
-    text-decoration: underline;
+    font-weight: 900;
+    text-decoration: none;
 }
 #FormServicos{
     display: flex;
@@ -23,10 +24,11 @@
     font-size: 19px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 10px;
+    color: white;
 }
 #TipodeServico {
+    background-color: #5e5e74;
     border-radius: 5px;
-    border: solid black 1px;
     width: 80%;
     margin-left: 10%;
     height: 35px;
@@ -37,24 +39,27 @@
     font-size: 19px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 10px;
+    color: white;
 }
 #PrecoServico {
     border-radius: 5px;
-    border: solid black 1px;
     width: 80%;
     margin-left: 10%;
     height: 35px;
     margin-bottom: 10px;
+    background-color: #5e5e74;
 }
 #BtnServicos {
+    color: white;
     text-align: center;
     cursor: pointer;
-    background-color: #0b395477;
+    background-color: #5e5e74;
     width: 40%;
     margin-left: 30%;
     height: 35px;
     border-radius: 5px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 #BtnServicos:hover {
     background-color: rgb(80, 79, 78);
@@ -68,15 +73,17 @@
     }
 }
 #ServicosCadastrados {
-    
     width: 100%;
 }
 #ServicosCadastrados ul {
+    color: white;
+    background-color: #5e5e74;
+    padding: 10px;
     width: 80%;
+    height: 40px;
     margin-left: 10%;
     margin-top: 20px;
-    border: solid black 1px;
-    box-shadow: 1px 2px 5px 1px black;
+    border-radius: 5px;
 }
 #ServicosCadastrados ul li {
     display: flex;
@@ -87,10 +94,14 @@
     font-weight: 600;
 }
 #BtnEditar {
+    margin-top: -5px;
     cursor: pointer;
     width: 80px;
     border-radius: 3px;
-    background-color: #0b395477;
+    background-color: #0d0e23;
+    color: white;
+    font-size: 12px;
+    height: 30px;
 }
 #BtnEditar:hover{
     background-color: rgb(80, 79, 78);

@@ -69,10 +69,10 @@ hr{
     width: 100%;
 }
 #Buscados ul {
-    background-color: rgb(197, 202, 202);
     border: black solid 1px;
     margin-bottom: 15px;
     text-align: center;
+    background-color: #0d0e22
 
 }
 #Agendados ul {

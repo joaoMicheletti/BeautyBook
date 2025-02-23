@@ -3,12 +3,11 @@
     margin-left: 20%;
 }
 #TitleLinkAgendamento {
-    color: rgb(253, 6, 6);
+    color: white;
+    text-decoration: none;
     text-align: center;
-    text-decoration: underline;
 }
 #InfoLink{
-    background-color: aqua;
     width: 80%;
     margin-left: 10%;
 }
@@ -16,6 +15,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 600;
     line-height: 30px;
+    color: white;
 }
 #CodigoIndicação {
     width: 80%;
@@ -23,9 +23,10 @@
 }
 #TitleCodigoIndicação {
     text-align: center;
-    text-decoration: underline;
+    color: white;
 }
 #pCodigoIndicação {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 600;
+    color: white;
 }

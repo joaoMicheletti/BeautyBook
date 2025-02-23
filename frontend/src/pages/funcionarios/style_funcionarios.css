@@ -1,8 +1,9 @@
 #TitleFuncionarios {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black;
+    color: white;
     text-align: center;
-    text-decoration: underline;
+    text-decoration: none;
+    font-weight: 900;
 }
 #SectionFuncionariosSalao {
     width: 80%;
@@ -21,10 +22,11 @@
     font-size: 19px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 10px;
+    color: white;
 }
 #NomeFuncionario {
     border-radius: 5px;
-    border: solid black 1px;
+    background-color: #5e5e74;
     width: 80%;
     height: 35px;
     margin-left: 10%;
@@ -34,10 +36,11 @@
     font-size: 19px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 10px;
+    color: white;
 }
 #CpfFuncionarios {
     border-radius: 5px;
-    border: solid black 1px;
+    background-color: #5e5e74;
     width: 80%;
     height: 35px;
     margin-left: 10%;
@@ -47,10 +50,11 @@
     font-size: 19px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom:  10px;
+    color: white;
 }
 #SenhaFuncionarios {
     border-radius: 5px;
-    border: solid black 1px;
+    background-color: #5e5e74;
     width: 80%;
     height: 35px;
     margin-left: 10%;
@@ -58,7 +62,7 @@
 }
 #SenhaFuncionarioss{
     border-radius: 5px;
-    border: solid black 1px;
+    background-color: #5e5e74;
     width: 80%;
     height: 35px;
     margin-left: 10%;
@@ -69,21 +73,21 @@
     width: 40%;
     margin-left: 30%;
     height: 35px;
-    border-radius: 5px;
     margin-bottom: 10px;
-    background-color: #0b395477;
-}
-#BtnFunc:hover {
-    background-color: rgb(70, 73, 72);
+    border-radius: 5px;
+    background-color: #5e5e74;
+    color: white;
+    font-weight: 900;
 }
 
 #FuncionariosCadastrados {
     width: 100%;
 }
 #FuncionariosCadastrados ul {
-    margin-top: 20px;
-    border: solid black 1px;
-    box-shadow: 3PX 3PX 3PX black;
+    color: white;
+    margin-top: 20px;   
+    border-radius: 5px;
+    background-color: #5e5e74;
     width: 80%;
     margin-left: 10%;
 }
@@ -97,18 +101,32 @@
 }
 #imgFuncionarios {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 #imgFuncionarios img {
     padding-top: 10px;
-    width: 100px;
+    width: 50px;
     border-radius: 100%;
+}
+.BtnImg {
+    background-color: #0d0e23;
+    border: none;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 #imgFuncionarios button {
     width: 80%;
+    margin-left: 10%;
     height: 35px;
     border-radius: 5px;
     margin-bottom: 20px;
-    background-color: #0b395477;
+    background-color: #0d0e23;
+    color: white;
 }
 #infoFincionario {
     text-align: center;
@@ -126,7 +144,7 @@
     height: 35px;
     border-radius: 5px;
     margin-bottom: 20px;
-    background-color: #0b395477;
+    background-color: #0d0e23;
 }
 
 @media(max-width: 800px){
@@ -143,22 +161,17 @@
     font-weight: 600;
 }
 #BtnVerAgenda {
-    background-color: rgb(228, 230, 231);
+    background-color: #5e5e74;  
     cursor: pointer;
     width: 80px;
     border-radius: 5px;
+    color: white;
 
 }
 #BtnExcluir {
     cursor: pointer;
     width: 80px;
     border-radius: 5px;
-    background-color: rgb(228, 230, 231);
-}
-#BtnExcluir:hover{
-    background-color: rgb(63, 62, 61);
-}
-#BtnVerAgenda:hover{
-    background-color: rgb(63, 62, 61);
-
+    background-color: #5e5e74;
+    color: white;
 }

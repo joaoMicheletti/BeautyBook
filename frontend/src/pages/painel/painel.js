@@ -2,7 +2,6 @@ import React, {useEffect, useState}from "react";
 import Api from "../../services/api";
 import {useNavigate} from 'react-router-dom'
 import './style.css';
-import Relogio from '../assets/relogio.png';
 import Perfil from '../assets/perfil.png';
 import Whats from '../assets/whats.png';
 import Servico from '../assets/servico.png';
@@ -15,6 +14,7 @@ import { FaClock } from "react-icons/fa";
 import { IoSend } from "react-icons/io5";
 import { IoSettings } from "react-icons/io5";
 import { ImExit } from "react-icons/im";
+import { IoMdNotifications } from "react-icons/io";
 
 
 export default function Painel(){
@@ -172,6 +172,8 @@ export default function Painel(){
                         <input id="SelectMes" type="date"></input>
                         <button id="BtnAgenda" onClick={Buscar}>Buscar</button>
                     </div>
+                    <IoMdNotifications color="#5e5e74" size={30} />
+
                 </div>
                 <br/>
                 <hr/>
@@ -244,8 +246,8 @@ export default function Painel(){
                                     </div>
                                     <br/>
                                     <div className="Relogio">
-                                        <img className="imgRelogio" src={Relogio} />
-                                        <p>{inicioFormatado} <br/> {fimFormatado}</p>
+                                        <FaClock  color='#5e5e74' size={30} />
+                                        <p>{inicioFormatado} - {fimFormatado}</p>
                                     </div>
                                     <div className="perfilCliente">
                                         <img className="imgRelogio" src={Perfil} />
@@ -257,7 +259,7 @@ export default function Painel(){
                                         <a target="_blank"
                                             rel='noreferrer'  
                                             href={whatsapp} 
-                                            className="LKWhatsapp">{iten.contato_cliente} .
+                                            className="LKWhatsapp">{iten.contato_cliente} 
                                             </a>
                                     </div>
                                     <div className="perfilCliente">
@@ -326,7 +328,7 @@ export default function Painel(){
                                     </div>
                                     <br/>
                                     <div className="Relogio">
-                                        <img className="imgRelogio" src={Relogio} />
+                                        <FaClock  color='#5e5e74' size={30} />
                                         <p>{inicioFormatado} <br/> {fimFormatado}</p>
                                     </div>
                                     <div className="perfilCliente">
@@ -339,7 +341,7 @@ export default function Painel(){
                                         <a target="_blank"
                                             rel='noreferrer'  
                                             href={whatsapp} 
-                                            className="LKWhatsapp">{iten.contato_cliente} .
+                                            className="LKWhatsapp">{iten.contato_cliente} 
                                             </a>
                                     </div>
                                     <div className="perfilCliente">

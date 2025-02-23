@@ -1,6 +1,4 @@
-#CpanelContainer{
-    background-color: #bfd7ea;
-}
+
 #CpanelHeader{
     display: flex;
     flex-flow: row wrap;

@@ -212,9 +212,8 @@ export default function HorarioDeFuncionamento(){
                         <ul key={iten.id}>
                             <li>
                                 <p className="DiaSemana">{iten.dia}</p>
-                                <p className="DiaSemana"> - Das: </p>
                                 <p className="DiaSemana">{iten.inicio_trabalhos}</p>
-                                <p className="DiaSemana">às:</p>
+                                <p className="DiaSemana">às</p>
                                 <p className="DiaSemana">{iten.fim_trabalhos}</p>
                                 <button
                                 type="submit"
