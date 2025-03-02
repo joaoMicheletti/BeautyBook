@@ -56,7 +56,7 @@ export default function Servicos(){
         } else {
             Api.post('/servicos', Data).then((Response) =>{
                 console.log(Response.data);
-                alert('Serviço criado com sucesso. Atualiza a pagina');
+                window.location.reload();
             }).catch((erro) =>{
                 alert('Erro ao criar um novo serviço.');
             });

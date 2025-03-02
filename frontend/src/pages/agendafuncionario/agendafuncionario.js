@@ -206,24 +206,24 @@ export default function AgendaFuncionario(){
                 <h1 id='H1NomeSalao'>{localStorage.getItem('nome_salao')}</h1>
             </header>
             <div id='DivAgendamento'>
-            <h2>Selecione uma data</h2>
+            <h2>Data e Horário</h2>
                 <div id='DivCalendario'>
                     <input 
-                    id='Calendario' 
+                    className='Calendario' 
                     type='date'
                     onChange={(e) => setDatastring(e.target.value)}></input>
                     <br/>
-                    <p>Selecione a Hora.</p>
                     <input 
                     type="time" id="hora" name="hora"
                     onChange={(e) => setHora(e.target.value)}></input>
                 </div>
                 <br/>
                 <br/>
-                <div id='Horarios'>
-                    <p id='PHorariosDisponiveis'>
-                        Horários preenchidos de Hoje.
+                <p id='PHorariosDisponiveis'>
+                        Agendados de Hoje
                     </p>
+                <div id='Horarios'>
+                    
                     <br/>
                     <p id='AlertaHorarios'></p>
                     {ListaHorarios.map((iten, key) =>{
@@ -246,7 +246,7 @@ export default function AgendaFuncionario(){
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p>{iten.servico} Inicio - {inicioFormatado} - termino {fimFormatado} </p>
+                                    <p> Inicio - {inicioFormatado} <br/> termino {fimFormatado} </p>
                                 </li>
                             </ul>
                         );
@@ -255,8 +255,9 @@ export default function AgendaFuncionario(){
                 <br/>
                 <hr/>
                 <br/>
+                <h2>Selecione um Serviço</h2>
                 <div id='Serviços'>
-                    <h2>Selecione um Serviço</h2>
+                    
                     {Listarservicos.map((iten, key) =>{
                         const SelectServico = () =>{
                             setPreco(iten.preco);
@@ -267,9 +268,9 @@ export default function AgendaFuncionario(){
                             <ul key={iten.id}>
                                 <li>
                                     <p className='TipoServiço'>
-                                        {iten.servico} : R$ {iten.preco.toFixed(2)}
+                                        {iten.servico} <br/> R$ {iten.preco.toFixed(2)}
                                     </p>
-                                    <input type='button' onClick={SelectServico} value='Selecionar'/>
+                                    <input id='BTNC' type='button' onClick={SelectServico} value='Selecionar'/>
                                 </li>
                             </ul>
                         );

@@ -10,7 +10,7 @@ export default function Home(){
             <header className="header">
             <h1>Flowly</h1>
                 <nav className="menu">
-                    <Link className='LK' to="/init">Agendar</Link>                    
+                    <Link className='LK' to="/init">Parceiros</Link>                    
                     <Link className='LK' to="/registrosalao">Registrar-se</Link>
                     <Link className='LK' to="/loginsalao">Login</Link>                    
                 </nav>

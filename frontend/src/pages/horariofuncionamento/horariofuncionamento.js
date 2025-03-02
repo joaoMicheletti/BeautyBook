@@ -70,7 +70,7 @@ export default function HorarioDeFuncionamento(){
             if(Response.data.length === 0){
                 alert('Erro ao registra horario');
             } else {
-                alert('Registrado com Sucesso!');
+                window.location.reload();
             }
             }).catch((Erro) =>{
                 alert('Erro ao Rgistrar Horário.');
@@ -181,7 +181,7 @@ export default function HorarioDeFuncionamento(){
                         } else {
                             await Api.put('/horariofuncionamento', Data).then((response) => {
                                 if(response.data === 'Atualizado'){
-                                    alert('Horáriode funcionamento Atualizado!');
+                                    window.location.reload();
                                 }else {
                                     alert('erro ao atulizar o Horário')
                                 }
@@ -199,7 +199,7 @@ export default function HorarioDeFuncionamento(){
                         };
                         Api.put('/deletarhorario', Data).then((Response) => {
                             if(Response.data === 'Deletado'){
-                                alert('Deletado com sucesso.');
+                                window.location.reload();
                             } else {
                                 alert('Erro ao Deletar.');
                             }

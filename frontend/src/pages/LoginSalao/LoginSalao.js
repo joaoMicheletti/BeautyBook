@@ -80,7 +80,7 @@ export default function LoginSalao(){
     return(
         <div id="LoginSalao">
             <header id="HeaderLoginSalao">
-                <h4>HiddenBeauty</h4>
+                <h4>Flowly</h4>
                 <ul>
                     <a id="Link" href="/">Home</a>
                     <a id="Link" href="/registrosalao">Registrar-se</a> 
@@ -92,7 +92,7 @@ export default function LoginSalao(){
                 <form id="Form_Login" onSubmit={Logar}>
                     <h1>Login</h1>
                     <p id="PLoginSalao">
-                        CPF salão / Funcionário
+                        Usuário
                     </p>
                     <input
                     className="InpLoginSalao"

@@ -55,11 +55,11 @@ export default function Init(){
         <div id="HomeConteinerInit">
             <header id="HeaderHomeInit">
                 <br/>
-                <h1 id="hh1">HiddenBeauty</h1>
+                <h1 id="hh1">Flowly</h1>
                 <ul>
                     <li><a id="A" href="/">Home</a></li>
-                    <li><a id="A" href="/loginsalao">Login_salão</a></li>
-                    <li><a id="A" href="/registrosalao">Registrar_Salão</a></li>
+                    <li><a id="A" href="/loginsalao">Login</a></li>
+                    <li><a id="A" href="/registrosalao">Registrar-se</a></li>
                 </ul>
             </header>
             <h2 id="H">Conheça nossos parceiros</h2>
@@ -97,13 +97,7 @@ export default function Init(){
                                         {iten.nome_salao}
                                     </h3>
                                     <p className="PConteudohome">
-                                        {iten.endereco}-{iten.cep}
-                                    </p>
-                                    <p className="PConteudohome">
-                                        inicio das atividades - {iten.data_cadastro}
-                                    </p>
-                                    <p className="PConteudohome">
-                                        status - {iten.assinatura_status}
+                                        {iten.endereco} <br/>{iten.cep}
                                     </p>
                                     
                                 </li>
@@ -138,17 +132,7 @@ export default function Init(){
                             <li>
                                 <h3 className="PConteudohome">
                                     {iten.nome_salao}
-                                </h3>
-                                <p className="PConteudohome">
-                                    {iten.endereco}-{iten.cep}
-                                </p>
-                                <p className="PConteudohome">
-                                    inicio das atividades - {iten.data_cadastro}
-                                </p>
-                                <p className="PConteudohome">
-                                    status - {iten.assinatura_status}
-                                </p>
-                                
+                                </h3>                                
                             </li>
                         </ul>
                     );

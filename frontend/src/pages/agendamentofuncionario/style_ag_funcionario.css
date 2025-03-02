@@ -7,22 +7,22 @@
 }
 
 #HeaderAgFuncionario {
-    background-color: #0f0f0f;
+    background-color: #0f0f0f67;
     width: 100%;
-    height: 170px; 
+    height: 100px; 
     display: flex;
     justify-content: space-evenly;
-    box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
 }
 #HeaderAgFuncionario img {
-    width: 150px;
-    height: 150px;
+    width: 80px;
+    height: 80px;
     margin-top: 10px;
     margin-left: 10px;
+    border-radius: 10px;
 }
 #PHeaderNomeSalão {
     margin-top: 50px;
-    font-size: 19px;
+    font-size: 30px;
     font-weight: 600;
     color: white;
 }
@@ -36,11 +36,14 @@
     margin-left: 10%;
 }
 #ListFuncionarios ul {
+    border: none;
     margin-bottom: 15px;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
     height: auto;
-    border: solid 1px black;
-    box-shadow: 1px 3px 5px 2px black;
+    border-radius: 5px;
+    background-color:  #5e5e74;
+    color: white;
 }
 #ListFuncionarios ul li {
     list-style: none;
@@ -53,7 +56,7 @@
     margin-bottom: 5px;
     width: 100px;
     height: 100px;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 #PListFuncionarios {
     font-weight: 600;
@@ -64,8 +67,10 @@
     margin-top: 30px;
     cursor: pointer;
     width: 100px;
-    height: 35px;
-    border: solid black 1px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    background-color: #363649;
 }
 .BtnListFuncionarios:hover {
     opacity: 80%;

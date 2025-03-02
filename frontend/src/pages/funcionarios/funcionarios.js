@@ -78,7 +78,7 @@ export default function Funcionarios(){
                 } else if(Response.data === 'Seu Plano não permite cadastrar Funcionários'){
                     alert(Response.data);
                 } else {
-                    alert('Funcionário Registrado');
+                    window.location.reload();
                 }
             }).catch((Erro) => {
                 alert('Erro ao Registrar Funcionário');
@@ -201,8 +201,8 @@ export default function Funcionarios(){
                                     cpf_funcionario, cpf_salao
                                 };
                                 Api.post('/deletarfuncionario', Data).then((Response) =>{
-                                    alert('Deletado com sucesso.');
-                                    console.log(Response.data);
+                                    
+                                    window.location.reload();
                                 }).catch((erro) =>{
                                     alert('Erro ao deletar o Funcionário');
                                 })
@@ -228,7 +228,8 @@ export default function Funcionarios(){
                                     await Api.post('/logosalao', Data).then((Res) => {
                                         console.log(Res.data);
                                         if(Res.data.list > 0){
-                                            alert('imagem salva com sucesso, atualize a pagina!');
+                                            
+                                            window.location.reload();
                                         } else {
                                             alert('algo não saiu como esperado.');
                                         }

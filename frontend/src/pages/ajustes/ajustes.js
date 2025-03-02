@@ -65,7 +65,7 @@ export default function Ajustes(){
                 await Api.post('/logosalao', Data).then((Res) => {
                     console.log(Res.data);
                     if(Res.data.list > 0){
-                        alert('imagem salva com sucesso, atualize a pagina!');
+                        window.location.reload();
                     } else {
                         alert('algo não saiu como esperado.');
                     }
@@ -97,7 +97,7 @@ export default function Ajustes(){
             };
             await Api.post('/intervalo', Data).then((Response) => {
                 if(Response.data === 'Intervalo definido!'){
-                    alert(Response.data);
+                    window.location.reload();
                 } else {
                     alert('erro ao definir o intervalo');
                 };
@@ -134,7 +134,8 @@ export default function Ajustes(){
             alert('Defina o prazo para agendamentos futuros');
         } else {
             await Api.post('/agendamentoate ', Data).then((Response) => {
-                alert(Response.data);
+                //alert(Response.data);
+                window.location.reload();
             }).catch((Erro) => {
                 alert("Erro ao definir");
             });
@@ -377,33 +378,20 @@ export default function Ajustes(){
                             <h2 id="TitlePreferencias">Evitando Agendamentos encima da Hora</h2>
                             <br/>
                             <ul>
-                                <li>
-                                    <p className="PPreferecias">
-                                        Não será mostrado aos clientes Horários até :
-                                    </p>
-                                    <input
-                                    id="MinutosCima"
-                                    type="number"
-                                    placeholder={iten.agendamento_apos_hora_atual + '  minutos'}
-                                    onChange={(e) => setCimaHora(e.target.value)}></input>
-                                    <p className="PPreferecias">Após o horário atual.</p>
-                                    <button
-                                    type="submit"
-                                    id="DefinirCimaHora" onClick={Cimahora}>Definir</button>
-                                </li>
+                                
                             </ul>
                             <ul>
                                 <li>
                                     
                                     <p className="PPreferecias">
-                                    Permitir que os clientes gravem agendamentos para até daqui: 
+                                    Permitir agendamentos para até daqui: 
                                     </p>
                                     <input
                                     id="MinutosCima"
                                     type="number"
                                     placeholder={iten.permitir_agendamento_ate + '  dias'}
                                     onChange={(e) => SetPermitir(e.target.value)}></input>
-                                    <p className="PPreferecias">Após a Data atual.</p>
+                                    <p className="PPreferecias">Após a data atual.</p>
                                     <button
                                     type="submit"
                                     id="DefinirCimaHora" onClick={AgendamentoAte}>Definir</button>
@@ -516,8 +504,8 @@ export default function Ajustes(){
                             <div id="Plano">
                                 <h2 id="TitlePlanos">Planos</h2>
                                 <br/>
-                                <p id="TextoPlano">Para alteraçoẽs no plano entre en contato com nosso supote 24 Horas</p>
-                                <p>Ver os Planos : </p>
+                                <p id="TextoPlano">Para alteração no plano, entre em contato com nosso supote 24 Horas</p>
+                                <p>Veja nossos planos : </p>
                                 <br/>
                                 <a href="/planos">Clik aqui</a>
                                 <br/>

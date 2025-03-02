@@ -267,7 +267,6 @@ export default function Painel(){
                         
                     </div>
                     <div className="eixoXCalendario">{renderDays()}</div>
-                    {selectedDate && <p>Data Selecionada: {selectedDate.toLocaleDateString()}</p>}
                 
                 </div>
                 <div id="Agendados">
