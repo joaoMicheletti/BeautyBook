@@ -64,7 +64,7 @@ export default function AgendaF(){
         };
     };
     return(
-        <div id="PainelSalao">
+        <div id="PainelSalaoo">
             <header id="HeaderSalao">
                 <a id="Link_AF" href="/painel">Voltar</a>
                 <h1 id="TitleSalao" >Agenda do funcionário</h1>
@@ -138,11 +138,6 @@ export default function AgendaF(){
                                         <img className="imgRelogio" src={Relogio} />
                                         <p>{inicioFormatado} <br/> {fimFormatado}</p>
                                     </div>
-                                    
-                                    <div className="perfilCliente">
-                                        <img className="imgRelogio" src={Perfil} />
-                                        <p><br/>  {iten.nome_cliente}</p>
-                                    </div>
                                     <div className="perfilCliente">
                                         <img className="imgRelogio" src={Whats} />
                                         <br/>
@@ -155,13 +150,6 @@ export default function AgendaF(){
                                     <div className="perfilCliente">
                                         <img className="imgRelogio" src={Servico} />
                                         <p className="LKWhatsapp" > {iten.servico}</p>
-                                    </div>
-                                    <div id="OBS">
-                                        <div id="TitleOBS">
-                                            <p>Observação</p>
-                                        </div>
-                                        <p> {iten.obs}
-                                        </p>
                                     </div>
                                     <div className="Relogio">
                                         <img className="imgRelogio" src={Cash} />
@@ -247,10 +235,6 @@ export default function AgendaF(){
                                     <div className="Relogio">
                                         <img className="imgRelogio" src={Relogio} />
                                         <p>{inicioFormatado} <br/> {fimFormatado}</p>
-                                    </div>
-                                    <div className="perfilCliente">
-                                        <img className="imgRelogio" src={Perfil} />
-                                        <p><br/>  {iten.nome_cliente}</p>
                                     </div>
                                     <div className="perfilCliente">
                                         <img className="imgRelogio" src={Whats} />

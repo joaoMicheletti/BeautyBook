@@ -50,7 +50,7 @@ export default function Painel(){
     function Buscar(){
         console.log('Click here!')
         // escondendo a div agendados
-        document.querySelector('#Agendados').style.display = 'none';
+        document.querySelector('#Calendario').style.display = 'none'; // ajustar para selector da agenda
         // mostrando a div Buscados 
         document.querySelector('#Buscados').style.display = 'flex';
         var inputData = document.querySelector('#SelectMes').value;
@@ -125,6 +125,74 @@ export default function Painel(){
             alert('Erro ao criar o relatório diario');
         })
     };
+    //calendario funcionalidades:
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [currentDate, setCurrentDate] = useState(new Date());
+    const getDaysInMonth = (year, month) => {
+        return new Date(year, month + 1, 0).getDate();
+    };
+    
+    const getFirstDayOfMonth = (year, month) => {
+        return new Date(year, month, 1).getDay();
+    };
+    
+    const goToPreviousMonth = () => {
+        setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
+    };
+    
+    const goToNextMonth = () => {
+        setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
+    };
+    const handleDayClick = (day) => {
+        const fullDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+        setSelectedDate(fullDate);
+        var dia = day;
+        var mes = currentDate.getMonth() + 1;
+        var ano = currentDate.getFullYear();
+        var Data = {dia, mes, ano, cpf_salao}
+        console.log("Data selecionada:", Data); // Aqui você pode executar qualquer ação necessária
+        Api.post('/buscasalao', Data).then((Response) => {
+            console.log(Response)
+            if(Response.data.res === 'nenhum agendamento encontrado.'){
+                alert(Response.data.res)
+            } else {
+                setBuscados(Response.data);
+                document.querySelector('#Calendario').style.display = 'none'; // ajustar para selector da agenda
+                // mostrando a div Buscados 
+                document.querySelector('#Buscados').style.display = 'flex';
+            };
+            
+        }).catch((Erro) => {
+            alert('Erro ao cominicar-se com o ');
+        });
+      };
+    const renderDays = () => {
+        const days = [];
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        const totalDays = getDaysInMonth(year, month);
+        const firstDay = getFirstDayOfMonth(year, month);
+        
+        for (let i = 0; i < firstDay; i++) {
+          days.push(<div key={`empty-${i}`} className="dia empty"></div>);
+        }
+        
+        for (let day = 1; day <= totalDays; day++) {
+            days.push(
+              <div 
+                key={day} 
+                className={`dia ${selectedDate && selectedDate.getDate() === day ? "selected" : ""}`} 
+                onClick={() => handleDayClick(day)}
+              >
+                <p>{day}</p>
+              </div>
+            );
+          }
+        
+        return days;
+    };
+    //escondendo elementos
+    
     return(
         <div id="PainelSalao">
             {infoSalao.map((iten, key) =>{
@@ -178,6 +246,30 @@ export default function Painel(){
                 <br/>
                 <hr/>
                 <br/>
+                <div id="Calendario">
+                    <div id="headerCalendario">
+                        <p id="TitleCalandario">
+                        {currentDate.toLocaleString("default", { month: "long" })} {currentDate.getFullYear()}
+                            </p>
+                        <div id="BtnHeadeCalandario">
+                            <button id="befor"onClick={goToPreviousMonth}>&lt;&lt;</button>
+                            <button id="Next" onClick={goToNextMonth}>&gt;&gt;</button>
+                        </div>
+                    </div>
+                    <div id="diaSemana">
+                        <p>Domingo</p>
+                        <p>Segunda-Feira</p>
+                        <p>Terça-Feira</p>
+                        <p>Quarta-Feira</p>
+                        <p>Quinta-Feira</p>
+                        <p>Sexta-Feira</p>
+                        <p>Sábado</p>
+                        
+                    </div>
+                    <div className="eixoXCalendario">{renderDays()}</div>
+                    {selectedDate && <p>Data Selecionada: {selectedDate.toLocaleDateString()}</p>}
+                
+                </div>
                 <div id="Agendados">
                     {Agendados.map((iten, key) =>{
                         //funções de cancelar e finalizar;
@@ -242,41 +334,42 @@ export default function Painel(){
                             <ul key={iten.id}>
                                 <li>
                                     <div id="DivHeaderAgenda"><br/>
-                                        <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    <p  >
+                                        {iten.dia} / {iten.mes} / {iten.ano}
+                                    </p>
                                     </div>
                                     <br/>
+                                    <div  className="Relogio">
+                                        <p className="LKWhatsapp"> {iten.status_servico}</p><br/>
+                                    </div>
                                     <div className="Relogio">
-                                        <FaClock  color='#5e5e74' size={30} />
+                                        <FaClock  color='#5e5e74' size={20} />
                                         <p>{inicioFormatado} - {fimFormatado}</p>
                                     </div>
-                                    <div className="perfilCliente">
-                                        <img className="imgRelogio" src={Perfil} />
-                                        <p><br/>  {iten.nome_cliente}</p>
-                                    </div>
-                                    <div className="perfilCliente">
-                                        <img className="imgRelogio" src={Whats} />
-                                        <br/>
-                                        <a target="_blank"
-                                            rel='noreferrer'  
-                                            href={whatsapp} 
-                                            className="LKWhatsapp">{iten.contato_cliente} 
+                                    <div className={`some-${iten.id}`}>
+                                        <div  className="perfilCliente">
+                                            <img className="imgRelogio" src={Whats} />
+                                            <br/>
+                                            <a target="_blank"
+                                                rel='noreferrer'  
+                                                href={whatsapp} 
+                                                className="LKWhatsapp">{iten.contato_cliente} 
                                             </a>
-                                    </div>
-                                    <div className="perfilCliente">
-                                        <img className="imgRelogio" src={Servico} />
-                                        <p className="LKWhatsapp" > {iten.servico}</p>
-                                    </div>
-                                    <div id="OBS">
-                                        <div id="TitleOBS">
-                                            <p>Observação</p>
                                         </div>
-                                        <p> {iten.obs}
-                                        </p>
+                                        <div  className="perfilCliente">
+                                            <img className="imgRelogio" src={Servico} />
+                                            <p className="LKWhatsapp" > {iten.servico}</p>
+                                        </div>
+                                        <div  className="Relogio">
+                                            <img className="imgRelogio" src={Cash} />
+                                            <p className="LKWhatsapp"> R${iten.preco.toFixed(2)}</p><br/>
+                                        </div>
+                                        <div className="perfilCliente">
+                                            <img className="imgRelogio" src={Status} />
+                                            <p className="LKWhatsapp"> {iten.status_servico}</p>
+                                        </div>
                                     </div>
-                                    <div className="Relogio">
-                                        <img className="imgRelogio" src={Cash} />
-                                        <p className="LKWhatsapp"> R${iten.preco.toFixed(2)}</p><br/>
-                                    </div>
+                                    
                                 </li>
                                 <div className="D">
                                     <button className="Bt" onClick={Cancelar}>Cancelar</button>
@@ -289,6 +382,32 @@ export default function Painel(){
                 </div>
                 <div id="Buscados">
                     {Buscados.map((iten, key) =>{
+                        
+                        const Cancelar = async (e) =>{
+                            var id = iten.id;
+                            var Data = {
+                                id
+                            };                            
+                            await Api.put('/cancelarservico', Data).then((Response) =>{
+                                window.location.reload(true);
+                                
+                            }).catch(() =>{
+                                alert('Erro interno.')
+                            });
+                        };
+                        //finalizar;
+                        const Finalizar = async (e) =>{
+                            var id = iten.id;
+                            var Data = {
+                                id
+                            };               
+                            console.log(Data)             
+                            await Api.put('/finalizarservico', Data).then((Response) =>{
+                                window.location.reload(true);
+                            }).catch(() =>{
+                                alert('Erro interno.')
+                            });
+                        };
                         var init = String(iten.hora);
                         var partesInicio = init.split('.');
                         var inicioFormatado = 0;//partesInicio[0]+':'+partesInicio[1];
@@ -323,47 +442,44 @@ export default function Painel(){
                         return(
                             <ul id="ULb" key={iten.id}>
                                 <li>
-                                    <div id="DivHeaderAgenda"><br/>
-                                        <p className="UnderLine" >{iten.dia}/{iten.mes}/{iten.ano}</p>
+                                    <div  id="DivHeaderAgenda"><br/>
+                                    <p className="UnderLine">
+                                        {iten.dia}/{iten.mes}/{iten.ano}
+                                    </p>
                                     </div>
                                     <br/>
                                     <div className="Relogio">
                                         <FaClock  color='#5e5e74' size={30} />
                                         <p>{inicioFormatado} <br/> {fimFormatado}</p>
                                     </div>
-                                    <div className="perfilCliente">
-                                        <img className="imgRelogio" src={Perfil} />
-                                        <p><br/>  {iten.nome_cliente}</p>
-                                    </div>
-                                    <div className="perfilCliente">
-                                        <img className="imgRelogio" src={Whats} />
-                                        <br/>
-                                        <a target="_blank"
-                                            rel='noreferrer'  
-                                            href={whatsapp} 
-                                            className="LKWhatsapp">{iten.contato_cliente} 
-                                            </a>
-                                    </div>
-                                    <div className="perfilCliente">
-                                        <img className="imgRelogio" src={Servico} />
-                                        <p className="LKWhatsapp" > {iten.servico}</p>
-                                    </div>
-                                    <div id="OBS">
-                                        <div id="TitleOBS">
-                                            <p>Observação</p>
+                                    <div className={`some-${iten.id}`}>
+                                        <div  className="perfilCliente">
+                                            <img className="imgRelogio" src={Whats} alt="ll" />
+                                            <br/>
+                                            <a target="_blank"
+                                                rel='noreferrer'  
+                                                href={whatsapp} 
+                                                className="LKWhatsapp">{iten.contato_cliente} 
+                                                </a>
                                         </div>
-                                        <p> {iten.obs}
-                                        </p>
-                                    </div>
-                                    <div className="Relogio">
-                                        <img className="imgRelogio" src={Cash} />
-                                        <p className="LKWhatsapp"> R${iten.preco.toFixed(2)}</p><br/>
-                                    </div>
-                                    <div className="perfilCliente">
-                                        <img className="imgRelogio" src={Status} />
-                                        <p className="LKWhatsapp"> {iten.status_servico}</p>
+                                        <div className="perfilCliente">
+                                            <img className="imgRelogio" src={Servico} alt="lll"/>
+                                            <p className="LKWhatsapp" > {iten.servico}</p>
+                                        </div>
+                                        <div className="perfilCliente">
+                                            <img className="imgRelogio" src={Status} />
+                                            <p className="LKWhatsapp"> {iten.status_servico}</p>
+                                        </div>
+                                        <div className="Relogio">
+                                            <img className="imgRelogio" src={Cash} alt="lll" />
+                                            <p className="LKWhatsapp"> R${iten.preco.toFixed(2)}</p><br/>
+                                        </div>
                                     </div>
                                 </li>
+                                <div className="D">
+                                    <button className="Bt" onClick={Cancelar}>Cancelar</button>
+                                    <button className="Bt" onClick={Finalizar}>finalizado</button>
+                                </div>
                             </ul>
                             
                         );
