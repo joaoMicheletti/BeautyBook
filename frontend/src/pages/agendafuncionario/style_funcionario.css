@@ -107,7 +107,7 @@ h2 {
     width: 80%;
     margin-left: 10%;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     
 }
@@ -127,9 +127,9 @@ h2 {
     padding: 20px;
     font-weight: 600;
 }
-#BTNC {
+.BTNC {
     width: 80%;
-    margin-left: 10%;
+    margin-left: 5%;
     margin-bottom: 10px;
     border-radius: 5px;
     border: none;

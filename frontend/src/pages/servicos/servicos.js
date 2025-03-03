@@ -34,6 +34,7 @@ export default function Servicos(){
         };
         Api.post('/servico',Data).then((Response) =>{
             setListaServicos(Response.data);
+            console.log(Response)
             console.log(ListaServicos);
         }).catch(() =>{
             alert('Erro ao Buscar Os serviços.')
@@ -42,18 +43,22 @@ export default function Servicos(){
     //registrar serviço;
     const [servico, setServico] = useState('');
     const [Preco, setprecoServico] = useState('');
+    const [tempoServico, setTimeServico] = useState('');
    // const cpf_salao = localStorage.getItem('cpf_salao');
     const Registrar = async (e) => {
         e.preventDefault()
         var preco = parseFloat(Preco, 10);
         const Data = {
-            preco, servico, cpf_salao
+            preco, servico, cpf_salao, tempo: parseInt(tempoServico)
         };
+        console.log(Data)
         if(servico.length === 0){
             alert('Preencha o campo @Tipo de Serviço');
         } else if(isNaN(preco)){
             alert('Preencha o campo @Preço do serviço');
-        } else {
+        } else if(tempoServico === ''){
+            alert('Preencha o compo @Duração do cerviço');
+        } else{
             Api.post('/servicos', Data).then((Response) =>{
                 console.log(Response.data);
                 window.location.reload();
@@ -138,6 +143,14 @@ export default function Servicos(){
                         placeholder="Preço do serviço"
                         onChange={(e) => setprecoServico(e.target.value)}/>
                         <br/>
+                        <p id="ParagrafoPrecoServico">
+                            Duração do serviço
+                        </p>
+                        <input id="TimeServico" 
+                        type="number"
+                        placeholder="Tempo de duração em horas EX: 1"
+                        onChange={(e) => setTimeServico(e.target.value)}
+                        ></input>
                         <button
                         id="BtnServicos"
                         type="submit" onClick={Registrar}>Registrar</button>
@@ -157,7 +170,7 @@ export default function Servicos(){
                                     alert('Preencha o Campo @Novo preço');
                                 }else {
                                     Api.put('/servicos', Data).then((Reponse) =>{
-                                        alert('Editado, atualiza a pagina!');
+                                        window.location.reload();
                                     }).catch((err) =>{
                                         alert('erro ao Editar Serviço');
                                     });
@@ -171,7 +184,7 @@ export default function Servicos(){
                                     id
                                 };
                                 Api.post('/deletarservicos', Data).then((Reponse) =>{
-                                    alert('Deletado, atualiza a pagian!');
+                                    window.location.reload();
                                 }).catch((err) =>{
                                     alert('erro ao apagsr Serviço');
                                 });

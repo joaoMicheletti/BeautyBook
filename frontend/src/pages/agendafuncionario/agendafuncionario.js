@@ -147,8 +147,7 @@ export default function AgendaFuncionario(){
             }).catch((err) =>{
                 // falha de comunicação com o servidor
                 alert('Servidor não responde!')
-            });////////////////////
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////
+            });
             // validações para agendamento futuro.
         } else if(dia >=  DataAtual.getDate()){
             if(mes >= DataAtual.getMonth() + 1 && ano >= DataAtual.getFullYear()){
@@ -262,15 +261,16 @@ export default function AgendaFuncionario(){
                         const SelectServico = () =>{
                             setPreco(iten.preco);
                             setServico(iten.servico);
+                            alert(Preco);
                             alert('Serviço selecionado!.')
                         };
                         return(
-                            <ul key={iten.id}>
+                            <ul  key={iten.id}>
                                 <li>
                                     <p className='TipoServiço'>
                                         {iten.servico} <br/> R$ {iten.preco.toFixed(2)}
                                     </p>
-                                    <input id='BTNC' type='button' onClick={SelectServico} value='Selecionar'/>
+                                    <input className='BTNC' type='button' onClick={SelectServico} value='Selecionar'/>
                                 </li>
                             </ul>
                         );

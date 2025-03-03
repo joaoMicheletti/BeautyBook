@@ -231,37 +231,32 @@ export default function Agendamento(){
                 </div>
                 <br/>
                 <br/>
-                <div id='Horarios'>
-                    <p id='PHorariosDisponiveis'>
+                <p id='PHorariosDisponiveis'>
                         Horários preenchidos de Hoje.
                     </p>
                     <p id='AlertaHorarios'></p>
-                    {ListaHorarios.map((iten, key) =>{
-                        function formatarHora(hora) {
-                            // Garantir que a entrada seja uma string e tenha pelo menos 4 caracteres
-                            var horaStr = String(hora).padStart(4, '0');
-                            
-                            // Separar a hora e os minutos, assumindo que a entrada pode ser "HHMM" ou "HH.MM"
-                            var partes = horaStr.includes('.') ? horaStr.split('.') : [horaStr.slice(0, 2), horaStr.slice(2)];
-                        
-                            // Se a entrada for em formato "HH.MM", partes[0] será a hora e partes[1] serão os minutos
-                            // Se a entrada for em formato "HHMM", você precisa separar os minutos manualmente
-                            var horas = partes[0].padStart(2, '0');
-                            var minutos = partes[1] ? partes[1].padEnd(2, '0') : '00';
-                        
-                            return horas + ':' + minutos;
+                <div id='Horarios'>
+                {ListaHorarios.map((iten, key) =>{
+                        //formatando a ohra de inicio do agenda mento;
+                        var init = String(iten.hora);
+                        var partesInicio = init.split('.');
+                        var inicioFormatado = partesInicio[0]+':'+partesInicio[1];
+                        if(partesInicio[1] === undefined){
+                            inicioFormatado = partesInicio[0]+':'+'00';
                         }
-                        // Formatar a hora de início
-                        var inicioFormatado = formatarHora(iten.hora);
-                        
-                        // Formatar a hora de término
-                        var fimFormatado = formatarHora(iten.hora_termino);
-                        var inicio = inicioFormatado.split(":");
-                        var fim = fimFormatado.split(":");
+                        console.log(init)
+                        //formatando a hora de termino do agendamento.
+                        var termino = String(iten.hora_termino);
+                        var partesFim = termino.split('.');
+                        var fimFormatado = partesFim[0]+':'+partesFim[1];
+                        if(partesFim[1] === undefined){
+                            fimFormatado = partesFim[0]+':'+'00';
+                        }
+                        console.log(ListaHorarios)
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <p>{iten.servico} - Inicio - {inicio[1]+":"+inicio[0]} - termino {fim[1]+":"+fim[0]} Horas</p>
+                                    <p> Inicio - {inicioFormatado} <br/> termino {fimFormatado} </p>
                                 </li>
                             </ul>
                         );
@@ -270,8 +265,9 @@ export default function Agendamento(){
                 <br/>
                 <hr/>
                 <br/>
+                <h2 className='h2'>Serviços</h2>
                 <div id='Serviços'>
-                    <h2 className='h2'>Serviços</h2>
+                    
                     {ListaServicos.map((iten, key) =>{
                         const SelectServico = () =>{
                             setPreco(iten.preco);

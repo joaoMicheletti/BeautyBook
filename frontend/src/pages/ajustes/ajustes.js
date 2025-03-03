@@ -356,33 +356,14 @@ export default function Ajustes(){
                         </div>
                         <hr/>
                         <div id="Preferencias">
-                            <p className="PPreferecias">
-                                Tempo de duração de cada Serviço.
-                            </p>
                             <br/>
-                            <p className="PPreferecias">
-                                Definir Tempo. 
-                            </p>
-                            <input
-                            id="Minutos"
-                            type="number"
-                            placeholder={iten.intervalo_entre_agendamentos + ' horas'}
-                            onChange={(e) => setIntervalo(e.target.value)}></input>
-                            <br/>
-                            <br/>
-                            <button
-                            id="BtnMinutos"
-                            type="submit"
-                            onClick={Intervalo}>Definir</button>
-                            <hr/>
-                            <h2 id="TitlePreferencias">Evitando Agendamentos encima da Hora</h2>
+                            <h2 id="TitlePreferencias">Agendamentos futuros</h2>
                             <br/>
                             <ul>
                                 
                             </ul>
                             <ul>
                                 <li>
-                                    
                                     <p className="PPreferecias">
                                     Permitir agendamentos para até daqui: 
                                     </p>

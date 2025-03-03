@@ -44,13 +44,7 @@ h1 {
     width: 60%;
     height: 33px;
 }
-#Horarios {
-    margin-top: 30px;
-    width: 80%;
-    height: auto;
-    margin-left: 10%;
-    text-align: center;
-}
+
 #PHorariosDisponiveis {
     font-size: 15px;
     margin-top: 20px;
@@ -82,22 +76,28 @@ h1 {
     margin-left: 10%;
 }
 #Serviços ul {
+    width: 20%;
     margin-top: 15px;
     width: 100%;
 }
 #Serviços ul li {
-    width: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
 }
+
 #Serviços ul li .TipoServiço {
     font-size: 20px;
     font-weight: 600;
 }
 #Serviços ul li input {
-    width: 100px;
+    width: 80%;
+    margin-left: 10%;
+    height: 30px;
+    margin-bottom: 10px;
     cursor: pointer;
-    border: solid black 1px;
+    border: none;
+    border-radius: 5px;
+    background-color: #343351;
 }
 #Serviços ul li  input:hover{
     opacity: 80%;

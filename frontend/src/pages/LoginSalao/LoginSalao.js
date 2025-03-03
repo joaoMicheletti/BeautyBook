@@ -112,7 +112,7 @@ export default function LoginSalao(){
                     id="BtnLoginSalao"
                     type="submit"
                     value='Login'/>
-                    <a href="/registrosalao">Não possuí uma conta? click aqui</a>
+                    <a href="/registrosalao">Não possuí uma conta? click aqui</a><br/>
                 </form>
                 <br/>
             </div>

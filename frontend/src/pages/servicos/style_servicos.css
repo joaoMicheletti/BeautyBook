@@ -49,6 +49,15 @@
     margin-bottom: 10px;
     background-color: #5e5e74;
 }
+#TimeServico {
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 20px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #5e5e74;
+    color: white;
+}
 #BtnServicos {
     color: white;
     text-align: center;
