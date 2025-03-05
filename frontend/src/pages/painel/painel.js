@@ -2,7 +2,6 @@ import React, {useEffect, useState}from "react";
 import Api from "../../services/api";
 import {useNavigate} from 'react-router-dom'
 import './style.css';
-import Perfil from '../assets/perfil.png';
 import Whats from '../assets/whats.png';
 import Servico from '../assets/servico.png';
 import Cash  from '../assets/cash.png';
@@ -15,6 +14,8 @@ import { IoSend } from "react-icons/io5";
 import { IoSettings } from "react-icons/io5";
 import { ImExit } from "react-icons/im";
 import { IoMdNotifications } from "react-icons/io";
+import { FaClipboardList } from "react-icons/fa";
+
 
 
 export default function Painel(){
@@ -225,6 +226,10 @@ export default function Painel(){
                         <div className="LinksPage">
                             <IoSettings color="#5e5e74" size={30}/>
                             <a href="/ajustes">Ajustes</a>
+                        </div>
+                        <div className="LinksPage">
+                            <FaClipboardList color="#5e5e74" size={30} />
+                            <a href="/relatorios">Relatórios</a>
                         </div>
                         <div className="LinksPage">
                             <ImExit color="#5e5e74" size={30} />

@@ -220,7 +220,7 @@ export default function Agendamento(){
                 <h2 className='h2'>Data</h2>
                 <div id='DivCalendario'>
                     <input 
-                    id='Calendario' 
+                    className='Calendario' 
                     type='date'
                     onChange={(e) => setDatastring(e.target.value)}></input>
                     <br/>
@@ -244,7 +244,7 @@ export default function Agendamento(){
                         if(partesInicio[1] === undefined){
                             inicioFormatado = partesInicio[0]+':'+'00';
                         }
-                        console.log(init)
+                       
                         //formatando a hora de termino do agendamento.
                         var termino = String(iten.hora_termino);
                         var partesFim = termino.split('.');
@@ -269,6 +269,7 @@ export default function Agendamento(){
                 <div id='Serviços'>
                     
                     {ListaServicos.map((iten, key) =>{
+                        console.log("aqui <><><><>", ListaServicos)
                         const SelectServico = () =>{
                             setPreco(iten.preco);
                             setServico(iten.servico);
@@ -278,7 +279,7 @@ export default function Agendamento(){
                             <ul key={iten.id}>
                                 <li>
                                     <p className='TipoServiço'>
-                                        {iten.servico} : R$ {iten.preco.toFixed(2)}
+                                        {iten.servico}<br/><br/>R$ {iten.preco.toFixed(2)}
                                     </p>
                                     <input type='button' onClick={SelectServico} value='Selecionar'/>
                                 </li>

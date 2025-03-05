@@ -40,7 +40,10 @@ h1 {
     height: 35px;
     border: solid black 1px;
 }
-#Calendario {
+.Calendario {
+    background-color: #5e5e74;
+    color: white;
+    border-radius: 5px;
     width: 60%;
     height: 33px;
 }

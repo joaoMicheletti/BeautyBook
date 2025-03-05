@@ -9,6 +9,8 @@ import { FaClock } from "react-icons/fa";
 import { IoSend } from "react-icons/io5";
 import { IoSettings } from "react-icons/io5";
 import { ImExit } from "react-icons/im";
+import { FaClipboardList } from "react-icons/fa";
+
 
 export default function Servicos(){
     const History = useNavigate();
@@ -113,6 +115,10 @@ export default function Servicos(){
                         <div className="LinksPage">
                             <IoSettings color="#5e5e74" size={30}/>
                             <a href="/ajustes">Ajustes</a>
+                        </div>
+                        <div className="LinksPage">
+                            <FaClipboardList color="#5e5e74" size={30} />
+                            <a href="/relatorios">Relatórios</a>
                         </div>
                         <div className="LinksPage">
                             <ImExit color="#5e5e74" size={30} />

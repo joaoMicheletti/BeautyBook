@@ -24,6 +24,8 @@ import Pendente from './pages/planos/pagamentos/pendente';
 import NotFound from './pages/404/NotFound.js';
 //Cpanel Login;
 import LoginCpanel from './pages/cpanel/login.js';
+//relatorio:
+import Relatorio from './pages/relatorios/relatorio.js';
 export default function Rotas(){
     return(
         <Router>
@@ -50,6 +52,7 @@ export default function Rotas(){
                 <Route path='/pendente/' element={<Pendente/>} />
                 <Route path='/cpanellogin' element={<LoginCpanel/>} />
                 <Route path='/cpanel' element={<Cpanel/>}/>
+                <Route path='/relatorios' element={<Relatorio/>}/>
             </Routes>
         </Router>
     )
