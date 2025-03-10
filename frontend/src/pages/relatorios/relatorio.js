@@ -1,4 +1,4 @@
-import React, {useEffect, useState}from "react";
+import React, {useEffect, useState, }from "react";
 import Api from "../../services/api";
 import { FaCalendar } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
@@ -10,10 +10,13 @@ import { ImExit } from "react-icons/im";
 import { IoMdNotifications } from "react-icons/io";
 import { FaClipboardList } from "react-icons/fa";
 import "./relatorio.css";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 export default function Painel(){
+    const History = useNavigate();
     const [periodo, setPeriodo] = useState('');
     const [inicio, setInicio] = useState('');
     const [relatorio, setRelatorio] = useState('');
@@ -47,7 +50,6 @@ export default function Painel(){
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);
-        alert('Até breve');
         History('/loginsalao');
     };
     async function Buscar(){
@@ -63,8 +65,55 @@ export default function Painel(){
                 inicio: `${sep[2]}/${sep[1]}/${sep[0]}`
             }
             await Api.post('/relatoriodiario', Data).then((Response) =>{
-                console.log(Response)
-                setRelatorio("ai ai ai ai ai  essse amoe é bom de mais",Response.data)
+                console.log(Response.data.resp)
+
+                var servicos = [];
+                var v = 0;
+
+                while (v < Response.data.resp.length) {
+                    if (servicos.includes(Response.data.resp[v].servico)) { // Corrigido: uso de includes() corretamente
+                        console.log('Nada aqui');
+                    } else {
+                        servicos.push(Response.data.resp[v].servico); // Agora adiciona ao array corretamente
+                    }
+                    v += 1;
+                };
+                var p = 0;
+                while (p < servicos.length){
+                    document.querySelector("#pServico").innerHTML +=`${servicos[p]}<br/>`;
+                    p+=1
+                }
+                var quantidadeServiso = Response.data.resp.length;
+                document.querySelector("#TotAgendados").innerHTML = quantidadeServiso
+
+                var finalizados = 0;
+                var i = 0;
+                while (i < Response.data.resp.length){
+                    if(Response.data.resp[i].status_servico === 'finalizado'){
+                        finalizados += 1;
+                    };
+                    i += 1
+                };
+                document.querySelector("#TotFinalizados").innerHTML = finalizados;
+
+                var cancelados = 0;
+                var I = 0;
+                while (I < Response.data.resp.length){
+                    if(Response.data.resp[I].status_servico === 'cancelado'){
+                        cancelados += 1;
+                    };
+                    I += 1
+                };
+                document.querySelector("#TotCancelados").innerHTML = cancelados;
+
+                var valorTot = 0;
+                var II = 0;
+                while (II < Response.data.resp.length){
+                    valorTot += Response.data.resp[II].preco;
+                    II += 1
+                };
+                document.querySelector("#TotValor").innerHTML = `R$${valorTot.toFixed(2)}`;
+
             })
             .catch((err)=>{
                 alert('Erro ao comunicar-se copm o servidor')
@@ -134,6 +183,31 @@ export default function Painel(){
                     </select>
                     <input onChange={(e) => setInicio(e.target.value)} type="date"></input>
                     <input onClick={Buscar} type="button" value="Buscar"></input>
+                </div>
+            </section>
+            <section id="responseRelatorio">
+                <div id="relatorioservicos">
+                    <div id="listaServicos">
+                        <p id="pServico"></p>
+                    </div>
+                    <div id="listaQuantidade">
+                        <div className="subListaQuantidade">
+                            <p>Total Agendados</p>
+                            <p id="TotAgendados">X</p>
+                        </div>
+                        <div className="subListaQuantidade">
+                            <p>Total Finalizados</p>
+                            <p id="TotFinalizados">X</p>
+                        </div>
+                        <div className="subListaQuantidade">
+                            <p>Total Cancelados</p>
+                            <p id="TotCancelados">X</p>
+                        </div>
+                        <div className="subListaQuantidade">
+                            <p>Valor Total</p>
+                            <p id="TotValor">X</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

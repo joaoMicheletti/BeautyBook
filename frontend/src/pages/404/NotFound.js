@@ -1,11 +1,10 @@
 import React from "react";
 import './style404.css';
+import not from '../assets/404.png';
 
 export default function NotFound(){
     return(
-        <div id="ConteinerNotFound">
-            
-            
+        <div id="ConteinerNotFound">            
             <div id='pageN'>
                 <br/>
                 <br/>
@@ -13,10 +12,7 @@ export default function NotFound(){
                 <br/>
                 <br/>
                 <br/>
-                <h1>404 - Página não Encontrada</h1>
-                <p>
-                    Perdido em meio a tanta beleza? Vamos te guiar de volta ao estilo perfeito!
-                </p>
+                <img src={not} alt="404"/>
                 <br/><br/>
                 <a href="/">Voltar</a>
             </div>

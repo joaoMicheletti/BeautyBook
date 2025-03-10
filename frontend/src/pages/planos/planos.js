@@ -83,7 +83,7 @@ export default function Planos(){
     return(
         <div id='ConteinerPlanos'>
             <header id='HeaderPlanos'>
-                <h1>Hidden Beauty</h1>
+                <h1>Flowly</h1>
                 <ul>
                     <a id="Link_AF" href="/">Voltar</a>
                 </ul>                
