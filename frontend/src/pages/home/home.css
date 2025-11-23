@@ -6,98 +6,117 @@ body {
     background-color: #343351;
 }
 .Home {
-    margin-top: -50px;
-    width: 100%;
     height: 100vh;
-    background-image: url(../assets/3.jpg);
+    width: 100vw;
+    background-image: url(../assets/bghome.webp);
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
 }
 .header {
-    height: 50px;
-
-    background-color: rgba(0, 0, 0, 0.13);
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #161616b4;
 }
-.header h1 {
-    padding-top: 10px;
-    color: #FFF;
-    margin-left: 20px;
+.logoTemp {
+    height: 40px;
     cursor: pointer;
 }
-#H4 {
-    color: rgb(255, 255, 255);
+.logoTemp:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
 }
-nav {
-    margin-top: -40px;
-    float: right;
-}nav .LK {
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-    font-weight: 900;
+.menu {
+    display: flex;
+    gap: 20px;
     text-decoration: none;
-    padding-right: 20px;
-}.LK:hover {
-    font-size: 18px;
 }
-@media (min-width: 200px){
-    .Home {
-        background-image: url(../assets/corte.png);
-        background-position: center ;
-    }
-    h1{
-        font-size: 40px;
-        margin-top: 30px;
-    }
-    nav .LK {
-        font-size: 20px;
-        padding-right: 25px;
-    }
-    #content {
-        margin-top: 230px;
-    }
-    #slogan {
-        width: 80%;
-        margin-left: 10%;
-    }
-    h4 {
-        font-size: 40px;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        color: white;
-    }
-    #slogan #P { 
-        font-size: 15px;
-        line-height: 18px;
-    }
+.LK {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+.LK:hover {
+    padding-top: 10px ;
+    color: #474747;
+    transition: color 0.3s;
+}
+#content {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
 }
 
-@media (min-width: 700px){
-    h1{
-        font-size: 40px;
-    }   
-    nav .LK {
-        font-size: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
+
+.textHome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}.textHome h1 {
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.textHome p {
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+}
+.btnHome {
+    margin-top: 30px;
+    display: flex;
+    width: 50%;
+    height: 45px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #474747;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgb(255, 255, 255);
+    cursor: pointer;
+}
+.btnHome:hover {
+    opacity: 0.8;
+}
+.imgHome {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.imgHome img {
+    width: 90%;
+}
+
+@media(max-width: 800px){
+    .Home {
+        height: auto
+    }
+    .LK {
+        font-size: 10px;
     }
     #content {
-        margin-top: 280px;
+        display: flex;
+        flex-direction: column-reverse;
     }
-    #slogan {
+    .textHome {
+        width: 100%;
+        text-align: center;
+    }
+    .textHome p {
+        text-align: justify;
+    }
+    .btnHome {
         width: 80%;
         margin-left: 10%;
+    }.imgHome {
+        width: 100%;
     }
-}
-#slogan p {
-    line-height: 30px;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-}
-#slogan a {
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-}
-#slogan a:hover{
-    font-size: 25px;
-    color: rgb(90, 81, 81);
 }

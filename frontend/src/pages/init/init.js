@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
+import { Link } from 'react-router-dom';
 import { useNavigate} from "react-router-dom";
 import './style_init.css';
+import Logo from '../assets/logoprovisor.webp';
 
 import Api from '../../services/api';
 
@@ -53,14 +55,14 @@ export default function Init(){
     }
     return(
         <div id="HomeConteinerInit">
-            <header id="HeaderHomeInit">
-                <br/>
-                <h1 id="hh1">Flowly</h1>
-                <ul>
-                    <li><a id="A" href="/">Home</a></li>
-                    <li><a id="A" href="/loginsalao">Login</a></li>
-                    <li><a id="A" href="/registrosalao">Registrar-se</a></li>
-                </ul>
+            <header className="header">
+                <img className='logoTemp' src={Logo} alt='teste de logotipo'/>
+                <nav className="menu">
+                    <Link className='LK' to="/">Home</Link> 
+                    <Link className='LK' to="/init">Parceiros</Link>                    
+                    <Link className='LK' to="/registrosalao">Registrar-se</Link>
+                    <Link className='LK' to="/loginsalao">Login</Link>                    
+                </nav>
             </header>
             <h2 id="H">Conheça nossos parceiros</h2>
             <div id="Search">
