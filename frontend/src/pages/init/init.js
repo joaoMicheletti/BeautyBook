@@ -7,6 +7,7 @@ import Logo from '../assets/logoprovisor.webp';
 import Api from '../../services/api';
 
 export default function Init(){
+    const URL = 'http://127.0.0.1:1998/image/';
     // por precaução caso o usuário selecione um salão e por alguma eventualidade volte para a pagina anterior
     // removeremos os dados que estarão armazenados no localstorage();
     localStorage.removeItem('cpf_salao');
@@ -73,7 +74,6 @@ export default function Init(){
                 <p id="RespNegativa"></p>
                 <div className="notApresent" id="ConteudoHomeInit">
                     {Buscados.map((iten, key) => {
-                        const URL = 'http://127.0.0.1:1998/image/';
                         const Agenda = () =>{
                             console.log(iten.quantidade_funcionarios);
                             console.log(iten.logo_salao);
@@ -110,7 +110,7 @@ export default function Init(){
             </div>
             <div id="ConteudoHomeInit">
                 {ListaSalao.map((iten, key) => {
-                    const URL = 'http://127.0.0.1:1998/image/';
+                    
                     const Agenda = () =>{
                         console.log(iten.quantidade_funcionarios);
                         console.log(iten.logo_salao);

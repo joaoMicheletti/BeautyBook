@@ -14,6 +14,7 @@ import { FaClipboardList } from "react-icons/fa";
 
 
 export default function HorarioDeFuncionamento(){
+    const Url = "http://127.0.01:1998/image/";
     const History = useNavigate();
     //referência ao salão 
     const cpf_salao = localStorage.getItem('cpf_salao');
@@ -87,7 +88,7 @@ export default function HorarioDeFuncionamento(){
             alert('erro ao buscar oformações do salão');
         });
     }, []);
-    const Url = "http://127.0.01:1998/image/";
+    
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);

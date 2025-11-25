@@ -4,6 +4,7 @@ import Api from "../../services/api";
 import './style_ag_funcionario.css';
 
 export default function AgendamentoFuncionario(){
+    const Url = "http://127.0.0.1:1998/image/";
     const History = useNavigate();
     const [ListaFuncionarios, setListaFuncionarios] = useState([]);
     useEffect(() =>{
@@ -23,7 +24,7 @@ export default function AgendamentoFuncionario(){
         
     }, []);
     //url das imagens no servidor;
-    const Url = "http://127.0.0.1:1998/image/";
+    
     return(
         <div id="AgendamentoFuncionarioConteiner">
             <header id="HeaderAgFuncionario">

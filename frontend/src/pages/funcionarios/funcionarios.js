@@ -14,6 +14,7 @@ import { FaClipboardList } from "react-icons/fa";
 
 
 export default function Funcionarios(){
+    const Url = "http://127.0.0.1:1998/image/";
     const History = useNavigate();
     const [ListaFuncionarios, setListaFuncionarios] = useState([]);
     const [image , setimage] = useState('');
@@ -97,7 +98,7 @@ export default function Funcionarios(){
             alert('erro ao buscar oformações do salão');
         });
     }, []);
-    const Url = "http://127.0.0.1:1998/image/";
+    
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);

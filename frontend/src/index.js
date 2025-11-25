@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import api from './services/api';
 
-navigator.serviceWorker.register('service-work.js').then( async serviceWorker =>{
+navigator.serviceWorker.register('/service-work.js').then( async serviceWorker =>{
   let subscription = await serviceWorker.pushManager.getSubscription()
 
   if(!subscription){

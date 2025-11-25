@@ -3,6 +3,7 @@ import Api from '../../services/api';
 import './style_agendamento.css';
 
 export default function Agendamento(){
+    const Url = "http://127.0.0.1:1998/image/"
 
     //responsável por armazenar a lista de horários
     const [ListaHorarios, setListaHorarios] =  useState([]);
@@ -209,7 +210,7 @@ export default function Agendamento(){
         }; */
     };
     //url das imagens no servidor;
-    const Url = "http://127.0.0.1:1998/image/"
+    
     return(
         <div id='ConteinerAgendamento'>
             <header id='HeaderAgendamento'>

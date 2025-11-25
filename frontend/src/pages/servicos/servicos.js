@@ -13,6 +13,7 @@ import { FaClipboardList } from "react-icons/fa";
 
 
 export default function Servicos(){
+    const Url = "http://127.0.0.1:1998/image/";
     const History = useNavigate();
     var cpf_salao = localStorage.getItem('cpf_salao');
     const [ListaServicos, setListaServicos] = useState([]);
@@ -77,7 +78,7 @@ export default function Servicos(){
             alert('erro ao buscar oformações do salão');
         });
     }, []);
-    const Url = "http://127.0.0.1:1998/image/";
+    
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);

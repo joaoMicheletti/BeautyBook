@@ -19,6 +19,7 @@ import { FaClipboardList } from "react-icons/fa";
 
 
 export default function Painel(){
+    const Url = "http://127.0.01:1998/image/";
     const History = useNavigate();
     const DataAtual = new Date();// oibjeto data atual;
     //o servidor espera receber semaradamente o diam, mes e ano,
@@ -96,7 +97,7 @@ export default function Painel(){
             alert('erro ao buscar oformações do salão');
         });
     }, []);
-    const Url = "http://127.0.01:1998/image/";
+    
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);

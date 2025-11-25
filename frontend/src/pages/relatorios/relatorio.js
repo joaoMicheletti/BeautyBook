@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Painel(){
+    const Url = "http://127.0.01:1998/image/";
     const History = useNavigate();
     const [periodo, setPeriodo] = useState('');
     const [inicio, setInicio] = useState('');
@@ -46,7 +47,7 @@ export default function Painel(){
             alert('erro ao buscar oformações do salão');
         });
     }, []);
-    const Url = "http://127.0.01:1998/image/";
+    
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);
