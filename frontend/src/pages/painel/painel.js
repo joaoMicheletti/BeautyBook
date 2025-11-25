@@ -19,7 +19,7 @@ import { FaClipboardList } from "react-icons/fa";
 
 
 export default function Painel(){
-    const Url = "http://127.0.01:1998/image/";
+    const Url = "https://beautybookts-production.up.railway.app/image/";
     const History = useNavigate();
     const DataAtual = new Date();// oibjeto data atual;
     //o servidor espera receber semaradamente o diam, mes e ano,

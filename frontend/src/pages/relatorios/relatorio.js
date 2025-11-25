@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Painel(){
-    const Url = "http://127.0.01:1998/image/";
+    const Url = "https://beautybookts-production.up.railway.app/image/";
     const History = useNavigate();
     const [periodo, setPeriodo] = useState('');
     const [inicio, setInicio] = useState('');

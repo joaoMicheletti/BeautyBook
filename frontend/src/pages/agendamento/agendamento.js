@@ -3,7 +3,7 @@ import Api from '../../services/api';
 import './style_agendamento.css';
 
 export default function Agendamento(){
-    const Url = "http://127.0.0.1:1998/image/"
+    const Url = "https://beautybookts-production.up.railway.app/image/"
 
     //responsável por armazenar a lista de horários
     const [ListaHorarios, setListaHorarios] =  useState([]);

@@ -4,7 +4,7 @@ import Api from '../../services/api';
 import './style_funcionario.css';
 
 export default function AgendaFuncionario(){
-    const Url = "http://127.0.0.1:1998/image/"
+    const Url = "https://beautybookts-production.up.railway.app/image/"
     const History = useNavigate();
     //responsável por armazenaar a lista de horários
     const [ListaHorarios, setListaHorarios] =  useState([]);

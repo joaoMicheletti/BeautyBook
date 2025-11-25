@@ -7,7 +7,7 @@ import Logo from '../assets/logoprovisor.webp';
 import Api from '../../services/api';
 
 export default function Init(){
-    const URL = 'http://127.0.0.1:1998/image/';
+    const URL = 'https://beautybookts-production.up.railway.app/image/';
     // por precaução caso o usuário selecione um salão e por alguma eventualidade volte para a pagina anterior
     // removeremos os dados que estarão armazenados no localstorage();
     localStorage.removeItem('cpf_salao');

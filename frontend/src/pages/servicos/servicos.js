@@ -13,7 +13,7 @@ import { FaClipboardList } from "react-icons/fa";
 
 
 export default function Servicos(){
-    const Url = "http://127.0.0.1:1998/image/";
+    const Url = "https://beautybookts-production.up.railway.app/image/";
     const History = useNavigate();
     var cpf_salao = localStorage.getItem('cpf_salao');
     const [ListaServicos, setListaServicos] = useState([]);

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:1998',
+    baseURL: 'https://beautybookts-production.up.railway.app/',
     timeout: 10000,
     headers: {'Content-Type': 'application/json; charset=utf-8'}
 });

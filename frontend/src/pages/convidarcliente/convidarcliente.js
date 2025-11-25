@@ -13,7 +13,7 @@ import { FaClipboardList } from "react-icons/fa";
 
 
 export default function Servicos(){
-    const Url = "http://127.0.0.1:1998/image/"; // trocar link da pagina LK
+    const Url = "https://beautybookts-production.up.railway.app/image/"; // trocar link da pagina LK
     const History = useNavigate();
     const [infoSalao, setinfoSalao] = useState([]);
     var cpf_salao = localStorage.getItem('cpf_salao');

@@ -14,7 +14,7 @@ import { FaClipboardList } from "react-icons/fa";
 
 
 export default function HorarioDeFuncionamento(){
-    const Url = "http://127.0.01:1998/image/";
+    const Url = "https://beautybookts-production.up.railway.app/image/";
     const History = useNavigate();
     //referência ao salão 
     const cpf_salao = localStorage.getItem('cpf_salao');
