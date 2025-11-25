@@ -1,0 +1,101 @@
+#SectionHorarios {
+    width: 80%;
+    margin-left: 20%;
+}
+#TitleHorarios {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+#Form_dias {
+    margin-left: 10%;
+    width: 80%;
+    text-align: center;
+    font-weight: 600;
+}
+#Form_dias label {
+    color: white;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+#dia {
+    width: 80%;
+    margin-left: 10%;
+    height: 35px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #5e5e74;
+    color: white;
+    
+}
+#inicio {
+    width: 80%;
+    margin-left: 10%;
+    height: 35px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #5e5e74;
+    color: white;
+}
+#termino {
+    width: 80%;
+    margin-left: 10%;
+    height: 35px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #5e5e74;
+    color: white;
+}
+#Btn_cad {
+    cursor: pointer;
+    width: 40%;
+    margin-left: 30%;
+    height: 35px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #0d0e23;
+    color: white;
+}
+
+#DivHorarios {
+    width: 100%;
+    
+}
+#DivHorarios ul {
+    width: 80%;
+    margin-left: 10%;
+}
+#DivHorarios ul li {
+    padding: 10px;
+    font-size: 10px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    justify-content: space-around;
+    list-style: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #5e5e74;
+    color: white;
+    font-size: 12px;
+}
+
+.DiaSemana {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.BtnHorario {
+    color: white;
+    cursor: pointer;border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    background-color: #0d0e23;
+    padding: 10px;
+}

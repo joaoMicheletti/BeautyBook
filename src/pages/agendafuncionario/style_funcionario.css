@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h2 {
+    margin-bottom: 20px;
+    color: white;
+}
+#HeaderAgendamento {
+    background-color: #00000059;
+    width: 100%;
+    height: 100px; 
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 2px 5px 8px 3px rgba(0, 0, 0, 0.719);
+}
+#HeaderAgendamento img {
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+#H1NomeSalao{
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+}
+
+#DivAgendamento {
+    text-align: center;
+    margin-top: 20px;
+    width: 90%;
+    margin-left: 5%;
+}
+#DivCalendario {  
+    width: 80%;
+    margin-left: 10%;
+    border: none;
+    margin-bottom: 10px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.Calendario {
+    border-radius: 5PX;
+    background-color: #5e5e74;
+    width: 60%;
+    height: 33px;
+    margin-bottom: 10px;
+    color: white;
+}
+#hora {
+    width: 20%;
+    background-color: #5e5e74;
+    height: 33px;
+    border-radius: 5px;
+    color: white;
+}
+#Horarios {
+    margin-top: 30px;
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+#PHorariosDisponiveis {
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+}
+#Horarios ul {
+    border-radius: 5px;
+    text-align: center;
+    height: 60px;
+    background-color: #5e5e74;
+    
+}
+#Horarios ul li {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+#Horarios ul li p {
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+    padding: 10px;
+    line-height: 20px;
+}
+#Horarios input {
+    border: solid black 1px;
+    width: 100px;
+    cursor: pointer;
+}
+#Horarios input:hover {
+    opacity: 80%;
+}
+#Serviços {
+    width: 80%;
+    margin-left: 10%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    
+}
+#Serviços ul {
+    background-color: #5e5e74;
+    border-radius: 5px;
+    
+}
+#Serviços ul li {
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+#Serviços ul li .TipoServiço {
+    font-size: 15px;
+    padding: 20px;
+    font-weight: 600;
+}
+.BTNC {
+    width: 80%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    background-color: #343351;
+    color: white;
+}
+#Serviços ul li input {
+    width: 100px;
+    color: white;
+    cursor: pointer;
+}
+#DivFormCliente {
+    text-align: center;
+}
+
+#DivFormCliente form .PFormCliente {
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+#DivFormCliente form .InputFormCliente {
+    width: 80%;
+    border: none;
+    background-color: #5e5e74;
+    border-radius: 5px;
+    margin-left: 10%;
+    height: 35px;
+    margin-bottom: 10px;
+}
+#BtnFormCliente {
+    width: 40%;
+    margin-left: 30%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #5e5e74;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+#BtnFormCliente:hover {
+    opacity: 80%;
+}

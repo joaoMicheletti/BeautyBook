@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#ConteinerNotFound {
+    width: 80%;
+    margin-left: 10%;
+}
+
+#pageN {
+    color: white;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+}
+#pageN img {
+    width: 50%;
+}
+#pageN a {
+    color: white;
+}

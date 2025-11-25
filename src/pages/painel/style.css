@@ -1,0 +1,382 @@
+*{
+    padding: 0;
+    border: 0;
+    margin: 0; 
+    box-sizing: border-box;
+}
+#PainelSalao {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#some {
+    display: none;
+    flex-direction: column;
+
+}
+
+
+#HeadePainel {
+    border-radius: 0px 15px 15px 0px;
+    background-color: #0d0e23;
+    width: 20%;
+    height: 100vh;
+    position: fixed ;
+}
+
+#UsserHead {
+    margin-top: 10px;
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}
+#UsserHead #LogoSalaoPainle {
+    padding: 10PX;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+#HeadePainel .LinksPage {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+    border-radius: 5px;
+    height: 40px;
+    background-color: #24253a;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+}
+#HeadePainel .LinksPage a {
+    margin-top: 5px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+}
+#HeadePainel .LinksPage:hover{
+    width: 85%;
+    margin-left: 7%;
+    
+}
+#HeadePainel #LKpainel {
+    background-color: #5741d1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#SectionAgendaSalaoPainel{
+    width: 80%;
+    margin-left: 20%;
+    height: auto;
+}
+
+#ConteinerAgendaPainel {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+}
+#DiaMesAno {
+    width: 50%;
+    height: 35px;
+    margin-left: 10%;
+    display: flex;
+    justify-content: space-around;
+}
+#SelectMes {
+    width: 300px;
+    height: 35px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #5e5e74;
+    color: white;
+    cursor: pointer;
+}
+#DiaMesAno #BtnAgenda {
+    width: 150px;
+    background-color: #5e5e74;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+
+
+
+#PainelSalao #Calendario {
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 50px;
+    height: auto;
+}
+#Calendario #headerCalendario {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#Calendario #TitleCalandario {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+#Calendario #BtnHeadeCalandario {
+    padding: 5px;
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#Calendario #BtnHeadeCalandario button {
+    width: 40%;
+    height: 30px;
+    background-color: #5741d1;
+    color: white;
+    font-size: 15px;
+    font-weight: 900;
+    border-radius: 5px;
+}
+#Calendario #BtnHeadeCalandario button:hover{
+    opacity: 50%;
+}
+#Calendario #diaSemana {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 8px;
+    color: white;
+}#Calendario #diaSemana p {
+    margin-right: 20px;
+}
+#Calendario .eixoXCalendario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Garante 7 colunas fixas */
+    gap: 10px; /* Espaço entre os dias */
+}
+#Calendario .eixoXCalendario .dia {
+    background-color: #5e5e74;
+    width: 100%; /* Ocupa todo o espaço da célula */
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}#Calendario .eixoXCalendario .dia p {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Agendados {
+    display: none;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+#Agendados ul {
+    border: black solid 1px;
+    border-radius: 10px;
+    list-style: none;
+    margin-left: 4%;
+    width: 20%;
+    margin-bottom: 15px;
+    text-align: center;
+}
+#Agendados ul li {
+    border-radius: 10px 10px 0px 0px;
+    background-color: #0d0e22;
+}
+#Buscados ul li {
+    border-radius: 10px 10px 0px 0px;
+    background-color: #0d0e22;
+}#Buscados ul li .LKWhatsapp {
+    font-size: 12px;
+}
+
+#DivHeaderAgenda{
+    cursor: pointer;
+    height: 60px;
+    background-color: #24253a; 
+    border-radius: 10px 10px 0px 0px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.D {
+    width: 100%;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: #0d0e22;
+    border-radius: 0px 0px 10px 10px;
+}
+.D .Bt {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    height: 30px;
+    font-weight: 600;
+    color: #000000;
+    background-color: #24253a;
+    color: white;
+}
+
+.btnValor {
+    height: 35px;
+    width: 80%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #5e5e74;
+    color: white;
+    cursor: pointer;
+}
+#Agendados ul li p {
+    line-height: 25px;
+    font-weight: 600;
+}
+
+#Relatorio {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 10%;
+    width: 80%;
+}
+#Today {
+    width: 100%;
+    display: flex;
+}
+#Today div {
+    width: 50%;
+}
+#Today div p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+@media(max-width: 800px){
+    #Calendario {
+        display: none;
+    }
+    #Agendados {
+        display: flex;
+        flex-flow: row wrap;
+        width: 100%;
+    }
+    #Agendados ul {
+        width: 80%;
+        margin-left: 10%;
+    }
+    #SectionAgendaSalaoPainel #Buscados  {
+        display: flex;
+        flex-direction: column;
+    }#SectionAgendaSalaoPainel #Buscados ul  {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+.Relogio {
+    color: white;
+    font-size: 10px;
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+.Relogio img {
+    margin-top: 0px;
+}
+.imgRelogio {
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+.Relogio p {
+    padding: 5px;
+}
+.perfilCliente{
+    width: 90%;
+    border-radius: 10px;
+    background-color: #24253a;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+    margin-bottom: 10px;
+}
+.perfilCliente p {
+    margin-right: 10px;
+    color: white;
+    font-size: 12px;
+}
+
+.LKWhatsapp {
+    text-decoration: none;
+    color: white;
+    margin-right: 5px;
+    padding-top: 20px;
+    margin-left: 10px;
+}
+.OBS{
+    border-radius: 10px 10px 0px 0px;
+    width: 90%;
+    height: auto;
+    background-color: #24253a;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 10px;
+}
+#TitleOBS {
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    height: 20px;
+    background-color: #000000;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
