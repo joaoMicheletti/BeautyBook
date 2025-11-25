@@ -96,7 +96,7 @@ export default function Servicos(){
                 <div id="InfoLink">
                     <p id="TextInfoLink">
                     Este é o link para que seus clientes agendem com você rapidamente:<br/>
-                    https://useful-incredibly-goldfish.ngrok-free.app/lk/{cpf_salao}
+                    https://beautybook-production.up.railway.app/lk/{cpf_salao}
                     <br/>
                     Coloque este link na sua página do Facebook, Instagram (no perfil e na resposta automática do WhatsApp Business), no chatbot do Messenger, nas informações de localização do seu estabelecimento no Google Maps, e em todos os lugares onde você tenha publicidade online. Distribua este link em todos os canais de divulgação.
                     </p>
