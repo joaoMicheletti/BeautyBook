@@ -131,8 +131,15 @@
 }
 @media(max-width: 700px){
     #ConteudoHomeInit {
+        width: 90%;
+        margin-left: 5%;
+        display:grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        margin-top: 20px;
         text-align: center;
-        flex-direction: column;
+        line-height: 25px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
     #H {
     text-decoration: none;

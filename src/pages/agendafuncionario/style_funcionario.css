@@ -62,13 +62,18 @@ h2 {
 }
 #Horarios {
     margin-top: 30px;
-    width: 80%;
+    width: 90%;
     height: auto;
-    margin-left: 10%;
+    margin-left: 5%;
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+}
+@media (max-width: 768px) {
+    #Horarios {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 #PHorariosDisponiveis {
     color: white;
@@ -79,7 +84,10 @@ h2 {
     border-radius: 5px;
     text-align: center;
     height: 60px;
+    width: 100px;
     background-color: #5e5e74;
+    box-shadow: #343351 2px 5px 8px 3px;
+    cursor: pointer;
     
 }
 #Horarios ul li {
@@ -104,15 +112,26 @@ h2 {
     opacity: 80%;
 }
 #Serviços {
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     
 }
+@media (max-width: 768px) {
+    #Serviços {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 #Serviços ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #5e5e74;
+    width: 150px;
+    box-shadow: #343351 2px 5px 8px 3px;
     border-radius: 5px;
     
 }
