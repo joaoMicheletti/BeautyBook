@@ -167,12 +167,10 @@ export default function Painel(){
                     </header>
                 );
             })}
-            <section id="SectionAgendaSalaoPainel">
-                <br/>
-                <div id="ConteinerAgendaPainel">
-                    <IoMdNotifications color="#5e5e74" size={30} />
-                </div>
-            </section>
+            <br/>
+            <div id="notificationrelatorio">
+                <IoMdNotifications className="iconNotificationRelatorio" color="#ffffffff" size={20} />
+            </div>
             <section id="sectionRelatorios">
                 <h1 id="TitleRelatorio">Relatório de serviços</h1>
                 <div id="menuRelatorio">

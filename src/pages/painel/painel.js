@@ -491,6 +491,7 @@ export default function Painel(){
                     })}
                 </div>
                 <hr/>
+                
                 <div id="Relatorio">
                     <h3>Análise diaria</h3>
                     <br/>

@@ -1,12 +1,28 @@
 
+#notificationrelatorio {
+    height: 30px;
+    padding: 3px;
+    width: 80%;
+    margin-top: -15px;
+    margin-left: 20%;
+    text-align: right;
+}
+.iconNotificationRelatorio {
+    cursor: pointer;
+    margin-right: 20px;
+}
+.iconNotificationRelatorio:hover {
+    color: #b7b7be;
+}
 #sectionRelatorios {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: -20px;
+    margin-bottom: 30px;
     width: 80%;
     margin-left: 20%;
 }
 #TitleRelatorio {
     text-align: center;
+    margin-bottom: 10px;
 }
 #menuRelatorio {
     width: 80%;
@@ -40,9 +56,11 @@
 #relatorioservicos {
     width: 80%;
     margin-left: 10%;
+    height: 70vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    overflow-y: auto;
 }
 #listaServicos {
     text-align: center;
@@ -51,10 +69,14 @@
     width: 40%;
     border-radius: 5px;
     padding: 20px;
-    height: auto;
+    margin: auto;
+    height: 80%;
+    overflow-y: auto;
 }
 #listaQuantidade {
     width: 40%;
+    height: 90%;
+    margin: auto;
     border-radius: 5px;
     padding: 20px;
     text-align: center;
@@ -65,8 +87,9 @@
 .subListaQuantidade {
     background-color: #5e5e74;
     border-radius: 5px;
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 30px;
-    padding: 20px;
+    width: 100%;
+    height: 20%;
+    padding: 5px;
+    margin-top: 4%;
+    font-size: 10px;
 }
