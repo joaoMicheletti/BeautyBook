@@ -106,9 +106,9 @@
     text-align: center;
 }
 #imgFuncionarios img {
+    margin-top: 10px;
+    width: 150px;
     padding-top: 10px;
-    width: 50px;
-    border-radius: 50%;
 }
 .BtnImg {
     background-color: #0d0e23;
@@ -133,6 +133,8 @@
     padding-top: 50px;
 }
 #ButtonsFuncionario{
+    height: 50%;
+    margin: auto;
     text-align: center;
     display: flex;
     flex-direction: column;

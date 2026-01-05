@@ -49,6 +49,7 @@ export default function Funcionarios(){
     const [cpf_funcionario, setCpfFuncionario] = useState('');
     const [senha, setSenha] = useState('');
     const [csenha, setCsenha] = useState('');
+    // função para registrar funcionário
     const Registrar = async (e) => {
         e.preventDefault();
         
@@ -91,6 +92,7 @@ export default function Funcionarios(){
         };
     };
     const [infoSalao, setinfoSalao] = useState([]);
+    // buscando informações do salão;
     useEffect(() => {
         Api.post('/buscarsalao', {cpf_salao}).then((Response) => {
             setinfoSalao(Response.data);
@@ -99,6 +101,7 @@ export default function Funcionarios(){
         });
     }, []);
     
+    //função para sair do painel do salão;
     const Exit = (e) => {
         e.preventDefault();
         localStorage.removeItem(cpf_salao);
@@ -110,87 +113,87 @@ export default function Funcionarios(){
             {infoSalao.map((iten, key) =>{
                 return(
                     <header key={iten.id} id="HeadePainel">
-                                            <div id="UsserHead">
-                                                <img id="LogoSalaoPainle" src={Url + iten.logo_salao} alt="LOgoSalão"/>
-                                            </div>
-                                            <div className="LinksPage" id="LKpainel">
-                                                <FaCalendar color="#5e5e74" size={30} />
-                                                <a href="/painel">Agenda</a>
-                                            </div>
-                                            <div className="LinksPage" id="LKservicos">
-                                                <MdOutlineMiscellaneousServices color="#5e5e74" size={30} />
-                                                <a href="/servicos">Serviços</a>
-                                            </div>
-                                            <div className="LinksPage" id="LKfuncionarios">
-                                                <IoIosPeople color='#5e5e74' size={30} />
-                                                <a href="/funcionarios">Funcionários</a>
-                                            </div>
-                                            <div className="LinksPage">
-                                                <FaClock  color='#5e5e74' size={30} />
-                                                <a href="/funcionamento">Horários</a>
-                                            </div>
-                                            <div className="LinksPage">
-                                                <IoSend color='#5e5e74' size={30} />
-                                                <a href="/convidarcliente">Indique</a>
-                                            </div>
-                                            <div className="LinksPage">
-                                                <IoSettings color="#5e5e74" size={30}/>
-                                                <a href="/ajustes">Ajustes</a>
-                                            </div>
-                                            <div className="LinksPage">
-                                                <FaClipboardList color="#5e5e74" size={30}/>
-                                                <a href="/relatorios">Relatorios</a>
-                                            </div>
-                                            <div className="LinksPage">
-                                                <ImExit color="#5e5e74" size={30} />
-                                                <a onClick={Exit}>Sair</a>
-                                            </div>
-                                        </header>
+                        <div id="UsserHead">
+                            <img id="LogoSalaoPainle" src={Url + iten.logo_salao} alt="LOgoSalão"/>
+                        </div>
+                        <div className="LinksPage" id="LKpainel">
+                            <FaCalendar color="#5e5e74" size={30} />
+                            <a href="/painel">Agenda</a>
+                        </div>
+                        <div className="LinksPage" id="LKservicos">
+                            <MdOutlineMiscellaneousServices color="#5e5e74" size={30} />
+                            <a href="/servicos">Serviços</a>
+                        </div>
+                        <div className="LinksPage" id="LKfuncionarios">
+                            <IoIosPeople color='#5e5e74' size={30} />
+                            <a href="/funcionarios">Funcionários</a>
+                        </div>
+                        <div className="LinksPage">
+                            <FaClock  color='#5e5e74' size={30} />
+                            <a href="/funcionamento">Horários</a>
+                        </div>
+                        <div className="LinksPage">
+                            <IoSend color='#5e5e74' size={30} />
+                            <a href="/convidarcliente">Indique</a>
+                        </div>
+                        <div className="LinksPage">
+                            <IoSettings color="#5e5e74" size={30}/>
+                            <a href="/ajustes">Ajustes</a>
+                        </div>
+                        <div className="LinksPage">
+                            <FaClipboardList color="#5e5e74" size={30}/>
+                            <a href="/relatorios">Relatorios</a>
+                        </div>
+                        <div className="LinksPage">
+                            <ImExit color="#5e5e74" size={30} />
+                            <a onClick={Exit}>Sair</a>
+                        </div>
+                    </header>
                 );
             })}
             <section id="SectionFuncionariosSalao">
                 <h1 id="TitleFuncionarios">Funcionários</h1>
                 <div id="DivCadastroFuncionarios">
                 <form id="FormFuncionarios">
-                        <p id="ParagrafoRegistrarFuncionarios">
-                            Nome Completo
-                        </p>
-                        <input 
-                        id="NomeFuncionario"
-                        type="text"
-                        placeholder="Nome Do Funcionario"
-                        onChange={(e) => setNome_completo(e.target.value)}/>
-                        <p id="ParagrafoCpfFuncionario">
-                            CPF Do Funcionário
-                        </p>
-                        <input
-                        id="CpfFuncionarios"
-                        type="number"
-                        placeholder="CPF Do Funcionario"
-                        onChange={(e) => setCpfFuncionario(e.target.value)}/>
-                        <br/>
-                        <p id="PSenhaFuncionarios">
-                            Senha para o Funcionario
-                        </p>
-                        <input
-                        id="SenhaFuncionarios"
-                        type="password"
-                        placeholder="Senha para o funcionario"
-                        onChange={(e) => setSenha(e.target.value)}/>
-                        <br/>
-                        <p id="PSenhaFuncionarios">
-                            Confirmar Senha
-                        </p>
-                        <input
-                        id="SenhaFuncionarioss"
-                        type="password"
-                        placeholder="confirmar Senha"
-                        onChange={(e) => setCsenha(e.target.value)}/>
-                        <br/>
-                        <button
-                        id="BtnFunc"
-                        type="submit" onClick={Registrar}>Registrar</button>
-                    </form>
+                    <p id="ParagrafoRegistrarFuncionarios">
+                        Nome Completo
+                    </p>
+                    <input 
+                    id="NomeFuncionario"
+                    type="text"
+                    placeholder="Nome Do Funcionario"
+                    onChange={(e) => setNome_completo(e.target.value)}/>
+                    <p id="ParagrafoCpfFuncionario">
+                        CPF Do Funcionário
+                    </p>
+                    <input
+                    id="CpfFuncionarios"
+                    type="number"
+                    placeholder="CPF Do Funcionario"
+                    onChange={(e) => setCpfFuncionario(e.target.value)}/>
+                    <br/>
+                    <p id="PSenhaFuncionarios">
+                        Senha para o Funcionario
+                    </p>
+                    <input
+                    id="SenhaFuncionarios"
+                    type="password"
+                    placeholder="Senha para o funcionario"
+                    onChange={(e) => setSenha(e.target.value)}/>
+                    <br/>
+                    <p id="PSenhaFuncionarios">
+                        Confirmar Senha
+                    </p>
+                    <input
+                    id="SenhaFuncionarioss"
+                    type="password"
+                    placeholder="confirmar Senha"
+                    onChange={(e) => setCsenha(e.target.value)}/>
+                    <br/>
+                    <button
+                    id="BtnFunc"
+                    type="submit" onClick={Registrar}>Registrar</button>
+                </form>
                     <hr/>
                     <div id="FuncionariosCadastrados">
                         {ListaFuncionarios.map((iten, key) =>{
@@ -215,11 +218,10 @@ export default function Funcionarios(){
                                 })
                                 console.log(Data);
                             };
-                            async function EditImage(){
-                                var ImgFuncionario = document.querySelector("#IMGFuncionario").alt;
-                                
-
-                                //função para salvar a imgame no data base
+                            // Função para editar a imagem do funcionário / editar a imagem.
+                            async function EditImage(cpf_funcionario){
+                                console.log(cpf_funcionario, "cpf do funcionario para editar a img");
+                                 
                                 const formdata = new FormData();
                                 formdata.append('image', image);
                                 const headers = { 
@@ -227,11 +229,18 @@ export default function Funcionarios(){
                                         'content-Type': 'multipart/form-data',
                                     }
                                 };
+                                // verificar se temos a img no input
+                                if(image === ''){
+                                    alert('Selecione uma imagem para alterar.');
+                                    return;
+                                }
+                                // salvar a  img no banco de dados 
                                 await Api.post('/logo', formdata, headers).then(async(Response) => {
                                     const Data = {
-                                        cpf_funcionario: ImgFuncionario, logo_salao: Response.data.filename
+                                        cpf_funcionario: cpf_funcionario, logo_salao: Response.data.filename
                                     };
                                     console.log(Data, "dados retornados ao salvar a img ");
+                                    
                                     await Api.post('/logosalao', Data).then((Res) => {
                                         console.log(Res.data);
                                         if(Res.data.list > 0){
@@ -259,8 +268,11 @@ export default function Funcionarios(){
                                                 className="BtnImg"
                                                 accept=".jpg, , .jpeg, .png" 
                                                 onChange={(e) => setimage(e.target.files[0])}/>
-                                            <button type="submit"
-                                                onClick={EditImage}>Editar
+                                            <button
+                                                type="submit"
+                                                onClick={() => EditImage(iten.cpf_funcionario)}
+                                                >
+                                                Editar
                                             </button>
                                         </div>
                                         <div id="infoFincionario">
