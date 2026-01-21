@@ -16,7 +16,9 @@ import { ImExit } from "react-icons/im";
 import { IoMdNotifications } from "react-icons/io";
 import { FaClipboardList } from "react-icons/fa";
 import { FaCheckSquare } from "react-icons/fa";
-import { LuPanelTopClose } from "react-icons/lu";
+import { LuPanelTopClose, LuArrowRightLeft } from "react-icons/lu";
+
+
 
 
 
@@ -280,6 +282,37 @@ export default function Painel(){
         await Api.post('/checkNotifications', DATA)
         
     }
+    // encoler menu 
+    function encolher() {
+        const menus = document.querySelectorAll('.LinksPage');
+        const links = document.querySelectorAll('.aLink');
+
+        menus.forEach(menu => {
+            const expandido = menu.dataset.expandido === 'true';
+
+            if (expandido) {
+                // ENCOLHER MENU
+                menu.style.width = '100%';
+                menu.dataset.expandido = 'false';
+
+                // ESCONDER TEXTO
+                links.forEach(link => {
+                    link.style.display = 'none';
+                });
+            } else {
+                // EXPANDIR MENU
+                menu.style.width = '100%';
+                menu.dataset.expandido = 'true';
+
+                // MOSTRAR TEXTO
+                links.forEach(link => {
+                    link.style.display = 'block';
+                });
+            }
+        });
+    }
+
+
     
     return(
         <div id="PainelSalao">
@@ -288,39 +321,39 @@ export default function Painel(){
                     <header key={iten.id} id="HeadePainel">
                         <div id="UsserHead">
                             <img id="LogoSalaoPainle" src={Url + iten.logo_salao} alt="LOgoSalão"/>
+                            <LuArrowRightLeft onClick={encolher} className="incoledor" color="#ffffff" size={40}/>
                         </div>
-                        <div className="LinksPage" id="LKpainel">
-                            <FaCalendar color="#5e5e74" size={30} />
-                            <a href="/painel">Agenda</a>
+                        <div  className="LinksPage" id="LKpainel">
+                            <a href="/painel"> <FaCalendar className="iconbarra" color="#5e5e74" size={30} /></a>
+                            <a className='aLink' href="/painel">Agenda</a>
                         </div>
-                        <div className="LinksPage">
-                            <MdOutlineMiscellaneousServices color="#5e5e74" size={30} />
-                            <a href="/servicos">Serviços</a>
-                        </div>
-                        <div className="LinksPage">
-                            <IoIosPeople color='#5e5e74' size={30} />
-                            <a href="/funcionarios">Funcionários</a>
+                        <div href="/servicos" className="LinksPage">
+                            <a href="/servicos"><MdOutlineMiscellaneousServices className="iconbarra" color="#5e5e74" size={30} /></a>
+                            <a className='aLink' href="/servicos">Serviços</a>
                         </div>
                         <div className="LinksPage">
-                        
-                            <FaClock  color='#5e5e74' size={30} />
-                            <a href="/funcionamento">Horários</a>
+                            <a href="/funcionarios"><IoIosPeople className="iconbarra" color='#5e5e74' size={30} /></a>
+                            <a className='aLink' href="/funcionarios">Funcionários</a>
                         </div>
                         <div className="LinksPage">
-                            <IoSend color='#5e5e74' size={30} />
-                            <a href="/convidarcliente">Indique</a>
+                            <a href="/funcionamento"><FaClock className="iconbarra"  color='#5e5e74' size={30} /></a>
+                            <a className='aLink' href="/funcionamento">Horários</a>
                         </div>
                         <div className="LinksPage">
-                            <IoSettings color="#5e5e74" size={30}/>
-                            <a href="/ajustes">Ajustes</a>
+                            <a href="/convidarcliente"><IoSend className="iconbarra" color='#5e5e74' size={30} /></a>
+                            <a className='aLink' href="/convidarcliente">Indique</a>
                         </div>
                         <div className="LinksPage">
-                            <FaClipboardList color="#5e5e74" size={30} />
-                            <a href="/relatorios">Relatórios</a>
+                            <a href="/ajustes"><IoSettings className="iconbarra" color="#5e5e74" size={30}/></a>
+                            <a className='aLink' href="/ajustes">Ajustes</a>
                         </div>
                         <div className="LinksPage">
-                            <ImExit color="#5e5e74" size={30} />
-                            <a onClick={Exit}>Sair</a>
+                            <a href="/relatorios"><FaClipboardList className="iconbarra" color="#5e5e74" size={30} /></a>
+                            <a className='aLink' href="/relatorios">Relatórios</a>
+                        </div>
+                        <div className="LinksPage">
+                            <ImExit className="iconbarra" onClick={Exit}  color="#5e5e74" size={30} />
+                            <a className='aLink' onClick={Exit}>Sair</a>
                         </div>
                     </header>
                 );
@@ -329,7 +362,7 @@ export default function Painel(){
                 <br/>
                 <div id="ConteinerAgendaPainel">
                     <div id="DiaMesAno">
-                        <input id="SelectMes" type="date"></input>
+                        <input id="SelectMes" type="date" placeholder="DATA"></input>
                         <button id="BtnAgenda" onClick={Buscar}>Buscar</button>
                     </div>
                     <IoMdNotifications onClick={showNotifications} className="iconNotification" color="#5e5e74" size={30} />
