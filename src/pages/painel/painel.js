@@ -15,10 +15,57 @@ import { IoSettings } from "react-icons/io5";
 import { ImExit } from "react-icons/im";
 import { IoMdNotifications } from "react-icons/io";
 import { FaClipboardList } from "react-icons/fa";
+import { FaCheckSquare } from "react-icons/fa";
+import { LuPanelTopClose } from "react-icons/lu";
 
 
 
 export default function Painel(){
+    
+
+    // >>> LÓGICA ADICIONADA (SEM ALTERAR O RESTO)
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(
+    navigator.userAgent
+    );
+
+    const isWebView = /(Instagram|FBAN|FBAV|Line|Twitter)/i.test(
+    navigator.userAgent
+    );
+    // <<< FIM DA LÓGICA ADICIONADA
+
+    if ('serviceWorker' in navigator && !isMobile && !isWebView) {
+    navigator.serviceWorker
+        .register('/service-work.js', {scope: '/'})
+        .then(async serviceWorker => {
+        let subscription = await serviceWorker.pushManager.getSubscription();
+        console.log("primeira",subscription)
+        // se não tiver sobscriptio registre-a e mande ao servidor para ser salva.
+        if (!subscription) {
+            const publicKeyResponse = await Api.get('/publickkey');
+            console.log(publicKeyResponse);
+
+            subscription = await serviceWorker.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: publicKeyResponse.data,
+            });
+            // enviar a subcriptiona o servidor.
+            let Datanotification = {
+                subscription: subscription,
+                idUser: localStorage.getItem('cpf_salao')
+            }
+            let a = await Api.post('notifications/check', Datanotification);
+            console.log(a)
+        } // se tem verificar se esta ativa ou atualizar.
+
+
+        console.log('segunda',subscription);
+        })
+        .catch(() => {
+        // erro silenciado para não quebrar produção
+        });
+    }
+
+
     const Url = "https://beautybookts-production.up.railway.app/image/";
     const History = useNavigate();
     const DataAtual = new Date();// oibjeto data atual;
@@ -33,8 +80,9 @@ export default function Painel(){
     const Data = {
         dia, mes, ano, cpf_salao
     };
+    //validando assinatura.
     Api.post('/assinatura', {cpf_salao}).then((Response) => {
-        console.log("ai ai ai ai ", Response)
+        //console.log("ai ai ai ai ", Response)
         if(Response.data.res === 'Seus dias de acesso livre a plataforma acabaram, contrate um plano.'){
             alert('Seus dias de acesso livre a plataforma acabaram, contrate um plano.');
             History('/planos')
@@ -91,12 +139,33 @@ export default function Painel(){
     useEffect(() => {
         Api.post('/buscarsalao', {cpf_salao}).then((Response) => {
             setinfoSalao(Response.data);
-            console.log(Response, '<><><>',infoSalao);
-            console.log(Response.data);
+            //console.log(Response, '<><><>',infoSalao);
+           // console.log(Response.data);
         }).catch((Erro) =>{
             alert('erro ao buscar oformações do salão');
         });
     }, []);
+
+    const [notifications, setNotifications] = useState([]);
+    //effect para buscar as notificaçõe:
+    let dados = {
+        token: cpf_salao
+    }
+    setTimeout(() => {
+        // código a ser executado
+        async function notification() {
+            await Api.post('/buscarnotifications', dados).then((Response) => {
+                console.log('resposta da notificação', Response.data)
+                setNotifications(Response.data)
+                console.log("aquio esta o objeto com o state:", notifications)
+
+            }).catch((erro) =>{
+                alert('Erro interno..');
+            });
+        }
+        
+        notification()
+    }, 4000);
     
     const Exit = (e) => {
         e.preventDefault();
@@ -193,7 +262,24 @@ export default function Painel(){
         
         return days;
     };
-    //escondendo elementos
+    //mostrar div de notificação:
+    function showNotifications(){
+        let elemento = document.querySelector('.notificationCorpo');
+        elemento.style.display = 'block'
+    };
+    // fechar area de notificação:
+    function closeNotification(){
+        let elementoClose = document.querySelector('.notificationCorpo');
+        elementoClose.style.display = 'none'
+    }
+     async function check(e){
+        console.log('logde chacccccc', e);
+        let DATA = {
+            id: e,
+        }
+        await Api.post('/checkNotifications', DATA)
+        
+    }
     
     return(
         <div id="PainelSalao">
@@ -246,7 +332,29 @@ export default function Painel(){
                         <input id="SelectMes" type="date"></input>
                         <button id="BtnAgenda" onClick={Buscar}>Buscar</button>
                     </div>
-                    <IoMdNotifications color="#5e5e74" size={30} />
+                    <IoMdNotifications onClick={showNotifications} className="iconNotification" color="#5e5e74" size={30} />
+                    <p className="notificationNmber">{notifications.length}</p>
+                    <div className="notificationCorpo">
+                        <button onClick={closeNotification} className="btnNotification">
+                            <LuPanelTopClose color="#ffffff" size={30} />
+                        </button>
+                        {notifications.map((iten, key) =>{
+                            return(
+                                <div key={iten.id} className="conteudoNitfication">
+                                    <div className="espacos">
+                                        <IoMdNotifications color="#5e5e74" size={30} />
+                                    </div>
+                                    <div className="espacos">
+                                        <p className="corpoTexto">{iten.corpoNotification}</p>
+                                    </div>
+                                    <div className="espacos">
+                                        <FaCheckSquare onClick={() => check(iten.id)} className="checkbtn" color="#5e5e74" size={30} />
+                                    </div>
+                                </div>
+                            )
+                        })}
+                        
+                    </div>
 
                 </div>
                 <br/>

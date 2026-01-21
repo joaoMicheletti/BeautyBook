@@ -169,7 +169,6 @@ export default function Painel(){
             })}
             <br/>
             <div id="notificationrelatorio">
-                <IoMdNotifications className="iconNotificationRelatorio" color="#ffffffff" size={20} />
             </div>
             <section id="sectionRelatorios">
                 <h1 id="TitleRelatorio">Relatório de serviços</h1>

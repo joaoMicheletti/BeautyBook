@@ -144,6 +144,22 @@ export default function Agendamento(){
                     console.log('indo agendar');
                     //rota para finalizar o agendamento;
                     await Api.post('/registraragendamento', Data).then((Response) => {
+                        
+                        // funcção para enviar notificação.
+                        async function notification(e){
+                            //criar obejto com as informações relevantes.
+                            let dataNotification = {
+                                idUser: cpf_salao,
+                                data: Datastring,
+                                hora: hora,
+                                servico: servico,
+                                nome: nome_cliente
+                            };
+                            // buscar rota para envio de notificação:
+                            await Api.post("/sendNotification", dataNotification)
+                        }
+                        // chamar a notificação.
+                        notification()
                         alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
                     }).catch((erro) =>{
                         //possivel falha de comunicação com o servidor
@@ -171,7 +187,21 @@ export default function Agendamento(){
                         if(Response.data === 'agendamento permitido'){
                             //em fim agendar com o salão.
                             await Api.post('/registraragendamento', Data).then((Response) => {
-                                alert('Agendamento finalizado. Embreve o Salão entrará em contato.');
+                                // funcção para enviar notificação.
+                                async function notification(e){
+                                    //criar obejto com as informações relevantes.
+                                    let dataNotification = {
+                                        idUser: cpf_salao,
+                                        data: Datastring,
+                                        hora: hora,
+                                        servico: servico,
+                                        nome: nome_cliente
+                                    };
+                                    // buscar rota para envio de notificação:
+                                    await Api.post("/sendNotification", dataNotification)
+                                }
+                                notification();
+                                alert('Agendamento finalizado. Embreve o Salão entrará em contato....');
                             }).catch((erro) =>{
                                 // falha de comunicação com o serviodor
                                 alert('Erro ao finalizar o agendamento');
