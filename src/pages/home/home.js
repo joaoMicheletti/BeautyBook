@@ -20,11 +20,10 @@ export default function Home(){
             </header>
             <div id='content'>
                 <div className='textHome'>
-                    <h1>Onde os negócios ficam mais fluidos</h1>
+                    <h1>Onde a gestão do seu negócio se torna simples e automatizada</h1>
                     <p>
-                        Crie uma experiência perfeita para o cliente
-                        e automatize as operações diárias com o software de 
-                        gerenciamento com a maior avaliação do mercado.
+                        Crie uma experiência impecável para seus clientes.<br/>
+                        Automatize agendas, atendimentos e operações diárias com um único sistema.
                     </p>
                     <Link className='btnHome' to="/registrosalao">Comece Agora</Link>
                 </div>

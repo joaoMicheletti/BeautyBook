@@ -3,15 +3,19 @@
     padding: 0;
 }
 body {
-    background-color: #343351;
+    background-color: #0b0f1a;
 }
 .Home {
     height: 100vh;
     width: 100vw;
-    background-image: url(../assets/bghome.webp);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    background: linear-gradient(
+    120deg,
+    rgba(11,15,26,0.95),
+    rgba(11,15,26,0.85)
+    );
 }
 .header {
     display: flex;
@@ -20,7 +24,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #161616b4;
+    background-color: rgba(11,15,26,0.85);
+    box-shadow: 2px 3px 5px black;
 }
 .logoTemp {
     height: 40px;
@@ -63,29 +68,33 @@ body {
 }.textHome h1 {
     color: white;
     font-size: 50px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height:40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .textHome p {
+    margin-top: 30PX;
     font-size: 18px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
 }
 .btnHome {
+    color: white;
     margin-top: 30px;
     display: flex;
     width: 50%;
     height: 45px;
+    font-weight: 900;
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: #474747;
+    background-color: #202e5c;
     text-decoration: none;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px rgb(255, 255, 255);
     cursor: pointer;
 }
 .btnHome:hover {
     opacity: 0.8;
+    box-shadow: 2px 2px 5px  #008cef;
 }
 .imgHome {
     width: 50%;
@@ -98,7 +107,8 @@ body {
 
 @media(max-width: 800px){
     .Home {
-        height: auto
+        height: auto;
+        padding-bottom: 30px ;
     }
     .LK {
         font-size: 10px;
